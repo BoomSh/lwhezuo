@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <script type="text/javascript" src="__PUBLIC__scripts/jquery/jquery-1.11.2.min.js"></script>
+    <script src="__PUBLIC__layer/layer.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post" accept-charset="utf-8">
+        添加方式：<input type="radio" name="sex"  value="0" class="ss"/> 添加方法     <input type="radio" name="sex" value="1" class="ss"/> 添加文件<br/>
+        控制器：<input type="text" name="ck" value="" class="ck"><br/>
+    方 法：<input type="text" name="ff" value="" class="ff"><br/>
+    填写数据表: <input type="text" name="table" value="" class="table"><input type="button" value="检测" onclick="tables()">
+    <div>
+        显示的字段 : <input type="text" name="table" value="" class="list" size="110"> <span>名称|字段  用,分割</span>
+    </div>
+    <div>
+        增/改的字段: <input type="text" name="table" value="" class="add"  size="110"> <span>名称|字段  用,分割</span>
+    </div>
+    <div>
+        删除对应的字段: <input type="text" name="table" value="" class="del"> <span>用于删除</span>
+    </div>
+
+    <input type="button" name="" value="提交" onclick="tj();">
+    </form>
+</body>
+<script>
+    function tables(){
+        var table=$.trim($(".table").val());
+        if(table==''){
+            layer.msg("请输入数据表");
+        }else{
+            $.post("{:url('Index/sjk')}",{table:table},function(data){
+                if(data==1){
+                    layer.msg("该数据表存在");
+                }else{
+                    layer.msg("该数据表不存在！请确认后再填写");
+                }
+            })
+        }
+    }
+</script>
+<script>
+    function tj(){
+        var fs=$("input[name=sex]:checked").val();
+        var ck = $.trim($(".ck").val());
+        var ff = $.trim($(".ff").val());
+        var table = $.trim($(".table").val());
+        var list = $.trim($(".list").val());
+        var add = $.trim($(".add").val());
+        var del = $.trim($(".del").val());
+        if(!fs){
+            layer.msg("请输入1");
+            return;
+        }
+        if(ck == ''){
+            layer.msg("请输入控制器");
+            return;
+        }
+        if(ff == ''){
+            layer.msg("请输入方法");
+            return;
+        }
+        if(table == ''){
+            layer.msg("请输入数据表");
+            return;
+        }
+        if(list == ''){
+            layer.msg("请输入显示的字段");
+            return;
+        }
+        if(add == ''){
+            layer.msg("请输入增/改的字段");
+            return;
+        }
+        if(del == ''){
+            layer.msg("请输删除对应的字段");
+            return;
+        }
+        $.post("{:url('Index/creat')}",{fs:fs,ck:ck,ff:ff,table:table,list:list,add:add,del:del},function(data){
+            layer.msg(data);
+        })
+    }
+</script>
+</html>
