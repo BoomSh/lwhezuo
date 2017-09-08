@@ -1,0 +1,106 @@
+{include file="/Public/header"}
+
+<title>添加字典</title>
+<meta name="keywords" content="优科达">
+<meta name="description" content="优科达">
+</head>
+<body>
+<article class="page-container">
+    <form action="" method="post" class="form form-horizontal" id="form-member-add">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>字典名称：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+            </div>
+        </div> 
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>字典类型：</label>
+            <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+                <select class="select" size="1" name="city">
+                    <option value="" selected>请选择字典类型</option>
+                    <option value="1">证件类型</option>
+                    <option value="2">银行类型</option>
+                    <option value="3">支付类型</option>
+                    <option value="4">客户来源</option>
+                    <option value="5">费用科目</option>
+                </select>
+                </span> </div>
+        </div>  
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>失效：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="checkbox" name="time" value="1" />
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
+</article>
+
+{include file="/Public/footer"}
+
+<!--请在下方写此页面业务相关的脚本--> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('.skin-minimal input').iCheck({
+        checkboxClass: 'icheckbox-blue',
+        radioClass: 'iradio-blue',
+        increaseArea: '20%'
+    });
+    
+    $("#form-member-add").validate({
+        rules:{
+            username:{
+                required:true,
+                minlength:2,
+                maxlength:16
+            },
+            sex:{
+                required:true,
+            },
+            mobile:{
+                required:true,
+                isMobile:true,
+            },
+            email:{
+                required:true,
+                email:true,
+            },
+            uploadfile:{
+                required:true,
+            },
+            
+        },
+        onkeyup:false,
+        focusCleanup:true,
+        success:"valid",
+        submitHandler:function(form){
+            $(form).ajaxSubmit({
+                type: 'post',
+                url: "{:url('Menu/dictionary_add')}",
+                success: function(data){
+                    if(data == "success"){
+                        layer.msg('添加成功!');
+                        setTimeout(function () {
+                            parent.location.reload();
+                            },1000)
+                    }else{
+                        layer.msg(data);
+                        return false;
+                    }
+                },
+            });
+        }
+    });
+});
+</script> 
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>
