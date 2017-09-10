@@ -22,7 +22,7 @@ class Index extends Common
             return $ban;
         }else{
             $where['role_id'] = $role_id;
-            $role = DB::name("role_value")->where($where)->field("auth_a,auth_c")->select();
+            $role = DB::name("role_value")->where($where)->where('action_type',4)->field("auth_a,auth_c")->select();
             $len = count($role);
             //var_dump($role);
             $row = $role;

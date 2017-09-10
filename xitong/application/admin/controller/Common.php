@@ -60,8 +60,15 @@ class Common extends Controller
                 $lw_where['role_id'] = $_SESSION['role_id'];
                 $lw_where['auth_c'] = $contro;
                 $lw_where['auth_a'] = $action;
+                $lw_where['action_type'] = 4;
+                $lw_auth = DB::name("role_value")->where($lw_where)->field("COUNT(*)")->find();
+                if($lw_auth['COUNT(*)'] == 0){
+                    echo "<script>alert('你无权操作该操作');</script>";
+                    $this->redirect("Login/out");
+                }
+                unset($lw_where['action_type']);
                 $lw_auth = DB::name("role_value")->where($lw_where)->field("action_type")->select();
-               if($lw_auth){
+                if($lw_auth){
                         //用于判断用户是否拥有某个权限
                     foreach ($lw_auth as $k => $v) {
                        if($lw_auth[$k]['action_type'] == 1){
@@ -73,16 +80,10 @@ class Common extends Controller
                        if($lw_auth[$k]['action_type'] == 3){
                           $lw_role['del'] = 1;//删除权限
                        }
-                       if($lw_auth[$k]['action_type'] == 4){
-                          $lw_role['find'] = 1;//查询权限
-                       }
-                       if($lw_auth[$k]['action_type'] == 5){
-                          $lw_role['status'] = 1;//审查权限
-                       }
                     }
                 }else{
                     echo "<script>alert('你无权操作该操作');</script>";
-                    /*没有权限  则对应的管理员被删除  需重新登录*/
+                    /*没有权限  需重新登录*/
                     $this->redirect("Login/out");
                 }
             }

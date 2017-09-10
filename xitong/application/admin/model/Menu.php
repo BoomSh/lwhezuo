@@ -435,11 +435,9 @@ class Menu extends Common
                     $res['auths']['del'] = 1;
                 }
                 if(in_array("4",$arr)){
-                    $res['auths']['find'] = 1;
+                    $res['auths']['view'] = 1;
                 }
-                if(in_array("5",$arr)){
-                    $res['auths']['status'] = 1;
-                }
+
             }
              /*获取一级菜单导航信息*/
             $res['list'] = DB::name("auth")->where("auth_pid",0)->field("id,auth_name")->select();

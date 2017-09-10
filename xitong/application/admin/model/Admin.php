@@ -256,6 +256,9 @@ class Admin extends Common
                         if(in_array("3",$arr)){
                             $son[$key]['del'] = 1;
                         }
+                        if(in_array("4",$arr)){
+                            $son[$key]['view'] = 1;
+                        }
             }
                 }
                 $res[$k]['son'] = $son;
@@ -324,6 +327,9 @@ class Admin extends Common
                                 }
                                 if(in_array("3",$arr)){
                                     $role[$key]['del'] = 1;
+                                }
+                                if(in_array("4",$arr)){
+                                    $role[$key]['view'] = 1;
                                 }
                             }
                         $where['auth_c'] = $role[$key]['auth_c'];

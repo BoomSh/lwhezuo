@@ -48,6 +48,9 @@
                                 {if $v.del eq 1}<label class="">
                                     <input type="checkbox" value="{$v.id}-3" name="auth[]" {if $v['role_3'] eq 3}checked{/if}>
                                     删除</label>{/if}
+                                {if $v.view eq 1}<label class="">
+                                    <input type="checkbox" value="{$v.id}-4" name="auth[]" {if $v['role_4'] eq 4}checked{/if}>
+                                    查看</label>{/if}
                             </dd>
                         </dl>
                         {/volist}
