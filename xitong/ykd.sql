@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2017-09-10 11:26:08
+Date: 2017-09-10 22:19:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,6 @@ CREATE TABLE `dino_admin` (
   `loginsum` varchar(255) DEFAULT NULL COMMENT '登录次数',
   `name` varchar(255) DEFAULT NULL COMMENT '管理员名称',
   `role_id` int(11) DEFAULT NULL COMMENT '角色id',
-  `y_pwd` varchar(255) DEFAULT NULL COMMENT '原密码',
   `last_time` datetime DEFAULT NULL COMMENT '上次登录时间',
   `last_ip` varchar(255) DEFAULT NULL COMMENT '上次登录的ip',
   `new_time` datetime DEFAULT NULL COMMENT '登录时间',
@@ -36,18 +35,21 @@ CREATE TABLE `dino_admin` (
   `mobile` varchar(20) DEFAULT NULL COMMENT '手机',
   `email` varchar(50) DEFAULT NULL COMMENT 'email',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
+  `type` char(1) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='管理员信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COMMENT='管理员信息表';
 
 -- ----------------------------
 -- Records of dino_admin
 -- ----------------------------
-INSERT INTO `dino_admin` VALUES ('1', 'admin', '368bd5610605d07b7282588a7bd61e81', '2017-09-08 21:03:30', '281', '1234', '0', '123456', '2017-09-08 22:59:56', '127.0.0.1', '2017-09-09 13:11:23', '127.0.0.1', '1', '111111111', '111111@qq.com', '');
-INSERT INTO `dino_admin` VALUES ('5', 'cheshi', '368bd5610605d07b7282588a7bd61e81', '2017-09-08 22:18:18', '6', '要你管', '13', '123456', '2017-09-07 15:55:59', '127.0.0.1', '2017-09-08 22:19:21', '127.0.0.1', '1', '123123123123', '12313212@qq.com', '123123');
-INSERT INTO `dino_admin` VALUES ('15', '2222', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-08 18:11:53', '', null, '0', '123123', null, null, null, null, '1', '1212213123123', '123132213@qq.com', '1');
-INSERT INTO `dino_admin` VALUES ('16', '221313', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-08 20:48:35', null, '22222', '0', '123123', null, null, null, null, '1', '123123123123', '123@qq.com', '');
-INSERT INTO `dino_admin` VALUES ('17', 'admin1', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-08 20:49:13', null, 'admin', '0', '123123', null, null, null, null, '1', '12312312312', '123123@qq.com', '');
-INSERT INTO `dino_admin` VALUES ('18', 'admin223', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-08 22:04:26', null, 'admin1', '0', '123123', null, null, null, null, '1', '123123123', '123@qq.com', '');
+INSERT INTO `dino_admin` VALUES ('1', 'admin', '368bd5610605d07b7282588a7bd61e81', '2017-09-08 21:03:30', '284', '1234', '0', '2017-09-10 21:10:57', '127.0.0.1', '2017-09-10 21:55:45', '127.0.0.1', '1', '111111111', '111111@qq.com', '', '1');
+INSERT INTO `dino_admin` VALUES ('5', 'cheshi', '368bd5610605d07b7282588a7bd61e81', '2017-09-08 22:18:18', '6', '要你管', '13', '2017-09-07 15:55:59', '127.0.0.1', '2017-09-08 22:19:21', '127.0.0.1', '1', '123123123123', '12313212@qq.com', '123123', '1');
+INSERT INTO `dino_admin` VALUES ('15', '2222', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-08 18:11:53', '', null, '0', null, null, null, null, '1', '1212213123123', '123132213@qq.com', '1', '1');
+INSERT INTO `dino_admin` VALUES ('16', '221313', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-08 20:48:35', null, '22222', '0', null, null, null, null, '1', '123123123123', '123@qq.com', '', '1');
+INSERT INTO `dino_admin` VALUES ('17', 'admin1', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-08 20:49:13', null, 'admin', '0', null, null, null, null, '1', '12312312312', '123123@qq.com', '', '1');
+INSERT INTO `dino_admin` VALUES ('18', 'admin223', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-08 22:04:26', null, 'admin1', '0', null, null, null, null, '1', '123123123', '123@qq.com', '', '2');
+INSERT INTO `dino_admin` VALUES ('19', '1234', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-10 22:10:28', '10', 'ggg1', '13', '2017-09-10 21:59:38', '127.0.0.1', '2017-09-10 22:03:25', '127.0.0.1', '1', '1231231231', '123@qq.com', '', '1');
+INSERT INTO `dino_admin` VALUES ('20', '123123', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-10 22:12:25', null, 'sss', '0', null, null, null, null, '2', '1231231231', '123@qq.com', '123123', '1');
 
 -- ----------------------------
 -- Table structure for `dino_admin_access`
@@ -123,7 +125,7 @@ CREATE TABLE `dino_auth` (
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `auth` varchar(255) DEFAULT NULL COMMENT '拥有的权限 1添加 2修改 3x修改4 查询 5审查',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='板块表';
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='板块表';
 
 -- ----------------------------
 -- Records of dino_auth
@@ -132,7 +134,7 @@ INSERT INTO `dino_auth` VALUES ('1', '系统管理', null, null, '0', '1', '0', 
 INSERT INTO `dino_auth` VALUES ('3', '菜单管理', 'Menu', 'lists', '1', '1-3', '1', '1', '2', '', '1,2,3,4,5');
 INSERT INTO `dino_auth` VALUES ('6', '管理员管理', '', '', '0', '6', '0', '1', '4', null, null);
 INSERT INTO `dino_auth` VALUES ('7', '角色管理', 'Admin', 'admin_role', '6', '6-7', '1', '1', '2', '', '1,2,3,4,5');
-INSERT INTO `dino_auth` VALUES ('9', '管理员列表', 'Admin', 'admin_list', '6', '6-8', '1', '1', '2', '', null);
+INSERT INTO `dino_auth` VALUES ('9', '管理员列表', 'Admin', 'admin_list', '6', '6-8', '1', '1', '2', '', '1,2,3');
 INSERT INTO `dino_auth` VALUES ('10', '企业管理', null, null, '0', '10', '0', '1', '0', '', null);
 INSERT INTO `dino_auth` VALUES ('11', '系统设置', 'Menu', 'system_list', '1', '11-1', '1', '1', '0', '', '1,2,3,4,5');
 INSERT INTO `dino_auth` VALUES ('12', '字典管理', 'Menu', 'dictionary_list', '1', '12-1', '1', '1', '0', '', '1,2,3,4,5');
@@ -512,7 +514,7 @@ CREATE TABLE `dino_log` (
   `user_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `user_ip` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=144 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='日志表';
+) ENGINE=MyISAM AUTO_INCREMENT=182 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='日志表';
 
 -- ----------------------------
 -- Records of dino_log
@@ -649,6 +651,44 @@ INSERT INTO `dino_log` VALUES ('140', '1', null, '2', '增加了字段为123123'
 INSERT INTO `dino_log` VALUES ('141', '1', null, '2', '添加了字典为12312322', '2017-09-09 14:25:29', '1234', '127.0.0.1');
 INSERT INTO `dino_log` VALUES ('142', '1', null, '2', '增加了字段为222', '2017-09-09 14:29:15', '1234', '127.0.0.1');
 INSERT INTO `dino_log` VALUES ('143', '1', null, '2', '增加了角色为213', '2017-09-09 14:30:01', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('144', '1', '0', '1', '登录成功', '2017-09-10 21:03:20', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('145', '1', '7', '4', '修改了角色为测试', '2017-09-10 21:05:24', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('146', '1', null, '2', '增加了管理员为ggg', '2017-09-10 21:06:52', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('147', '19', '0', '1', '登录成功', '2017-09-10 21:07:00', 'ggg', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('148', '19', '0', '1', '登录成功', '2017-09-10 21:08:09', 'ggg', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('149', '19', '0', '1', '登录成功', '2017-09-10 21:08:49', 'ggg', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('150', '19', '0', '1', '登录成功', '2017-09-10 21:09:04', 'ggg', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('151', '19', '0', '1', '登录成功', '2017-09-10 21:09:29', 'ggg', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('152', '1', '0', '1', '登录成功', '2017-09-10 21:10:57', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('153', '1', '3', '4', '修改了菜单为管理员列表', '2017-09-10 21:19:02', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('154', '1', '7', '4', '修改了角色为测试', '2017-09-10 21:36:32', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('155', '1', '7', '4', '修改了角色为测试', '2017-09-10 21:40:36', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('156', '1', '7', '4', '修改了角色为测试', '2017-09-10 21:40:43', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('157', '1', '7', '4', '修改了角色为测试', '2017-09-10 21:41:36', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('158', '1', null, '4', '修改了管理员为1234', '2017-09-10 21:45:32', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('159', '1', null, '4', '修改了管理员为1234', '2017-09-10 21:45:53', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('160', '1', null, '4', '修改了管理员为1234', '2017-09-10 21:45:54', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('161', '1', null, '4', '修改了管理员为1234', '2017-09-10 21:46:35', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('162', '19', '0', '1', '登录成功', '2017-09-10 21:47:05', 'ggg', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('163', '1', null, '4', '修改了管理员为1234', '2017-09-10 21:47:17', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('164', '19', '0', '1', '登录成功', '2017-09-10 21:47:28', 'ggg', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('165', '1', null, '4', '修改了管理员为1234', '2017-09-10 21:47:38', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('166', '1', null, '4', '修改了管理员为1234', '2017-09-10 21:48:28', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('167', '19', '0', '1', '登录成功', '2017-09-10 21:48:57', 'ggg', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('168', '1', '0', '1', '登录成功', '2017-09-10 21:55:45', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('169', '1', '3', '2', '增加了了菜单为213', '2017-09-10 21:56:39', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('170', '1', '3', '3', '删除了菜单为213', '2017-09-10 21:56:58', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('171', '1', null, '4', '修改了管理员为1234', '2017-09-10 21:59:07', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('172', '19', '0', '1', '登录成功', '2017-09-10 21:59:38', 'ggg', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('173', '1', null, '4', '修改了管理员为1234', '2017-09-10 22:03:11', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('174', '1', null, '4', '修改了管理员为1234', '2017-09-10 22:03:17', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('175', '19', '0', '1', '登录成功', '2017-09-10 22:03:25', 'ggg', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('176', '1', null, '3', '删除了管理员为admin1', '2017-09-10 22:06:27', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('177', '1', null, '3', '删除了管理员为admin1', '2017-09-10 22:06:36', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('178', '1', null, '3', '删除了管理员为admin1', '2017-09-10 22:07:06', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('179', '1', null, '4', '修改了管理员为1234', '2017-09-10 22:10:28', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('180', '1', null, '2', '增加了管理员为sss', '2017-09-10 22:12:25', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('181', '1', null, '4', '修改了管理员id为20', '2017-09-10 22:13:04', '1234', '127.0.0.1');
 
 -- ----------------------------
 -- Table structure for `dino_park`
@@ -726,7 +766,7 @@ CREATE TABLE `dino_role_value` (
   `auth_c` varchar(100) DEFAULT NULL COMMENT '方法',
   `action_type` varchar(50) DEFAULT NULL COMMENT '权限 1 添加 2 修改 3 删除 4查询 5审查',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=925 DEFAULT CHARSET=utf8 COMMENT='角色权限表';
+) ENGINE=InnoDB AUTO_INCREMENT=939 DEFAULT CHARSET=utf8 COMMENT='角色权限表';
 
 -- ----------------------------
 -- Records of dino_role_value
@@ -751,18 +791,6 @@ INSERT INTO `dino_role_value` VALUES ('844', '12', 'systemlog_list', 'Menu', '2'
 INSERT INTO `dino_role_value` VALUES ('845', '12', 'systemlog_list', 'Menu', '3');
 INSERT INTO `dino_role_value` VALUES ('846', '12', 'systemlog_list', 'Menu', '4');
 INSERT INTO `dino_role_value` VALUES ('847', '12', 'systemlog_list', 'Menu', '5');
-INSERT INTO `dino_role_value` VALUES ('896', '13', 'lists', 'Menu', '1');
-INSERT INTO `dino_role_value` VALUES ('897', '13', 'lists', 'Menu', '2');
-INSERT INTO `dino_role_value` VALUES ('898', '13', 'lists', 'Menu', '3');
-INSERT INTO `dino_role_value` VALUES ('899', '13', 'lists', 'Menu', '4');
-INSERT INTO `dino_role_value` VALUES ('900', '13', 'lists', 'Menu', '5');
-INSERT INTO `dino_role_value` VALUES ('901', '13', 'system_list', 'Menu', '4');
-INSERT INTO `dino_role_value` VALUES ('902', '13', 'dictionary_list', 'Menu', '4');
-INSERT INTO `dino_role_value` VALUES ('903', '13', 'systemlog_list', 'Menu', '1');
-INSERT INTO `dino_role_value` VALUES ('904', '13', 'systemlog_list', 'Menu', '2');
-INSERT INTO `dino_role_value` VALUES ('905', '13', 'systemlog_list', 'Menu', '3');
-INSERT INTO `dino_role_value` VALUES ('906', '13', 'systemlog_list', 'Menu', '4');
-INSERT INTO `dino_role_value` VALUES ('907', '13', 'systemlog_list', 'Menu', '5');
 INSERT INTO `dino_role_value` VALUES ('908', '14', 'lists', 'Menu', '1');
 INSERT INTO `dino_role_value` VALUES ('909', '14', 'lists', 'Menu', '2');
 INSERT INTO `dino_role_value` VALUES ('910', '14', 'lists', 'Menu', '3');
@@ -780,6 +808,10 @@ INSERT INTO `dino_role_value` VALUES ('921', '14', 'dictionary_list', 'Menu', '4
 INSERT INTO `dino_role_value` VALUES ('922', '14', 'dictionary_list', 'Menu', '5');
 INSERT INTO `dino_role_value` VALUES ('923', '14', 'systemlog_list', 'Menu', '3');
 INSERT INTO `dino_role_value` VALUES ('924', '14', 'systemlog_list', 'Menu', '4');
+INSERT INTO `dino_role_value` VALUES ('935', '13', 'lists', 'Menu', '1');
+INSERT INTO `dino_role_value` VALUES ('936', '13', 'system_list', 'Menu', '1');
+INSERT INTO `dino_role_value` VALUES ('937', '13', 'system_list', 'Menu', '2');
+INSERT INTO `dino_role_value` VALUES ('938', '13', 'system_list', 'Menu', '3');
 
 -- ----------------------------
 -- Table structure for `dino_staff`
