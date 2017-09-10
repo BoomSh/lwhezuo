@@ -1,0 +1,166 @@
+{include file="/Public/header"}
+<title>系统日志</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
+    <span class="c-gray en">&gt;</span>
+    系统管理
+    <span class="c-gray en">&gt;</span>
+    系统日志
+    <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+</nav>
+<div class="page-container">
+{if $lw_role.find eq 1}
+<form action="{:url('Menu/systemlog_list')}" method="get">
+    <div class="bk-gray radius pd-10 col-xs-12 col-sm-12 ">
+        <div class="mt-10 col-xs-12 col-sm-12">
+            <strong class="col-xs-12 col-sm-2 text-r">日期范围：</strong>
+            <div class="col-xs-12 col-sm-3">
+                <input type="text" class="laydate-icon"  value="{$startime}" placeholder="开始时间" id="laydate" name="startime" style="width:92%;">
+            </div>
+            <div class="col-xs-12 col-sm-3">
+                <input type="text" class="laydate-icon"  value="{$overtime}" placeholder="结束时间" id="laydate2" name="overtime" style="width:92%;">
+            </div>
+        </div>
+        <div class="mt-10 col-xs-12 col-sm-12">
+            <strong class="col-xs-12 col-sm-2 text-r">日志名称：</strong>
+            <div class="col-xs-12 col-sm-6">
+                <input type="text" class="input-text" placeholder="输入日志名称" id="" name="remarks" value="{$remarks}">
+            </div>
+        </div>
+        <div class="cl mt-10 col-xs-12 col-sm-12">
+            <strong class="col-xs-12 col-sm-2 text-r"></strong>
+            <div class="col-xs-12 col-sm-6">
+                <button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+            </div>
+        </div>
+    </div>
+</form>
+{/if}
+    <div class="cl pd-5 bg-1 bk-gray mt-20 col-xs-12 col-sm-12">
+        <span class="l">
+        {if $lw_role.del eq 1}<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>{/if}
+        </span>
+        <span class="r">共有数据：<strong>{$res['num']}</strong> 条</span>
+    </div>
+<table class="table table-border table-bordered table-hover table-bg table-sort">
+        <thead>
+            <tr class="text-c">
+                <th width="25"><input type="checkbox" name="" value=""></th>
+                <th style="display:none;">ID</th>
+                <th width="80">序号</th>
+                <th width="100">类型</th>
+                <th>内容</th>
+                <th width="17%">用户名</th>
+                <th width="120">客户端IP</th>
+                <th width="120">时间</th>
+                <th width="70">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {volist name="res['list']" id="vo"}
+            <tr class="text-c">
+                <td><input type="checkbox" value="{$vo.id}" name="id"></td>
+                <td style="display:none;">{$vo.k}</td> 
+                <td>{$vo.num}</td> 
+                <td>{$vo.result}</td> 
+                <td>{$vo.remarks}</td> 
+                <td>{$vo.user_name}</td>
+                <td>{$vo.user_ip}</td>
+                <td>{$vo.create_time}</td>
+                <td class="td-status">
+                <!--<a title="详情" href="javascript:;" onclick="system_log_show(this,'10001')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe665;</i></a>-->
+                {if $lw_role.del eq 1}
+                    <a title="删除" href="javascript:;" onclick="system_log_del(this,'{$vo.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                {/if}
+                 </td>
+            </tr>
+            {/volist}
+        </tbody>
+    </table>
+    <div id="pageNav" class="pageNav"></div>
+</div>
+{include file="/Public/footer"}
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__PUBLIC__admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/lib/laydate/laydate.js"></script>
+<script type="text/javascript">
+    //调用时间插件
+    laydate({
+        elem:"#laydate",  //ID选择器
+        format:"YYYY-MM-DD",
+        istime:true,
+    });
+    //调用时间插件
+    laydate({
+        elem:"#laydate2",  //ID选择器
+        format:"YYYY-MM-DD",
+        istime:true,
+    });
+
+</script>
+<script type="text/javascript">
+$(function(){
+    $('.table-sort').dataTable({
+        "searching": false,//禁用原生搜索
+        "bLengthChange": false,//禁用原生选择显示多少
+        "aaSorting": [[ 1, "asc" ]],//默认第几个排序
+        "bStateSave":false,//状态保存
+        "aoColumnDefs": [
+          //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+          {"orderable":false,"aTargets":[0,7]}// 制定列不参与排序
+        ]
+    });
+    
+});
+
+/*查看日志*/
+function system_log_show(){
+    
+}
+/*日志-删除*/
+function system_log_del(obj,id){
+    layer.confirm('确认要删除吗？',function(index){
+        $.post("{:url('Menu/systemlog_del')}",{id:id},function(data){
+            if(data == "success"){
+                layer.msg("删除成功");
+                $(obj).parents("tr").remove(); 
+            }else{
+                layer.msg(data);
+            }
+        })   
+    });
+}
+function datadel(){
+    layer.confirm('确认要删除吗？',function(index){
+    if($(".text-c input[name='id']:checked").length > 0){
+        var id = "";
+        $(".text-c input[name='id']:checked").each(function() {
+                             var reservation = $(this).val();
+                             id += reservation + ",";
+                        });
+        length = id.length;
+        id = id.substring(id,length-1);
+        $.post("{:url('Menu/systemlog_del')}",{id:id},function(data){
+            if(data == "success"){
+                layer.msg("删除成功");
+                $(".text-c input[name='id']:checked").each(function() {
+                        var reservation = $(this).parents(".text-c");
+                        reservation.hide();
+                });
+            }else{
+                layer.msg(data);
+            }
+        })
+    }else{
+        layer.msg("请选择删除的信息");
+        return false;
+    }
+})
+}
+</script>
+</body>
+</html>

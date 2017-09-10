@@ -1,0 +1,1719 @@
+[ 2017-09-10T14:50:04+08:00 ] ::1 ::1 GET /admin/index/index.html
+[ log ] www.ykd.com/admin/index/index.html [运行时间：0.090672s][吞吐率：11.03req/s] [内存消耗：2,754.70kb] [文件加载：45]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/login/login.html',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Index.php 9 - 18
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+[ error ] [1045]SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)[/Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/library/think/db/Connection.php:277]
+
+---------------------------------------------------------------
+[ 2017-09-10T14:51:30+08:00 ] ::1 ::1 GET /admin/index/index.html
+[ log ] www.ykd.com/admin/index/index.html [运行时间：0.093126s][吞吐率：10.74req/s] [内存消耗：3,036.59kb] [文件加载：46]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/login/login.html',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Index.php 9 - 18
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/index/index.html [ array (
+  0 => 'lw_role',
+  1 => 'admin',
+  2 => 'ban',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013768s ] mysql:dbname=youkeda;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.011979s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 0  AND `is_show` = '1'    [ RunTime:0.006270s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 1  AND `is_show` = '1'    [ RunTime:0.000546s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 6  AND `is_show` = '1'    [ RunTime:0.000328s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 10  AND `is_show` = '1'    [ RunTime:0.000246s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_admin` [ RunTime:0.001904s ]
+[ sql ] [ SQL ] SELECT `username`,`role_id` FROM `dino_admin` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000690s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T14:51:30+08:00 ] ::1 ::1 GET /admin/index/welcome.html
+[ log ] www.ykd.com/admin/index/welcome.html [运行时间：0.070500s][吞吐率：14.18req/s] [内存消耗：1,517.37kb] [文件加载：32]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method welcome ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:51:37+08:00 ] ::1 ::1 GET /index.php/admin/Menu/lists
+[ log ] www.ykd.com/index.php/admin/Menu/lists [运行时间：0.065373s][吞吐率：15.30req/s] [内存消耗：3,280.89kb] [文件加载：51]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/menu/lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000394s ] mysql:dbname=youkeda;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.002356s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000351s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000234s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000671s ]
+[ error ] [8]未定义变量: auth_name[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/8d219777c9655599803571a24f3db831.php:36]
+
+---------------------------------------------------------------
+[ 2017-09-10T14:51:37+08:00 ] ::1 ::1 GET /index.php/admin/Admin/system_list
+[ log ] www.ykd.com/index.php/admin/Admin/system_list [运行时间：0.025245s][吞吐率：39.61req/s] [内存消耗：1,641.73kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'system_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:51:40+08:00 ] ::1 ::1 GET /index.php/admin/Admin/dictionary_list
+[ log ] www.ykd.com/index.php/admin/Admin/dictionary_list [运行时间：0.025749s][吞吐率：38.84req/s] [内存消耗：1,641.95kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'dictionary_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:51:43+08:00 ] ::1 ::1 GET /index.php/admin/Admin/systemlog_list
+[ log ] www.ykd.com/index.php/admin/Admin/systemlog_list [运行时间：0.027758s][吞吐率：36.03req/s] [内存消耗：1,641.95kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'systemlog_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:51:44+08:00 ] ::1 ::1 GET /index.php/admin/Admin/admin_role
+[ log ] www.ykd.com/index.php/admin/Admin/admin_role [运行时间：0.051262s][吞吐率：19.51req/s] [内存消耗：3,225.88kb] [文件加载：51]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_role',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Admin.php 96 - 102
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/admin/admin_role.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]Missing argument 1 for app\admin\model\Admin::admin_role(), called in /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Admin.php on line 99 and defined[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Admin.php:178]
+[ error ] [8]未定义变量: where[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Admin.php:179]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000286s ] mysql:dbname=youkeda;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.005835s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` ORDER BY id desc  [ RunTime:0.000303s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T14:51:46+08:00 ] ::1 ::1 GET /index.php/admin/Admin/adminlist
+[ log ] www.ykd.com/index.php/admin/Admin/adminlist [运行时间：0.027929s][吞吐率：35.80req/s] [内存消耗：1,641.98kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'adminlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:52:04+08:00 ] ::1 ::1 GET /index.php/admin/Admin/admin_role
+[ log ] www.ykd.com/index.php/admin/Admin/admin_role [运行时间：0.052612s][吞吐率：19.01req/s] [内存消耗：3,021.40kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_role',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Admin.php 96 - 102
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/admin/admin_role.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]Missing argument 1 for app\admin\model\Admin::admin_role(), called in /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Admin.php on line 99 and defined[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Admin.php:178]
+[ error ] [8]未定义变量: where[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Admin.php:179]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000422s ] mysql:dbname=youkeda;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.002592s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` ORDER BY id desc  [ RunTime:0.000343s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T14:52:05+08:00 ] ::1 ::1 GET /index.php/admin/Admin/adminlist
+[ log ] www.ykd.com/index.php/admin/Admin/adminlist [运行时间：0.029702s][吞吐率：33.67req/s] [内存消耗：1,641.93kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'adminlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:52:13+08:00 ] ::1 ::1 GET /index.php/admin/Menu/lists
+[ log ] www.ykd.com/index.php/admin/Menu/lists [运行时间：0.054238s][吞吐率：18.44req/s] [内存消耗：3,071.66kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/menu/lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000403s ] mysql:dbname=youkeda;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.003031s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000373s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000244s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000211s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000243s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000208s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000180s ]
+[ error ] [8]未定义变量: auth_name[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/8d219777c9655599803571a24f3db831.php:36]
+
+---------------------------------------------------------------
+[ 2017-09-10T14:52:14+08:00 ] ::1 ::1 GET /index.php/admin/Admin/system_list
+[ log ] www.ykd.com/index.php/admin/Admin/system_list [运行时间：0.030158s][吞吐率：33.16req/s] [内存消耗：1,641.94kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'system_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:52:16+08:00 ] ::1 ::1 GET /index.php/admin/Admin/system_list
+[ log ] www.ykd.com/index.php/admin/Admin/system_list [运行时间：0.023044s][吞吐率：43.40req/s] [内存消耗：1,641.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'system_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:52:17+08:00 ] ::1 ::1 GET /index.php/admin/Admin/dictionary_list
+[ log ] www.ykd.com/index.php/admin/Admin/dictionary_list [运行时间：0.027996s][吞吐率：35.72req/s] [内存消耗：1,641.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'dictionary_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:52:22+08:00 ] ::1 ::1 GET /index.php/admin/Admin/systemlog_list
+[ log ] www.ykd.com/index.php/admin/Admin/systemlog_list [运行时间：0.026970s][吞吐率：37.08req/s] [内存消耗：1,641.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'systemlog_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:52:24+08:00 ] ::1 ::1 GET /index.php/admin/Admin/dictionary_list
+[ log ] www.ykd.com/index.php/admin/Admin/dictionary_list [运行时间：0.027474s][吞吐率：36.40req/s] [内存消耗：1,641.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'dictionary_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:52:25+08:00 ] ::1 ::1 GET /index.php/admin/Admin/system_list
+[ log ] www.ykd.com/index.php/admin/Admin/system_list [运行时间：0.027611s][吞吐率：36.22req/s] [内存消耗：1,641.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'system_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:54:12+08:00 ] ::1 ::1 GET /index.php/admin/Menu/lists
+[ log ] www.ykd.com/index.php/admin/Menu/lists [运行时间：0.050344s][吞吐率：19.86req/s] [内存消耗：3,071.67kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/menu/lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000279s ] mysql:dbname=youkeda;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.002675s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000313s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000197s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000158s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000208s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000162s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000196s ]
+[ error ] [8]未定义变量: auth_name[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/8d219777c9655599803571a24f3db831.php:36]
+
+---------------------------------------------------------------
+[ 2017-09-10T14:54:13+08:00 ] ::1 ::1 GET /index.php/admin/Admin/system_list
+[ log ] www.ykd.com/index.php/admin/Admin/system_list [运行时间：0.032594s][吞吐率：30.68req/s] [内存消耗：1,641.94kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'system_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:54:15+08:00 ] ::1 ::1 GET /index.php/admin/Admin/dictionary_list
+[ log ] www.ykd.com/index.php/admin/Admin/dictionary_list [运行时间：0.028770s][吞吐率：34.76req/s] [内存消耗：1,641.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'dictionary_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:54:16+08:00 ] ::1 ::1 GET /index.php/admin/Admin/systemlog_list
+[ log ] www.ykd.com/index.php/admin/Admin/systemlog_list [运行时间：0.026819s][吞吐率：37.29req/s] [内存消耗：1,641.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'systemlog_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:54:17+08:00 ] ::1 ::1 GET /index.php/admin/Admin/dictionary_list
+[ log ] www.ykd.com/index.php/admin/Admin/dictionary_list [运行时间：0.027343s][吞吐率：36.57req/s] [内存消耗：1,641.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'dictionary_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:54:17+08:00 ] ::1 ::1 GET /index.php/admin/Admin/system_list
+[ log ] www.ykd.com/index.php/admin/Admin/system_list [运行时间：0.026938s][吞吐率：37.12req/s] [内存消耗：1,641.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'system_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:55:08+08:00 ] ::1 ::1 GET /index.php/admin/Menu/lists
+[ log ] www.ykd.com/index.php/admin/Menu/lists [运行时间：0.056913s][吞吐率：17.57req/s] [内存消耗：3,071.66kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/menu/lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000467s ] mysql:dbname=youkeda;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.003594s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000367s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000233s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000201s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000213s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000177s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000187s ]
+[ error ] [8]未定义变量: auth_name[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/8d219777c9655599803571a24f3db831.php:36]
+
+---------------------------------------------------------------
+[ 2017-09-10T14:55:09+08:00 ] ::1 ::1 GET /index.php/admin/Admin/system_list
+[ log ] www.ykd.com/index.php/admin/Admin/system_list [运行时间：0.027979s][吞吐率：35.74req/s] [内存消耗：1,641.94kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'system_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:55:09+08:00 ] ::1 ::1 GET /index.php/admin/Admin/systemlog_list
+[ log ] www.ykd.com/index.php/admin/Admin/systemlog_list [运行时间：0.027479s][吞吐率：36.39req/s] [内存消耗：1,641.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'systemlog_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:55:10+08:00 ] ::1 ::1 GET /index.php/admin/Admin/dictionary_list
+[ log ] www.ykd.com/index.php/admin/Admin/dictionary_list [运行时间：0.028204s][吞吐率：35.46req/s] [内存消耗：1,641.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'dictionary_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:55:11+08:00 ] ::1 ::1 GET /index.php/admin/Admin/systemlog_list
+[ log ] www.ykd.com/index.php/admin/Admin/systemlog_list [运行时间：0.027564s][吞吐率：36.28req/s] [内存消耗：1,641.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'systemlog_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:55:12+08:00 ] ::1 ::1 GET /index.php/admin/Admin/dictionary_list
+[ log ] www.ykd.com/index.php/admin/Admin/dictionary_list [运行时间：0.032278s][吞吐率：30.98req/s] [内存消耗：1,641.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'dictionary_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:55:14+08:00 ] ::1 ::1 GET /index.php/admin/Admin/system_list
+[ log ] www.ykd.com/index.php/admin/Admin/system_list [运行时间：0.027007s][吞吐率：37.03req/s] [内存消耗：1,641.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'system_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:55:15+08:00 ] ::1 ::1 GET /index.php/admin/Admin/system_list
+[ log ] www.ykd.com/index.php/admin/Admin/system_list [运行时间：0.023943s][吞吐率：41.77req/s] [内存消耗：1,641.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'system_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T14:57:12+08:00 ] ::1 ::1 GET /index.php/admin/Menu/lists
+[ log ] www.ykd.com/index.php/admin/Menu/lists [运行时间：0.060678s][吞吐率：16.48req/s] [内存消耗：3,071.67kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/menu/lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000473s ] mysql:dbname=youkeda;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001658s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000385s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000228s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000174s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000195s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000200s ]
+[ error ] [8]未定义变量: auth_name[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/8d219777c9655599803571a24f3db831.php:36]
+
+---------------------------------------------------------------
+[ 2017-09-10T15:00:18+08:00 ] ::1 ::1 GET /index.php/admin/Admin/adminlist
+[ log ] www.ykd.com/index.php/admin/Admin/adminlist [运行时间：0.037281s][吞吐率：26.82req/s] [内存消耗：1,641.96kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'adminlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T15:00:19+08:00 ] ::1 ::1 GET /index.php/admin/Admin/admin_role
+[ log ] www.ykd.com/index.php/admin/Admin/admin_role [运行时间：0.048364s][吞吐率：20.68req/s] [内存消耗：3,021.66kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_role',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Admin.php 96 - 102
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/admin/admin_role.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]Missing argument 1 for app\admin\model\Admin::admin_role(), called in /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Admin.php on line 99 and defined[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Admin.php:178]
+[ error ] [8]未定义变量: where[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Admin.php:179]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000415s ] mysql:dbname=youkeda;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.002411s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` ORDER BY id desc  [ RunTime:0.000303s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T15:00:27+08:00 ] ::1 ::1 GET /index.php/admin/Admin/admin_role
+[ log ] www.ykd.com/index.php/admin/Admin/admin_role [运行时间：0.039681s][吞吐率：25.20req/s] [内存消耗：3,021.53kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_role',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Admin.php 96 - 102
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/admin/admin_role.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]Missing argument 1 for app\admin\model\Admin::admin_role(), called in /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Admin.php on line 99 and defined[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Admin.php:178]
+[ error ] [8]未定义变量: where[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Admin.php:179]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000264s ] mysql:dbname=youkeda;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.002808s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` ORDER BY id desc  [ RunTime:0.000266s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T15:01:05+08:00 ] ::1 ::1 GET /index.php/admin/Menu/lists
+[ log ] www.ykd.com/index.php/admin/Menu/lists [运行时间：0.050376s][吞吐率：19.85req/s] [内存消耗：3,071.67kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/menu/lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000233s ] mysql:dbname=youkeda;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.002558s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000353s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000237s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000209s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000192s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000208s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000192s ]
+[ error ] [8]未定义变量: auth_name[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/8d219777c9655599803571a24f3db831.php:36]
+
+---------------------------------------------------------------
+[ 2017-09-10T15:01:06+08:00 ] ::1 ::1 GET /index.php/admin/Admin/system_list
+[ log ] www.ykd.com/index.php/admin/Admin/system_list [运行时间：0.031569s][吞吐率：31.68req/s] [内存消耗：1,641.94kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'system_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T15:01:13+08:00 ] ::1 ::1 GET /index.php/admin/Admin/admin_role
+[ log ] www.ykd.com/index.php/admin/Admin/admin_role [运行时间：0.043565s][吞吐率：22.95req/s] [内存消耗：3,021.53kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_role',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Admin.php 96 - 102
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/admin/admin_role.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]Missing argument 1 for app\admin\model\Admin::admin_role(), called in /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Admin.php on line 99 and defined[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Admin.php:178]
+[ error ] [8]未定义变量: where[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Admin.php:179]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000252s ] mysql:dbname=youkeda;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.002510s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` ORDER BY id desc  [ RunTime:0.000249s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T15:01:15+08:00 ] ::1 ::1 GET /index.php/admin/Admin/adminlist
+[ log ] www.ykd.com/index.php/admin/Admin/adminlist [运行时间：0.032473s][吞吐率：30.79req/s] [内存消耗：1,641.93kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'adminlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T15:01:17+08:00 ] ::1 ::1 GET /index.php/admin/Admin/admin_role
+[ log ] www.ykd.com/index.php/admin/Admin/admin_role [运行时间：0.045879s][吞吐率：21.80req/s] [内存消耗：3,021.40kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_role',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Admin.php 96 - 102
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/admin/admin_role.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]Missing argument 1 for app\admin\model\Admin::admin_role(), called in /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Admin.php on line 99 and defined[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Admin.php:178]
+[ error ] [8]未定义变量: where[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Admin.php:179]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000525s ] mysql:dbname=youkeda;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.002600s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` ORDER BY id desc  [ RunTime:0.000251s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T15:03:50+08:00 ] ::1 ::1 GET /admin/index/index.html
+[ log ] www.ykd.com/admin/index/index.html [运行时间：0.047148s][吞吐率：21.21req/s] [内存消耗：2,819.00kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/login/login.html',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Index.php 9 - 18
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/index/index.html [ array (
+  0 => 'lw_role',
+  1 => 'admin',
+  2 => 'ban',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000345s ] mysql:dbname=youkedaw;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.003869s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 0  AND `is_show` = '1'    [ RunTime:0.000397s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 1  AND `is_show` = '1'    [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 6  AND `is_show` = '1'    [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 10  AND `is_show` = '1'    [ RunTime:0.000250s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_admin` [ RunTime:0.002320s ]
+[ sql ] [ SQL ] SELECT `username`,`role_id` FROM `dino_admin` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000261s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T15:03:50+08:00 ] ::1 ::1 GET /admin/index/welcome.html
+[ log ] www.ykd.com/admin/index/welcome.html [运行时间：0.033998s][吞吐率：29.41req/s] [内存消耗：1,517.32kb] [文件加载：32]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method welcome ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T15:03:52+08:00 ] ::1 ::1 GET /index.php/admin/Menu/lists
+[ log ] www.ykd.com/index.php/admin/Menu/lists [运行时间：0.051580s][吞吐率：19.39req/s] [内存消耗：3,072.16kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/menu/lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000325s ] mysql:dbname=youkedaw;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.002726s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000343s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000246s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000213s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000211s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000212s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000210s ]
+[ error ] [8]未定义变量: auth_name[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/8d219777c9655599803571a24f3db831.php:36]
+
+---------------------------------------------------------------
+[ 2017-09-10T15:03:53+08:00 ] ::1 ::1 GET /index.php/admin/Menu/system_list
+[ log ] www.ykd.com/index.php/admin/Menu/system_list [运行时间：0.055768s][吞吐率：17.93req/s] [内存消耗：3,314.66kb] [文件加载：51]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'system_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method system_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Menu.php 67 - 80
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/menu/system_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000245s ] mysql:dbname=youkedaw;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_system` [ RunTime:0.002332s ]
+[ sql ] [ SQL ] SELECT `id`,`field`,`description`,`name` FROM `dino_system` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000375s ]
+[ error ] [8]未定义变量: name[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/e916ed2d121edb4fe208c4433c45f86c.php:40]
+
+---------------------------------------------------------------
+[ 2017-09-10T15:03:54+08:00 ] ::1 ::1 GET /index.php/admin/Menu/dictionary_list
+[ log ] www.ykd.com/index.php/admin/Menu/dictionary_list [运行时间：0.052420s][吞吐率：19.08req/s] [内存消耗：3,261.69kb] [文件加载：51]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'dictionary_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method dictionary_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Menu.php 9 - 22
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/menu/dictionary_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000239s ] mysql:dbname=youkedaw;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_dictionary` [ RunTime:0.002451s ]
+[ sql ] [ SQL ] SELECT `id`,`type`,`name`,`status` FROM `dino_dictionary` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000331s ]
+[ error ] [8]未定义变量: name[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/34ecd321cb5ebedd82667d8f490a7124.php:40]
+
+---------------------------------------------------------------
+[ 2017-09-10T15:03:55+08:00 ] ::1 ::1 GET /index.php/admin/Menu/systemlog_list
+[ log ] www.ykd.com/index.php/admin/Menu/systemlog_list [运行时间：0.052303s][吞吐率：19.12req/s] [内存消耗：3,749.39kb] [文件加载：51]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'systemlog_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method systemlog_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Menu.php 125 - 158
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/menu/systemlog_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000239s ] mysql:dbname=youkedaw;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_log` [ RunTime:0.002490s ]
+[ sql ] [ SQL ] SELECT `id`,`result`,`remarks`,`create_time`,`user_name`,`user_ip` FROM `dino_log` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000856s ]
+[ error ] [8]未定义变量: startime[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/9283742a3deee243339c051bf0ea5bdf.php:42]
+[ error ] [8]未定义变量: overtime[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/9283742a3deee243339c051bf0ea5bdf.php:45]
+[ error ] [8]未定义变量: remarks[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/9283742a3deee243339c051bf0ea5bdf.php:51]
+
+---------------------------------------------------------------
+[ 2017-09-10T15:03:55+08:00 ] ::1 ::1 GET /index.php/admin/Admin/admin_role
+[ log ] www.ykd.com/index.php/admin/Admin/admin_role [运行时间：0.045711s][吞吐率：21.88req/s] [内存消耗：3,016.33kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_role',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Admin.php 96 - 102
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/admin/admin_role.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]Missing argument 1 for app\admin\model\Admin::admin_role(), called in /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Admin.php on line 99 and defined[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Admin.php:178]
+[ error ] [8]未定义变量: where[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Admin.php:179]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000402s ] mysql:dbname=youkedaw;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.002477s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` ORDER BY id desc  [ RunTime:0.000232s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T15:03:56+08:00 ] ::1 ::1 GET /index.php/admin/Admin/admin_list
+[ log ] www.ykd.com/index.php/admin/Admin/admin_list [运行时间：0.053682s][吞吐率：18.63req/s] [内存消耗：3,267.70kb] [文件加载：51]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Admin.php 9 - 42
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/admin/admin_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000267s ] mysql:dbname=youkedaw;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_admin` [ RunTime:0.003493s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`mobile`,`email`,`state`,`role_id`,`addtime` FROM `dino_admin` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000456s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.002191s ]
+[ sql ] [ SQL ] SELECT `role_name` FROM `dino_role` WHERE  `id` = 13 LIMIT 1    [ RunTime:0.000290s ]
+[ error ] [8]未定义变量: startime[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/c9d5819611544cd810f8d752ef227f10.php:36]
+[ error ] [8]未定义变量: overtime[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/c9d5819611544cd810f8d752ef227f10.php:39]
+[ error ] [8]未定义变量: username[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/c9d5819611544cd810f8d752ef227f10.php:45]
+
+---------------------------------------------------------------
+[ 2017-09-10T15:04:17+08:00 ] ::1 ::1 GET /index.php/admin/Menu/lists
+[ log ] www.ykd.com/index.php/admin/Menu/lists [运行时间：0.051474s][吞吐率：19.43req/s] [内存消耗：3,072.19kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/menu/lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000237s ] mysql:dbname=youkedaw;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.002655s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000338s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000245s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000197s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000179s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000240s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000201s ]
+[ error ] [8]未定义变量: auth_name[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/8d219777c9655599803571a24f3db831.php:36]
+
+---------------------------------------------------------------

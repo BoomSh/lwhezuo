@@ -1,0 +1,91 @@
+<?php
+namespace app\admin\controller;
+
+class Order extends Common
+{
+    public function index(){
+        if(!empty(input('name'))){
+          $check['username']=array("like","%".input('name')."%");
+        }else{
+          $check="1";
+        }
+        $page = !empty($_GET['page']) ?$_GET['page']: 1;
+        $index = model("Order");
+        $row = $index->index($page,$check);
+        $res = db("auth_name")->where("auth_id","37")->select();
+        $this->assign("res",$res);
+        //var_dump($res);
+        $this->assign("row",$row);
+        $this->assign("contrll","Order");
+        return $this->fetch();
+    }
+public function index_del(){
+  $index = model("Order");
+  $res = $index->index_del();
+  return $res;
+}
+
+public function index_add(){
+  if(request()->isPost()){
+    $index = model("Order");
+    $res = $index->index_add();
+    return $res;
+  }else{
+    $this->assign("contrll","Order");
+    return $this->fetch();
+  }
+}
+
+public function xx(){
+    if(!empty(input('name'))){
+        $check['type']=array('like','%'.input('name').'%');
+    }else{
+        $check='1';
+        }
+        $data['auth_id'] = 89;
+        $res = db("auth_name")->where($data)->select();
+        $page = !empty($_GET['page']) ?$_GET['page']: 1;
+        $index = model('Order');
+        $row = $index->xx($page,$check);
+        $this->assign('row',$row);
+        $this->assign('res',$res);
+        return $this->fetch();
+    }
+    /*删除*/
+    public function xx_del(){
+        $index = model('Order');
+        $res = $index->xx_del();
+        return $res;
+    }
+    /*添加*/
+    public function xx_add(){
+        if(request()->isPost()){
+            $index = model('Order');
+            $res = $index->xx_add();
+            return $res;
+          }else{
+            $data['auth_id'] = 89;
+            $res = db("auth_name")->where($data)->select();
+            $this->assign('res',$res);
+            return $this->fetch();
+          }
+    }
+    /*修改*/
+    public function xx_edit(){
+        $this->assign('contrll','Order');
+        $this->assign('ff','xx');
+        if(isset($_GET['uid'])){
+            $data['auth_id'] = 89;
+            $res = db("auth_name")->where($data)->select();
+            $this->assign('res',$res);
+            $row=db('aa')->where('id',$_GET['uid'])->field('id,type,username,role,lbq,text')->find();
+            $this->assign('row',$row);
+            return $this->fetch();
+        }
+        if(isset($_POST)){
+            $index = model('Order');
+            $res = $index->xx_edit();
+            return $res;
+          }
+    }
+}

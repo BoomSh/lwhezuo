@@ -1,0 +1,111 @@
+{include file="/Public/header"}
+<title>角色管理</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员管理 <span class="c-gray en">&gt;</span> 角色管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+    <div class="cl pd-5 bg-1 bk-gray"> <span class="l"> 
+    {if $lw_role.del eq 1}<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> {/if}    　
+    {if $lw_role.add eq 1}<a class="btn btn-primary radius" href="javascript:;" onclick="admin_role_add('添加角色','{:url('Admin/admin_role_add')}','800')"><i class="Hui-iconfont">&#xe600;</i> 添加角色</a> {/if}
+    </span> <span class="r">共有数据：<strong>{$res['num']}</strong> 条</span> </div>
+    <table class="table table-border table-bordered table-hover table-bg table-sort">
+        <thead>
+            <tr class="text-c">
+                <th width="25"><input type="checkbox" name="" value=""></th>
+                <th style="display:none;">ID</th>
+                <th>序号</th>
+                <th>角色名</th>
+                <th>描述</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {volist name="res['list']" id="vo"}
+            <tr class="text-c">
+                <td><input type="checkbox" value="{$vo.id}" name="id"></td>
+                <td style="display:none;">{$vo.k}</td> 
+                <td>{$vo.num}</td>  
+                <td>{$vo.role_name}</td> 
+                <td>{$vo.role_descript}</td> 
+                <td class="f-14">
+                {if $lw_role.edit eq 1}
+                <a title="编辑" href="javascript:;" onclick="admin_role_edit('角色编辑','{:url('Admin/admin_role_edit',array('id'=>$vo.id))}')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                {/if}
+                {if $lw_role.del eq 1}
+                 <a title="删除" href="javascript:;" onclick="admin_role_del(this,'{$vo.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                 {/if}
+                 </td>
+            </tr>
+            {/volist}
+        </tbody>
+    </table>
+</div>
+{include file="/Public/footer"}
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__PUBLIC__admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('.table-sort').dataTable({
+        "searching": false,//禁用原生搜索
+        "bLengthChange": false,//禁用原生选择显示多少
+        "aaSorting": [[ 1, "asc" ]],//默认第几个排序
+        "bStateSave":false,//状态保存
+        "aoColumnDefs": [
+          //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+          {"orderable":false,"aTargets":[0,4]}// 制定列不参与排序
+        ]
+    });
+    
+});
+/*管理员-角色-添加*/
+function admin_role_add(title,url,w,h){
+    layer_show(title,url,w,h);
+}
+/*管理员-角色-编辑*/
+function admin_role_edit(title,url,id,w,h){
+    layer_show(title,url,w,h);
+}
+/*管理员-角色-删除*/
+function admin_role_del(obj,id){
+    layer.confirm('角色删除须谨慎，确认要删除吗？',function(index){
+        $.post("{:url('Admin/admin_role_del')}",{id:id},function(data){
+            if(data == "success"){
+                layer.msg("删除成功");
+                $(obj).parents("tr").remove(); 
+            }else{
+                layer.msg(data);
+            }
+        })  
+    });
+}
+function datadel(){
+    layer.confirm('确认要删除吗？',function(index){
+    if($(".text-c input[name='id']:checked").length > 0){
+        var id = "";
+        $(".text-c input[name='id']:checked").each(function() {
+                             var reservation = $(this).val();
+                             id += reservation + ",";
+                        });
+        length = id.length;
+        id = id.substring(id,length-1);
+        $.post("{:url('Admin/admin_role_del')}",{id:id},function(data){
+            if(data == "success"){
+                layer.msg("删除成功");
+                $(".text-c input[name='id']:checked").each(function() {
+                        var reservation = $(this).parents(".text-c");
+                        reservation.hide();
+                });
+            }else{
+                layer.msg(data);
+            }
+        })
+    }else{
+        layer.msg("请选择删除的信息");
+        return false;
+    }
+})
+}
+</script>
+</body>
+</html>
