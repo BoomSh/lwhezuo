@@ -4,7 +4,6 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员管理 <span class="c-gray en">&gt;</span> 管理员列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-{if $lw_role.find eq 1}
 <form action="{:url('Admin/admin_list')}" method="get">
     <div class="bk-gray radius pd-10 col-xs-12 col-sm-12 ">
         <div class="mt-10 col-xs-12 col-sm-12">
@@ -30,7 +29,6 @@
         </div>
     </div>
 </form>
-{/if}
     <div class="cl pd-5 bg-1 bk-gray mt-20 col-xs-12 col-sm-12">
         <span class="l">
             {if $lw_role.del eq 1}<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>{/if}　
@@ -77,7 +75,7 @@
                 {if $vo.state eq 1}<a style="text-decoration:none" onClick="admin_stop(this,'{$vo.id}')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>{else/}<a style="text-decoration:none" onClick="admin_start(this,'{$vo.id}')" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe615;</i></a> {/if}
                 {/if}
                 {if $lw_role.edit eq 1}
-                <a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','{:url('Admin/admin_edit',array('id'=>$vo.id))}','2','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                <a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','{:url('Admin/admin_edit',array('id'=>$vo.id))}','2','800','600')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
                 {/if}
                 {if $lw_role.del eq 1}
                  <a title="删除" href="javascript:;" onclick="admin_del(this,'{$vo.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>

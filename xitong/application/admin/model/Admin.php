@@ -7,7 +7,7 @@ class Admin extends Common
 {
     public function admin_list($where){
         /*获取管理员信息*/
-        $res['list'] = DB::name("admin")->field("id,username,mobile,email,state,role_id,addtime")->order("id desc")->where($where)->select();
+        $res['list'] = DB::name("admin")->field("id,username,mobile,email,state,role_id,addtime")->order("id desc")->where($where)->where("type",1)->select();
         foreach ($res['list'] as $k => $v) {
             $res['list'][$k]['k'] = $k;
             if($res['list'][$k]['role_id'] == 0){
@@ -40,7 +40,6 @@ class Admin extends Common
         $data['role_id'] = input('adminRole')?input('adminRole'):0;
         $data['remark'] = input('remark');
         $data['addtime'] = date("Y-m-d H:i:s",time());
-        $data['y_pwd'] = input('password');//保存不加密的密码
         if(empty($data['username'])){
             return "用户名不能为空";
         }
@@ -57,12 +56,12 @@ class Admin extends Common
             return "管理员名称不能为空";
         }
         /*判断登录名是否被占用*/
-        $find = DB::name("admin")->where("username",$data['username'])->field("COUNT(*)")->find();
+        $find = DB::name("admin")->where("username",$data['username'])->where("type",1)->field("COUNT(*)")->find();
         if($find['COUNT(*)'] != 0){
             return "该登录名已被占用";
         }
          /*判断管理名是否被占用*/
-        $find = DB::name("admin")->where("name",$data['name'])->field("COUNT(*)")->find();
+        $find = DB::name("admin")->where("name",$data['name'])->where("type",1)->field("COUNT(*)")->find();
         if($find['COUNT(*)'] != 0){
             return "该管理员名称已被占用";
         }
@@ -111,7 +110,8 @@ class Admin extends Common
             foreach ($log as $k => $v) {
                $this->lw_log("3","删除了管理员为".$log[$k]['name'],"Admin",'adminlist');
             }
-            $res = DB::name("admin")->where($where)->delete();
+            $where['type'] = 2;
+            $res = DB::name("admin")->update($where);
             if($res){
                 return "success";
             }else{
@@ -126,7 +126,7 @@ class Admin extends Common
      **/
     public function admin_edit(){
         if(request()->isGet()){
-            $res = DB::name("admin")->where("id",input("id"))->field("id,username,y_pwd,remark,role_id,mobile,email")->find();
+            $res = DB::name("admin")->where("id",input("id"))->field("id,username,remark,role_id,mobile,email,name")->find();
             if($res['role_id'] == 0){
                 $res['role_name'] = "超级管理员";
             }else{
@@ -136,19 +136,18 @@ class Admin extends Common
             return $res;
         }else if(request()->isPost()){
             $data['id'] = input("id");
+            $data['name'] = input('name');
             $data['username'] = input("adminName");
-            $data['password'] = md5(md5(input('password'))."weizone");
             $data['mobile'] = input('phone');
             $data['email'] = input('email');
             $data['role_id'] = input('adminRole')?input('adminRole'):0;
             $data['remark'] = input('remark');
             $data['addtime'] = date("Y-m-d H:i:s",time());
-            $data['y_pwd'] = input('password');//保存不加密的密码
             if(empty($data['username'])){
                 return "用户名不能为空";
             }
-            if(empty($data['password'])){
-                return "密码不能为空";
+            if(!empty(input('password'))){
+                $data['password'] = md5(md5(input('password'))."weizone");
             }
             if(empty($data['mobile'])){
                 return "手机号不能为空";
@@ -159,9 +158,16 @@ class Admin extends Common
             /*判断登录名是否被占用*/
             $where['id'] = array("neq",$data['id']);
             $where['username'] = $data['username'];
-            $find = DB::name("admin")->where($where)->field("COUNT(*)")->find();
+            $find = DB::name("admin")->where($where)->where("type",1)->field("COUNT(*)")->find();
             if($find['COUNT(*)'] != 0){
                 return "该登录名已被占用";
+            }
+            /*判断管理名是否被占用*/
+            $wheres['id'] = array("neq",$data['id']);
+            $wheres['name'] = $data['name'];
+            $find = DB::name("admin")->where($wheres)->where("type",1)->field("COUNT(*)")->find();
+            if($find['COUNT(*)'] != 0){
+                return "该管理员名称已被占用";
             }
             $upd = DB::name("admin")->update($data);
             $this->lw_log("4","修改了管理员为".$data['username'],"Admin",'adminlist');
@@ -250,12 +256,6 @@ class Admin extends Common
                         if(in_array("3",$arr)){
                             $son[$key]['del'] = 1;
                         }
-                        if(in_array("4",$arr)){
-                            $son[$key]['find'] = 1;
-                        }
-                        if(in_array("5",$arr)){
-                            $son[$key]['status'] = 1;
-                        }
             }
                 }
                 $res[$k]['son'] = $son;
@@ -311,13 +311,29 @@ class Admin extends Common
             $res['list'] = DB::name("auth")->where("auth_pid",0)->field("id,auth_name,auth_a,auth_c")->select();
             foreach ($res['list'] as $k => $v) {
                     /*获取对应的二级菜单*/
-                    $role = DB::name("auth")->where("auth_pid",$res['list'][$k]['id'])->field("id,auth_name,auth_a,auth_c")->select();
+                    $role = DB::name("auth")->where("auth_pid",$res['list'][$k]['id'])->field("id,auth_name,auth_a,auth_c,auth")->select();
                     /*组装后 与前端匹配*/
                     foreach ($role as $key => $value) {
+                         if(!empty($role[$key]['auth'])){
+                                $arr = explode(",", $role[$key]['auth']);
+                                if(in_array("1",$arr)){
+                                    $role[$key]['add'] = 1;
+                                }
+                                if(in_array("2",$arr)){
+                                    $role[$key]['edit'] = 1;
+                                }
+                                if(in_array("3",$arr)){
+                                    $role[$key]['del'] = 1;
+                                }
+                            }
                         $where['auth_c'] = $role[$key]['auth_c'];
                         $where['auth_a'] = $role[$key]['auth_a'];
                         $where['role_id'] = input('id');
                         $auth = DB::name("role_value")->where($where)->field("action_type")->select();
+                        if($auth){
+                            $role[$key]['xz']  =  1;
+                            $res['list'][$k]['xz']  =  1;
+                        }
                         //return  DB::name("role_value")->getlastsql();
                         foreach ($auth as $ka => $va) {
                             $role[$key]['role_'.$auth[$ka]['action_type']] = $auth[$ka]['action_type'];

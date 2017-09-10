@@ -10,7 +10,6 @@
     <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
 </nav>
 <div class="page-container">
-{if $lw_role.find eq 1}
 <form action="{:url('Menu/systemlog_list')}" method="get">
     <div class="bk-gray radius pd-10 col-xs-12 col-sm-12 ">
         <div class="mt-10 col-xs-12 col-sm-12">
@@ -36,7 +35,6 @@
         </div>
     </div>
 </form>
-{/if}
     <div class="cl pd-5 bg-1 bk-gray mt-20 col-xs-12 col-sm-12">
         <span class="l">
         {if $lw_role.del eq 1}<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>{/if}
@@ -91,13 +89,13 @@
     //调用时间插件
     laydate({
         elem:"#laydate",  //ID选择器
-        format:"YYYY-MM-DD",
+        format:"YYYY-MM-DD hh:hh:hh",
         istime:true,
     });
     //调用时间插件
     laydate({
         elem:"#laydate2",  //ID选择器
-        format:"YYYY-MM-DD",
+        format:"YYYY-MM-DD hh:hh:hh",
         istime:true,
     });
 
