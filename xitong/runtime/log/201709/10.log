@@ -7535,3 +7535,3288 @@ Method [ <user> public method company_list ] {
 [ sql ] [ SQL ] UPDATE `dino_admin`  SET `state`='1'  WHERE  `id` = 20     [ RunTime:0.021001s ]
 
 ---------------------------------------------------------------
+[ 2017-09-10T22:52:33+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/index.html
+[ log ] www.git.com/admin/index/index.html [运行时间：0.076004s][吞吐率：13.16req/s] [内存消耗：3,840.51kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/admin/login/login.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Index.php 9 - 18
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\index\index.html [ array (
+  0 => 'lw_role',
+  1 => 'admin',
+  2 => 'ban',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 0  AND `is_show` = '1'    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 1  AND `is_show` = '1'    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 6  AND `is_show` = '1'    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 10  AND `is_show` = '1'    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_admin` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `username`,`role_id` FROM `dino_admin` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:52:33+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/welcome.html
+[ log ] www.git.com/admin/index/welcome.html [运行时间：0.030002s][吞吐率：33.33req/s] [内存消耗：2,067.64kb] [文件加载：32]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method welcome ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T22:52:34+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Admin/admin_role
+[ log ] www.git.com/index.php/admin/Admin/admin_role [运行时间：0.069004s][吞吐率：14.49req/s] [内存消耗：4,155.78kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_role',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 96 - 102
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_role.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]Missing argument 1 for app\admin\model\Admin::admin_role(), called in D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php on line 99 and defined[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:184]
+[ error ] [8]未定义变量: where[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:185]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` ORDER BY id desc  [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:52:35+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Admin/admin_list
+[ log ] www.git.com/index.php/admin/Admin/admin_list [运行时间：0.081004s][吞吐率：12.35req/s] [内存消耗：4,468.18kb] [文件加载：51]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_list ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 9 - 42
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_admin` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`mobile`,`email`,`state`,`role_id`,`addtime` FROM `dino_admin` WHERE  (  1 )  AND `type` = '1' ORDER BY id desc   [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SELECT `role_name` FROM `dino_role` WHERE  `id` = 13 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `role_name` FROM `dino_role` WHERE  `id` = 13 LIMIT 1    [ RunTime:0.000000s ]
+[ error ] [8]未定义变量: startime[D:\wamp64\www\lwhezuo\xitong\runtime\temp\ffd741db071fb63a0f166e0816d09152.php:35]
+[ error ] [8]未定义变量: overtime[D:\wamp64\www\lwhezuo\xitong\runtime\temp\ffd741db071fb63a0f166e0816d09152.php:38]
+[ error ] [8]未定义变量: username[D:\wamp64\www\lwhezuo\xitong\runtime\temp\ffd741db071fb63a0f166e0816d09152.php:44]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:52:36+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/admin/admin_add.html
+[ log ] www.git.com/index.php/admin/admin/admin_add.html [运行时间：0.053003s][吞吐率：18.87req/s] [内存消耗：4,155.66kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'admin_add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/index.php/admin/Admin/admin_list',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_add ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 72 - 82
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_add.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]Missing argument 1 for app\admin\model\Admin::admin_role(), called in D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php on line 78 and defined[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:184]
+[ error ] [8]未定义变量: where[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:185]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` ORDER BY id desc  [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:52:38+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Admin/admin_role
+[ log ] www.git.com/index.php/admin/Admin/admin_role [运行时间：0.037002s][吞吐率：27.03req/s] [内存消耗：4,155.78kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_role',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 96 - 102
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_role.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]Missing argument 1 for app\admin\model\Admin::admin_role(), called in D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php on line 99 and defined[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:184]
+[ error ] [8]未定义变量: where[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:185]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` ORDER BY id desc  [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:52:39+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/admin/admin_role_add.html
+[ log ] www.git.com/index.php/admin/admin/admin_role_add.html [运行时间：0.055003s][吞吐率：18.18req/s] [内存消耗：4,438.17kb] [文件加载：51]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'admin_role_add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/index.php/admin/Admin/admin_role',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role_add ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 125 - 136
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_role_add.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c` FROM `dino_auth` WHERE  `auth_pid` = 0   [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`auth` FROM `dino_auth` WHERE  `auth_pid` = 1   [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`auth` FROM `dino_auth` WHERE  `auth_pid` = 6   [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`auth` FROM `dino_auth` WHERE  `auth_pid` = 10   [ RunTime:0.002000s ]
+[ error ] [8]未定义数组索引: add[D:\wamp64\www\lwhezuo\xitong\runtime\temp\22782ec7f6c72c13f626150d830a0fda.php:64]
+[ error ] [8]未定义数组索引: edit[D:\wamp64\www\lwhezuo\xitong\runtime\temp\22782ec7f6c72c13f626150d830a0fda.php:66]
+[ error ] [8]未定义数组索引: del[D:\wamp64\www\lwhezuo\xitong\runtime\temp\22782ec7f6c72c13f626150d830a0fda.php:68]
+[ error ] [8]未定义数组索引: view[D:\wamp64\www\lwhezuo\xitong\runtime\temp\22782ec7f6c72c13f626150d830a0fda.php:70]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:52:43+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Menu/lists
+[ log ] www.git.com/index.php/admin/Menu/lists [运行时间：0.096006s][吞吐率：10.42req/s] [内存消耗：4,219.51kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ error ] [8]未定义变量: auth_name[D:\wamp64\www\lwhezuo\xitong\runtime\temp\0ff4ebcd5ac241bcb45335f3d9dd6169.php:35]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:52:45+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/menu/listsedit/id/17.html
+[ log ] www.git.com/index.php/admin/menu/listsedit/id/17.html [运行时间：0.083005s][吞吐率：12.05req/s] [内存消耗：4,467.13kb] [文件加载：51]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'listsedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/index.php/admin/Menu/lists',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+  'id' => '17',
+)
+[ info ] [ RUN ] Method [ <user> public method listsedit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 201 - 213
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\listsedit.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`remark`,`auth_pid`,`auth` FROM `dino_auth` WHERE  `id` = 17 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name` FROM `dino_auth` WHERE  `auth_pid` = 0   [ RunTime:0.001000s ]
+[ error ] [8]未定义数组索引: add[D:\wamp64\www\lwhezuo\xitong\runtime\temp\ee026d09475122cd42a08760a2d8dfa6.php:75]
+[ error ] [8]未定义数组索引: edit[D:\wamp64\www\lwhezuo\xitong\runtime\temp\ee026d09475122cd42a08760a2d8dfa6.php:76]
+[ error ] [8]未定义数组索引: del[D:\wamp64\www\lwhezuo\xitong\runtime\temp\ee026d09475122cd42a08760a2d8dfa6.php:77]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:52:47+08:00 ] 127.0.0.1 127.0.0.1 POST /index.php/admin/menu/listsedit.html
+[ log ] www.git.com/index.php/admin/menu/listsedit.html [运行时间：0.127007s][吞吐率：7.87req/s] [内存消耗：4,117.70kb] [文件加载：46]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'listsedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'origin' => 'http://www.git.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'referer' => 'http://www.git.com/index.php/admin/menu/listsedit/id/17.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'content-length' => '123',
+)
+[ info ] [ PARAM ] array (
+  'id' => '17',
+  'auth_name' => '日志管理',
+  'auth_c' => 'Menu',
+  'auth_a' => 'systemlog_list',
+  'pid' => '1',
+  'remark' => '',
+  'auths' => '1,2,3,4,',
+)
+[ info ] [ RUN ] Method [ <user> public method listsedit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 201 - 213
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_auth` WHERE  `auth_pid` = 17 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_auth` WHERE  `id` <> 17  AND `auth_name` = '日志管理'  AND `auth_pid` = 1 LIMIT 1      [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `dino_auth`  SET `auth_name`='日志管理',`auth_pid`=1,`auth_c`='Menu',`auth_a`='systemlog_list',`auth`='1,2,3,4',`remark`='',`auth_level`=1  WHERE  `id` = 17           [ RunTime:0.085005s ]
+[ sql ] [ SQL ] SELECT `id` FROM `dino_auth` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'lists' LIMIT 1     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_log` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `dino_log` (`user_id` , `user_name` , `menu_id` , `create_time` , `result` , `remarks` , `user_ip`) VALUES (1 , '1234' , 3 , '2017-09-10 22:52:47' , '4' , '修改了菜单为日志管理' , '127.0.0.1')         [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:52:49+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Menu/lists
+[ log ] www.git.com/index.php/admin/Menu/lists [运行时间：0.056003s][吞吐率：17.86req/s] [内存消耗：4,219.44kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/index.php/admin/Menu/lists',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ error ] [8]未定义变量: auth_name[D:\wamp64\www\lwhezuo\xitong\runtime\temp\0ff4ebcd5ac241bcb45335f3d9dd6169.php:35]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:52:49+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Menu/lists
+[ log ] www.git.com/index.php/admin/Menu/lists [运行时间：0.053003s][吞吐率：18.87req/s] [内存消耗：4,219.51kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ error ] [8]未定义变量: auth_name[D:\wamp64\www\lwhezuo\xitong\runtime\temp\0ff4ebcd5ac241bcb45335f3d9dd6169.php:35]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:52:52+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Admin/admin_role
+[ log ] www.git.com/index.php/admin/Admin/admin_role [运行时间：0.042002s][吞吐率：23.81req/s] [内存消耗：4,155.78kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_role',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 96 - 102
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_role.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]Missing argument 1 for app\admin\model\Admin::admin_role(), called in D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php on line 99 and defined[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:184]
+[ error ] [8]未定义变量: where[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:185]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` ORDER BY id desc  [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:52:52+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/admin/admin_role_add.html
+[ log ] www.git.com/index.php/admin/admin/admin_role_add.html [运行时间：0.056003s][吞吐率：17.86req/s] [内存消耗：4,170.31kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'admin_role_add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/index.php/admin/Admin/admin_role',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role_add ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 125 - 136
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_role_add.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c` FROM `dino_auth` WHERE  `auth_pid` = 0   [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`auth` FROM `dino_auth` WHERE  `auth_pid` = 1   [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`auth` FROM `dino_auth` WHERE  `auth_pid` = 6   [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`auth` FROM `dino_auth` WHERE  `auth_pid` = 10   [ RunTime:0.001000s ]
+[ error ] [8]未定义数组索引: view[D:\wamp64\www\lwhezuo\xitong\runtime\temp\22782ec7f6c72c13f626150d830a0fda.php:70]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:57:16+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/index.html
+[ log ] www.git.com/admin/index/index.html [运行时间：0.053003s][吞吐率：18.87req/s] [内存消耗：3,840.51kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/admin/login/login.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Index.php 9 - 18
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\index\index.html [ array (
+  0 => 'lw_role',
+  1 => 'admin',
+  2 => 'ban',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 0  AND `is_show` = '1'    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 1  AND `is_show` = '1'    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 6  AND `is_show` = '1'    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 10  AND `is_show` = '1'    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_admin` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `username`,`role_id` FROM `dino_admin` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:57:16+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/welcome.html
+[ log ] www.git.com/admin/index/welcome.html [运行时间：0.026001s][吞吐率：38.46req/s] [内存消耗：2,067.64kb] [文件加载：32]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method welcome ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T22:57:17+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/index.html
+[ log ] www.git.com/admin/index/index.html [运行时间：0.043002s][吞吐率：23.25req/s] [内存消耗：3,840.51kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/admin/login/login.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Index.php 9 - 18
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\index\index.html [ array (
+  0 => 'lw_role',
+  1 => 'admin',
+  2 => 'ban',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 0  AND `is_show` = '1'    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 1  AND `is_show` = '1'    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 6  AND `is_show` = '1'    [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 10  AND `is_show` = '1'    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_admin` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `username`,`role_id` FROM `dino_admin` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:57:17+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/welcome.html
+[ log ] www.git.com/admin/index/welcome.html [运行时间：0.018001s][吞吐率：55.55req/s] [内存消耗：2,067.64kb] [文件加载：32]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method welcome ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T22:57:19+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Admin/admin_role
+[ log ] www.git.com/index.php/admin/Admin/admin_role [运行时间：0.042002s][吞吐率：23.81req/s] [内存消耗：4,155.78kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_role',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 96 - 102
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_role.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]Missing argument 1 for app\admin\model\Admin::admin_role(), called in D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php on line 99 and defined[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:184]
+[ error ] [8]未定义变量: where[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:185]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` ORDER BY id desc  [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:57:21+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/admin/admin_role_edit/id/15.html
+[ log ] www.git.com/index.php/admin/admin/admin_role_edit/id/15.html [运行时间：0.090005s][吞吐率：11.11req/s] [内存消耗：4,463.30kb] [文件加载：51]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'admin_role_edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/index.php/admin/Admin/admin_role',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+  'id' => '15',
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role_edit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 107 - 121
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_role_edit.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` WHERE  `id` = 15 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c` FROM `dino_auth` WHERE  `auth_pid` = 0   [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`auth` FROM `dino_auth` WHERE  `auth_pid` = 1   [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role_value` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'lists'  AND `role_id` = 15     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'system_list'  AND `role_id` = 15     [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'dictionary_list'  AND `role_id` = 15     [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'systemlog_list'  AND `role_id` = 15     [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`auth` FROM `dino_auth` WHERE  `auth_pid` = 6   [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Admin'  AND `auth_a` = 'admin_role'  AND `role_id` = 15     [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Admin'  AND `auth_a` = 'admin_list'  AND `role_id` = 15     [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`auth` FROM `dino_auth` WHERE  `auth_pid` = 10   [ RunTime:0.001000s ]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: role_4[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:72]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: role_4[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:72]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:53]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: role_4[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:72]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: view[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:71]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:53]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:57:25+08:00 ] 127.0.0.1 127.0.0.1 POST /index.php/admin/admin/admin_role_edit.html
+[ log ] www.git.com/index.php/admin/admin/admin_role_edit.html [运行时间：0.082004s][吞吐率：12.19req/s] [内存消耗：3,944.88kb] [文件加载：43]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'admin_role_edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'origin' => 'http://www.git.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'referer' => 'http://www.git.com/index.php/admin/admin/admin_role_edit/id/15.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'content-length' => '54',
+)
+[ info ] [ PARAM ] array (
+  'roleName' => 'cheshi1',
+  'id' => '15',
+  'role_descript' => '',
+  'admin-role-save' => '',
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role_edit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 107 - 121
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_role` WHERE  `role_name` = '15'  AND `id` <> 15 LIMIT 1     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `role_name`,`role_descript` FROM `dino_role` WHERE  `id` = 15 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role_value` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_role_value` WHERE  `role_id` = 15 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] DELETE FROM `dino_role_value`    WHERE  `role_id` = 15    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT `id` FROM `dino_auth` WHERE  `auth_c` = 'Admin'  AND `auth_a` = 'admin_role' LIMIT 1     [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_log` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] INSERT INTO `dino_log` (`user_id` , `user_name` , `menu_id` , `create_time` , `result` , `remarks` , `user_ip`) VALUES (1 , '1234' , 7 , '2017-09-10 22:57:25' , '4' , '修改了角色为cheshi1' , '127.0.0.1')         [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:57:26+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Admin/admin_role
+[ log ] www.git.com/index.php/admin/Admin/admin_role [运行时间：0.049003s][吞吐率：20.41req/s] [内存消耗：4,155.84kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_role',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/index.php/admin/Admin/admin_role',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 96 - 102
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_role.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]Missing argument 1 for app\admin\model\Admin::admin_role(), called in D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php on line 99 and defined[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:184]
+[ error ] [8]未定义变量: where[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:185]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` ORDER BY id desc  [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:57:31+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/index.html
+[ log ] www.git.com/admin/index/index.html [运行时间：0.053003s][吞吐率：18.87req/s] [内存消耗：3,840.32kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/admin/login/login.html',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Index.php 9 - 18
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\index\index.html [ array (
+  0 => 'lw_role',
+  1 => 'admin',
+  2 => 'ban',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 0  AND `is_show` = '1'    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 1  AND `is_show` = '1'    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 6  AND `is_show` = '1'    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 10  AND `is_show` = '1'    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_admin` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `username`,`role_id` FROM `dino_admin` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:57:31+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/welcome.html
+[ log ] www.git.com/admin/index/welcome.html [运行时间：0.038002s][吞吐率：26.31req/s] [内存消耗：2,067.72kb] [文件加载：32]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method welcome ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T22:57:37+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Admin/admin_role
+[ log ] www.git.com/index.php/admin/Admin/admin_role [运行时间：0.047003s][吞吐率：21.28req/s] [内存消耗：4,155.78kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_role',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 96 - 102
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_role.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]Missing argument 1 for app\admin\model\Admin::admin_role(), called in D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php on line 99 and defined[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:184]
+[ error ] [8]未定义变量: where[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:185]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` ORDER BY id desc  [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:57:39+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/admin/admin_role_edit/id/15.html
+[ log ] www.git.com/index.php/admin/admin/admin_role_edit/id/15.html [运行时间：0.093006s][吞吐率：10.75req/s] [内存消耗：4,198.41kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'admin_role_edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/index.php/admin/Admin/admin_role',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+  'id' => '15',
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role_edit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 107 - 121
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_role_edit.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` WHERE  `id` = 15 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c` FROM `dino_auth` WHERE  `auth_pid` = 0   [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`auth` FROM `dino_auth` WHERE  `auth_pid` = 1   [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role_value` [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'lists'  AND `role_id` = 15     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'system_list'  AND `role_id` = 15     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'dictionary_list'  AND `role_id` = 15     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'systemlog_list'  AND `role_id` = 15     [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`auth` FROM `dino_auth` WHERE  `auth_pid` = 6   [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Admin'  AND `auth_a` = 'admin_role'  AND `role_id` = 15     [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Admin'  AND `auth_a` = 'admin_list'  AND `role_id` = 15     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`auth` FROM `dino_auth` WHERE  `auth_pid` = 10   [ RunTime:0.000000s ]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:53]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: role_4[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:72]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: role_4[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:72]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: role_4[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:72]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: role_4[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:72]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:53]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: role_4[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:72]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: view[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:71]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:53]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:57:42+08:00 ] 127.0.0.1 127.0.0.1 POST /index.php/admin/admin/admin_role_edit.html
+[ log ] www.git.com/index.php/admin/admin/admin_role_edit.html [运行时间：0.072004s][吞吐率：13.89req/s] [内存消耗：3,946.28kb] [文件加载：43]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'admin_role_edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'origin' => 'http://www.git.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'referer' => 'http://www.git.com/index.php/admin/admin/admin_role_edit/id/15.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'content-length' => '119',
+)
+[ info ] [ PARAM ] array (
+  'roleName' => 'cheshi1',
+  'id' => '15',
+  'role_descript' => '',
+  'user-Character-0-0' => '',
+  'auth' => 
+  array (
+    0 => '3-1',
+    1 => '3-2',
+    2 => '3-3',
+  ),
+  'admin-role-save' => '',
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role_edit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 107 - 121
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_role` WHERE  `role_name` = '15'  AND `id` <> 15 LIMIT 1     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `role_name`,`role_descript` FROM `dino_role` WHERE  `id` = 15 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role_value` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_role_value` WHERE  `role_id` = 15 LIMIT 1    [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_c`,`auth_a` FROM `dino_auth` WHERE  `id` = 3 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `dino_role_value` (`role_id` , `auth_c` , `auth_a` , `action_type`) VALUES (15 , 'Menu' , 'lists' , '1')      [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_c`,`auth_a` FROM `dino_auth` WHERE  `id` = 3 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] INSERT INTO `dino_role_value` (`role_id` , `auth_c` , `auth_a` , `action_type`) VALUES (15 , 'Menu' , 'lists' , '2')      [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_c`,`auth_a` FROM `dino_auth` WHERE  `id` = 3 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `dino_role_value` (`role_id` , `auth_c` , `auth_a` , `action_type`) VALUES (15 , 'Menu' , 'lists' , '3')      [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id` FROM `dino_auth` WHERE  `auth_c` = 'Admin'  AND `auth_a` = 'admin_role' LIMIT 1     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_log` [ RunTime:0.001001s ]
+[ sql ] [ SQL ] INSERT INTO `dino_log` (`user_id` , `user_name` , `menu_id` , `create_time` , `result` , `remarks` , `user_ip`) VALUES (1 , '1234' , 7 , '2017-09-10 22:57:42' , '4' , '修改了角色为cheshi1' , '127.0.0.1')         [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:57:43+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Admin/admin_role
+[ log ] www.git.com/index.php/admin/Admin/admin_role [运行时间：0.053003s][吞吐率：18.87req/s] [内存消耗：4,155.84kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_role',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/index.php/admin/Admin/admin_role',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 96 - 102
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_role.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]Missing argument 1 for app\admin\model\Admin::admin_role(), called in D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php on line 99 and defined[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:184]
+[ error ] [8]未定义变量: where[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:185]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` ORDER BY id desc  [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:57:50+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/admin/admin_role_edit/id/15.html
+[ log ] www.git.com/index.php/admin/admin/admin_role_edit/id/15.html [运行时间：0.078005s][吞吐率：12.82req/s] [内存消耗：4,196.64kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'admin_role_edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/index.php/admin/Admin/admin_role',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+  'id' => '15',
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role_edit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 107 - 121
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_role_edit.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.008001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` WHERE  `id` = 15 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c` FROM `dino_auth` WHERE  `auth_pid` = 0   [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`auth` FROM `dino_auth` WHERE  `auth_pid` = 1   [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role_value` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'lists'  AND `role_id` = 15     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'system_list'  AND `role_id` = 15     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'dictionary_list'  AND `role_id` = 15     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'systemlog_list'  AND `role_id` = 15     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`auth` FROM `dino_auth` WHERE  `auth_pid` = 6   [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Admin'  AND `auth_a` = 'admin_role'  AND `role_id` = 15     [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Admin'  AND `auth_a` = 'admin_list'  AND `role_id` = 15     [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`auth` FROM `dino_auth` WHERE  `auth_pid` = 10   [ RunTime:0.001000s ]
+[ error ] [8]未定义数组索引: role_4[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:72]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: role_4[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:72]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: role_4[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:72]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: role_4[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:72]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:53]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: role_4[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:72]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: view[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:71]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:53]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:57:52+08:00 ] 127.0.0.1 127.0.0.1 POST /index.php/admin/admin/admin_role_edit.html
+[ log ] www.git.com/index.php/admin/admin/admin_role_edit.html [运行时间：0.495029s][吞吐率：2.02req/s] [内存消耗：3,947.44kb] [文件加载：43]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'admin_role_edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'origin' => 'http://www.git.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'referer' => 'http://www.git.com/index.php/admin/admin/admin_role_edit/id/15.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'content-length' => '134',
+)
+[ info ] [ PARAM ] array (
+  'roleName' => 'cheshi1',
+  'id' => '15',
+  'role_descript' => '',
+  'user-Character-0-0' => '',
+  'auth' => 
+  array (
+    0 => '3-1',
+    1 => '3-2',
+    2 => '3-3',
+    3 => '3-4',
+  ),
+  'admin-role-save' => '',
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role_edit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 107 - 121
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_role` WHERE  `role_name` = '15'  AND `id` <> 15 LIMIT 1     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `role_name`,`role_descript` FROM `dino_role` WHERE  `id` = 15 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role_value` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_role_value` WHERE  `role_id` = 15 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] DELETE FROM `dino_role_value`    WHERE  `role_id` = 15    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.419024s ]
+[ sql ] [ SQL ] SELECT `auth_c`,`auth_a` FROM `dino_auth` WHERE  `id` = 3 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `dino_role_value` (`role_id` , `auth_c` , `auth_a` , `action_type`) VALUES (15 , 'Menu' , 'lists' , '1')      [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_c`,`auth_a` FROM `dino_auth` WHERE  `id` = 3 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `dino_role_value` (`role_id` , `auth_c` , `auth_a` , `action_type`) VALUES (15 , 'Menu' , 'lists' , '2')      [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_c`,`auth_a` FROM `dino_auth` WHERE  `id` = 3 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `dino_role_value` (`role_id` , `auth_c` , `auth_a` , `action_type`) VALUES (15 , 'Menu' , 'lists' , '3')      [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_c`,`auth_a` FROM `dino_auth` WHERE  `id` = 3 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `dino_role_value` (`role_id` , `auth_c` , `auth_a` , `action_type`) VALUES (15 , 'Menu' , 'lists' , '4')      [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id` FROM `dino_auth` WHERE  `auth_c` = 'Admin'  AND `auth_a` = 'admin_role' LIMIT 1     [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_log` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] INSERT INTO `dino_log` (`user_id` , `user_name` , `menu_id` , `create_time` , `result` , `remarks` , `user_ip`) VALUES (1 , '1234' , 7 , '2017-09-10 22:57:52' , '4' , '修改了角色为cheshi1' , '127.0.0.1')         [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:57:53+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Admin/admin_role
+[ log ] www.git.com/index.php/admin/Admin/admin_role [运行时间：0.054003s][吞吐率：18.52req/s] [内存消耗：4,155.84kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_role',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/index.php/admin/Admin/admin_role',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 96 - 102
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_role.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]Missing argument 1 for app\admin\model\Admin::admin_role(), called in D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php on line 99 and defined[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:184]
+[ error ] [8]未定义变量: where[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:185]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` ORDER BY id desc  [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:57:58+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/admin/admin_role_edit/id/15.html
+[ log ] www.git.com/index.php/admin/admin/admin_role_edit/id/15.html [运行时间：0.099006s][吞吐率：10.10req/s] [内存消耗：4,196.37kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'admin_role_edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/index.php/admin/Admin/admin_role',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+  'id' => '15',
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role_edit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 107 - 121
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_role_edit.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` WHERE  `id` = 15 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c` FROM `dino_auth` WHERE  `auth_pid` = 0   [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`auth` FROM `dino_auth` WHERE  `auth_pid` = 1   [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role_value` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'lists'  AND `role_id` = 15     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'system_list'  AND `role_id` = 15     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'dictionary_list'  AND `role_id` = 15     [ RunTime:0.002001s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'systemlog_list'  AND `role_id` = 15     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`auth` FROM `dino_auth` WHERE  `auth_pid` = 6   [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Admin'  AND `auth_a` = 'admin_role'  AND `role_id` = 15     [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `action_type` FROM `dino_role_value` WHERE  `auth_c` = 'Admin'  AND `auth_a` = 'admin_list'  AND `role_id` = 15     [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`auth` FROM `dino_auth` WHERE  `auth_pid` = 10   [ RunTime:0.000000s ]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: role_4[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:72]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: role_4[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:72]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: role_4[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:72]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:53]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: role_4[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:72]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:61]
+[ error ] [8]未定义数组索引: role_1[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:66]
+[ error ] [8]未定义数组索引: role_2[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:68]
+[ error ] [8]未定义数组索引: role_3[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:70]
+[ error ] [8]未定义数组索引: view[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:71]
+[ error ] [8]未定义数组索引: xz[D:\wamp64\www\lwhezuo\xitong\runtime\temp\c2fe505db1af7375e8408eb27df00780.php:53]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:58:14+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Admin/admin_role
+[ log ] www.git.com/index.php/admin/Admin/admin_role [运行时间：0.041002s][吞吐率：24.39req/s] [内存消耗：4,155.78kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_role',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_role ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 96 - 102
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_role.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]Missing argument 1 for app\admin\model\Admin::admin_role(), called in D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php on line 99 and defined[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:184]
+[ error ] [8]未定义变量: where[D:\wamp64\www\lwhezuo\xitong\application\admin\model\Admin.php:185]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`role_name`,`role_descript` FROM `dino_role` ORDER BY id desc  [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T22:58:14+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Admin/admin_list
+[ log ] www.git.com/index.php/admin/Admin/admin_list [运行时间：0.049003s][吞吐率：20.41req/s] [内存消耗：4,191.60kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Admin',
+    2 => 'admin_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=vl2uktou3n3ta98ed3gr4a9in5; think_var=zh-cn; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505053356; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505053356',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method admin_list ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Admin.php 9 - 42
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_admin` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`username`,`mobile`,`email`,`state`,`role_id`,`addtime` FROM `dino_admin` WHERE  (  1 )  AND `type` = '1' ORDER BY id desc   [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_role` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `role_name` FROM `dino_role` WHERE  `id` = 13 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `role_name` FROM `dino_role` WHERE  `id` = 13 LIMIT 1    [ RunTime:0.000000s ]
+[ error ] [8]未定义变量: startime[D:\wamp64\www\lwhezuo\xitong\runtime\temp\ffd741db071fb63a0f166e0816d09152.php:35]
+[ error ] [8]未定义变量: overtime[D:\wamp64\www\lwhezuo\xitong\runtime\temp\ffd741db071fb63a0f166e0816d09152.php:38]
+[ error ] [8]未定义变量: username[D:\wamp64\www\lwhezuo\xitong\runtime\temp\ffd741db071fb63a0f166e0816d09152.php:44]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:27:42+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/index.html
+[ log ] www.git.com/admin/index/index.html [运行时间：0.064004s][吞吐率：15.62req/s] [内存消耗：3,843.16kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/admin/login/login.html',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Index.php 9 - 18
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\index\index.html [ array (
+  0 => 'lw_role',
+  1 => 'admin',
+  2 => 'ban',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 0  AND `is_show` = '1'    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 1  AND `is_show` = '1'    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 6  AND `is_show` = '1'    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 10  AND `is_show` = '1'    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_admin` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `username`,`role_id` FROM `dino_admin` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:27:42+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/welcome.html
+[ log ] www.git.com/admin/index/welcome.html [运行时间：0.032002s][吞吐率：31.25req/s] [内存消耗：2,069.95kb] [文件加载：32]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method welcome ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T23:27:43+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Menu/lists
+[ log ] www.git.com/index.php/admin/Menu/lists [运行时间：0.070004s][吞吐率：14.28req/s] [内存消耗：4,222.52kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ error ] [8]未定义变量: auth_name[D:\wamp64\www\lwhezuo\xitong\runtime\temp\0ff4ebcd5ac241bcb45335f3d9dd6169.php:35]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:27:44+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/menu/listsadd.html
+[ log ] www.git.com/index.php/admin/menu/listsadd.html [运行时间：0.131008s][吞吐率：7.63req/s] [内存消耗：4,319.15kb] [文件加载：46]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'listsadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/Menu/lists',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method listsadd ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 188 - 199
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\listsadd.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name` FROM `dino_auth` WHERE  `auth_pid` = 0   [ RunTime:0.001001s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:27:46+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Menu/lists
+[ log ] www.git.com/index.php/admin/Menu/lists [运行时间：0.046003s][吞吐率：21.74req/s] [内存消耗：4,221.49kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ error ] [8]未定义变量: auth_name[D:\wamp64\www\lwhezuo\xitong\runtime\temp\0ff4ebcd5ac241bcb45335f3d9dd6169.php:35]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:27:47+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/menu/listsedit/id/17.html
+[ log ] www.git.com/index.php/admin/menu/listsedit/id/17.html [运行时间：0.062003s][吞吐率：16.13req/s] [内存消耗：4,066.31kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'listsedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/Menu/lists',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+  'id' => '17',
+)
+[ info ] [ RUN ] Method [ <user> public method listsedit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 201 - 213
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\listsedit.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.008000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.003001s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`remark`,`auth_pid`,`auth` FROM `dino_auth` WHERE  `id` = 17 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name` FROM `dino_auth` WHERE  `auth_pid` = 0   [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:27:49+08:00 ] 127.0.0.1 127.0.0.1 POST /index.php/admin/menu/listsedit.html
+[ log ] www.git.com/index.php/admin/menu/listsedit.html [运行时间：0.088005s][吞吐率：11.36req/s] [内存消耗：4,119.68kb] [文件加载：46]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'listsedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'origin' => 'http://www.git.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/menu/listsedit/id/17.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'content-length' => '126',
+)
+[ info ] [ PARAM ] array (
+  'id' => '17',
+  'auth_name' => '日志管理',
+  'auth_c' => 'Menu',
+  'auth_a' => 'systemlog_list',
+  'pid' => '1',
+  'remark' => '132',
+  'auths' => '1,2,3,4,',
+)
+[ info ] [ RUN ] Method [ <user> public method listsedit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 201 - 213
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_auth` WHERE  `auth_pid` = 17 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_auth` WHERE  `id` <> 17  AND `auth_name` = '日志管理'  AND `auth_pid` = 1 LIMIT 1      [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `dino_auth`  SET `auth_name`='日志管理',`auth_pid`=1,`auth_c`='Menu',`auth_a`='systemlog_list',`auth`='1,2,3,4',`remark`='132',`auth_level`=1  WHERE  `id` = 17           [ RunTime:0.034002s ]
+[ sql ] [ SQL ] SELECT `id` FROM `dino_auth` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'lists' LIMIT 1     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_log` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] INSERT INTO `dino_log` (`user_id` , `user_name` , `menu_id` , `create_time` , `result` , `remarks` , `user_ip`) VALUES (1 , '1234' , 3 , '2017-09-10 23:27:49' , '4' , '修改了菜单为日志管理' , '127.0.0.1')         [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:27:50+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Menu/lists
+[ log ] www.git.com/index.php/admin/Menu/lists [运行时间：0.045003s][吞吐率：22.22req/s] [内存消耗：4,221.53kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/Menu/lists',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ error ] [8]未定义变量: auth_name[D:\wamp64\www\lwhezuo\xitong\runtime\temp\0ff4ebcd5ac241bcb45335f3d9dd6169.php:35]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:28:33+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/index.html
+[ log ] www.git.com/admin/index/index.html [运行时间：0.056003s][吞吐率：17.86req/s] [内存消耗：3,843.23kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/admin/login/login.html',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Index.php 9 - 18
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\index\index.html [ array (
+  0 => 'lw_role',
+  1 => 'admin',
+  2 => 'ban',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 0  AND `is_show` = '1'    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 1  AND `is_show` = '1'    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 6  AND `is_show` = '1'    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 10  AND `is_show` = '1'    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_admin` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `username`,`role_id` FROM `dino_admin` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:28:33+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/welcome.html
+[ log ] www.git.com/admin/index/welcome.html [运行时间：0.031002s][吞吐率：32.26req/s] [内存消耗：2,070.09kb] [文件加载：32]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method welcome ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T23:28:33+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Menu/lists
+[ log ] www.git.com/index.php/admin/Menu/lists [运行时间：0.053003s][吞吐率：18.87req/s] [内存消耗：4,221.49kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ error ] [8]未定义变量: auth_name[D:\wamp64\www\lwhezuo\xitong\runtime\temp\0ff4ebcd5ac241bcb45335f3d9dd6169.php:35]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:28:35+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/menu/listsedit/id/17.html
+[ log ] www.git.com/index.php/admin/menu/listsedit/id/17.html [运行时间：0.060003s][吞吐率：16.67req/s] [内存消耗：4,066.31kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'listsedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/Menu/lists',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+  'id' => '17',
+)
+[ info ] [ RUN ] Method [ <user> public method listsedit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 201 - 213
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\listsedit.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`remark`,`auth_pid`,`auth` FROM `dino_auth` WHERE  `id` = 17 LIMIT 1    [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name` FROM `dino_auth` WHERE  `auth_pid` = 0   [ RunTime:0.002000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:28:36+08:00 ] 127.0.0.1 127.0.0.1 POST /index.php/admin/menu/listsedit.html
+[ log ] www.git.com/index.php/admin/menu/listsedit.html [运行时间：0.241013s][吞吐率：4.15req/s] [内存消耗：4,119.68kb] [文件加载：46]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'listsedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'origin' => 'http://www.git.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/menu/listsedit/id/17.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'content-length' => '127',
+)
+[ info ] [ PARAM ] array (
+  'id' => '17',
+  'auth_name' => '日志管理',
+  'auth_c' => 'Menu',
+  'auth_a' => 'systemlog_list',
+  'pid' => '1',
+  'remark' => '1323',
+  'auths' => '1,2,3,4,',
+)
+[ info ] [ RUN ] Method [ <user> public method listsedit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 201 - 213
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_auth` WHERE  `auth_pid` = 17 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_auth` WHERE  `id` <> 17  AND `auth_name` = '日志管理'  AND `auth_pid` = 1 LIMIT 1      [ RunTime:0.001000s ]
+[ sql ] [ SQL ] UPDATE `dino_auth`  SET `auth_name`='日志管理',`auth_pid`=1,`auth_c`='Menu',`auth_a`='systemlog_list',`auth`='1,2,3,4',`remark`='1323',`auth_level`=1  WHERE  `id` = 17           [ RunTime:0.198011s ]
+[ sql ] [ SQL ] SELECT `id` FROM `dino_auth` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'lists' LIMIT 1     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_log` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] INSERT INTO `dino_log` (`user_id` , `user_name` , `menu_id` , `create_time` , `result` , `remarks` , `user_ip`) VALUES (1 , '1234' , 3 , '2017-09-10 23:28:36' , '4' , '修改了菜单为日志管理' , '127.0.0.1')         [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:28:37+08:00 ] 127.0.0.1 127.0.0.1 POST /index.php/admin/menu/listsedit.html
+[ log ] www.git.com/index.php/admin/menu/listsedit.html [运行时间：0.181010s][吞吐率：5.52req/s] [内存消耗：4,113.82kb] [文件加载：46]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'listsedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'origin' => 'http://www.git.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/menu/listsedit/id/17.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'content-length' => '127',
+)
+[ info ] [ PARAM ] array (
+  'id' => '17',
+  'auth_name' => '日志管理',
+  'auth_c' => 'Menu',
+  'auth_a' => 'systemlog_list',
+  'pid' => '1',
+  'remark' => '1323',
+  'auths' => '1,2,3,4,',
+)
+[ info ] [ RUN ] Method [ <user> public method listsedit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 201 - 213
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_auth` WHERE  `auth_pid` = 17 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_auth` WHERE  `id` <> 17  AND `auth_name` = '日志管理'  AND `auth_pid` = 1 LIMIT 1      [ RunTime:0.001000s ]
+[ sql ] [ SQL ] UPDATE `dino_auth`  SET `auth_name`='日志管理',`auth_pid`=1,`auth_c`='Menu',`auth_a`='systemlog_list',`auth`='1,2,3,4',`remark`='1323',`auth_level`=1  WHERE  `id` = 17           [ RunTime:0.133008s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:28:37+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Menu/lists
+[ log ] www.git.com/index.php/admin/Menu/lists [运行时间：0.052003s][吞吐率：19.23req/s] [内存消耗：4,221.53kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/Menu/lists',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ error ] [8]未定义变量: auth_name[D:\wamp64\www\lwhezuo\xitong\runtime\temp\0ff4ebcd5ac241bcb45335f3d9dd6169.php:35]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:28:39+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/menu/listsedit/id/17.html
+[ log ] www.git.com/index.php/admin/menu/listsedit/id/17.html [运行时间：0.059004s][吞吐率：16.95req/s] [内存消耗：4,066.27kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'listsedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/Menu/lists',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+  'id' => '17',
+)
+[ info ] [ RUN ] Method [ <user> public method listsedit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 201 - 213
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\listsedit.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`remark`,`auth_pid`,`auth` FROM `dino_auth` WHERE  `id` = 17 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name` FROM `dino_auth` WHERE  `auth_pid` = 0   [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:28:41+08:00 ] 127.0.0.1 127.0.0.1 POST /index.php/admin/menu/listsedit.html
+[ log ] www.git.com/index.php/admin/menu/listsedit.html [运行时间：0.057003s][吞吐率：17.54req/s] [内存消耗：4,119.74kb] [文件加载：46]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'listsedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'origin' => 'http://www.git.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/menu/listsedit/id/17.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'content-length' => '128',
+)
+[ info ] [ PARAM ] array (
+  'id' => '17',
+  'auth_name' => '日志管理',
+  'auth_c' => 'Menu',
+  'auth_a' => 'systemlog_list',
+  'pid' => '1',
+  'remark' => '13231',
+  'auths' => '1,2,3,4,',
+)
+[ info ] [ RUN ] Method [ <user> public method listsedit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 201 - 213
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_auth` WHERE  `auth_pid` = 17 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_auth` WHERE  `id` <> 17  AND `auth_name` = '日志管理'  AND `auth_pid` = 1 LIMIT 1      [ RunTime:0.001000s ]
+[ sql ] [ SQL ] UPDATE `dino_auth`  SET `auth_name`='日志管理',`auth_pid`=1,`auth_c`='Menu',`auth_a`='systemlog_list',`auth`='1,2,3,4',`remark`='13231',`auth_level`=1  WHERE  `id` = 17           [ RunTime:0.013001s ]
+[ sql ] [ SQL ] SELECT `id` FROM `dino_auth` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'lists' LIMIT 1     [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_log` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] INSERT INTO `dino_log` (`user_id` , `user_name` , `menu_id` , `create_time` , `result` , `remarks` , `user_ip`) VALUES (1 , '1234' , 3 , '2017-09-10 23:28:41' , '4' , '修改了菜单为日志管理' , '127.0.0.1')         [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:28:42+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Menu/lists
+[ log ] www.git.com/index.php/admin/Menu/lists [运行时间：0.044002s][吞吐率：22.73req/s] [内存消耗：4,221.53kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/Menu/lists',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ error ] [8]未定义变量: auth_name[D:\wamp64\www\lwhezuo\xitong\runtime\temp\0ff4ebcd5ac241bcb45335f3d9dd6169.php:35]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:30:20+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/index.html
+[ log ] www.git.com/admin/index/index.html [运行时间：0.056003s][吞吐率：17.86req/s] [内存消耗：3,843.23kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/admin/login/login.html',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Index.php 9 - 18
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\index\index.html [ array (
+  0 => 'lw_role',
+  1 => 'admin',
+  2 => 'ban',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 0  AND `is_show` = '1'    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 1  AND `is_show` = '1'    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 6  AND `is_show` = '1'    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 10  AND `is_show` = '1'    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_admin` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `username`,`role_id` FROM `dino_admin` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:30:20+08:00 ] 127.0.0.1 127.0.0.1 GET /admin/index/welcome.html
+[ log ] www.git.com/admin/index/welcome.html [运行时间：0.043003s][吞吐率：23.25req/s] [内存消耗：2,070.09kb] [文件加载：32]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method welcome ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-10T23:30:21+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Menu/lists
+[ log ] www.git.com/index.php/admin/Menu/lists [运行时间：0.077004s][吞吐率：12.99req/s] [内存消耗：4,221.49kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ error ] [8]未定义变量: auth_name[D:\wamp64\www\lwhezuo\xitong\runtime\temp\0ff4ebcd5ac241bcb45335f3d9dd6169.php:35]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:30:23+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/menu/listsedit/id/17.html
+[ log ] www.git.com/index.php/admin/menu/listsedit/id/17.html [运行时间：0.086005s][吞吐率：11.63req/s] [内存消耗：4,066.27kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'listsedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/Menu/lists',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+  'id' => '17',
+)
+[ info ] [ RUN ] Method [ <user> public method listsedit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 201 - 213
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\listsedit.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.031002s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`remark`,`auth_pid`,`auth` FROM `dino_auth` WHERE  `id` = 17 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name` FROM `dino_auth` WHERE  `auth_pid` = 0   [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:30:24+08:00 ] 127.0.0.1 127.0.0.1 POST /index.php/admin/menu/listsedit.html
+[ log ] www.git.com/index.php/admin/menu/listsedit.html [运行时间：0.085004s][吞吐率：11.76req/s] [内存消耗：4,119.79kb] [文件加载：46]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'listsedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'origin' => 'http://www.git.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/menu/listsedit/id/17.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'content-length' => '131',
+)
+[ info ] [ PARAM ] array (
+  'id' => '17',
+  'auth_name' => '日志管理',
+  'auth_c' => 'Menu',
+  'auth_a' => 'systemlog_list',
+  'pid' => '1',
+  'remark' => '13231111',
+  'auths' => '1,2,3,4,',
+)
+[ info ] [ RUN ] Method [ <user> public method listsedit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 201 - 213
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_auth` WHERE  `auth_pid` = 17 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_auth` WHERE  `id` <> 17  AND `auth_name` = '日志管理'  AND `auth_pid` = 1 LIMIT 1      [ RunTime:0.001000s ]
+[ sql ] [ SQL ] UPDATE `dino_auth`  SET `auth_name`='日志管理',`auth_pid`=1,`auth_c`='Menu',`auth_a`='systemlog_list',`auth`='1,2,3,4',`remark`='13231111',`auth_level`=1  WHERE  `id` = 17           [ RunTime:0.036002s ]
+[ sql ] [ SQL ] SELECT `id` FROM `dino_auth` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'lists' LIMIT 1     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_log` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `dino_log` (`user_id` , `user_name` , `menu_id` , `create_time` , `result` , `remarks` , `user_ip`) VALUES (1 , '1234' , 3 , '2017-09-10 23:30:24' , '4' , '修改了菜单为日志管理' , '127.0.0.1')         [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:30:26+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Menu/lists
+[ log ] www.git.com/index.php/admin/Menu/lists [运行时间：0.045003s][吞吐率：22.22req/s] [内存消耗：4,221.53kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/Menu/lists',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ error ] [8]未定义变量: auth_name[D:\wamp64\www\lwhezuo\xitong\runtime\temp\0ff4ebcd5ac241bcb45335f3d9dd6169.php:35]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:30:41+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/menu/listsadd.html
+[ log ] www.git.com/index.php/admin/menu/listsadd.html [运行时间：0.091005s][吞吐率：10.99req/s] [内存消耗：4,062.10kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'listsadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/Menu/lists',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method listsadd ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 188 - 199
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\listsadd.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.020001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name` FROM `dino_auth` WHERE  `auth_pid` = 0   [ RunTime:0.002001s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:30:46+08:00 ] 127.0.0.1 127.0.0.1 POST /index.php/admin/menu/listsadd.html
+[ log ] www.git.com/index.php/admin/menu/listsadd.html [运行时间：0.100006s][吞吐率：10.00req/s] [内存消耗：4,119.81kb] [文件加载：46]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'listsadd',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'origin' => 'http://www.git.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/menu/listsadd.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'content-length' => '59',
+)
+[ info ] [ PARAM ] array (
+  'auth_name' => '121',
+  'auth_c' => '21',
+  'auth_a' => '12',
+  'pid' => '10',
+  'remark' => '',
+  'auths' => '2,',
+)
+[ info ] [ RUN ] Method [ <user> public method listsadd ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 188 - 199
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_auth` WHERE  `auth_name` = '121'  AND `auth_pid` = 10 LIMIT 1     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `dino_auth` (`auth_name` , `auth_pid` , `auth` , `auth_c` , `auth_a` , `remark` , `auth_level`) VALUES ('121' , 10 , '2' , '21' , '12' , '' , 1)         [ RunTime:0.008001s ]
+[ sql ] [ SQL ] UPDATE `dino_auth`  SET `auth_path`='19-10'  WHERE  `id` = 19     [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id` FROM `dino_auth` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'lists' LIMIT 1     [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_log` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] INSERT INTO `dino_log` (`user_id` , `user_name` , `menu_id` , `create_time` , `result` , `remarks` , `user_ip`) VALUES (1 , '1234' , 3 , '2017-09-10 23:30:46' , '2' , '增加了了菜单为121' , '127.0.0.1')         [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:30:47+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Menu/lists
+[ log ] www.git.com/index.php/admin/Menu/lists [运行时间：0.055003s][吞吐率：18.18req/s] [内存消耗：4,223.53kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/Menu/lists',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 10 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ error ] [8]未定义变量: auth_name[D:\wamp64\www\lwhezuo\xitong\runtime\temp\0ff4ebcd5ac241bcb45335f3d9dd6169.php:35]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:30:48+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/menu/listsedit/id/19.html
+[ log ] www.git.com/index.php/admin/menu/listsedit/id/19.html [运行时间：0.084005s][吞吐率：11.90req/s] [内存消耗：4,209.84kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'listsedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/Menu/lists',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+  'id' => '19',
+)
+[ info ] [ RUN ] Method [ <user> public method listsedit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 201 - 213
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\listsedit.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002001s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`remark`,`auth_pid`,`auth` FROM `dino_auth` WHERE  `id` = 19 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name` FROM `dino_auth` WHERE  `auth_pid` = 0   [ RunTime:0.000000s ]
+[ error ] [8]未定义数组索引: add[D:\wamp64\www\lwhezuo\xitong\runtime\temp\ee026d09475122cd42a08760a2d8dfa6.php:75]
+[ error ] [8]未定义数组索引: del[D:\wamp64\www\lwhezuo\xitong\runtime\temp\ee026d09475122cd42a08760a2d8dfa6.php:77]
+[ error ] [8]未定义数组索引: view[D:\wamp64\www\lwhezuo\xitong\runtime\temp\ee026d09475122cd42a08760a2d8dfa6.php:78]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:30:55+08:00 ] 127.0.0.1 127.0.0.1 POST /index.php/admin/menu/listsedit.html
+[ log ] www.git.com/index.php/admin/menu/listsedit.html [运行时间：0.419024s][吞吐率：2.39req/s] [内存消耗：4,119.72kb] [文件加载：46]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'listsedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'origin' => 'http://www.git.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/menu/listsedit/id/19.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'content-length' => '73',
+)
+[ info ] [ PARAM ] array (
+  'id' => '19',
+  'auth_name' => '1212',
+  'auth_c' => '21',
+  'auth_a' => '12',
+  'pid' => '10',
+  'remark' => '1111111',
+  'auths' => '2,',
+)
+[ info ] [ RUN ] Method [ <user> public method listsedit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 201 - 213
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_auth` WHERE  `auth_pid` = 19 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_auth` WHERE  `id` <> 19  AND `auth_name` = '1212'  AND `auth_pid` = 10 LIMIT 1      [ RunTime:0.001000s ]
+[ sql ] [ SQL ] UPDATE `dino_auth`  SET `auth_name`='1212',`auth_pid`=10,`auth_c`='21',`auth_a`='12',`auth`='2',`remark`='1111111',`auth_level`=1  WHERE  `id` = 19           [ RunTime:0.367021s ]
+[ sql ] [ SQL ] SELECT `id` FROM `dino_auth` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'lists' LIMIT 1     [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_log` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] INSERT INTO `dino_log` (`user_id` , `user_name` , `menu_id` , `create_time` , `result` , `remarks` , `user_ip`) VALUES (1 , '1234' , 3 , '2017-09-10 23:30:55' , '4' , '修改了菜单为1212' , '127.0.0.1')         [ RunTime:0.000000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:30:56+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Menu/lists
+[ log ] www.git.com/index.php/admin/Menu/lists [运行时间：0.047003s][吞吐率：21.28req/s] [内存消耗：4,223.53kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/Menu/lists',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 10 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ error ] [8]未定义变量: auth_name[D:\wamp64\www\lwhezuo\xitong\runtime\temp\0ff4ebcd5ac241bcb45335f3d9dd6169.php:35]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:30:58+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/menu/listsedit/id/19.html
+[ log ] www.git.com/index.php/admin/menu/listsedit/id/19.html [运行时间：0.128007s][吞吐率：7.81req/s] [内存消耗：4,209.83kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'listsedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/Menu/lists',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+  'id' => '19',
+)
+[ info ] [ RUN ] Method [ <user> public method listsedit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 201 - 213
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\listsedit.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.008000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.056003s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_a`,`auth_c`,`remark`,`auth_pid`,`auth` FROM `dino_auth` WHERE  `id` = 19 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name` FROM `dino_auth` WHERE  `auth_pid` = 0   [ RunTime:0.001000s ]
+[ error ] [8]未定义数组索引: add[D:\wamp64\www\lwhezuo\xitong\runtime\temp\ee026d09475122cd42a08760a2d8dfa6.php:75]
+[ error ] [8]未定义数组索引: del[D:\wamp64\www\lwhezuo\xitong\runtime\temp\ee026d09475122cd42a08760a2d8dfa6.php:77]
+[ error ] [8]未定义数组索引: view[D:\wamp64\www\lwhezuo\xitong\runtime\temp\ee026d09475122cd42a08760a2d8dfa6.php:78]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:31:00+08:00 ] 127.0.0.1 127.0.0.1 POST /index.php/admin/menu/listsedit.html
+[ log ] www.git.com/index.php/admin/menu/listsedit.html [运行时间：0.087005s][吞吐率：11.49req/s] [内存消耗：4,119.52kb] [文件加载：46]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'menu',
+    2 => 'listsedit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'origin' => 'http://www.git.com',
+  'x-requested-with' => 'XMLHttpRequest',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/menu/listsedit/id/19.html',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'content-length' => '77',
+)
+[ info ] [ PARAM ] array (
+  'id' => '19',
+  'auth_name' => '12121111',
+  'auth_c' => '21',
+  'auth_a' => '12',
+  'pid' => '10',
+  'remark' => '1111111',
+  'auths' => '2,',
+)
+[ info ] [ RUN ] Method [ <user> public method listsedit ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 201 - 213
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_auth` WHERE  `auth_pid` = 19 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) FROM `dino_auth` WHERE  `id` <> 19  AND `auth_name` = '12121111'  AND `auth_pid` = 10 LIMIT 1      [ RunTime:0.000000s ]
+[ sql ] [ SQL ] UPDATE `dino_auth`  SET `auth_name`='12121111',`auth_pid`=10,`auth_c`='21',`auth_a`='12',`auth`='2',`remark`='1111111',`auth_level`=1  WHERE  `id` = 19           [ RunTime:0.016001s ]
+[ sql ] [ SQL ] SELECT `id` FROM `dino_auth` WHERE  `auth_c` = 'Menu'  AND `auth_a` = 'lists' LIMIT 1     [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_log` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] INSERT INTO `dino_log` (`user_id` , `user_name` , `menu_id` , `create_time` , `result` , `remarks` , `user_ip`) VALUES (1 , '1234' , 3 , '2017-09-10 23:31:00' , '4' , '修改了菜单为12121111' , '127.0.0.1')         [ RunTime:0.001000s ]
+
+---------------------------------------------------------------
+[ 2017-09-10T23:31:01+08:00 ] 127.0.0.1 127.0.0.1 GET /index.php/admin/Menu/lists
+[ log ] www.git.com/index.php/admin/Menu/lists [运行时间：0.045003s][吞吐率：22.22req/s] [内存消耗：4,223.53kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Menu',
+    2 => 'lists',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.git.com',
+  'connection' => 'keep-alive',
+  'cache-control' => 'max-age=0',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'upgrade-insecure-requests' => '1',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0',
+  'referer' => 'http://www.git.com/index.php/admin/Menu/lists',
+  'accept-encoding' => 'gzip, deflate, sdch',
+  'accept-language' => 'zh-CN,zh;q=0.8',
+  'cookie' => 'PHPSESSID=6he3rftvpo4nq2e9nabvmld7o7; Hm_lvt_080836300300be57b7f34f4b3e97d911=1505051685; Hm_lpvt_080836300300be57b7f34f4b3e97d911=1505051740; think_var=zh-cn',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method lists ] {
+  @@ D:\wamp64\www\lwhezuo\xitong\application\admin\controller\Menu.php 173 - 186
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\lists.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] D:\wamp64\www\lwhezuo\xitong\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002000s ] mysql:dbname=ykd;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a`,`is_show`,`auth_level`,`auth_pid` FROM `dino_auth` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 10 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 6 LIMIT 1    [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `auth_name` FROM `dino_auth` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000000s ]
+[ error ] [8]未定义变量: auth_name[D:\wamp64\www\lwhezuo\xitong\runtime\temp\0ff4ebcd5ac241bcb45335f3d9dd6169.php:35]
+
+---------------------------------------------------------------

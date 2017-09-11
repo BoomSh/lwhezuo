@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\listsadd.html";i:1505055100;s:81:"D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\\Public\header.html";i:1505047149;s:81:"D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\\Public\footer.html";i:1505047149;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:81:"D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\menu\listsedit.html";i:1505055106;s:81:"D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\\Public\header.html";i:1505047149;s:81:"D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\\Public\footer.html";i:1505047149;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -31,47 +31,51 @@
 <article class="page-container">
     <form action="" method="post" class="form form-horizontal" id="form-member-add">
         <div class="row cl">
+        <input type="hidden" name="id" value="<?php echo $res['id']; ?>">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>菜单名称：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="username" name="auth_name">
+                <input type="text" class="input-text" value="<?php echo $res['auth_name']; ?>" placeholder="" id="username" name="auth_name">
             </div>
         </div> 
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>控制器：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="username" name="auth_c">
+                <input type="text" class="input-text" value="<?php echo $res['auth_c']; ?>" placeholder="" id="username" name="auth_c">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>方法：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="username" name="auth_a">
+                <input type="text" class="input-text" value="<?php echo $res['auth_a']; ?>" placeholder="" id="username" name="auth_a">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">上级菜单：</label>
             <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
                 <select class="select" size="1" name="city">
-                    <option value="0">主菜单</option>
-                    <?php if(is_array($res) || $res instanceof \think\Collection): $i = 0; $__LIST__ = $res;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                    <?php if(is_array($res['list']) || $res['list'] instanceof \think\Collection): $i = 0; $__LIST__ = $res['list'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;if($res['auth_pid'] == $vo['id']): ?>
                         <option value="<?php echo $vo['id']; ?>"><?php echo $vo['auth_name']; ?></option>
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                        <?php endif; endforeach; endif; else: echo "" ;endif; ?>
+                    <option value="0">主菜单</option>
+                    <?php if(is_array($res['list']) || $res['list'] instanceof \think\Collection): $i = 0; $__LIST__ = $res['list'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;if($res['id'] != $vo['id']): ?>
+                        <option value="<?php echo $vo['id']; ?>"><?php echo $vo['auth_name']; ?></option>
+                        <?php endif; endforeach; endif; else: echo "" ;endif; ?>
                 </select>
                 </span> </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">备注：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <textarea name="remark" cols="" rows="" class="textarea"></textarea>
+                <textarea name="remark" cols="" rows="" class="textarea"><?php echo $res['remark']; ?></textarea>
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">拥有功能：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <label><input type="checkbox" name="auths" value="1"/>添加</label>
-                <label><input type="checkbox" name="auths" value="2"/>修改</label>
-                <label><input type="checkbox" name="auths" value="3"/>删除</label>
-                <label><input type="checkbox" name="auths" value="4"/>查看</label>
+                <label><input type="checkbox" name="auths" value="1" <?php if($res['auths']['add'] == 1): ?>checked<?php endif; ?>/>添加</label>
+                <label><input type="checkbox" name="auths" value="2" <?php if($res['auths']['edit'] == 1): ?>checked<?php endif; ?>/>修改</label>
+                <label><input type="checkbox" name="auths" value="3" <?php if($res['auths']['del'] == 1): ?>checked<?php endif; ?>/>删除</label>
+                <label><input type="checkbox" name="auths" value="4" <?php if($res['auths']['view'] == 1): ?>checked<?php endif; ?>/>查看</label>
             </div>
         </div>
         <div class="row cl">
@@ -105,6 +109,7 @@ $(function(){
      
 });
 function listsadd(){
+    var id = $("input[name=id]").val();
     var auth_name = $("input[name=auth_name]").val();
     var auth_c = $("input[name=auth_c]").val();
     var auth_a = $("input[name=auth_a]").val();
@@ -114,9 +119,9 @@ function listsadd(){
     $("input[name=auths]:checked").each(function(){
         auths += $(this).val()+",";
     }); 
-    $.post("<?php echo url('Menu/listsadd'); ?>",{auth_name:auth_name,auth_c:auth_c,auth_a:auth_a,pid:pid,remark:remark,auths:auths},function(data){
+    $.post("<?php echo url('Menu/listsedit'); ?>",{id:id,auth_name:auth_name,auth_c:auth_c,auth_a:auth_a,pid:pid,remark:remark,auths:auths},function(data){
         if(data == "success"){
-                 layer.msg('添加成功!');
+                 layer.msg('修改成功!');
                 setTimeout(function () {
                     parent.location.reload();
                 },1000)

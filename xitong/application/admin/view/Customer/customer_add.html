@@ -1,0 +1,169 @@
+{include file="/Public/header"}
+<title>添加客户</title>
+<meta name="keywords" content="优科达">
+<meta name="description" content="优科达">
+</head>
+<body>
+<article class="page-container">
+    <form action="" method="post" class="form form-horizontal" id="form-member-add">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>客户名称：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="" id="name" name="name">
+            </div>
+        </div> 
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系人：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="" id="" name="contact">
+            </div>
+        </div>   
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>别名：</label>
+            <div class="formControls col-xs-4 col-sm-3">
+                <input type="text" class="input-text" value="" placeholder="" id="" name="alias1">
+            </div>
+            <div class="formControls col-xs-4 col-sm-3">
+                <input type="text" class="input-text" value="" placeholder="" id="" name="alias2">
+            </div>
+            <div class="formControls col-xs-4 col-sm-3">
+                <input type="text" class="input-text" value="" placeholder="" id="" name="alias3">
+            </div>
+        </div> 
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">性别：</label>
+            <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+                <select class="select" size="1" name="sex">
+                    <option value="" selected>请选择性别</option>
+                    <option value="0">保密</option>
+                    <option value="1">男</option>
+                    <option value="2">女</option>
+                </select>
+                </span> </div>
+        </div> 
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="" id="" name="email">
+            </div>
+        </div>  
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="" id="mobile" name="mobile">
+            </div>
+        </div> 
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>电话：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="" id="phone" name="phone">
+            </div>
+        </div> 
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">证件类型：</label>
+            <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+                <select class="select" size="1" name="number_type">
+                    <option value="" selected>请选择证件类型</option>
+                    {volist name="res" id='v'}
+                    <option value="{$v.id}">{$v.name}</option>
+                    {/volist}
+                </select>
+                </span> </div>
+        </div> 
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>证件号码：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="" id="" name="id_number">
+            </div>
+        </div> 
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>地址：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="" id="" name="address">
+            </div>
+        </div> 
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">备注：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <textarea name="remark" cols="" rows="" class="textarea"  placeholder="说点什么..."></textarea>
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+                <!--<input class="btn btn-primary radius" type="button" value="生成此客户的房租单">-->
+            </div>
+        </div>
+    </form>
+</article>
+
+<!--_footer 作为公共模版分离出去-->
+{include file="/Public/footer"}
+<!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本--> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('.skin-minimal input').iCheck({
+        checkboxClass: 'icheckbox-blue',
+        radioClass: 'iradio-blue',
+        increaseArea: '20%'
+    });
+     $("#form-member-add").validate({
+        rules:{
+            name:{
+                required:true,
+            },
+            contact:{
+                required:true,
+            },
+            mobile:{
+                required:true,
+                isMobile:true,
+            },
+            email:{
+                required:true,
+                email:true,
+            },
+            sex:{
+                required:true,
+            },
+             number_type:{
+                required:true,
+            },
+             id_number:{
+                required:true,
+            },
+             address:{
+                required:true,
+            },
+        },
+        focusCleanup:true,
+        success:"valid",
+        submitHandler:function(form){
+            $(form).ajaxSubmit({
+                type: 'post',
+                url: "{:url('Customer/customer_add')}",
+                success: function(data){
+                    if(data == "success"){
+                        layer.msg('添加成功!');
+                        setTimeout(function () {
+                            parent.location.reload();
+                            },1000)
+                    }else{
+                        layer.msg(data);
+                        return false;
+                    }
+                },
+            });
+        }
+    });
+});
+</script> 
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

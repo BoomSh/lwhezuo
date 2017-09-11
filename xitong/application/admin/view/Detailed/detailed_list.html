@@ -1,0 +1,144 @@
+{include file="/Public/header"}
+<title>客户信息</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>业主管理 <span class="c-gray en">&gt;</span>业主列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+<form action="{:url('Detailed/detailed_list')}" method="get">
+    <div class="text-c">   
+        <input type="text" class="input-text" style="width:250px" placeholder="输入业主名称" id="" name="name">
+        <button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜业主</button>
+    </div>
+</form>
+    <div class="cl pd-5 bg-1 bk-gray mt-20 col-xs-12 col-sm-12">
+        <span class="l">
+             {if $lw_role.del eq 1}<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>{/if}　　
+            {if $lw_role.add eq 1}<a href="javascript:;" onclick="member_add('添加业主','detailed_add.html','','550')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加业主</a>{/if}
+            </span>
+        <span class="r">
+            共有数据：<strong>{$res['num']}</strong> 条
+        </span>
+    </div>
+    <div class="mt-20">
+    <table class="table table-border table-bordered table-hover table-bg table-sort">
+        <thead>
+            <tr class="text-c">
+                <th width="25"><input type="checkbox" name="" value=""></th>
+                <th style="display:none;">ID</th>
+                <th>序号</th>
+                <th>业主名称</th>
+                <th>联系人</th>
+                <th>性别</th>
+                <th>邮箱</th>
+                <th>手机</th>
+                <th>电话</th>
+                <th>证件类型</th>
+                <th>证件号码</th>
+                <th>地址</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {volist name="res['list']" id='vo'}
+            <tr class="text-c">
+                <td><input type="checkbox" value="{$vo.id}" name="id"></td>
+                <td style="display:none;">{$vo.k}</td> 
+                <td>{$vo.num}</td> 
+                <td>{$vo.name}</td>
+                <td>{$vo.contact}</td>
+                <td>{$vo.sex}</td>
+                <td>{$vo.email}</td>
+                <td>{$vo.mobile}</td>
+                <td>{$vo.phone}</td>
+                <td>{$vo.number_type}</td>
+                <td>{$vo.id_number}</td>
+                <td>{$vo.address}</td>
+                <td>{$vo.remark}</td>
+                <td class="td-manage">
+                    {if $lw_role.edit eq 1}<a title="编辑" href="javascript:;" onclick="member_edit('编辑','{:url('Detailed/detailed_edit',array('id'=>$vo.id))}','4','','550')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                    {/if}
+                    {if $lw_role.del eq 1}
+                 <a title="删除" href="javascript:;" onclick="member_del(this,'{$vo.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                 {/if}
+                </td>
+            </tr>
+            {/volist}
+        </tbody>
+    </table>
+    </div>
+</div>
+{include file="/Public/footer"}
+
+<script type="text/javascript" src="__PUBLIC__admin/lib/My97DatePicker/4.8/WdatePicker.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('.table-sort').dataTable({
+        "aaSorting": [[ 1, "asc" ]],//默认第几个排序
+        "searching": false,//禁用原生搜索
+        "bLengthChange": false,//禁用原生搜索
+        "bStateSave": false,//状态保存
+        "aoColumnDefs": [
+          //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+          {"orderable":false,"aTargets":[0,11]}// 制定列不参与排序
+        ]
+    });
+    
+});
+/*用户-添加*/
+function member_add(title,url,w,h){
+    layer_show(title,url,w,h);
+}
+/*用户-查看*/
+function member_show(title,url,id,w,h){
+    layer_show(title,url,w,h);
+} 
+/*用户-编辑*/
+function member_edit(title,url,id,w,h){
+    layer_show(title,url,w,h);
+} 
+/*用户-删除*/
+function member_del(obj,id){
+    layer.confirm('确认要删除吗？',function(index){
+        $.post("{:url('Detailed/detailed_del')}",{id:id},function(data){
+            if(data == "success"){
+                layer.msg("删除成功");
+                $(obj).parents("tr").remove();
+            }else{
+                layer.msg(data);
+            }
+        }) 
+    });
+}
+function datadel(){
+    layer.confirm('确认要删除吗？',function(index){
+    if($(".text-c input[name='id']:checked").length > 0){
+        var id = "";
+        $(".text-c input[name='id']:checked").each(function() {
+                             var reservation = $(this).val();
+                             id += reservation + ",";
+                        });
+        length = id.length;
+        id = id.substring(id,length-1);
+        $.post("{:url('Detailed/detailed_del')}",{id:id},function(data){
+            if(data == "success"){
+                layer.msg("删除成功");
+                $(".text-c input[name='id']:checked").each(function() {
+                        var reservation = $(this).parents(".text-c");
+                        reservation.hide();
+                });
+            }else{
+                layer.msg(data);
+            }
+        })
+    }else{
+        layer.msg("请选择删除的信息");
+        return false;
+    }
+})
+}
+</script> 
+</body>
+</html>

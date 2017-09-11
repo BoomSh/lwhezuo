@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:87:"D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_role_add.html";i:1505055127;s:81:"D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\\Public\header.html";i:1505047149;s:81:"D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\\Public\footer.html";i:1505047149;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:88:"D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\admin\admin_role_edit.html";i:1505055136;s:81:"D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\\Public\header.html";i:1505047149;s:81:"D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\\Public\footer.html";i:1505047149;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -33,23 +33,24 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>角色名称：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="roleName" name="roleName">
+                <input type="text" class="input-text" value="<?php echo $res['role']['role_name']; ?>" placeholder="" id="roleName" name="roleName">
             </div>
+            <input type="hidden" class="input-text" value="<?php echo $res['role']['id']; ?>" name="id">
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">备注：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="role_descript">
+                <input type="text" class="input-text" value="<?php echo $res['role']['role_descript']; ?>" placeholder="" id="" name="role_descript">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">网站角色：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <?php if(is_array($res) || $res instanceof \think\Collection): $i = 0; $__LIST__ = $res;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                <?php if(is_array($res['list']) || $res['list'] instanceof \think\Collection): $i = 0; $__LIST__ = $res['list'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
                 <dl class="permission-list">
                     <dt>
                         <label>
-                            <input type="checkbox">
+                            <input type="checkbox" <?php if($vo['xz'] == 1): ?>checked<?php endif; ?>>
                             <?php echo $vo['auth_name']; ?></label>
                     </dt>
                     <dd>
@@ -57,18 +58,18 @@
                         <dl class="cl permission-list2">
                             <dt>
                                 <label class="">
-                                    <input type="checkbox" value="" name="user-Character-0-0" id="user-Character-0-0">
+                                    <input type="checkbox" value="" name="user-Character-0-0" id="user-Character-0-0" <?php if($v['xz'] == 1): ?>checked<?php endif; ?>>
                                     <?php echo $v['auth_name']; ?></label>
                             </dt>
                             <dd>
                                 <?php if($v['add'] == 1): ?><label class="">
-                                    <input type="checkbox" value="<?php echo $v['id']; ?>-1" name="auth[]">
+                                    <input type="checkbox" value="<?php echo $v['id']; ?>-1" name="auth[]" <?php if($v['role_1'] == 1): ?>checked<?php endif; ?>>
                                     添加</label><?php endif; if($v['edit'] == 1): ?><label class="">
-                                    <input type="checkbox" value="<?php echo $v['id']; ?>-2" name="auth[]">
+                                    <input type="checkbox" value="<?php echo $v['id']; ?>-2" name="auth[]" <?php if($v['role_2'] == 2): ?>checked<?php endif; ?>>
                                     修改</label><?php endif; if($v['del'] == 1): ?><label class="">
-                                    <input type="checkbox" value="<?php echo $v['id']; ?>-3" name="auth[]">
+                                    <input type="checkbox" value="<?php echo $v['id']; ?>-3" name="auth[]" <?php if($v['role_3'] == 3): ?>checked<?php endif; ?>>
                                     删除</label><?php endif; if($v['view'] == 1): ?><label class="">
-                                    <input type="checkbox" value="<?php echo $v['id']; ?>-4" name="auth[]">
+                                    <input type="checkbox" value="<?php echo $v['id']; ?>-4" name="auth[]" <?php if($v['role_4'] == 4): ?>checked<?php endif; ?>>
                                     查看</label><?php endif; ?>
                             </dd>
                         </dl>
@@ -133,10 +134,10 @@ $(function(){
         submitHandler:function(form){
             $(form).ajaxSubmit({
                 type: 'post',
-                url: "<?php echo url('Admin/admin_role_add'); ?>",
+                url: "<?php echo url('Admin/admin_role_edit'); ?>",
                 success: function(data){
                     if(data == "success"){
-                        layer.msg('添加成功!');
+                        layer.msg('修改成功!');
                         setTimeout(function () {
                             parent.location.reload();
                             },1000)
