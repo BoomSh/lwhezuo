@@ -18,6 +18,7 @@ class Index extends Common
     }
     /*欢迎页面*/
     public function welcome(){
-        echo 1;
+        
+        return $this->fetch();
     }
 }
