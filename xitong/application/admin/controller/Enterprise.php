@@ -70,7 +70,21 @@ class Enterprise extends Common
 	 * @return   [type]                   [description]
 	 */
     public function company_edit(){
-
+        $Enterprise = model("Enterprise");
+        if(request()->isGet()){
+            /*获取银行信息*/
+            $bank = $Enterprise->bank_info();
+            $this->assign("bank",$bank);
+            /*获取公司信息*/
+            $res = $Enterprise->company_edit();
+            $this->assign("res",$res);
+            return $this->fetch();
+        }else if(request()->isPost()){
+            $row = $Enterprise->company_edit();
+            return $row;
+        }else{
+            return "请选择修改的信息";
+        }
     }
     /**
 	 * 公司信息删除
@@ -79,6 +93,13 @@ class Enterprise extends Common
 	 * @return   [type]                   [description]
 	 */
     public function company_del(){
+        $Enterprise = model("Enterprise");
+        if(request()->isPost()){
+            $row = $Enterprise->company_del();
+            return $row;
+        }else{
+            return "请选择删除的信息";
+        }
 
     }
     /**

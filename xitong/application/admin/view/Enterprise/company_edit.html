@@ -1,4 +1,4 @@
-﻿{include file="/Public/header"}
+{include file="/Public/header"}
 
 <title>添加公司</title>
 <meta name="keywords" content="优科达">
@@ -7,46 +7,48 @@
 <body>
 <article class="page-container">
 	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+	   <input type="hidden" name="id" value="{$res['id']}">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司名称：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="name" name="name">
+				<input type="text" class="input-text" value="{$res['name']}" placeholder="" id="name" name="name">
 			</div>
 		</div> 
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>统一社会信用代码：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="license_number" name="license_number">
+				<input type="text" class="input-text" value="{$res['license_number']}" placeholder="" id="license_number" name="license_number">
 			</div>
 		</div> 
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>地址：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="address" name="address">
+				<input type="text" class="input-text" value="{$res['address']}" placeholder="" id="address" name="address">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>法人代表：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="legal" name="legal">
+				<input type="text" class="input-text" value="{$res['legal']}" placeholder="" id="legal" name="legal">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>联系电话：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="legal_mobile" name="legal_mobile">
+				<input type="text" class="input-text" value="{$res['legal_mobile']}" placeholder="" id="legal_mobile" name="legal_mobile">
 			</div>
 		</div>
 		<div class="row cl zhanghu" >
 			<div id="rent">
-				<div>
+			{volist name="res['bank']" id="vo"}
+				<div>	
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">银行账户：</label>
 			<div class="formControls col-xs-8 col-sm-6"> <span class="select-box">
 				<select class="select" size="1" name="bankname[]">
 					<option value="" selected>请选择开户银行</option>
 					{volist name="bank" id="v"}
-					<option value="{$v['id']}">{$v['name']}</option>
+					<option {if $vo.name eq $v.id}selected='selected'{/if} value="{$v['id']}">{$v['name']}</option>
 					{/volist}
 				</select>
 				</span> </div>
@@ -54,38 +56,39 @@
 		<div class="row cl" >
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>银行账号：</label>
 			<div class="formControls col-xs-8 col-sm-6">
-				<input type="text" class="input-text" placeholder="@" name="bank_number[]" />
+				<input type="text" class="input-text" value="{$vo['bank_number']}" placeholder="@" name="bank_number[]" />
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>银行户名：</label>
 			<div class="formControls col-xs-8 col-sm-6">
-				<input type="text" class="input-text" placeholder="@" name="bank_name[]" />
+				<input type="text" class="input-text" placeholder="@" value="{$vo['bank_name']}" name="bank_name[]" />
 			</div>
 			<div>
 				<span class='btn  radius ppremoveline'><i class='Hui-iconfont'>&#xe6a1;</i> </span>
 			</div>
 		</div>
 		</div>
+		{/volist}
 		</div>
 		</div>
 		<a onclick="addChargeItem('rent')" class="btn btn-default btn-sm">添加</a>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">对接联系人：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="contact" name="contact">
+				<input type="text" class="input-text" value="{$res['contact']}" placeholder="" id="contact" name="contact">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">手机：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="contact_mobile" name="contact_mobile">
+				<input type="text" class="input-text" value="{$res['contact_mobile']}" placeholder="" id="contact_mobile" name="contact_mobile">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">固定电话：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="contact_phone" name="contact_phone">
+				<input type="text" class="input-text" value="{$res['contact_phone']}" placeholder="" id="contact_phone" name="contact_phone">
 			</div>
 		</div>
 		 
@@ -93,7 +96,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">备注：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="remark" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" onKeyUp="$.Huitextarealength(this,100)"></textarea>
+				<textarea name="remark" cols="" rows=""  class="textarea"  placeholder="说点什么...最少输入10个字符" onKeyUp="$.Huitextarealength(this,100)">{$res['remark']}</textarea>
 				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
 			</div>
 		</div>
@@ -163,10 +166,10 @@ $(function(){
 		submitHandler:function(form){
 			$(form).ajaxSubmit({
                 type: 'post',
-                url: "{:url('Enterprise/company_add')}",
+                url: "{:url('Enterprise/company_edit')}",
                 success: function(data){
                     if(data == "success"){
-                        layer.msg('添加成功!');
+                        layer.msg('修改成功!');
                         setTimeout(function () {
                             parent.location.reload();
                             },1000)

@@ -31,7 +31,9 @@
  </form>	
 	<div class=" pd-5 bg-1 bk-gray mt-20  col-xs-12 col-sm-12">
 		<span class="l">
-			<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+			{if $lw_role.del eq 1}
+            <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+            {/if}　
 			{if $lw_role.add eq 1}<a href="javascript:;" onclick="member_add('添加公司','{:url('Enterprise/company_add')}','800','600')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加公司</a>{/if}
 		</span>
 		<span class="r">
@@ -44,7 +46,7 @@
 		<thead>
 			<tr class="text-c">
 				<th width="25"><input type="checkbox" name="" value=""></th>
-				<th>ID</th>
+				<th>序号</th>
 				<th>公司名称</th>
 				<th>营业执照</th>
 				<th>地址</th>
@@ -75,7 +77,13 @@
 				<td>{$vo.contact}</td>
 				<td>{$vo.contact_mobile}</td>
 				<td>{$vo.contact_phone}</td> 
-				<td class="td-manage"><a title="编辑" href="javascript:;" onclick="member_edit('编辑','company-add.html','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+				<td class="td-manage">
+				{if $lw_role.edit eq 1}
+                <a title="编辑" href="javascript:;" onclick="member_edit('编辑','{:url('Enterprise/company_edit',array('id'=>$vo.id))}','4','','300')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                {/if}
+                {if $lw_role.del eq 1}
+                 <a title="删除" href="javascript:;" onclick="member_del(this,'{$vo.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                 {/if}
 			</tr>
 			{/volist}
 		</tbody>
@@ -180,20 +188,42 @@ function change_password(title,url,id,w,h){
 /*用户-删除*/
 function member_del(obj,id){
 	layer.confirm('确认要删除吗？',function(index){
-		$.ajax({
-			type: 'POST',
-			url: '',
-			dataType: 'json',
-			success: function(data){
-				$(obj).parents("tr").remove();
-				layer.msg('已删除!',{icon:1,time:1000});
-			},
-			error:function(data) {
-				console.log(data.msg);
-			},
-		});		
-	});
+        $.post("{:url('Enterprise/company_del')}",{id:id},function(data){
+            if(data == "success"){
+                layer.msg("删除成功");
+                $(obj).parents("tr").remove();
+            }else{
+                layer.msg(data);
+            }
+        })     
+    });
 }
+function datadel(){
+    layer.confirm('确认要删除吗？',function(index){
+    if($(".text-c input[name='id']:checked").length > 0){
+        var id = "";
+        $(".text-c input[name='id']:checked").each(function() {
+                             var reservation = $(this).val();
+                             id += reservation + ",";
+                        });
+        length = id.length;
+        id = id.substring(id,length-1);
+        $.post("{:url('Enterprise/company_del')}",{id:id},function(data){
+            if(data == "success"){
+                layer.msg("删除成功");
+                $(".text-c input[name='id']:checked").each(function() {
+                        var reservation = $(this).parents(".text-c");
+                        reservation.hide();
+                });
+            }else{
+                layer.msg(data);
+            }
+        })
+    }else{
+        layer.msg("请选择删除的信息");
+        return false;
+    }
+})
 </script> 
 </body>
 </html>
