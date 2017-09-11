@@ -10,6 +10,38 @@ class Enterprise extends Common
 	 * @return   [type]                   [description]
 	 */
     public function company_list(){
+    	$enterprise = model("Enterprise");
+        if(!empty(input("startime"))){
+            if(!empty(input("overtime"))){
+                $where['create_time'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
+                $this->assign("startime",input("startime"));
+                $this->assign("overtime",input("overtime"));
+            }else{
+                $where['create_time'] = array("gt",strtotime(input('startime')));
+                $this->assign("startime",input("startime"));
+            }
+        }
+        if(!empty(input("overtime"))){
+            if(!empty(input("startime"))){
+                $where['create_time'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
+                $this->assign("startime",input("startime"));
+                $this->assign("overtime",input("overtime"));
+            }else{
+                $where['create_time'] = array("lt",strtotime(input('overtime')));
+                $this->assign("overtime",input("overtime"));
+            }
+        }
+        if(!empty(input("name"))){
+            $where['name'] = array("like","%".input("name")."%");
+            $this->assign("name",input("name"));
+        }
+        if(empty($where)){
+            $where = 1;
+        }
+        /*获取 符合条件的 管理员信息*/
+        $res = $enterprise->company_list($where);
+        $this->assign("res",$res);
+        return $this->fetch();
 
     }
     /**
@@ -19,6 +51,16 @@ class Enterprise extends Common
 	 * @return   [type]                   [description]
 	 */
     public function company_add(){
+    	$Enterprise = model("Enterprise");
+        if(request()->isPost()){
+            $row = $Enterprise->company_add();
+            return $row;
+        }else{
+            /*获取银行信息*/
+            $bank = $Enterprise->bank_info();
+            $this->assign("bank",$bank);
+            return $this->fetch();
+        }
 
     }
     /**
