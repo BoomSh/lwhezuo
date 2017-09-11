@@ -18,7 +18,11 @@ class Index extends Common
     }
     /*欢迎页面*/
     public function welcome(){
-        
+        $index = model('Index');
+        /*获取管理员的个人信息*/
+        $admin = $index->admin();
+      //  p_r($admin);die();
+        $this->assign("admin",$admin);
         return $this->fetch();
     }
 }

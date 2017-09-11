@@ -90,7 +90,7 @@ class Index extends Common
     }
     /*获取管理员信息*/
     public function admin(){
-        $res = DB::name("admin")->where("id",$_SESSION['id'])->field("username,role_id")->find();
+        $res = DB::name("admin")->where("id",$_SESSION['id'])->field("username,role_id,loginsum,last_ip,last_time")->find();
         if($res['role_id'] == 0){
             $res['role_name'] = "超级管理员";
         }else{
