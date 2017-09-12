@@ -1,0 +1,83 @@
+[ 2017-09-12T10:11:46+08:00 ] ::1 ::1 GET /admin/index/index.html
+[ log ] www.ykd.com/admin/index/index.html [运行时间：0.056822s][吞吐率：17.60req/s] [内存消耗：3,063.22kb] [文件加载：46]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/login/login.html',
+  'cache-control' => 'max-age=0',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Index.php 9 - 18
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/index/index.html [ array (
+  0 => 'lw_role',
+  1 => 'admin',
+  2 => 'ban',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000492s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.004613s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 0  AND `is_show` = '1'    [ RunTime:0.000833s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 1  AND `is_show` = '1'    [ RunTime:0.000827s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 6  AND `is_show` = '1'    [ RunTime:0.000333s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 10  AND `is_show` = '1'    [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_admin` [ RunTime:0.001883s ]
+[ sql ] [ SQL ] SELECT `username`,`role_id`,`loginsum`,`last_ip`,`last_time` FROM `dino_admin` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000294s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T10:11:47+08:00 ] ::1 ::1 GET /admin/index/welcome.html
+[ log ] www.ykd.com/admin/index/welcome.html [运行时间：0.063448s][吞吐率：15.76req/s] [内存消耗：2,932.85kb] [文件加载：45]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method welcome ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Index.php 20 - 27
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/index/welcome.html [ array (
+  0 => 'lw_role',
+  1 => 'admin',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000723s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_admin` [ RunTime:0.002913s ]
+[ sql ] [ SQL ] SELECT `username`,`role_id`,`loginsum`,`last_ip`,`last_time` FROM `dino_admin` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000406s ]
+
+---------------------------------------------------------------

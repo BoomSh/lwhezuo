@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:89:"/Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/index/index.html";i:1504880338;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:89:"/Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/index/index.html";i:1505131053;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
