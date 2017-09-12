@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:99:"/Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/garden_add.html";i:1505221184;s:92:"/Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view//Public/header.html";i:1505131053;s:92:"/Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view//Public/footer.html";i:1505131053;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:99:"/Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/garden_add.html";i:1505223200;s:92:"/Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view//Public/header.html";i:1505131053;s:92:"/Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view//Public/footer.html";i:1505131053;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -144,16 +144,71 @@
 
 
 <!--请在下方写此页面业务相关的脚本--> 
-<script type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"></script>
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script> 
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+
 <script type="text/javascript">
 $(function(){
 	$('.skin-minimal input').iCheck({
 		checkboxClass: 'icheckbox-blue',
 		radioClass: 'iradio-blue',
 		increaseArea: '20%'
+	});
+	$("#form-member-add").validate({
+		rules:{
+			name:{
+				required:true,
+				minlength:2,
+				maxlength:16
+			},
+			license_number:{
+				required:true,
+				number:true,
+			},
+			address:{
+				required:true,
+			},
+			legal:{
+				required:true,
+			},
+			legal_mobile:{
+				required:true,
+				isMobile:true,
+			},
+			"bank_number[]":{
+				required:true,
+				number:true,
+			},
+			"bank_name[]":{
+				required:true,
+			},
+			contact_mobile:{
+				isMobile:true,
+			}
+			
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+		submitHandler:function(form){
+			$(form).ajaxSubmit({
+                type: 'post',
+                url: "<?php echo url('Enterprise/company_add'); ?>",
+                success: function(data){
+                    if(data == "success"){
+                        layer.msg('添加成功!');
+                        setTimeout(function () {
+                            parent.location.reload();
+                            },1000)
+                    }else{
+                        layer.msg(data);
+                        return false;
+                    }
+                },
+            });
+		}
 	});
 	//公司
 	keyword($(".company_input"),$(".keyword_company"));
@@ -198,6 +253,7 @@ $(function(){
 			}
 		})
 	}
+
 	 
 });
 	 

@@ -112,7 +112,7 @@ class Enterprise extends Common
         $enterprise = model("Enterprise");
         if(!empty(input("name"))){
             $where['name'] = array("like","%".input("name")."%");
-            p_r($where);die();
+           // p_r($where);die();
             $this->assign("name",input("name"));
         }
         if(empty($where)){

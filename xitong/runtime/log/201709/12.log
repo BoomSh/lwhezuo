@@ -26781,3 +26781,3370 @@ Method [ <user> public method garden_add ] {
 [ info ] [ LOG ] INIT File
 
 ---------------------------------------------------------------
+[ 2017-09-12T21:05:34+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/staff_list
+[ log ] www.ykd.com/index.php/admin/Enterprise/staff_list [运行时间：0.040044s][吞吐率：24.97req/s] [内存消耗：3,037.45kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'staff_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 员工信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method staff_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 111 - 127
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/staff_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Enterprise.php:203]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000247s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_staff` [ RunTime:0.002683s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`job_title`,`mobile`,`cornet`,`sex`,`extension`,`address` FROM `dino_staff` ORDER BY id desc  [ RunTime:0.000242s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:05:34+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.045299s][吞吐率：22.08req/s] [内存消耗：1,668.64kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:05:34+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.061038s][吞吐率：16.38req/s] [内存消耗：1,668.83kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:05:34+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.063583s][吞吐率：15.73req/s] [内存消耗：1,668.71kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:05:35+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/garden_list
+[ log ] www.ykd.com/index.php/admin/Enterprise/garden_list [运行时间：0.044931s][吞吐率：22.26req/s] [内存消耗：2,937.32kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'garden_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 园区信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method garden_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 185 - 220
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/garden_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000243s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_company` [ RunTime:0.002708s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`license_number`,`legal`,`legal_mobile`,`contact`,`contact_mobile`,`contact_phone`,`address` FROM `dino_company` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000323s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_bank` [ RunTime:0.001490s ]
+[ sql ] [ SQL ] SELECT * FROM `dino_bank` WHERE  `company_id` = 2 ORDER BY id asc LIMIT 1    [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT * FROM `dino_bank` WHERE  `company_id` = 1 ORDER BY id asc LIMIT 1    [ RunTime:0.000223s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:05:35+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.031520s][吞吐率：31.73req/s] [内存消耗：1,668.96kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:05:35+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.037896s][吞吐率：26.39req/s] [内存消耗：1,668.90kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:05:35+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.038462s][吞吐率：26.00req/s] [内存消耗：1,668.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:05:36+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/garden_add.html
+[ log ] www.ykd.com/index.php/admin/enterprise/garden_add.html [运行时间：0.062504s][吞吐率：16.00req/s] [内存消耗：3,056.51kb] [文件加载：45]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'garden_add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 园区信息新增
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method garden_add ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 227 - 239
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/garden_add.html [ array (
+  0 => 'lw_role',
+  1 => 'bank',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000990s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_dictionary` [ RunTime:0.002561s ]
+[ sql ] [ SQL ] SELECT `id`,`type`,`name`,`status` FROM `dino_dictionary` WHERE  `type` = 2  AND `status` = 1 ORDER BY id desc    [ RunTime:0.000942s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:05:36+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.049530s][吞吐率：20.19req/s] [内存消耗：1,668.86kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/garden_add.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:05:36+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.069258s][吞吐率：14.44req/s] [内存消耗：1,668.75kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/garden_add.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:05:36+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.075125s][吞吐率：13.31req/s] [内存消耗：1,668.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/garden_add.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:05:36+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/My97DatePicker/4.8/WdatePicker.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/My97DatePicker/4.8/WdatePicker.js [运行时间：0.106924s][吞吐率：9.35req/s] [内存消耗：1,669.02kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/garden_add.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'My97DatePicker' => '4.8',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:05:38+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/garden_add.html?keyword=h
+[ log ] www.ykd.com/index.php/admin/enterprise/garden_add.html?keyword=h [运行时间：0.048675s][吞吐率：20.54req/s] [内存消耗：2,869.06kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'garden_add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/garden_add.html',
+  'accept-language' => 'zh-cn',
+  'x-requested-with' => 'XMLHttpRequest',
+)
+[ info ] [ PARAM ] array (
+  'keyword' => 'h',
+)
+[ info ] [ RUN ] /**
+	 * 园区信息新增
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method garden_add ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 227 - 239
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/garden_add.html [ array (
+  0 => 'lw_role',
+  1 => 'bank',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000295s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_dictionary` [ RunTime:0.002388s ]
+[ sql ] [ SQL ] SELECT `id`,`type`,`name`,`status` FROM `dino_dictionary` WHERE  `type` = 2  AND `status` = 1 ORDER BY id desc    [ RunTime:0.000278s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:46+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/company_list
+[ log ] www.ykd.com/index.php/admin/Enterprise/company_list [运行时间：0.050989s][吞吐率：19.61req/s] [内存消耗：3,044.41kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'company_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 公司信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method company_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 12 - 46
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/company_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000269s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_company` [ RunTime:0.002834s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`license_number`,`legal`,`legal_mobile`,`contact`,`contact_mobile`,`contact_phone`,`address` FROM `dino_company` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_bank` [ RunTime:0.001541s ]
+[ sql ] [ SQL ] SELECT * FROM `dino_bank` WHERE  `company_id` = 2 ORDER BY id asc LIMIT 1    [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT * FROM `dino_bank` WHERE  `company_id` = 1 ORDER BY id asc LIMIT 1    [ RunTime:0.000300s ]
+[ error ] [8]未定义变量: startime[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/9a77b2a250382f365410ca51bf77a7d6.php:35]
+[ error ] [8]未定义变量: overtime[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/9a77b2a250382f365410ca51bf77a7d6.php:38]
+[ error ] [8]未定义变量: name[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/9a77b2a250382f365410ca51bf77a7d6.php:44]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:46+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.046800s][吞吐率：21.37req/s] [内存消耗：1,668.92kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/company_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:46+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.052144s][吞吐率：19.18req/s] [内存消耗：1,668.79kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/company_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:46+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.064331s][吞吐率：15.54req/s] [内存消耗：1,668.80kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/company_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:47+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/staff_list
+[ log ] www.ykd.com/index.php/admin/Enterprise/staff_list [运行时间：0.058032s][吞吐率：17.23req/s] [内存消耗：3,037.08kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'staff_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 员工信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method staff_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 111 - 127
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/staff_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Enterprise.php:203]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000387s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_staff` [ RunTime:0.003172s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`job_title`,`mobile`,`cornet`,`sex`,`extension`,`address` FROM `dino_staff` ORDER BY id desc  [ RunTime:0.000448s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:48+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.074742s][吞吐率：13.38req/s] [内存消耗：1,668.75kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:48+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.086309s][吞吐率：11.59req/s] [内存消耗：1,668.98kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:48+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.095454s][吞吐率：10.48req/s] [内存消耗：1,668.92kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:48+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/staff_list
+[ log ] www.ykd.com/index.php/admin/Enterprise/staff_list [运行时间：0.039609s][吞吐率：25.25req/s] [内存消耗：3,037.08kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'staff_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 员工信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method staff_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 111 - 127
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/staff_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Enterprise.php:203]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000234s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_staff` [ RunTime:0.002665s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`job_title`,`mobile`,`cornet`,`sex`,`extension`,`address` FROM `dino_staff` ORDER BY id desc  [ RunTime:0.000261s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:48+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.032844s][吞吐率：30.45req/s] [内存消耗：1,668.71kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:48+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.041950s][吞吐率：23.84req/s] [内存消耗：1,668.64kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:48+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.053640s][吞吐率：18.64req/s] [内存消耗：1,668.92kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:49+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/garden_list
+[ log ] www.ykd.com/index.php/admin/Enterprise/garden_list [运行时间：0.049232s][吞吐率：20.31req/s] [内存消耗：2,937.32kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'garden_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 园区信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method garden_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 185 - 220
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/garden_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000269s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_company` [ RunTime:0.002736s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`license_number`,`legal`,`legal_mobile`,`contact`,`contact_mobile`,`contact_phone`,`address` FROM `dino_company` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_bank` [ RunTime:0.001681s ]
+[ sql ] [ SQL ] SELECT * FROM `dino_bank` WHERE  `company_id` = 2 ORDER BY id asc LIMIT 1    [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT * FROM `dino_bank` WHERE  `company_id` = 1 ORDER BY id asc LIMIT 1    [ RunTime:0.000249s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:49+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.041967s][吞吐率：23.83req/s] [内存消耗：1,668.96kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:49+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.042695s][吞吐率：23.42req/s] [内存消耗：1,668.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:49+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.049239s][吞吐率：20.31req/s] [内存消耗：1,668.59kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:50+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/garden_add.html
+[ log ] www.ykd.com/index.php/admin/enterprise/garden_add.html [运行时间：0.059034s][吞吐率：16.94req/s] [内存消耗：2,857.26kb] [文件加载：43]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'garden_add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 园区信息新增
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method garden_add ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 227 - 239
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/garden_add.html [ array (
+  0 => 'lw_role',
+  1 => 'bank',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000583s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_dictionary` [ RunTime:0.004736s ]
+[ sql ] [ SQL ] SELECT `id`,`type`,`name`,`status` FROM `dino_dictionary` WHERE  `type` = 2  AND `status` = 1 ORDER BY id desc    [ RunTime:0.000557s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:50+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.045424s][吞吐率：22.01req/s] [内存消耗：1,668.86kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/garden_add.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:50+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.055316s][吞吐率：18.08req/s] [内存消耗：1,668.75kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/garden_add.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:50+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.062090s][吞吐率：16.11req/s] [内存消耗：1,668.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/garden_add.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:07:50+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/My97DatePicker/4.8/WdatePicker.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/My97DatePicker/4.8/WdatePicker.js [运行时间：0.085037s][吞吐率：11.76req/s] [内存消耗：1,669.02kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/garden_add.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'My97DatePicker' => '4.8',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:17:49+08:00 ] ::1 ::1 GET /admin/index/index.html
+[ log ] www.ykd.com/admin/index/index.html [运行时间：0.050752s][吞吐率：19.70req/s] [内存消耗：2,850.37kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/login/login.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Index.php 9 - 18
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/index/index.html [ array (
+  0 => 'lw_role',
+  1 => 'admin',
+  2 => 'ban',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000305s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_auth` [ RunTime:0.003319s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 0  AND `is_show` = '1'    [ RunTime:0.000442s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 1  AND `is_show` = '1'    [ RunTime:0.000289s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 6  AND `is_show` = '1'    [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 10  AND `is_show` = '1'    [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 23  AND `is_show` = '1'    [ RunTime:0.000298s ]
+[ sql ] [ SQL ] SELECT `id`,`auth_name`,`auth_c`,`auth_a` FROM `dino_auth` WHERE  `auth_pid` = 25  AND `is_show` = '1'    [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_admin` [ RunTime:0.001988s ]
+[ sql ] [ SQL ] SELECT `username`,`role_id`,`loginsum`,`last_ip`,`last_time` FROM `dino_admin` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000441s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:17:49+08:00 ] ::1 ::1 GET /admin/index/welcome.html
+[ log ] www.ykd.com/admin/index/welcome.html [运行时间：0.061767s][吞吐率：16.19req/s] [内存消耗：2,741.04kb] [文件加载：43]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] Method [ <user> public method welcome ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Index.php 20 - 27
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/index/welcome.html [ array (
+  0 => 'lw_role',
+  1 => 'admin',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000284s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_admin` [ RunTime:0.002585s ]
+[ sql ] [ SQL ] SELECT `username`,`role_id`,`loginsum`,`last_ip`,`last_time` FROM `dino_admin` WHERE  `id` = 1 LIMIT 1    [ RunTime:0.000283s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:28:54+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/staff_list
+[ log ] www.ykd.com/index.php/admin/Enterprise/staff_list [运行时间：0.043219s][吞吐率：23.14req/s] [内存消耗：3,037.90kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'staff_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 员工信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method staff_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 111 - 127
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/staff_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Enterprise.php:203]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000355s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_staff` [ RunTime:0.002650s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`job_title`,`mobile`,`cornet`,`sex`,`extension`,`address` FROM `dino_staff` ORDER BY id desc  [ RunTime:0.000270s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:28:54+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/garden_list
+[ log ] www.ykd.com/index.php/admin/Enterprise/garden_list [运行时间：0.044171s][吞吐率：22.64req/s] [内存消耗：2,937.32kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'garden_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 园区信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method garden_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 185 - 220
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/garden_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000239s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_company` [ RunTime:0.002474s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`license_number`,`legal`,`legal_mobile`,`contact`,`contact_mobile`,`contact_phone`,`address` FROM `dino_company` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_bank` [ RunTime:0.001481s ]
+[ sql ] [ SQL ] SELECT * FROM `dino_bank` WHERE  `company_id` = 2 ORDER BY id asc LIMIT 1    [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SELECT * FROM `dino_bank` WHERE  `company_id` = 1 ORDER BY id asc LIMIT 1    [ RunTime:0.000301s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:28:54+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.036243s][吞吐率：27.59req/s] [内存消耗：1,668.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:28:54+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.049504s][吞吐率：20.20req/s] [内存消耗：1,668.96kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:28:54+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.051948s][吞吐率：19.25req/s] [内存消耗：1,668.59kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:28:55+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/garden_add.html
+[ log ] www.ykd.com/index.php/admin/enterprise/garden_add.html [运行时间：0.060658s][吞吐率：16.49req/s] [内存消耗：2,857.44kb] [文件加载：43]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'garden_add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 园区信息新增
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method garden_add ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 227 - 239
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/garden_add.html [ array (
+  0 => 'lw_role',
+  1 => 'bank',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000438s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_dictionary` [ RunTime:0.003446s ]
+[ sql ] [ SQL ] SELECT `id`,`type`,`name`,`status` FROM `dino_dictionary` WHERE  `type` = 2  AND `status` = 1 ORDER BY id desc    [ RunTime:0.000338s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:28:55+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/My97DatePicker/4.8/WdatePicker.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/My97DatePicker/4.8/WdatePicker.js [运行时间：0.046078s][吞吐率：21.70req/s] [内存消耗：1,668.94kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/garden_add.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'My97DatePicker' => '4.8',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:28:55+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.039939s][吞吐率：25.04req/s] [内存消耗：1,668.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/garden_add.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:28:55+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.046856s][吞吐率：21.34req/s] [内存消耗：1,668.86kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/garden_add.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:28:55+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.054255s][吞吐率：18.43req/s] [内存消耗：1,668.75kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/garden_add.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:28:58+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/company_list
+[ log ] www.ykd.com/index.php/admin/Enterprise/company_list [运行时间：0.047718s][吞吐率：20.96req/s] [内存消耗：3,044.93kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'company_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 公司信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method company_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 12 - 46
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/company_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000246s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_company` [ RunTime:0.002754s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`license_number`,`legal`,`legal_mobile`,`contact`,`contact_mobile`,`contact_phone`,`address` FROM `dino_company` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_bank` [ RunTime:0.001432s ]
+[ sql ] [ SQL ] SELECT * FROM `dino_bank` WHERE  `company_id` = 2 ORDER BY id asc LIMIT 1    [ RunTime:0.000255s ]
+[ sql ] [ SQL ] SELECT * FROM `dino_bank` WHERE  `company_id` = 1 ORDER BY id asc LIMIT 1    [ RunTime:0.000282s ]
+[ error ] [8]未定义变量: startime[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/9a77b2a250382f365410ca51bf77a7d6.php:35]
+[ error ] [8]未定义变量: overtime[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/9a77b2a250382f365410ca51bf77a7d6.php:38]
+[ error ] [8]未定义变量: name[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/9a77b2a250382f365410ca51bf77a7d6.php:44]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:28:58+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.034921s][吞吐率：28.64req/s] [内存消耗：1,668.92kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/company_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:28:58+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.035504s][吞吐率：28.17req/s] [内存消耗：1,668.80kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/company_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:28:58+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.042521s][吞吐率：23.52req/s] [内存消耗：1,668.77kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/company_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:28:59+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/staff_list
+[ log ] www.ykd.com/index.php/admin/Enterprise/staff_list [运行时间：0.045287s][吞吐率：22.08req/s] [内存消耗：3,037.08kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'staff_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 员工信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method staff_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 111 - 127
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/staff_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Enterprise.php:203]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000237s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_staff` [ RunTime:0.002522s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`job_title`,`mobile`,`cornet`,`sex`,`extension`,`address` FROM `dino_staff` ORDER BY id desc  [ RunTime:0.000285s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:28:59+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.035877s][吞吐率：27.87req/s] [内存消耗：1,668.92kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:28:59+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.035059s][吞吐率：28.52req/s] [内存消耗：1,668.64kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:28:59+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.042462s][吞吐率：23.55req/s] [内存消耗：1,668.71kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:29:06+08:00 ] ::1 ::1 POST /index.php/admin/enterprise/staff_list.html
+[ log ] www.ykd.com/index.php/admin/enterprise/staff_list.html [运行时间：0.033316s][吞吐率：30.02req/s] [内存消耗：2,613.50kb] [文件加载：39]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'staff_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'origin' => 'http://www.ykd.com',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-language' => 'zh-cn',
+  'accept-encoding' => 'gzip, deflate',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'content-length' => '23',
+)
+[ info ] [ PARAM ] array (
+  'name' => '刘备',
+)
+[ info ] [ RUN ] /**
+	 * 员工信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method staff_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 111 - 127
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:35:38+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/garden_list
+[ log ] www.ykd.com/index.php/admin/Enterprise/garden_list [运行时间：0.045060s][吞吐率：22.19req/s] [内存消耗：2,937.60kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'garden_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 园区信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method garden_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 185 - 220
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/garden_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000219s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_company` [ RunTime:0.002682s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`license_number`,`legal`,`legal_mobile`,`contact`,`contact_mobile`,`contact_phone`,`address` FROM `dino_company` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_bank` [ RunTime:0.001500s ]
+[ sql ] [ SQL ] SELECT * FROM `dino_bank` WHERE  `company_id` = 2 ORDER BY id asc LIMIT 1    [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT * FROM `dino_bank` WHERE  `company_id` = 1 ORDER BY id asc LIMIT 1    [ RunTime:0.000232s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:35:38+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.055128s][吞吐率：18.14req/s] [内存消耗：1,668.96kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:35:38+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.046314s][吞吐率：21.59req/s] [内存消耗：1,668.59kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:35:38+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.053283s][吞吐率：18.77req/s] [内存消耗：1,668.84kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:35:39+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/garden_add.html
+[ log ] www.ykd.com/index.php/admin/enterprise/garden_add.html [运行时间：0.070801s][吞吐率：14.12req/s] [内存消耗：3,124.63kb] [文件加载：46]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'garden_add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 园区信息新增
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method garden_add ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 227 - 239
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/garden_add.html [ array (
+  0 => 'lw_role',
+  1 => 'bank',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000333s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_dictionary` [ RunTime:0.004662s ]
+[ sql ] [ SQL ] SELECT `id`,`type`,`name`,`status` FROM `dino_dictionary` WHERE  `type` = 2  AND `status` = 1 ORDER BY id desc    [ RunTime:0.000392s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:35:41+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/garden_add.html?keyword=h
+[ log ] www.ykd.com/index.php/admin/enterprise/garden_add.html?keyword=h [运行时间：0.066192s][吞吐率：15.11req/s] [内存消耗：2,934.55kb] [文件加载：45]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'garden_add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/garden_add.html',
+  'accept-language' => 'zh-cn',
+  'x-requested-with' => 'XMLHttpRequest',
+)
+[ info ] [ PARAM ] array (
+  'keyword' => 'h',
+)
+[ info ] [ RUN ] /**
+	 * 园区信息新增
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method garden_add ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 227 - 239
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/garden_add.html [ array (
+  0 => 'lw_role',
+  1 => 'bank',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000868s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_dictionary` [ RunTime:0.003963s ]
+[ sql ] [ SQL ] SELECT `id`,`type`,`name`,`status` FROM `dino_dictionary` WHERE  `type` = 2  AND `status` = 1 ORDER BY id desc    [ RunTime:0.000397s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:35:41+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/garden_add.html?keyword=ha
+[ log ] www.ykd.com/index.php/admin/enterprise/garden_add.html?keyword=ha [运行时间：0.048729s][吞吐率：20.52req/s] [内存消耗：2,934.36kb] [文件加载：45]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'garden_add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/garden_add.html',
+  'accept-language' => 'zh-cn',
+  'x-requested-with' => 'XMLHttpRequest',
+)
+[ info ] [ PARAM ] array (
+  'keyword' => 'ha',
+)
+[ info ] [ RUN ] /**
+	 * 园区信息新增
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method garden_add ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 227 - 239
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/garden_add.html [ array (
+  0 => 'lw_role',
+  1 => 'bank',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000246s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_dictionary` [ RunTime:0.002348s ]
+[ sql ] [ SQL ] SELECT `id`,`type`,`name`,`status` FROM `dino_dictionary` WHERE  `type` = 2  AND `status` = 1 ORDER BY id desc    [ RunTime:0.000277s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:35:42+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/garden_add.html?keyword=%E5%93%88
+[ log ] www.ykd.com/index.php/admin/enterprise/garden_add.html?keyword=%E5%93%88 [运行时间：0.047269s][吞吐率：21.16req/s] [内存消耗：2,934.70kb] [文件加载：45]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'garden_add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept-encoding' => 'gzip, deflate',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'connection' => 'keep-alive',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/garden_add.html',
+  'accept-language' => 'zh-cn',
+  'x-requested-with' => 'XMLHttpRequest',
+)
+[ info ] [ PARAM ] array (
+  'keyword' => '哈',
+)
+[ info ] [ RUN ] /**
+	 * 园区信息新增
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method garden_add ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 227 - 239
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/garden_add.html [ array (
+  0 => 'lw_role',
+  1 => 'bank',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000241s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_dictionary` [ RunTime:0.002432s ]
+[ sql ] [ SQL ] SELECT `id`,`type`,`name`,`status` FROM `dino_dictionary` WHERE  `type` = 2  AND `status` = 1 ORDER BY id desc    [ RunTime:0.000281s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:35:52+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/staff_list
+[ log ] www.ykd.com/index.php/admin/Enterprise/staff_list [运行时间：0.045304s][吞吐率：22.07req/s] [内存消耗：3,037.45kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'staff_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 员工信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method staff_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 111 - 127
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/staff_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Enterprise.php:203]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000274s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_staff` [ RunTime:0.003505s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`job_title`,`mobile`,`cornet`,`sex`,`extension`,`address` FROM `dino_staff` ORDER BY id desc  [ RunTime:0.000245s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:35:52+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.034008s][吞吐率：29.40req/s] [内存消耗：1,668.71kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:35:52+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.040138s][吞吐率：24.91req/s] [内存消耗：1,668.64kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:35:52+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.053799s][吞吐率：18.59req/s] [内存消耗：1,668.92kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:35:55+08:00 ] ::1 ::1 POST /index.php/admin/enterprise/staff_list.html
+[ log ] www.ykd.com/index.php/admin/enterprise/staff_list.html [运行时间：0.046799s][吞吐率：21.37req/s] [内存消耗：3,038.32kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'staff_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'origin' => 'http://www.ykd.com',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-language' => 'zh-cn',
+  'accept-encoding' => 'gzip, deflate',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'content-length' => '5',
+)
+[ info ] [ PARAM ] array (
+  'name' => '',
+)
+[ info ] [ RUN ] /**
+	 * 员工信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method staff_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 111 - 127
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/staff_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Enterprise.php:203]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000305s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_staff` [ RunTime:0.001625s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`job_title`,`mobile`,`cornet`,`sex`,`extension`,`address` FROM `dino_staff` ORDER BY id desc  [ RunTime:0.000336s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:35:55+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.059851s][吞吐率：16.71req/s] [内存消耗：1,668.86kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/staff_list.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:35:55+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.069402s][吞吐率：14.41req/s] [内存消耗：1,668.86kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/staff_list.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:35:55+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.080936s][吞吐率：12.36req/s] [内存消耗：1,668.75kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/staff_list.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:36:03+08:00 ] ::1 ::1 POST /index.php/admin/enterprise/staff_list.html
+[ log ] www.ykd.com/index.php/admin/enterprise/staff_list.html [运行时间：0.031893s][吞吐率：31.35req/s] [内存消耗：2,613.70kb] [文件加载：39]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'staff_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'origin' => 'http://www.ykd.com',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/staff_list.html',
+  'accept-language' => 'zh-cn',
+  'accept-encoding' => 'gzip, deflate',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'content-length' => '23',
+)
+[ info ] [ PARAM ] array (
+  'name' => '刘备',
+)
+[ info ] [ RUN ] /**
+	 * 员工信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method staff_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 111 - 127
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:36:08+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/staff_list
+[ log ] www.ykd.com/index.php/admin/Enterprise/staff_list [运行时间：0.045107s][吞吐率：22.17req/s] [内存消耗：3,037.08kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'staff_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 员工信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method staff_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 111 - 127
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/staff_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义变量: where[/Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/model/Enterprise.php:203]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000242s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_staff` [ RunTime:0.002683s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`job_title`,`mobile`,`cornet`,`sex`,`extension`,`address` FROM `dino_staff` ORDER BY id desc  [ RunTime:0.000242s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:36:08+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.040175s][吞吐率：24.89req/s] [内存消耗：1,668.92kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:36:08+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.042710s][吞吐率：23.41req/s] [内存消耗：1,668.71kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:36:08+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.049553s][吞吐率：20.18req/s] [内存消耗：1,669.03kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:36:23+08:00 ] ::1 ::1 POST /index.php/admin/enterprise/staff_list.html
+[ log ] www.ykd.com/index.php/admin/enterprise/staff_list.html [运行时间：0.032893s][吞吐率：30.40req/s] [内存消耗：2,613.52kb] [文件加载：39]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'staff_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'origin' => 'http://www.ykd.com',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-language' => 'zh-cn',
+  'accept-encoding' => 'gzip, deflate',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'content-length' => '14',
+)
+[ info ] [ PARAM ] array (
+  'name' => '刘',
+)
+[ info ] [ RUN ] /**
+	 * 员工信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method staff_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 111 - 127
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:22+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/company_list
+[ log ] www.ykd.com/index.php/admin/Enterprise/company_list [运行时间：0.051333s][吞吐率：19.48req/s] [内存消耗：3,044.53kb] [文件加载：49]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'company_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 公司信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method company_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 12 - 46
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/company_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000259s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_company` [ RunTime:0.002790s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`license_number`,`legal`,`legal_mobile`,`contact`,`contact_mobile`,`contact_phone`,`address` FROM `dino_company` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000335s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_bank` [ RunTime:0.001868s ]
+[ sql ] [ SQL ] SELECT * FROM `dino_bank` WHERE  `company_id` = 2 ORDER BY id asc LIMIT 1    [ RunTime:0.000256s ]
+[ sql ] [ SQL ] SELECT * FROM `dino_bank` WHERE  `company_id` = 1 ORDER BY id asc LIMIT 1    [ RunTime:0.000223s ]
+[ error ] [8]未定义变量: startime[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/9a77b2a250382f365410ca51bf77a7d6.php:35]
+[ error ] [8]未定义变量: overtime[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/9a77b2a250382f365410ca51bf77a7d6.php:38]
+[ error ] [8]未定义变量: name[/Users/wangchunlei/ykd99/lwhezuo/xitong/runtime/temp/9a77b2a250382f365410ca51bf77a7d6.php:44]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:22+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.029961s][吞吐率：33.38req/s] [内存消耗：1,668.60kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/company_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:22+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.042720s][吞吐率：23.41req/s] [内存消耗：1,668.58kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/company_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:22+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.041753s][吞吐率：23.95req/s] [内存消耗：1,668.66kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/company_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:23+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/staff_list
+[ log ] www.ykd.com/index.php/admin/Enterprise/staff_list [运行时间：0.041835s][吞吐率：23.90req/s] [内存消耗：2,931.23kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'staff_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 员工信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method staff_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 111 - 127
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/staff_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000309s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_staff` [ RunTime:0.002834s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`job_title`,`mobile`,`cornet`,`sex`,`extension`,`address` FROM `dino_staff` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000297s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:23+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.034144s][吞吐率：29.29req/s] [内存消耗：1,668.61kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:23+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.040565s][吞吐率：24.65req/s] [内存消耗：1,668.60kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:23+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.052232s][吞吐率：19.15req/s] [内存消耗：1,668.52kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:33+08:00 ] ::1 ::1 POST /index.php/admin/enterprise/staff_list.html
+[ log ] www.ykd.com/index.php/admin/enterprise/staff_list.html [运行时间：0.040294s][吞吐率：24.82req/s] [内存消耗：2,934.02kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'staff_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'origin' => 'http://www.ykd.com',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/staff_list',
+  'accept-language' => 'zh-cn',
+  'accept-encoding' => 'gzip, deflate',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'content-length' => '14',
+)
+[ info ] [ PARAM ] array (
+  'name' => '刘',
+)
+[ info ] [ RUN ] /**
+	 * 员工信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method staff_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 111 - 127
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/staff_list.html [ array (
+  0 => 'lw_role',
+  1 => 'name',
+  2 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000277s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_staff` [ RunTime:0.002649s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`job_title`,`mobile`,`cornet`,`sex`,`extension`,`address` FROM `dino_staff` WHERE  `name` LIKE '%刘%' ORDER BY id desc   [ RunTime:0.000345s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:33+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.035696s][吞吐率：28.01req/s] [内存消耗：1,668.64kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/staff_list.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:33+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.036232s][吞吐率：27.60req/s] [内存消耗：1,668.65kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/staff_list.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:33+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.043299s][吞吐率：23.10req/s] [内存消耗：1,668.59kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/staff_list.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:40+08:00 ] ::1 ::1 POST /index.php/admin/enterprise/staff_list.html
+[ log ] www.ykd.com/index.php/admin/enterprise/staff_list.html [运行时间：0.041802s][吞吐率：23.92req/s] [内存消耗：2,931.00kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'staff_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'origin' => 'http://www.ykd.com',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'connection' => 'keep-alive',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/staff_list.html',
+  'accept-language' => 'zh-cn',
+  'accept-encoding' => 'gzip, deflate',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'content-length' => '23',
+)
+[ info ] [ PARAM ] array (
+  'name' => '刘备',
+)
+[ info ] [ RUN ] /**
+	 * 员工信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method staff_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 111 - 127
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/staff_list.html [ array (
+  0 => 'lw_role',
+  1 => 'name',
+  2 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000456s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_staff` [ RunTime:0.002579s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`job_title`,`mobile`,`cornet`,`sex`,`extension`,`address` FROM `dino_staff` WHERE  `name` LIKE '%刘备%' ORDER BY id desc   [ RunTime:0.000300s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:40+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.036860s][吞吐率：27.13req/s] [内存消耗：1,668.48kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/staff_list.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:40+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.036858s][吞吐率：27.13req/s] [内存消耗：1,668.65kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/staff_list.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:40+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.043860s][吞吐率：22.80req/s] [内存消耗：1,668.59kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/enterprise/staff_list.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:45+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/garden_list
+[ log ] www.ykd.com/index.php/admin/Enterprise/garden_list [运行时间：0.051247s][吞吐率：19.51req/s] [内存消耗：2,937.23kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'garden_list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/admin/index/index.html',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 园区信息列表
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method garden_list ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 185 - 220
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/garden_list.html [ array (
+  0 => 'lw_role',
+  1 => 'res',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000253s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_company` [ RunTime:0.002710s ]
+[ sql ] [ SQL ] SELECT `id`,`name`,`license_number`,`legal`,`legal_mobile`,`contact`,`contact_mobile`,`contact_phone`,`address` FROM `dino_company` WHERE  (  1 ) ORDER BY id desc  [ RunTime:0.000313s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_bank` [ RunTime:0.001861s ]
+[ sql ] [ SQL ] SELECT * FROM `dino_bank` WHERE  `company_id` = 2 ORDER BY id asc LIMIT 1    [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT * FROM `dino_bank` WHERE  `company_id` = 1 ORDER BY id asc LIMIT 1    [ RunTime:0.000235s ]
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:45+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/jquery.validate.js [运行时间：0.031219s][吞吐率：32.03req/s] [内存消耗：1,668.61kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:45+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/validate-methods.js [运行时间：0.032904s][吞吐率：30.39req/s] [内存消耗：1,668.35kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:37:45+08:00 ] ::1 ::1 GET /index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js
+[ log ] www.ykd.com/index.php/admin/Enterprise/lib/jquery.validation/1.14.0/messages_zh.js [运行时间：0.039099s][吞吐率：25.58req/s] [内存消耗：1,668.53kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Enterprise',
+    2 => 'lib',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => '*/*',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+  'validation' => '1.14.0',
+)
+[ info ] [ LANG ] /Users/wangchunlei/ykd99/lwhezuo/xitong/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2017-09-12T21:41:47+08:00 ] ::1 ::1 GET /index.php/admin/enterprise/garden_add.html
+[ log ] www.ykd.com/index.php/admin/enterprise/garden_add.html [运行时间：0.064007s][吞吐率：15.62req/s] [内存消耗：2,922.36kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'enterprise',
+    2 => 'garden_add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'host' => 'www.ykd.com',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'connection' => 'keep-alive',
+  'cookie' => 'Hm_lpvt_080836300300be57b7f34f4b3e97d911=1504932262; Hm_lvt_080836300300be57b7f34f4b3e97d911=1504928476; PHPSESSID=b34d4b124af2cc036d84c80b9deb4b3f; think_var=zh-cn',
+  'user-agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/601.7.8 (KHTML, like Gecko) Version/9.1.3 Safari/601.7.8',
+  'accept-language' => 'zh-cn',
+  'referer' => 'http://www.ykd.com/index.php/admin/Enterprise/garden_list',
+  'accept-encoding' => 'gzip, deflate',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] /**
+	 * 园区信息新增
+	 * @Author   wcl
+	 * @DateTime 2017-09-10T20:53:24+0800
+	 * @return   [type]                   [description]
+	 */
+Method [ <user> public method garden_add ] {
+  @@ /Users/wangchunlei/ykd99/lwhezuo/xitong/application/admin/controller/Enterprise.php 227 - 239
+}
+
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] /Users/wangchunlei/ykd99/lwhezuo/xitong/public/../application/admin/view/enterprise/garden_add.html [ array (
+  0 => 'lw_role',
+  1 => 'bank',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000457s ] mysql:dbname=yoked;host=localhost;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dino_dictionary` [ RunTime:0.006299s ]
+[ sql ] [ SQL ] SELECT `id`,`type`,`name`,`status` FROM `dino_dictionary` WHERE  `type` = 2  AND `status` = 1 ORDER BY id desc    [ RunTime:0.000364s ]
+
+---------------------------------------------------------------

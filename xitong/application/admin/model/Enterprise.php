@@ -199,7 +199,7 @@ class Enterprise extends Common
             return "请选择删除的信息";
         }
     }
-    public function staff_list(){
+    public function staff_list($where){
         $res['list'] = DB::name("staff")->where($where)->order("id desc")->field("id,name,job_title,mobile,cornet,sex,extension,address")->select();
         $res['num']  = count($res['list']);
         $arr = $this->lw_number($res['num']);
