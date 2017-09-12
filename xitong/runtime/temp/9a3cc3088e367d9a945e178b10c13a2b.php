@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:89:"D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\enterprise\company_add.html";i:1505133055;s:81:"D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\\Public\header.html";i:1505047149;s:81:"D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\\Public\footer.html";i:1505047149;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:89:"D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\enterprise\company_add.html";i:1505141558;s:81:"D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\\Public\header.html";i:1505047149;s:81:"D:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\\Public\footer.html";i:1505047149;}*/ ?>
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
@@ -161,6 +161,7 @@ $(function(){
 			},
 			license_number:{
 				required:true,
+				number:true,
 			},
 			address:{
 				required:true,
@@ -179,6 +180,9 @@ $(function(){
 			"bank_name[]":{
 				required:true,
 			},
+			contact_mobile:{
+				isMobile:true,
+			}
 			
 		},
 		onkeyup:false,
