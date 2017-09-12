@@ -1,0 +1,744 @@
+{include file="/Public/header"}
+
+<title>合同添加</title>
+<style type="text/css">
+    .li-date{
+        width: 47.5%;
+    }
+    .li-transformer{
+        width: 30%;
+    }
+</style>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
+    <span class="c-gray en">&gt;</span>
+    业主管理
+    <span class="c-gray en">&gt;</span>
+    合同添加
+    <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+</nav>
+<div class="page-container">
+    <form class="form form-horizontal" id="form-article-add">
+        <div id="tab-system" class="HuiTab">
+            <div class="tabBar cl">
+                <span>合同设置</span>
+                <span style="display: none">租金设置</span>
+                <span style="display: none">电费设置</span>
+                <span style="display: none">水费设置</span>
+                <span style="display: none">维修基金</span>
+                <span style="display: none">其他费用</span>
+                <span style="display: none">税率设置</span>
+            </div>
+            <div class="tabCon"> 
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>合同号：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+                    </div>
+                </div> 
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">出租方：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                    <div class="formControls col-xs-8 col-sm-6">
+                       <div class="formControls col-xs-8 col-sm-9" style="position: relative;">
+                    <input type="text" class="input-text company_input" value="" placeholder="" id="parentIframe" name="username" style="width:500px;margin-left:-30px;">
+                    <ul class="keyword_company keyword">
+
+                    </ul>
+                </div>
+                        </div>
+                        <div class="formControls col-xs-8 col-sm-3">
+                        <a href="javascript:;" onclick="tjyz();" class="btn btn-primary radius input-text"><i class="Hui-iconfont">&#xe600;</i> 添加出租方</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">承租方：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <div class="formControls col-xs-8 col-sm-6">
+                         <div class="formControls col-xs-8 col-sm-9" style="position: relative;">
+                    <input type="text" class="input-text bank_input" value="" placeholder="" id="parentIframe1" name="username" style="width:500px;margin-left:-30px;">
+                    <ul class="keyword_bank keyword">
+                    </ul>
+                </div>
+                        </div>
+                        <div class="formControls col-xs-8 col-sm-3">
+                            <a href="javascript:;" onclick="tjczf();" class="btn btn-primary radius input-text"><i class="Hui-iconfont">&#xe600;</i> 添加承租方</a>
+                        </div>
+                        </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">园区：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <div class="formControls col-xs-8 col-sm-6">
+                         <div class="formControls col-xs-8 col-sm-9" style="position: relative;">
+                    <input type="text" class="input-text money_input" value="" placeholder="" id="username" name="username" style="width:500px;margin-left:-30px;">
+                    <ul class="keyword_money keyword">
+                    </ul>
+                </div>
+                        </div>
+                        <div class="formControls col-xs-8 col-sm-3">
+                            <a href="javascript:;" onclick="member_add('添加园区','park-add.html','','550')" class="btn btn-primary radius input-text"><i class="Hui-iconfont">&#xe600;</i> 添加园区</a>
+                        </div>
+                        </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>承租面积：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>出租面积：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>经营范围：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">客户来源：</label>
+                    <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+                        <select class="select" size="1" name="city">
+                            <option value="" selected>请选择客户来源</option>
+                            {volist name="res" id="vo"}
+                                    <option value="{$vo.id}" >{$vo.name}</option>
+                            {/volist}
+                        </select>
+                        </span> </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>租期：</label>
+                    <div class="formControls col-xs-4 col-sm-9">
+                        <input type="text" onfocus="WdatePicker({maxDate:'#F{\$dp.\$D(\'datemax\')}'})" id="datemin" class="input-text Wdate li-date" >
+                        至<input type="text" onfocus="WdatePicker({minDate:'#F{\$dp.\$D(\'datemin\')}'})" id="datemax" class="input-text Wdate li-date" >
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>起租日期</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" onfocus="WdatePicker({minDate:'#F{\$dp.\$D(\'datemin\')}',maxDate:'#F{\$dp.\$D(\'datemax\')}'})"  class="input-text Wdate li-date">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">备注：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <textarea name="beizhu" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" onKeyUp="\$.Huitextarealength(this,100)"></textarea>
+                        <p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+                    </div>
+                </div>   
+            </div>
+            <div class="tabCon">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>押金：</label>
+                    <div class="formControls col-xs-8 col-sm-3">
+                        <input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>基本租金：</label>
+                    <div class="formControls col-xs-8 col-sm-3">
+                        <input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>首次租金：</label>
+                    <div class="formControls col-xs-8 col-sm-6">
+                        <input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+                        <input type="text" onfocus="WdatePicker({maxDate:'#F{\$dp.\$D(\'datemax\')}'})" id="datemin" class="input-text Wdate li-date" >
+                        至<input type="text" onfocus="WdatePicker({minDate:'#F{\$dp.\$D(\'datemin\')}'})" id="datemax" class="input-text Wdate li-date" >
+                    </div>
+                </div>
+                <div id="rent">
+                <div style="border:solid 1px #ddd">
+                    <span class='btn   radius ppremoveline'><i class="Hui-iconfont">&#xe6a1;</i> </span>
+                    <div class="row cl">
+                        <label class="form-label col-xs-4 col-sm-3">月租类型：</label>
+                        <div class="formControls col-xs-4 col-sm-3"> <span class="select-box">
+                        <select class="select" size="1" name="city">
+                            <option value="" selected>请选择月租类型</option>
+                            <option value="1">固定租金</option>
+                            <option value="3">比例租金（如 填写1为增加百分之一的租金）</option>
+                        </select>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="row cl">
+                        <label class="form-label col-xs-4 col-sm-3"> </label>
+                        <div class="formControls col-xs-4 col-sm-3">
+                            <input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+                        </div>
+                    </div>
+                    <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>时间：</label>
+                    <div class="formControls col-xs-4 col-sm-5">
+                        <input type="text" onfocus="WdatePicker({maxDate:'#F{\$dp.\$D(\'date1max\')}'})" id="date1min" class="input-text Wdate li-date">
+                        至<input type="text" onfocus="WdatePicker({minDate:'#F{\$dp.\$D(\'date1min\')}'})" id="date1max" class="input-text Wdate li-date">
+                    </div>
+                </div> 
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>租金：</label>
+                    <div class="formControls col-xs-4 col-sm-3">
+                        <input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+                    </div>
+                </div>
+                </div>
+                </div>
+                <a onclick="addChargeItem('rent')" class="btn btn-default btn-sm">添加</a>
+            </div>
+            <div class="tabCon">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">变压器：</label>
+                    <div id="transformer" class="formControls col-xs-8 col-sm-8 ">
+                    <div class="formControls col-xs-8 col-sm-12 ">
+                        <input type="text"  class="input-text li-transformer"   placeholder="数量">
+                        <input type="text"  class="input-text li-transformer"  placeholder="详情（如500KW）">
+                        <button class='btn  ppremoveline' style="width: 10%"><i class="Hui-iconfont">&#xe6a1;</i> </button>
+                    </div>
+                    </div>
+                    <a onclick="addtransformerItem('transformer')" class="btn btn-default btn-sm">添加</a>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>电费押金：</label>
+                    <div class="formControls col-xs-8 col-sm-4">
+                        <input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">所属电表：</label>
+                    <div id="electric" class="formControls col-xs-8 col-sm-8 ">
+                        <div>
+                    <div class="formControls col-xs-8 col-sm-12">
+                        <div class="formControls col-xs-8 col-sm-5">
+                        <span class="select-box">
+                        <select class="select" size="1" name="city">
+                            <option value="" selected>请选择电表所在园区</option>
+                            <option value="1">高新园</option>
+                            <option value="2">合创园</option>
+                        </select>
+                        </span>
+                        </div>
+                        <div class="formControls col-xs-8 col-sm-4">
+                            <input type="text" class="input-text" value="" placeholder="电表名" id="username" name="username">
+                        </div>
+                        <button class='btn ppremovelineelectric' style="width: 10%"><i class="Hui-iconfont">&#xe6a1;</i> </button>
+                    </div>
+                    <div class="formControls col-xs-8 col-sm-12">
+                            <div class="formControls col-xs-8 col-sm-3">
+                                <input type="text" class="input-text" value="" placeholder="电表初始度数" id="username" name="username">
+                            </div>
+                            <div class="formControls col-xs-8 col-sm-2">
+                                <input type="text" class="input-text" value="" placeholder="电表倍率" id="username" name="username">
+                            </div>
+                            <div class="formControls col-xs-8 col-sm-2">
+                                <input type="text" class="input-text" value="" placeholder="损耗" id="username" name="username">
+                            </div>
+                    </div>
+
+                        <div class="formControls col-xs-8 col-sm-12">
+
+                            <div  id="contract-price">
+                                <div class="formControls col-xs-8 col-sm-10">
+                                    <input type="text" class="input-text li-transformer"  placeholder="开始读数"  >
+                                    <input type="text" class="input-text li-transformer"   placeholder="结束读数"  >
+                                    <input type="text" class="input-text li-transformer"   placeholder="单价"  >
+                                    <button class='btn ppremoveline' style="width: 7%"><i class="Hui-iconfont">&#xe6a1;</i> </button>
+                                </div>
+                            </div>
+                            <a onclick="addcontractpriceItem('contract-price')" class="btn btn-default btn-sm">添加</a>
+                        </div>
+                    </div>
+                    </div>
+                    <a onclick="addelectricItem('electric')" class="btn btn-default btn-sm">添加</a>
+                </div>
+            </div>
+            <div class="tabCon">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>水费押金：</label>
+                    <div class="formControls col-xs-8 col-sm-4">
+                        <input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2">所属水表：</label>
+                    <div id="water" class="formControls col-xs-8 col-sm-8 ">
+                        <div>
+                        <div class="formControls col-xs-8 col-sm-12">
+                            <div class="formControls col-xs-8 col-sm-2">
+                                <span class="select-box">
+                                <select class="select" size="1" name="city">
+                                    <option value="" selected>请选择水表所在园区</option>
+                                    <option value="1">高新园</option>
+                                    <option value="2">合创园</option>
+                                </select>
+                                </span>
+                            </div>
+                            <div class="formControls col-xs-8 col-sm-2">
+                                <input type="text" class="input-text" value="" placeholder="水表名">
+                            </div>
+                            <div class="formControls col-xs-8 col-sm-2">
+                                <input type="text" class="input-text" value="" placeholder="初始度数">
+                            </div>
+                            <button class='btn ppremoveline' style="width: 10%"><i class="Hui-iconfont">&#xe6a1;</i> </button>
+                        </div>
+                        <div class="formControls col-xs-8 col-sm-12">
+                            <div class="formControls col-xs-8 col-sm-2">
+                                <input type="text" class="input-text" value="" placeholder="倍率">
+                            </div>
+                            <div class="formControls col-xs-8 col-sm-2">
+                                <input type="text" class="input-text" value="" placeholder="损耗">
+                            </div>
+                            <div class="formControls col-xs-8 col-sm-2">
+                                <input type="text" class="input-text" value="" placeholder="分摊比例">
+                            </div>
+                        </div>
+                        <div class="formControls col-xs-8 col-sm-12">
+                            <div class="formControls col-xs-8 col-sm-10" id="water-price">
+                                <div class="formControls col-xs-8 col-sm-12">
+                                    <input type="text" class="input-text li-transformer"  placeholder="开始读数"  >
+                                    <input type="text" class="input-text li-transformer"   placeholder="结束读数"  >
+                                    <input type="text" class="input-text li-transformer"   placeholder="单价"  >
+                                    <button class='btn ppremoveline' style="width: 7%"><i class="Hui-iconfont">&#xe6a1;</i> </button>
+                                </div>
+                            </div>
+                            <a onclick="addcontractpriceItem('water-price')" class="btn btn-default btn-sm">添加</a>
+                        </div>
+                        </div>
+                    </div>
+                    <a onclick="addwaterItem('water')" class="btn btn-default btn-sm">添加</a>
+                </div>
+
+            </div>
+            <div class="tabCon">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">维修基金：</label>
+                    <div class="formControls col-xs-4 col-sm-3"> <span class="select-box">
+                        <select class="select" size="1" name="city">
+                            <option value="" selected>请选择维修基金类型</option>
+                            <option value="1">按当月电费百分比交，以设置费用为起始值</option>
+                            <option value="2">根据实际情况选择递增方式</option>
+                            <option value="3">按固定费用交</option>
+                            <option value="4">按电费百分比交</option>
+                            <option value="4">按水费百分比交</option>
+                        </select>
+                        </span> </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>最低费用：</label>
+                    <div class="formControls col-xs-8 col-sm-4">
+                        <input type="text" class="input-text" value="" placeholder="填写最低费用" >
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>费用比例：</label>
+                    <div class="formControls col-xs-8 col-sm-4">
+                        <input type="text" class="input-text" value="" placeholder="填写费用比例" >
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>最高费用：</label>
+                    <div class="formControls col-xs-8 col-sm-4">
+                        <input type="text" class="input-text" value="" placeholder="填写最高费用" >
+                    </div>
+                </div>
+            </div>
+            <div class="tabCon">
+                <div id="other">
+                    <div style="border:solid 1px #ddd">
+                        <span class='btn   radius ppremoveline'><i class="Hui-iconfont">&#xe6a1;</i> </span>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-3">费用科目：</label>
+                            <div class="formControls col-xs-4 col-sm-3"> <span class="select-box">
+                            <select class="select" size="1" name="city">
+                                <option value="" selected>请选择租金类型</option>
+                                <option value="2">物业管理费</option>
+                                <option value="3">垃圾费</option>
+                            </select>
+                            </span> </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-3">月租类型：</label>
+                            <div class="formControls col-xs-4 col-sm-3"> <span class="select-box">
+                        <select class="select" size="1" name="city">
+                            <option value="" selected>请选择月租类型</option>
+                            <option value="1">固定租金</option>
+                            <option value="3">比例租金（如 填写1为增加百分之一的租金）</option>
+                        </select>
+                        </span>
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-3"> </label>
+                            <div class="formControls col-xs-4 col-sm-3">
+                                <input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>时间：</label>
+                            <div class="formControls col-xs-4 col-sm-5">
+                                <input type="text" onfocus="WdatePicker({maxDate:'#F{\$dp.\$D(\'date1max\')}'})" id="date1min" class="input-text Wdate li-date">
+                                至<input type="text" onfocus="WdatePicker({minDate:'#F{\$dp.\$D(\'date1min\')}'})" id="date1max" class="input-text Wdate li-date">
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>租金：</label>
+                            <div class="formControls col-xs-4 col-sm-3">
+                                <input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a onclick="addChargeItem('other')" class="btn btn-default btn-sm">添加</a>
+            </div>
+            <div class="tabCon">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">税率类型：</label>
+                    <div class="formControls col-xs-4 col-sm-3"> <span class="select-box">
+                        <select class="select" size="1" name="city">
+                            <option value="" selected>请选择税率类型</option>
+                            <option value="1">按当月房租费</option>
+                            <option value="3">按固定费用交</option>
+                            <option value="4">按电费百分比交</option>
+                            <option value="4">按水费百分比交</option>
+                        </select>
+                        </span> </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">按当月房租费：</label>
+                    <div class="formControls col-xs-4 col-sm-3">
+                        <input type="text" class="input-text" value="" placeholder="填写房租费百分比" >
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">当月固定费：</label>
+                    <div class="formControls col-xs-4 col-sm-3">
+                        <input type="text" class="input-text" value="" placeholder="填写当月固定费" >
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">电费百分比：</label>
+                    <div class="formControls col-xs-4 col-sm-3">
+                        <input type="text" class="input-text" value="" placeholder="填写电费百分比" >
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">水费百分比：</label>
+                    <div class="formControls col-xs-4 col-sm-3">
+                        <input type="text" class="input-text" value="" placeholder="填写水费百分比" >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2" id="submit">
+                <button onClick="article_save_submit();" class="btn btn-primary radius" type="submit" style="display: none" id="sub"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+                <button  class="btn btn-primary radius" type="submit" id="Previous"><i class="Hui-iconfont">&#xe6d4;</i>上一步</button>
+                <button  class="btn btn-primary radius" type="submit" id="Next">下一步<i class="Hui-iconfont">&#xe6d7;</i> </button>
+                <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{include file="/Public/footer"}
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="__PUBLIC__admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('.skin-minimal input').iCheck({
+        checkboxClass: 'icheckbox-blue',
+        radioClass: 'iradio-blue',
+        increaseArea: '20%'
+    });
+    //公司
+    keyword($(".company_input"),$(".keyword_company"),1);
+    //账户
+    keyword($(".bank_input"),$(".keyword_bank"),2);
+    //财务
+    keyword($(".money_input"),$(".keyword_money"),3);
+    //管理人
+    keyword($(".person_input"),$(".keyword_person"));
+    
+    /*keyword模糊搜索函数
+     * input输入框
+     * downmask下拉框
+     * 
+     * */
+    function keyword(input,downmask,type){
+        input.bind('input porpertychange',function(e){
+            var val = $(this).val();
+           $.post("{:url('Cuscontract/cuscontract_find')}",{val:val,type:type},function(data){
+            downmask.html(data);
+           })
+            if(val){
+                downmask.show();
+                $.ajax({
+                    type:"get",
+                    url:"",
+                    data:{keyword:val},
+                    success:function(data){
+                        downmask.find('li').mouseover(function(e){
+                        $(this).css('background-color','#5a98de');
+                        $(this).css('color','#fff');
+                        $(this).siblings().css('background-color','');
+                        $(this).siblings().css('color','');
+                    })
+                    downmask.find('li').bind('click').on('click',function(e){
+                        e.stopPropagation();
+                        input.val($(this).html());
+                        $(this).closest('ul').hide();
+                    })
+                    },
+                    async:true
+                });
+            }else{
+                downmask.hide();
+            }
+        })
+    }
+     
+});
+</script> 
+<script type="text/javascript">
+function tjyz(){
+    layer.open({
+    type: 2,
+    area: ['80%', '550px'],
+    fixed: false, //不固定
+    maxmin: true,
+    title:"添加业主",
+    content: "{:url('Cuscontract/detailed_add')}"
+    });
+}
+function tjczf(){
+    layer.open({
+    type: 2,
+    area: ['80%', '550px'],
+    fixed: false, //不固定
+    maxmin: true,
+    title:"添加公司",
+    content: "{:url('Cuscontract/company_add')}"
+    });
+}
+$(function(){
+    var i=0;
+    $('.skin-minimal input').iCheck({
+        checkboxClass: 'icheckbox-blue',
+        radioClass: 'iradio-blue',
+        increaseArea: '20%'
+    });
+
+//  $("#tab-system").Huitab({
+//      index:0
+//  });
+    $(".tabCon").delegate(".ppremoveline","click",function(){
+        $(this).parent().parent().remove();
+        return false;
+    });
+    $(".tabCon").delegate(".ppremovelineelectric","click",function(){
+        $(this).parent().parent().remove();
+        return false;
+    });
+    $("#submit").delegate("#Previous","click",function(){
+        var leng=0;
+        if(leng>=i){
+            i=leng;
+        }else{
+            i=i-1;
+        }
+        $.Huitab("#tab-system .tabBar span","#tab-system .tabCon","current","click",i);
+        return false;
+    });
+    $("#submit").delegate("#Next","click",function(){
+        var $tab_menu=$("#tab-system .tabCon");
+        var leng=$tab_menu.length-1;
+        if(leng<=i){
+            $('#sub').css('display','');
+            i=leng;
+        }else{
+            i=i+1;
+        }
+
+        $.Huitab("#tab-system .tabBar span","#tab-system .tabCon","current","click",i);
+        return false;
+    });
+    $(function(){
+        $.Huitab("#tab-system .tabBar span","#tab-system .tabCon","current","click",i)});
+    jQuery.Huitab =function(tabBar,tabCon,class_name,tabEvent,i){
+
+        var $tab_menu=$(tabBar);
+        // 初始化操作
+        $tab_menu.removeClass(class_name);
+        $(tabBar).eq(i).addClass(class_name);
+        $(tabBar).eq(i).css('display','');
+        $(tabCon).hide();
+        $(tabCon).eq(i).show();
+
+        $tab_menu.bind(tabEvent,function(){
+            $tab_menu.removeClass(class_name);
+            $(this).addClass(class_name);
+            var index=$tab_menu.index(this);
+            $(tabCon).hide();
+            $(tabCon).eq(index).show()})}
+});
+function member_add(title,url,w,h){
+    layer_show(title,url,w,h);
+}
+var items_hash ={'rent':2,'transformer': 0,'electric':0,'contract-price':0,'water':0,'water-price':0,'other':0};
+    var date='2017-06-25';
+    function addChargeItem(item_type,begin,end,val) {
+        var html = "<div style='border:solid 1px #ddd'><span class='btn  radius ppremoveline'><i class='Hui-iconfont'>&#xe6a1;</i> </span>";
+        if(!begin){
+            begin=date;
+        }
+        if(!end){
+            end=date;
+        }
+        if(!val){
+            val=0;
+        }
+        var maxDateid="date"+items_hash[item_type]+"max";
+        var minDateid="date"+items_hash[item_type]+"min";
+        var maxDate="{maxDate:'#F{\$dp.\$D(\\'"+maxDateid+"\\')}'}";
+        var minDate="{minDate:'#F{\$dp.\$D(\\'"+minDateid+"\\')}'}";
+        if(item_type=='other'){
+            html += "<div class='row cl'> <label class='form-label col-xs-4 col-sm-3'>租金类型：</label> <div class='formControls col-xs-4 col-sm-3'> <span class='select-box'><select class='select' size='1' name='city'><option value='' selected>请选择租金类型</option><option value='2'>物业管理费</option><option value='3'>垃圾费</option></select></span> </div></div>";
+        }
+        //添加日期js结束
+
+        html += "<div class='row cl'> <label class='form-label col-xs-4 col-sm-3'>月租类型：</label> <div class='formControls col-xs-4 col-sm-3'> <span class='select-box'><select class='select' size='1' name='city'><option value='' selected>请选择月租类型</option><option value='1'>固定租金</option><option value='2'>比例租金（如 填写1为增加百分之一的租金）</option></select></span> </div></div>";
+        html += "<div class='row cl'> <label class='form-label col-xs-4 col-sm-3'> </label> <div class='formControls col-xs-4 col-sm-3'> <input type='text' class='input-text' value='' placeholder='' id='username' name='username'> </div></div>";
+        html +="<div class='row cl'><label class='form-label col-xs-4 col-sm-3'><span class='c-red'>*</span>时间：</label><div class='formControls col-xs-4 col-sm-5'><input type='text' onfocus=WdatePicker("+maxDate+") id='"+minDateid+"' class='input-text Wdate li-date'>至<input type='text' onfocus=WdatePicker("+minDate+") id='"+maxDateid+"' class='input-text Wdate li-date'></div></div>";
+        html +="<div class='row cl'><label class='form-label col-xs-4 col-sm-3'><span class='c-red'>*</span>租金：</label><div class='formControls col-xs-4 col-sm-3'><input type='text' class='input-text' value='' placeholder='' id='username' name='username'></div></div>";
+        html += '</div>';       
+        document.getElementById(item_type).insertAdjacentHTML('beforeEnd',html);
+        items_hash[item_type]++;
+        //潘潘加a链接无跳转效果
+        return false;
+    }
+
+    function addtransformerItem(item_type) {
+        var html = "<div class='formControls col-xs-8 col-sm-12 '>";
+        html += "<input type='text'  class='input-text li-transformer'   placeholder='数量'>";
+        html += " <input type='text'  class='input-text li-transformer'   placeholder='详情（如500KW）'>";
+        html += " <button class='btn ppremoveline' style='width: 10%'><i class='Hui-iconfont'>&#xe6a1;</i> </button>";
+        html += '</div>';
+        document.getElementById(item_type).insertAdjacentHTML('beforeEnd',html);
+        items_hash[item_type]++;
+        //潘潘加a链接无跳转效果
+        return false;
+    }
+
+    function addelectricItem(item_type) {
+        var clas='contract-price'+items_hash[item_type];
+        var html = "<div><div class='formControls col-xs-8 col-sm-12 '>";
+        html += "<div class='formControls col-xs-8 col-sm-5'>";
+        html += "<span class='select-box'><select class='select' size='1' name='city'>";
+        html += "<option value='0'>请选择电表所在园区</option><option value='1'>高新园</option><option value='2'>合创园</option>";
+        html += "</select></span></div>";
+        html += "<div class='formControls col-xs-8 col-sm-4'>";
+        html += "<input type='text' class='input-text' value='' placeholder='电表名' id='username' name='username'>";
+        html += "</div>";
+        html += "<button class='btn ppremovelineelectric' style='width: 10%'><i class='Hui-iconfont'>&#xe6a1;</i> </button>";
+        html += '</div>';
+
+        html += "<div class='formControls col-xs-8 col-sm-12 '>";
+        html += "<div class='formControls col-xs-8 col-sm-3'>";
+        html += "<input type='text' class='input-text' value='' placeholder='电表初始度数' id='username' name='username'>";
+        html += "</div>";
+        html += "<div class='formControls col-xs-8 col-sm-2'>";
+        html += "<input type='text' class='input-text' value='' placeholder='电表倍率' id='username' name='username'>";
+        html += "</div>";
+        html += "<div class='formControls col-xs-8 col-sm-2'>";
+        html += "<input type='text' class='input-text' value='' placeholder='损耗' id='username' name='username'>";
+        html += "</div>";
+        html += '</div>';
+
+        html += "<div class='formControls col-xs-8 col-sm-12 '>";
+        html += "<div  id="+clas+">";
+        html += "<div class='formControls col-xs-8 col-sm-10'>";
+        html += "<input type='text' class='input-text li-transformer'  placeholder='开始读数'  >";
+        html += " <input type='text' class='input-text li-transformer'  placeholder='结束读数'  >";
+        html += " <input type='text' class='input-text li-transformer'  placeholder='单价'  >";
+        html += " <button class='btn ppremoveline' style='width: 7%'><i class='Hui-iconfont'>&#xe6a1;</i> </button>";
+        html += '</div></div><a onclick="addcontractpriceItem(\''+clas+'\')" class="btn btn-default btn-sm">添加</a>';
+        html += '</div></div>';
+
+        document.getElementById(item_type).insertAdjacentHTML('beforeEnd',html);
+        items_hash[item_type]++;
+        //潘潘加a链接无跳转效果
+        return false;
+    }
+    function addcontractpriceItem(item_type) {
+
+        var html = "<div class='formControls col-xs-8 col-sm-10 '>";
+        html += "<input type='text' class='input-text li-transformer'  placeholder='开始读数'  >";
+        html += " <input type='text' class='input-text li-transformer'  placeholder='结束读数'  >";
+        html += " <input type='text' class='input-text li-transformer'  placeholder='单价'  >";
+        html += " <button class='btn ppremoveline' style='width: 7%'><i class='Hui-iconfont'>&#xe6a1;</i> </button>";
+        html += '</div>';
+        document.getElementById(item_type).insertAdjacentHTML('beforeEnd',html);
+        items_hash[item_type]++;
+        //潘潘加a链接无跳转效果
+        return false;
+    }
+
+    function addwaterItem(item_type) {
+        var clas='contract-price'+items_hash[item_type];
+        var html = "<div><div class='formControls col-xs-8 col-sm-12 '>";
+        html += "<div class='formControls col-xs-8 col-sm-2'>";
+        html += "<span class='select-box'><select class='select' size='1' name='city'>";
+        html += "<option value='0'>请选择水表所在园区</option><option value='1'>高新园</option><option value='2'>合创园</option>";
+        html += "</select></span></div>";
+        html += "<div class='formControls col-xs-8 col-sm-2'><input type='text' class='input-text' value='' placeholder='水表名'></div>";
+
+        html += "<div class='formControls col-xs-8 col-sm-2 '>";
+        html += "<input type='text' class='input-text' value='' placeholder='初始度数'>";
+        html += "</div>";
+        html += "<button class='btn ppremoveline' style='width: 10%'><i class='Hui-iconfont'>&#xe6a1;</i> </button>";
+        html += '</div>';
+
+        html +="<div class='formControls col-xs-8 col-sm-12'>";
+        html +="<div class='formControls col-xs-8 col-sm-2'>";
+        html +="<input type='text' class='input-text' value='' placeholder='倍率'>";
+        html +="</div>";
+        html +="<div class='formControls col-xs-8 col-sm-2'>";
+        html +="<input type='text' class='input-text' value='' placeholder='损耗'>";
+        html +="</div>";
+        html +="<div class='formControls col-xs-8 col-sm-2'>";
+        html +="<input type='text' class='input-text' value='' placeholder='分摊比例'>";
+        html +="</div>";
+        html +="</div>";
+
+        html +="<div class='formControls col-xs-8 col-sm-12'>";
+        html +="<div class='formControls col-xs-8 col-sm-10' id="+clas+">";
+        html +="<div class='formControls col-xs-8 col-sm-12'>";
+        html += "<input type='text' class='input-text li-transformer'  placeholder='开始读数'  >";
+        html += "<input type='text' class='input-text li-transformer'  placeholder='结束读数'  >";
+        html += "<input type='text' class='input-text li-transformer'  placeholder='单价'  >";
+        html += "<button class='btn ppremoveline' style='width: 7%'><i class='Hui-iconfont'>&#xe6a1;</i> </button>";
+        html += "</div></div>";
+        html += '<a onclick="addcontractpriceItem(\''+clas+'\')" class="btn btn-default btn-sm">添加</a></div>';
+
+
+        html += '</div>';
+        document.getElementById(item_type).insertAdjacentHTML('beforeEnd',html);
+        items_hash[item_type]++;
+        //潘潘加a链接无跳转效果
+        return false;
+    }
+
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>
