@@ -1,0 +1,165 @@
+﻿{include file="/Public/header"}
+<title>添加员工</title>
+<meta name="keywords" content="优科达">
+<meta name="description" content="优科达">
+</head>
+<body>
+<article class="page-container">
+	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>姓名：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="name" name="name">
+			</div>
+		</div> 
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>职称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="job_title" name="job_title">
+			</div>
+		</div>  
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
+			<div id="mobile" >
+				<div>
+					<div class="formControls col-xs-8 col-sm-4">
+						<input type="text" class="input-text" value="" placeholder=""  name="mobile[]">
+					</div>
+					<div><span class='btn  radius ppremoveline'><i class='Hui-iconfont'>&#xe6a1;</i> </span></div>
+				</div>
+
+			</div>
+			<div><a onclick="addChargeItem('mobile')" class="btn btn-default btn-sm">添加</a></div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>短号：</label>
+			<div id="cornet" >
+				<div>
+					<div class="formControls col-xs-8 col-sm-4">
+						<input type="text" class="input-text" value="" placeholder=""  name="cornet[]">
+					</div>
+					<div><span class='btn  radius ppremoveline'><i class='Hui-iconfont'>&#xe6a1;</i> </span></div>
+				</div>
+
+			</div>
+			<div><a onclick="addChargeItem('cornet')" class="btn btn-default btn-sm">添加</a></div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>分机号：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="extension" name="extension">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">性别：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select class="select" size="1" name="sex">
+					<option value="" selected>请选择性别</option>
+					<option value="0">保密</option>
+					<option value="1">男</option>
+					<option value="2">女</option>
+				</select>
+				</span> </div>
+		</div>
+		 
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>地址：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="address" name="address">
+			</div>
+		</div> 
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+			</div>
+		</div>
+	</form>
+</article>
+
+{include file="/Public/footer"}
+
+<!--请在下方写此页面业务相关的脚本--> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript">
+$(function(){
+    $(".row").delegate(".ppremoveline","click",function(){
+        $(this).parent().parent().remove();
+        return false;
+    });
+	$('.skin-minimal input').iCheck({
+		checkboxClass: 'icheckbox-blue',
+		radioClass: 'iradio-blue',
+		increaseArea: '20%'
+	});
+	
+	$("#form-member-add").validate({
+		rules:{
+			name:{
+				required:true,
+				minlength:2,
+				maxlength:16
+			},
+			sex:{
+				required:true,
+			},
+			job_title:{
+				required:true,
+			},
+			extension:{
+                required:true,
+			},
+			"mobile[]":{
+				required:true,
+				isMobile:true,
+			},
+			"cornet[]":{
+				required:true,
+			},
+			addresse:{
+				required:true,
+			},
+			
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+		submitHandler:function(form){
+			$(form).ajaxSubmit({
+                type: 'post',
+                url: "{:url('Enterprise/staff_add')}",
+                success: function(data){
+                    if(data == "success"){
+                        layer.msg('添加成功!');
+                        setTimeout(function () {
+                            parent.location.reload();
+                            },1000)
+                    }else{
+                        layer.msg(data);
+                        return false;
+                    }
+                },
+            });
+		}
+	});
+});
+
+var items_hash ={'mobile':2,'duan':2};
+function addChargeItem(item_type) {
+    var html ='<div>' +
+		'<div class="formControls col-xs-8 col-sm-4">' +
+		'<input type="text" class="input-text" value="" placeholder=""  name="'+item_type+'[]">' +
+		'</div>' +
+		'<div><span class="btn  radius ppremoveline"><i class="Hui-iconfont">&#xe6a1;</i> </span></div>' +
+	'</div>';
+    document.getElementById(item_type).insertAdjacentHTML('beforeEnd',html);
+    items_hash[item_type]++;
+    //潘潘加a链接无跳转效果
+    return false;
+}
+</script> 
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

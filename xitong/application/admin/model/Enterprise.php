@@ -124,8 +124,8 @@ class Enterprise extends Common
             $data['contact_mobile']   = input('contact_mobile');
             $data['contact_phone']    = input('contact_phone');
             $data['remark']           = input('remark');
-            $data['create_time']      = time();
-            $data['create_id']        = $_SESSION['id'];
+            $data['update_time']      = time();
+            $data['update_id']        = $_SESSION['id'];
             if(empty(input('name'))){
                 return "请填写公司名";     
             }
@@ -180,21 +180,17 @@ class Enterprise extends Common
         }
     }
     /*
-     *公司删除
+     *员工删除
      **/
-    public function company_del(){
+    public function staff_del(){
         if(request()->isPost()){
             $where['id'] = array("in",input('id'));
-            $log = DB::name("company")->where($where)->field('name')->select();
-            Db::startTrans();
-            $resCompaty = DB::name("company")->where($where)->delete();
-            $resBank    = DB::name("bank")->where(array('company_id'=>input('id')))->delete();
-            if($resCompaty&&$resBank){
+            $log = DB::name("staff")->where($where)->field('name')->select();
+            $res = DB::name("staff")->where($where)->delete();
+            if($res){
                 foreach ($log as $k => $v) {
-                    $this->lw_log("3","删除了公司为".$log[$k]['name'],"Enterprise",'company_list');
+                    $this->lw_log("3","删除了员工为".$log[$k]['name'],"Enterprise",'staff_list');
                 }
-                Db::commit();
-                
                 return "success";
             }else{
                 return "操作失败!";
@@ -203,5 +199,133 @@ class Enterprise extends Common
             return "请选择删除的信息";
         }
     }
+    public function staff_list(){
+        $res['list'] = DB::name("staff")->where($where)->order("id desc")->field("id,name,job_title,mobile,cornet,sex,extension,address")->select();
+        $res['num']  = count($res['list']);
+        $arr = $this->lw_number($res['num']);
+        foreach($res['list'] as $k => $v) {
+            $res['list'][$k]['num']  = $arr[$k]; 
+            if($res['list'][$k]['sex']===0){
+                $res['list'][$k]['sex']="保密";
+            }elseif($res['list'][$k]['sex']==1){
+                $res['list'][$k]['sex']="男";
+            }else{
+                $res['list'][$k]['sex']="女";
+            }
+            $res['list'][$k]['mobile']=explode(',', $res['list'][$k]['mobile']);
+            $res['list'][$k]['cornet']   =explode(',',$res['list'][$k]['cornet']);
+        }
+        return $res; 
+    }
+    /**
+     * 增加员工信息
+     * @Author   wcl
+     * @DateTime 2017-09-12T12:35:47+0800
+     * @return   [type]                   [description]
+     */
+    public function staff_add(){
+        if(request()->isPost()){
+           
+            $data['name']           = input('name');
+            $data['job_title']       = input('job_title');
+            $data['address']        = input('address');
+            $data['mobile']         = implode(',',input('mobile/a'));
+            $data['cornet']         = implode(',',input('cornet/a'));
+            $data['sex']            = input('sex');
+            $data['extension']   = input('extension');
+            $data['create_time']      = time();
+            $data['create_id']        = $_SESSION['id'];
+            if(empty(input('name'))){
+                return "请填写员工名";     
+            }
+            if(empty(input('job_title'))){
+                return "请填写职称";     
+            }
+            if(empty(input('address'))){
+                return "请填写地址";     
+            }
+            foreach (input('mobile/a') as $key => $value) {
+                if(input('mobile/a')[$key]===""){
+                    return "请填写手机";     
+                }
+            }
+            foreach (input('cornet/a') as $key => $value) {
+                if(input('cornet/a')[$key]===""){
+                    return "请填写手机";     
+                }
+            }
+            if(empty(input('extension'))){
+                return "请填分机号";     
+            }
+            if(input('sex')===""){
+                return "请选择性别";     
+            }
+            $res = DB::name("staff")->insertGetId($data);
+            
 
+            if($res){
+                $this->lw_log("2","添加了员工为".input('name'),"Enterprise",'staff_list');
+                return "success";
+            }else{
+                return "操作失败";
+            }
+        }
+    }
+    /**
+     * 修改员工信息
+     * @Author   wcl
+     * @DateTime 2017-09-11T21:03:23+0800
+     * @return   [type]                   [description]
+     */
+    public function staff_edit(){
+        if(request()->isGet()){
+            $res =DB::name("staff")->where("id",input('id'))->order("id desc")->field("id,name,job_title,mobile,cornet,sex,extension,address")->find(); 
+            $res['mobile']=explode(',', $res['mobile']);
+            $res['cornet']   =explode(',',$res['cornet']);
+            return $res;
+        }else if(request()->isPost()){
+            $data['id'] = input('id');
+            $data['name']           = input('name');
+            $data['job_title']       = input('job_title');
+            $data['address']        = input('address');
+            $data['mobile']         = implode(',',input('mobile/a'));
+            $data['cornet']         = implode(',',input('cornet/a'));
+            $data['sex']            = input('sex');
+            $data['extension']   = input('extension');
+            $data['update_time']      = time();
+            $data['update_id']        = $_SESSION['id'];
+            if(empty(input('name'))){
+                return "请填写员工名";     
+            }
+            if(empty(input('job_title'))){
+                return "请填写职称";     
+            }
+            if(empty(input('address'))){
+                return "请填写地址";     
+            }
+            foreach (input('mobile/a') as $key => $value) {
+                if(input('mobile/a')[$key]===""){
+                    return "请填写手机";     
+                }
+            }
+            foreach (input('cornet/a') as $key => $value) {
+                if(input('cornet/a')[$key]===""){
+                    return "请填写手机";     
+                }
+            }
+            if(empty(input('extension'))){
+                return "请填分机号";     
+            }
+            if(input('sex')===""){
+                return "请选择性别";     
+            }
+            $res = DB::name("staff")->update($data);
+            if($res){
+                $this->lw_log("4","修改了员工为".input('name'),"Enterprise",'staff_list');
+                return "success";
+            }else{
+                return "操作失败";
+            }
+        }
+    }
 }
