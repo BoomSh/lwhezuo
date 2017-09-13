@@ -260,6 +260,12 @@ class Enterprise extends Common
             if(input('sex')===""){
                 return "请选择性别";     
             }
+            $where['id'] = array("neq",input('id'));
+            $where['name'] = input('name');
+            $find = DB::name("staff")->where($where)->field("COUNT(*)")->find();
+            if($find['COUNT(*)'] != 0){
+                 return "该名字已经被占用";
+            }
             $res = DB::name("staff")->insertGetId($data);
             
 
@@ -327,5 +333,36 @@ class Enterprise extends Common
                 return "操作失败";
             }
         }
+    }
+    /**
+     * 异步获取下拉选项数据
+     * @return [type] [description]
+     */
+    public function garden_selectinfo(){
+        $type = input('type');
+        $name = input('name');
+        $where['name'] = array("like","%".$name."%");
+        switch ($type) {
+            case 1:
+                $res = DB::name('company')->where($where)->field('id,name')->select();
+                foreach ($res as $key => $value) {
+                    $html .= "<li>"+$res[$key]['name']+"</li>"
+                }
+                $data = 
+                break;
+
+            case 2:
+                $res = DB::name('company')->where($where)->field('id,name')->select();
+                break;
+
+            case 3:
+                # code...
+                break;
+
+            default:
+                # code...
+                break;
+        }
+        return $res;
     }
 }

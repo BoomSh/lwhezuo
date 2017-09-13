@@ -21,35 +21,20 @@
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">公司：</label>
-			<!--<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="city">
-					<option value="" selected>请选择公司</option>
-					<option value="1">优科达</option>
-				</select>
-				</span> </div>-->
 				<div class="formControls col-xs-8 col-sm-9" style="position: relative;">
-					<input type="text" class="input-text company_input" value="" placeholder="" id="username" name="username">
+					<input type="text" class="input-text company_input" value="" placeholder="" id="" name="">
+					<input type="hidden" value="" id="company_id" name="company_id"></input>
 					<ul class="keyword_company keyword">
-						<li>哈哈哈哈</li>
-						<li>哈哈哈哈</li>
-						<li>哈哈哈哈</li>
-						<li>哈哈哈哈</li>
-						<li>哈哈哈哈</li>
-						<li>哈哈哈哈</li>
-						<li>哈哈哈哈</li>
+						
+					
 					</ul>
 				</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">账户：</label>
-			<!--<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="city">
-					<option value="" selected>请选择账户</option>
-					<option value="1">23423434（张三）（中国银行）</option>
-				</select>
-				</span> </div>-->
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text bank_input" value="" placeholder="" id="username" name="username">
+				<input type="text" class="input-text bank_input" value="" placeholder="" id="" name="">
+				<input type="hidden" value="" id="bank_id" name="bank_id"></input>
 				<ul class="keyword_bank keyword">
 					<li>哈哈哈哈</li>
 					<li>哈哈哈哈</li>
@@ -63,14 +48,9 @@
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">财务人：</label>
-			<!--<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="city">
-					<option value="" selected>请选择财务人</option>
-					<option value="3">小芳</option>
-				</select>
-				</span> </div>-->
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text money_input" value="" placeholder="" id="username" name="username">
+				<input type="hidden" value="" id="finance_id" name="finance_id"></input>
 				<ul class="keyword_money keyword">
 					<li>哈哈哈哈</li>
 					<li>哈哈哈哈</li>
@@ -84,16 +64,9 @@
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">管理人：</label>
-			<!--<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="city">
-					<option value="" selected>请选择管理人</option>
-					<option value="1">张三</option>
-					<option value="2">李四</option>
-					<option value="3">王五</option>
-				</select>
-				</span> </div>-->
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text person_input" value="" placeholder="" id="username" name="username">
+				<input type="hidden" value="" id="managers_id" name="managers_id"></input>
 				<ul class="keyword_person keyword">
 					<li>哈哈哈哈</li>
 					<li>哈哈哈哈</li>
@@ -128,108 +101,57 @@ $(function(){
 		radioClass: 'iradio-blue',
 		increaseArea: '20%'
 	});
-	$("#form-member-add").validate({
-		rules:{
-			name:{
-				required:true,
-				minlength:2,
-				maxlength:16
-			},
-			license_number:{
-				required:true,
-				number:true,
-			},
-			address:{
-				required:true,
-			},
-			legal:{
-				required:true,
-			},
-			legal_mobile:{
-				required:true,
-				isMobile:true,
-			},
-			"bank_number[]":{
-				required:true,
-				number:true,
-			},
-			"bank_name[]":{
-				required:true,
-			},
-			contact_mobile:{
-				isMobile:true,
-			}
-			
-		},
-		onkeyup:false,
-		focusCleanup:true,
-		success:"valid",
-		submitHandler:function(form){
-			$(form).ajaxSubmit({
-                type: 'post',
-                url: "{:url('Enterprise/company_add')}",
-                success: function(data){
-                    if(data == "success"){
-                        layer.msg('添加成功!');
-                        setTimeout(function () {
-                            parent.location.reload();
-                            },1000)
-                    }else{
-                        layer.msg(data);
-                        return false;
-                    }
-                },
-            });
-		}
-	});
 	//公司
-	keyword($(".company_input"),$(".keyword_company"));
+	keyword($(".company_input"),$(".keyword_company"),1);
 	//账户
-	keyword($(".bank_input"),$(".keyword_bank"));
+	keyword($(".bank_input"),$(".keyword_bank"),2);
 	//财务
-	keyword($(".money_input"),$(".keyword_money"));
+	keyword($(".money_input"),$(".keyword_money"),3);
 	//管理人
-	keyword($(".person_input"),$(".keyword_person"));
+	keyword($(".person_input"),$(".keyword_person"),4,);
 	
 	/*keyword模糊搜索函数
 	 * input输入框
 	 * downmask下拉框
 	 * 
 	 * */
-	function keyword(input,downmask){
+	function keyword(input,downmask,type,id){
 		input.bind('input porpertychange',function(e){
 			var val = $(this).val();
 			if(val){
-				downmask.show();
+				
 				$.ajax({
 					type:"post",
-					url:"{}",
-					data:{keyword:val},
+					url:"{:url('Enterprise/garden_selectinfo')}",
+					data:{name:val,type:type},
 					success:function(data){
+                        downmask.html(data);
+                        downmask.show();
 						downmask.find('li').mouseover(function(e){
-	 					$(this).css('background-color','#5a98de');
-	 					$(this).css('color','#fff');
-	 					$(this).siblings().css('background-color','');
-	 					$(this).siblings().css('color','');
-	 				})
-	 				downmask.find('li').bind('click').on('click',function(e){
-	 					e.stopPropagation();
-	 					input.val($(this).html());
-	 					$(this).closest('ul').hide();
-	 				})
+		 					$(this).css('background-color','#5a98de');
+		 					$(this).css('color','#fff');
+		 					$(this).siblings().css('background-color','');
+		 					$(this).siblings().css('color','');
+		 				})
+		 				downmask.find('li').bind('click').on('click',function(e){
+		 					e.stopPropagation();
+		 					input.val($(this).html());
+		 					$(this).closest('ul').hide();
+		 				})
 					},
 					async:true
 				});
 			}else{
 				downmask.hide();
 			}
+			$(document).click(function(e){
+				e.stopPropagation();
+				downmask.hide();
+			})
 		})
 	}
-
 	 
 });
-	 
-
 </script> 
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

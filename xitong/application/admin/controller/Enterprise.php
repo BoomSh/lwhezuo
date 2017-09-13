@@ -238,6 +238,17 @@ class Enterprise extends Common
 
     }
     /**
+     * 新增园区选项信息获取
+     * @return [type] [description]
+     */
+    public function garden_selectinfo(){
+        $Enterprise = model("Enterprise");
+        if(request()->isAjax()){
+            $res = $Enterprise-> garden_selectinfo();
+            return $res;   
+        }
+    }
+    /**
 	 * 园区信息修改
 	 * @Author   wcl
 	 * @DateTime 2017-09-10T20:53:24+0800

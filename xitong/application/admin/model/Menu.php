@@ -62,6 +62,11 @@ class Menu extends Common
      **/
     public function dictionary_del(){
         if(request()->isPost()){
+            /*判断银行类型字典值是否在使用*/
+            $bank = DB::name("bank")->where(array('name'=>array('in',input('id'))))->field("COUNT(*)")->find();
+            if($bank['COUNT(*)'] != 0){
+                 return "该字典值正在被公司信息使用,请修改公司信息或删除公司信息后再来进行此操作";
+            }
             $where['id'] = array("in",input('id'));
             $log = DB::name("dictionary")->where($where)->field('name')->select();
             foreach ($log as $k => $v) {
