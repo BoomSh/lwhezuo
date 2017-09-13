@@ -346,9 +346,9 @@ class Enterprise extends Common
             case 1:
                 $res = DB::name('company')->where($where)->field('id,name')->select();
                 foreach ($res as $key => $value) {
-                    $html .= "<li>"+$res[$key]['name']+"</li>"
+                    $html .= "<li p_id＝>"+$res[$key]['name']+"</li>";
                 }
-                $data = 
+                
                 break;
 
             case 2:
@@ -363,6 +363,6 @@ class Enterprise extends Common
                 # code...
                 break;
         }
-        return $res;
+        return $html;
     }
 }
