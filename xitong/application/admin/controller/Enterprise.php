@@ -184,26 +184,7 @@ class Enterprise extends Common
 	 */
     public function garden_list(){
         $enterprise = model("Enterprise");
-        if(!empty(input("startime"))){
-            if(!empty(input("overtime"))){
-                $where['create_time'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
-                $this->assign("startime",input("startime"));
-                $this->assign("overtime",input("overtime"));
-            }else{
-                $where['create_time'] = array("gt",strtotime(input('startime')));
-                $this->assign("startime",input("startime"));
-            }
-        }
-        if(!empty(input("overtime"))){
-            if(!empty(input("startime"))){
-                $where['create_time'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
-                $this->assign("startime",input("startime"));
-                $this->assign("overtime",input("overtime"));
-            }else{
-                $where['create_time'] = array("lt",strtotime(input('overtime')));
-                $this->assign("overtime",input("overtime"));
-            }
-        }
+        
         if(!empty(input("name"))){
             $where['name'] = array("like","%".input("name")."%");
             $this->assign("name",input("name"));
@@ -211,8 +192,8 @@ class Enterprise extends Common
         if(empty($where)){
             $where = 1;
         }
-        /*获取 符合条件的 管理员信息*/
-        $res = $enterprise->company_list($where);
+        /*获取 符合条件的 园区信息*/
+        $res = $enterprise->garden_list($where);
         $this->assign("res",$res);
         return $this->fetch();
 
@@ -230,9 +211,6 @@ class Enterprise extends Common
             $row = $Enterprise->garden_add();
             return $row;
         }else{
-            /*获取银行信息*/
-            $bank = $Enterprise->bank_info();
-            $this->assign("bank",$bank);
             return $this->fetch();
         }
 
@@ -255,7 +233,18 @@ class Enterprise extends Common
 	 * @return   [type]                   [description]
 	 */
     public function garden_edit(){
-
+        $Enterprise = model("Enterprise");
+        if(request()->isGet()){
+            /*获取园区信息*/
+            $res = $Enterprise->garden_edit();
+            $this->assign("res",$res);
+            return $this->fetch();
+        }else if(request()->isPost()){
+            $row = $Enterprise->garden_edit();
+            return $row;
+        }else{
+            return "请选择修改的信息";
+        }
     }
     /**
 	 * 园区信息删除
@@ -264,7 +253,13 @@ class Enterprise extends Common
 	 * @return   [type]                   [description]
 	 */
     public function garden_del(){
-
+        $Enterprise = model("Enterprise");
+        if(request()->isPost()){
+            $row = $Enterprise->garden_del();
+            return $row;
+        }else{
+            return "请选择删除的信息";
+        }
     }
     /**
 	 * 房源信息列表

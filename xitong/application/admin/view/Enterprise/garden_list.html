@@ -4,11 +4,12 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 园区管理 <span class="c-gray en">&gt;</span>园区列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
+<form action="{:url('Enterprise/garden_list')}" method="post">
 	<div class="bk-gray radius pd-10 col-xs-12 col-sm-12">
 		<div class="mt-10 col-xs-12 col-sm-12">
 			<strong class="col-xs-12 col-sm-2 text-r">园区名称：</strong>
 			<div class="col-xs-12 col-sm-6">
-				<input type="text" class="input-text" placeholder="输入园区名称" id="" name="">
+				<input type="text" class="input-text" placeholder="输入园区名称" value="{$name}" id="" name="name">
 			</div>
 		</div>
 		<div class="cl mt-10  col-xs-12 col-sm-12">
@@ -18,6 +19,7 @@
 			</div>
 		</div>
 	</div>
+</form>
 	<div class="cl pd-5 bg-1 bk-gray col-xs-12 col-sm-12 mt-20">
 		<span class="l">
 			{if $lw_role.del eq 1}
@@ -48,21 +50,29 @@
 			</tr>
 		</thead>
 		<tbody>
+		{volist name="res['list']" id="vo"}
 			<tr class="text-c">
-				<td><input type="checkbox" value="1" name=""></td>
-				<td>1</td> 
-				<td>河盛文创园</td> 
-				<td>深圳市龙华街道三联居委</td> 
-				<td>1000</td>
-				<td>1500</td>
-				<td>优科达</td>
-				<td>123232323</td>
-				<td>小芳</td>
-				<td>13304333453</td>
-				<td>张三</td>
-				<td>1232342342</td>
-				<td class="td-manage"><a title="编辑" href="javascript:;" onclick="member_edit('编辑','park-add.html','4','350','400')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+				<td><input type="checkbox" value="{$vo.id}" name="id"></td>
+				<td>{$vo.num}</td> 
+				<td>{$vo.name}</td> 
+				<td>{$vo.address}</td> 
+				<td></td>
+				<td></td>
+				<td>{$vo.company_id}</td>
+				<td>{$vo.bank_id}</td>
+				<td>{$vo.finance_id}</td>
+				<td>{$vo.finance_m}</td>
+				<td>{$vo.managers_id}</td>
+				<td>{$vo.managers_m}</td>
+				<td class="td-manage">
+				{if $lw_role.edit eq 1}
+                <a title="编辑" href="javascript:;" onclick="member_edit('编辑','{:url('Enterprise/garden_edit',array('id'=>$vo.id))}','4','','300')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                {/if}
+                {if $lw_role.del eq 1}
+                 <a title="删除" href="javascript:;" onclick="member_del(this,'{$vo.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                 {/if}
 			</tr>
+		 {/volist}		
 		</tbody>
 	</table>
 	</div>
@@ -119,21 +129,45 @@ function member_edit(title,url,id,w,h){
 	layer_show(title,url,w,h);
 } 
 /*用户-删除*/
+/*用户-删除*/
 function member_del(obj,id){
 	layer.confirm('确认要删除吗？',function(index){
-		$.ajax({
-			type: 'POST',
-			url: '',
-			dataType: 'json',
-			success: function(data){
-				$(obj).parents("tr").remove();
-				layer.msg('已删除!',{icon:1,time:1000});
-			},
-			error:function(data) {
-				console.log(data.msg);
-			},
-		});		
-	});
+        $.post("{:url('Enterprise/garden_del')}",{id:id},function(data){
+            if(data == "success"){
+                layer.msg("删除成功");
+                $(obj).parents("tr").remove();
+            }else{
+                layer.msg(data);
+            }
+        })     
+    });
+}
+function datadel(){
+    layer.confirm('确认要删除吗？',function(index){
+    if($(".text-c input[name='id']:checked").length > 0){
+        var id = "";
+        $(".text-c input[name='id']:checked").each(function() {
+                             var reservation = $(this).val();
+                             id += reservation + ",";
+                        });
+        length = id.length;
+        id = id.substring(id,length-1);
+        $.post("{:url('Enterprise/garden_del')}",{id:id},function(data){
+            if(data == "success"){
+                layer.msg("删除成功");
+                $(".text-c input[name='id']:checked").each(function() {
+                        var reservation = $(this).parents(".text-c");
+                        reservation.hide();
+                });
+            }else{
+                layer.msg(data);
+            }
+        })
+    }else{
+        layer.msg("请选择删除的信息");
+        return false;
+    }
+})
 }
 $.dataTablesSettings = {
     processing : false,//是否显示加载中提示

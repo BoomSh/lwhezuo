@@ -22,7 +22,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">公司：</label>
 				<div class="formControls col-xs-8 col-sm-9" style="position: relative;">
-					<input type="text" class="input-text company_input" value="" placeholder="" id="" name="">
+					<input type="text" class="input-text company_input" value="" t_id='company_id' autocomplete="off" placeholder="" id="" name="company_name">
 					<input type="hidden" value="" id="company_id" name="company_id"></input>
 					<ul class="keyword_company keyword">
 						
@@ -33,48 +33,30 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">账户：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text bank_input" value="" placeholder="" id="" name="">
+				<input type="text" class="input-text bank_input" t_id='bank_id' value="" autocomplete="off" placeholder="" id="" name="bank_name">
 				<input type="hidden" value="" id="bank_id" name="bank_id"></input>
 				<ul class="keyword_bank keyword">
-					<li>哈哈哈哈</li>
-					<li>哈哈哈哈</li>
-					<li>哈哈哈哈</li>
-					<li>哈哈哈哈</li>
-					<li>哈哈哈哈</li>
-					<li>哈哈哈哈</li>
-					<li>哈哈哈哈</li>
+					
 				</ul>
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">财务人：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text money_input" value="" placeholder="" id="username" name="username">
+				<input type="text" class="input-text money_input" t_id='finance_id' value="" autocomplete="off" placeholder="" id="" name="finance_name">
 				<input type="hidden" value="" id="finance_id" name="finance_id"></input>
 				<ul class="keyword_money keyword">
-					<li>哈哈哈哈</li>
-					<li>哈哈哈哈</li>
-					<li>哈哈哈哈</li>
-					<li>哈哈哈哈</li>
-					<li>哈哈哈哈</li>
-					<li>哈哈哈哈</li>
-					<li>哈哈哈哈</li>
+					
 				</ul>
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">管理人：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text person_input" value="" placeholder="" id="username" name="username">
+				<input type="text" class="input-text person_input" t_id='managers_id' value="" autocomplete="off" placeholder="" id="" name="managers_name">
 				<input type="hidden" value="" id="managers_id" name="managers_id"></input>
 				<ul class="keyword_person keyword">
-					<li>哈哈哈哈</li>
-					<li>哈哈哈哈</li>
-					<li>哈哈哈哈</li>
-					<li>哈哈哈哈</li>
-					<li>哈哈哈哈</li>
-					<li>哈哈哈哈</li>
-					<li>哈哈哈哈</li>
+				
 				</ul>
 			</div>
 		</div> 
@@ -101,6 +83,51 @@ $(function(){
 		radioClass: 'iradio-blue',
 		increaseArea: '20%'
 	});
+	$("#form-member-add").validate({
+		rules:{
+			name:{
+				required:true,
+				minlength:2,
+				maxlength:16
+			},
+			address:{
+				required:true,
+			},
+			company_name:{
+				required:true,
+			},
+			bank_name:{
+				required:true,
+			},
+			finance_name:{
+                required:true,
+			},
+			managers_name:{
+				required:true,
+			},
+			
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+		submitHandler:function(form){
+			$(form).ajaxSubmit({
+                type: 'post',
+                url: "{:url('Enterprise/garden_add')}",
+                success: function(data){
+                    if(data == "success"){
+                        layer.msg('添加成功!');
+                        setTimeout(function () {
+                            parent.location.reload();
+                            },1000)
+                    }else{
+                        layer.msg(data);
+                        return false;
+                    }
+                },
+            });
+		}
+	});
 	//公司
 	keyword($(".company_input"),$(".keyword_company"),1);
 	//账户
@@ -108,24 +135,28 @@ $(function(){
 	//财务
 	keyword($(".money_input"),$(".keyword_money"),3);
 	//管理人
-	keyword($(".person_input"),$(".keyword_person"),4);
+	keyword($(".person_input"),$(".keyword_person"),4,);
 	
 	/*keyword模糊搜索函数
 	 * input输入框
 	 * downmask下拉框
 	 * 
 	 * */
-	function keyword(input,downmask,type,id){
+	function keyword(input,downmask,type){
 		input.bind('input porpertychange',function(e){
 			var val = $(this).val();
+			$("#"+input.attr('t_id')+"").val('');
 			if(val){
-				
+				var html ="";
 				$.ajax({
 					type:"post",
 					url:"{:url('Enterprise/garden_selectinfo')}",
-					data:{name:val,type:type},
+					data:{name:val,type:type,company_id:$('#company_id').val()},
 					success:function(data){
-                        downmask.html(data);
+						$.each(data,function(index,value){
+                            html += "<li p_id='"+value['id']+"'>"+value['name']+"</li>";
+						});
+                        downmask.html(html);
                         downmask.show();
 						downmask.find('li').mouseover(function(e){
 		 					$(this).css('background-color','#5a98de');
@@ -134,10 +165,12 @@ $(function(){
 		 					$(this).siblings().css('color','');
 		 				})
 		 				downmask.find('li').bind('click').on('click',function(e){
-	 					e.stopPropagation();
-	 					input.val($(this).html());
-	 					$(this).closest('ul').hide();
-	 				})
+		 					e.stopPropagation();
+		 					input.val($(this).html());
+		 					$("#"+input.attr('t_id')+"").val($(this).attr('p_id'));
+		 					
+		 					$(this).closest('ul').hide();
+		 				})
 					},
 					async:true
 				});
