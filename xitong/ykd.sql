@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2017-09-12 22:57:50
+Date: 2017-09-15 00:11:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -42,7 +42,7 @@ CREATE TABLE `dino_admin` (
 -- ----------------------------
 -- Records of dino_admin
 -- ----------------------------
-INSERT INTO `dino_admin` VALUES ('1', 'admin', '368bd5610605d07b7282588a7bd61e81', '2017-09-08 21:03:30', '293', '1234', '0', '2017-09-12 14:48:23', '127.0.0.1', '2017-09-12 22:41:00', '127.0.0.1', '1', '111111111', '111111@qq.com', '', '1');
+INSERT INTO `dino_admin` VALUES ('1', 'admin', '368bd5610605d07b7282588a7bd61e81', '2017-09-08 21:03:30', '297', '1234', '0', '2017-09-14 20:46:00', '127.0.0.1', '2017-09-14 20:57:02', '127.0.0.1', '1', '111111111', '111111@qq.com', '', '1');
 INSERT INTO `dino_admin` VALUES ('5', 'cheshi', '368bd5610605d07b7282588a7bd61e81', '2017-09-08 22:18:18', '6', '要你管', '13', '2017-09-07 15:55:59', '127.0.0.1', '2017-09-08 22:19:21', '127.0.0.1', '1', '123123123123', '12313212@qq.com', '123123', '1');
 INSERT INTO `dino_admin` VALUES ('15', '2222', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-08 18:11:53', '', null, '0', null, null, null, null, '1', '1212213123123', '123132213@qq.com', '1', '1');
 INSERT INTO `dino_admin` VALUES ('16', '221313', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-08 20:48:35', null, '22222', '0', null, null, null, null, '1', '123123123123', '123@qq.com', '', '1');
@@ -160,15 +160,15 @@ CREATE TABLE `dino_bank` (
   `bank_number` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '开户银行号',
   `bank_name` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '开户银行户名',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='银行表';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='银行表';
 
 -- ----------------------------
 -- Records of dino_bank
 -- ----------------------------
 INSERT INTO `dino_bank` VALUES ('1', '1', '14', '123123', '123123');
-INSERT INTO `dino_bank` VALUES ('2', '2', '12', '12321312', '3123123123');
-INSERT INTO `dino_bank` VALUES ('3', '3', '14', '123123', '12312312');
-INSERT INTO `dino_bank` VALUES ('4', '4', '13', '123', '123123');
+INSERT INTO `dino_bank` VALUES ('4', '2', '14', '898989', '章三');
+INSERT INTO `dino_bank` VALUES ('5', '3', '15', '256656', '张飞');
+INSERT INTO `dino_bank` VALUES ('6', '3', '15', '445', '说的是');
 
 -- ----------------------------
 -- Table structure for `dino_company`
@@ -176,7 +176,6 @@ INSERT INTO `dino_bank` VALUES ('4', '4', '13', '123', '123123');
 DROP TABLE IF EXISTS `dino_company`;
 CREATE TABLE `dino_company` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `bank` int(11) DEFAULT NULL COMMENT '开户银行',
   `name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '公司名称',
   `license_number` varchar(18) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '统一社会信用代码',
   `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '公司地址',
@@ -192,15 +191,13 @@ CREATE TABLE `dino_company` (
   `update_time` int(11) DEFAULT NULL COMMENT '更新时间',
   `update_id` int(11) DEFAULT NULL COMMENT '更新人',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='公司表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='公司表';
 
 -- ----------------------------
 -- Records of dino_company
 -- ----------------------------
-INSERT INTO `dino_company` VALUES ('1', null, '21312', '312312', '3123123', '131313131', '15917902892', '3131', '312313', '12312', '', '1', '1505139292', '1', null, null);
-INSERT INTO `dino_company` VALUES ('2', null, '123213123', '123123', '123123', '123123', '15917902898', '1231231231', '', '', '', '1', '1505227063', '1', null, null);
-INSERT INTO `dino_company` VALUES ('3', null, '123123', '12312', '3123', '123', '15917928981', '', '', '', '', '1', '1505227145', '1', null, null);
-INSERT INTO `dino_company` VALUES ('4', null, '1231231', '2312', '3123', '123123', '15917902898', '123123', '', '213123', '', '1', '1505227178', '1', null, null);
+INSERT INTO `dino_company` VALUES ('1', '21312', '312312', '3123123', '131313131', '15917902892', '3131', '312313', '12312', '', '1', '1505139292', '1', null, null);
+INSERT INTO `dino_company` VALUES ('2', '213', '898989', '深圳南山', '章飞', '13567890987', '', '', '', '', '1', '1505192910', '1', '1505364594', '1');
 
 -- ----------------------------
 -- Table structure for `dino_contract`
@@ -233,16 +230,23 @@ CREATE TABLE `dino_contract` (
   `tax_rate` int(2) DEFAULT NULL COMMENT '税率类型',
   `remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '备注',
   `status` int(1) DEFAULT '1' COMMENT '状态（1正常）',
-  `create_time` date DEFAULT NULL COMMENT '创建时间',
+  `create_time` int(11) DEFAULT NULL COMMENT '创建时间',
   `create_id` int(11) DEFAULT NULL COMMENT '创建人员',
-  `update_time` date DEFAULT NULL COMMENT '更新时间',
+  `update_time` int(11) DEFAULT NULL COMMENT '更新时间',
   `update_id` int(11) DEFAULT NULL COMMENT '更新人',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='合同表';
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='合同表';
 
 -- ----------------------------
 -- Records of dino_contract
 -- ----------------------------
+INSERT INTO `dino_contract` VALUES ('26', '2', null, '9', '1', '2', '合同1', '10000', '15', '2017-09-14', '2017-09-13', '2017-09-13', '1000.00', '1000.00', '1000.00', '1000.00', '1500.00', '2017-09-14', '2017-09-30', '500.00', '2000.00', '1000.00', null, null, '', '1', '1505379469', '1', null, null);
+INSERT INTO `dino_contract` VALUES ('32', '1', null, '17', '1', '2', '合同号', '1000', '15', '2017-09-14', '2017-09-01', '2017-09-01', '1000.00', '100.00', '1000.00', '1000.00', '1500.00', '2017-09-14', '2017-09-29', '500.00', '3000.00', '2002.00', null, null, '备注u', '1', '1505380357', '1', null, null);
+INSERT INTO `dino_contract` VALUES ('34', '1', null, '17', '1', '2', '合同号', '1000', '15', '2017-09-14', '2017-09-01', '2017-09-01', '1000.00', '100.00', '1000.00', '1000.00', '1500.00', '2017-09-14', '2017-09-29', '500.00', '3000.00', '2002.00', null, null, '备注u', '1', '1505380927', '1', null, null);
+INSERT INTO `dino_contract` VALUES ('53', '2', null, '3', '1', '2', '合同1', '10000', '15', '2017-09-14', '2017-09-14', '2017-09-14', '100.00', '1000.00', '1000.00', '1000.00', '1000.00', '2017-09-14', '2017-09-30', '1000.00', '2000.00', '1000.00', null, null, '1231', '2', '1505393663', '1', '1505398077', '1');
+INSERT INTO `dino_contract` VALUES ('57', '8', null, '9', '1', '2', '213', '123131', '15', '2017-09-23', '2017-09-30', '2017-09-23', '111.00', '12.00', '123123.00', '12321.00', '313213.00', '2017-09-22', '2017-09-27', '123.00', '123.00', '123.00', null, null, '', '2', '1505397639', '1', '1505398025', '1');
+INSERT INTO `dino_contract` VALUES ('58', '8', null, '9', '1', '2', '123', '123', '15', '2017-09-14', '2017-09-29', '2017-09-14', '123.00', '123.00', '123.00', '123.00', '123.00', '2017-09-14', '2017-09-30', '123.00', '123.00', '23.00', null, null, '', '1', '1505402552', '1', null, null);
+INSERT INTO `dino_contract` VALUES ('59', '7', null, '19', '1', '2', '12', '123', '15', '2017-09-14', '2017-09-29', '2017-09-29', '213.00', '123.00', '123.00', '123.00', '123.00', '2017-09-29', '2017-09-29', '123.00', '12.00', '135.00', null, null, '', '1', '1505403131', '1', null, null);
 
 -- ----------------------------
 -- Table structure for `dino_contract_hydropower`
@@ -322,7 +326,7 @@ CREATE TABLE `dino_customer` (
   `update_time` int(11) DEFAULT NULL COMMENT '更新时间',
   `update_id` int(11) DEFAULT NULL COMMENT '更新人',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='客户表';
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='客户表';
 
 -- ----------------------------
 -- Records of dino_customer
@@ -338,6 +342,9 @@ INSERT INTO `dino_customer` VALUES ('14', '2', '车市', '不知道', '', '', ''
 INSERT INTO `dino_customer` VALUES ('15', '2', '车市', '不知道', '', '', '', '0', '15917902898@qq.com', '15917902898', '', '1', '21313', '12313', '', '0.00', '1', null, null, null, null);
 INSERT INTO `dino_customer` VALUES ('16', '2', '12312', '3123123', '', '', '', '0', '123@qq.com', '15917908023', '', '1', '123123', '1323', '', '0.00', '1', null, null, null, null);
 INSERT INTO `dino_customer` VALUES ('17', '2', '12312', '3123', '123123', '', '', '1', '1231231@qq.com', '15917902898', '', '1', '1231231', '23123', '', '0.00', '1', null, null, null, null);
+INSERT INTO `dino_customer` VALUES ('18', '2', '车市1', '12313213', '', '', '', '1', '121212121@qq.com', '13824597684', '', '1', '123123', '123123123', '', '0.00', '1', null, null, null, null);
+INSERT INTO `dino_customer` VALUES ('19', '2', '1231231231', '23123123123213', '', '', '', '0', '123132213@qq.com', '13824597684', '', '1', '123123', '123123', '', '0.00', '1', null, null, null, null);
+INSERT INTO `dino_customer` VALUES ('20', '2', '1231231', '123123', '', '', '', '0', '123132213@qq.com', '13824597684', '', '1', '123123', '123123', '', '0.00', '1', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `dino_customer_fees`
@@ -377,7 +384,7 @@ CREATE TABLE `dino_dictionary` (
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '类型名称',
   `status` int(1) DEFAULT NULL COMMENT '状态（1、系统 2、自建',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='字典表';
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='字典表';
 
 -- ----------------------------
 -- Records of dino_dictionary
@@ -388,6 +395,8 @@ INSERT INTO `dino_dictionary` VALUES ('12', '2', '中国银行', '1');
 INSERT INTO `dino_dictionary` VALUES ('13', '2', '招商银行', '1');
 INSERT INTO `dino_dictionary` VALUES ('14', '2', '工商银行', '1');
 INSERT INTO `dino_dictionary` VALUES ('15', '4', '客户来源1', '1');
+INSERT INTO `dino_dictionary` VALUES ('16', '5', '物业管理费', '1');
+INSERT INTO `dino_dictionary` VALUES ('17', '5', '垃圾费', '1');
 
 -- ----------------------------
 -- Table structure for `dino_electric`
@@ -406,11 +415,21 @@ CREATE TABLE `dino_electric` (
   `update_time` int(11) DEFAULT NULL COMMENT '更新时间',
   `update_id` int(11) DEFAULT NULL COMMENT '更新人',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='电表';
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='电表';
 
 -- ----------------------------
 -- Records of dino_electric
 -- ----------------------------
+INSERT INTO `dino_electric` VALUES ('10', '2', '电表名', '50', '10', '120', '1', '1505379469', '1', null, null);
+INSERT INTO `dino_electric` VALUES ('11', '2', '电表2', '20', '20', '20', '1', '1505379469', '1', null, null);
+INSERT INTO `dino_electric` VALUES ('12', '2', '电表1', '0', '10', '0', '1', '1505380357', '1', null, null);
+INSERT INTO `dino_electric` VALUES ('13', '2', '电表2', '0', '15', '20', '1', '1505380357', '1', null, null);
+INSERT INTO `dino_electric` VALUES ('16', '2', '电表1', '0', '10', '0', '1', '1505380927', '1', null, null);
+INSERT INTO `dino_electric` VALUES ('17', '2', '电表2', '0', '15', '20', '1', '1505380927', '1', null, null);
+INSERT INTO `dino_electric` VALUES ('34', '7', '123', '123', '123', '123', '1', '1505397639', '1', null, null);
+INSERT INTO `dino_electric` VALUES ('35', '7', '123', '123', '123', '132', '1', '1505402552', '1', null, null);
+INSERT INTO `dino_electric` VALUES ('36', '7', '44', '44', '44', '44', '1', '1505403131', '1', null, null);
+INSERT INTO `dino_electric` VALUES ('37', '8', '4', '14', '4', '4', '1', '1505403131', '1', null, null);
 
 -- ----------------------------
 -- Table structure for `dino_electric_contract`
@@ -421,11 +440,21 @@ CREATE TABLE `dino_electric_contract` (
   `contract_id` int(11) DEFAULT NULL COMMENT '合同ID',
   `electric_id` int(11) DEFAULT NULL COMMENT '电表ID',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='合同与电表的关系表';
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='合同与电表的关系表';
 
 -- ----------------------------
 -- Records of dino_electric_contract
 -- ----------------------------
+INSERT INTO `dino_electric_contract` VALUES ('10', '26', '10');
+INSERT INTO `dino_electric_contract` VALUES ('11', '26', '11');
+INSERT INTO `dino_electric_contract` VALUES ('12', '32', '12');
+INSERT INTO `dino_electric_contract` VALUES ('13', '32', '13');
+INSERT INTO `dino_electric_contract` VALUES ('16', '34', '16');
+INSERT INTO `dino_electric_contract` VALUES ('17', '34', '17');
+INSERT INTO `dino_electric_contract` VALUES ('34', '57', '34');
+INSERT INTO `dino_electric_contract` VALUES ('35', '58', '35');
+INSERT INTO `dino_electric_contract` VALUES ('36', '59', '36');
+INSERT INTO `dino_electric_contract` VALUES ('37', '59', '37');
 
 -- ----------------------------
 -- Table structure for `dino_electric_price`
@@ -438,11 +467,21 @@ CREATE TABLE `dino_electric_price` (
   `readings_end` int(11) DEFAULT NULL COMMENT '结束度数',
   `price` decimal(10,2) DEFAULT NULL COMMENT '单价',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='电表与合同的单价';
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='电表与合同的单价';
 
 -- ----------------------------
 -- Records of dino_electric_price
 -- ----------------------------
+INSERT INTO `dino_electric_price` VALUES ('7', '10', '51', '100', '20.00');
+INSERT INTO `dino_electric_price` VALUES ('8', '11', '30', '500', '10.00');
+INSERT INTO `dino_electric_price` VALUES ('9', '12', '100', '1000', '20.00');
+INSERT INTO `dino_electric_price` VALUES ('11', '16', '100', '1000', '20.00');
+INSERT INTO `dino_electric_price` VALUES ('20', '34', '312', '132', '132.00');
+INSERT INTO `dino_electric_price` VALUES ('21', '35', '123', '123', '123.00');
+INSERT INTO `dino_electric_price` VALUES ('22', '36', '44', '44', '44.00');
+INSERT INTO `dino_electric_price` VALUES ('23', '36', '14', '14', '14.00');
+INSERT INTO `dino_electric_price` VALUES ('24', '36', '123', '123', '123.00');
+INSERT INTO `dino_electric_price` VALUES ('25', '37', '44', '4', '4.00');
 
 -- ----------------------------
 -- Table structure for `dino_electric_record`
@@ -546,7 +585,7 @@ CREATE TABLE `dino_log` (
   `user_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `user_ip` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=262 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='日志表';
+) ENGINE=MyISAM AUTO_INCREMENT=287 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='日志表';
 
 -- ----------------------------
 -- Records of dino_log
@@ -801,6 +840,31 @@ INSERT INTO `dino_log` VALUES ('258', '1', '19', '2', '添加了公司为123123'
 INSERT INTO `dino_log` VALUES ('259', '1', '19', '2', '添加了公司为1231231', '2017-09-12 22:39:38', '1234', '127.0.0.1');
 INSERT INTO `dino_log` VALUES ('260', '1', '0', '1', '登录成功', '2017-09-12 22:41:00', '1234', '127.0.0.1');
 INSERT INTO `dino_log` VALUES ('261', '1', null, '2', '添加了字典为客户来源', '2017-09-12 22:51:05', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('262', '1', '0', '1', '登录成功', '2017-09-13 10:19:25', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('263', '1', null, '2', '添加了业主名称为车市1', '2017-09-13 10:33:24', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('264', '1', null, '2', '添加了业主名称为1231231231', '2017-09-13 10:35:18', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('265', '1', '19', '2', '添加了公司为123123123', '2017-09-13 10:35:33', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('266', '1', '19', '2', '添加了公司为12312312', '2017-09-13 10:36:15', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('267', '1', '19', '2', '添加了公司为1231231231', '2017-09-13 10:37:29', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('268', '1', '19', '2', '添加了公司为123123121', '2017-09-13 10:42:41', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('269', '1', null, '2', '添加了字典为物业管理费', '2017-09-13 16:55:33', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('270', '1', null, '2', '添加了字典为垃圾费', '2017-09-13 16:55:41', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('271', '1', '0', '1', '登录成功', '2017-09-14 10:43:36', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('272', '1', null, '2', '添加了业主名称为1231231', '2017-09-14 11:16:49', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('273', '1', '27', '2', '增加了了合同号为合同1', '2017-09-14 16:57:49', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('274', '1', '27', '2', '增加了了合同号为合同号', '2017-09-14 17:12:37', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('275', '1', '27', '2', '增加了了合同号为合同号', '2017-09-14 17:22:08', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('276', '1', '0', '1', '登录成功', '2017-09-14 20:46:00', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('277', '1', '27', '2', '增加了了合同号为合同1', '2017-09-14 20:54:24', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('278', '1', '0', '1', '登录成功', '2017-09-14 20:57:02', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('279', '1', null, '2', '添加了园区为213123', '2017-09-14 21:40:57', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('280', '1', null, '2', '添加了园区为1213123', '2017-09-14 21:52:47', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('281', '1', '27', '2', '增加了了合同号为213', '2017-09-14 22:00:39', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('282', '1', '27', '4', '退租了合同为213', '2017-09-14 22:06:59', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('283', '1', '27', '4', '退租了合同为213', '2017-09-14 22:07:06', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('284', '1', '27', '4', '退租了合同为合同1', '2017-09-14 22:07:57', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('285', '1', '27', '2', '增加了了合同号为123', '2017-09-14 23:22:32', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('286', '1', '27', '2', '增加了了合同号为12', '2017-09-14 23:32:11', '1234', '127.0.0.1');
 
 -- ----------------------------
 -- Table structure for `dino_park`
@@ -822,11 +886,16 @@ CREATE TABLE `dino_park` (
   `update_time` int(11) DEFAULT NULL COMMENT '更新时间',
   `update_id` int(11) DEFAULT NULL COMMENT '更新人',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='园区表';
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='园区表';
 
 -- ----------------------------
 -- Records of dino_park
 -- ----------------------------
+INSERT INTO `dino_park` VALUES ('2', null, '1', '1', '4', '7', '北大园', '真真南山', null, '1', '1505365887', '1', null, null);
+INSERT INTO `dino_park` VALUES ('3', null, '1', '1', '4', '4', '浙大园', '浙江', null, '1', '1505358008', '1', null, null);
+INSERT INTO `dino_park` VALUES ('6', null, '2', '4', '4', '4', '青岛园', '青岛', null, '1', '1505364871', '1', null, null);
+INSERT INTO `dino_park` VALUES ('7', null, '1', '1', '1', '1', '213123', '123123', null, '1', '1505396457', '1', null, null);
+INSERT INTO `dino_park` VALUES ('8', null, '1', '1', '1', '1', '1213123', '123123', null, '1', '1505397167', '1', null, null);
 
 -- ----------------------------
 -- Table structure for `dino_rent`
@@ -838,15 +907,25 @@ CREATE TABLE `dino_rent` (
   `exacct` int(11) DEFAULT NULL COMMENT '费用科目',
   `monthly_type` int(1) DEFAULT NULL COMMENT '月租类型',
   `monthly_value` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '月租值',
-  `time_begin` int(11) DEFAULT NULL COMMENT '开始时间',
-  `time_end` int(11) DEFAULT NULL COMMENT '结束时间',
+  `time_begin` date DEFAULT NULL COMMENT '开始时间',
+  `time_end` date DEFAULT NULL COMMENT '结束时间',
   `rent` decimal(10,2) DEFAULT NULL COMMENT '租金',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='租金合同表';
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='租金合同表';
 
 -- ----------------------------
 -- Records of dino_rent
 -- ----------------------------
+INSERT INTO `dino_rent` VALUES ('58', '53', '0', '1', '10000', '2017-09-30', '2017-11-04', '10000.00');
+INSERT INTO `dino_rent` VALUES ('59', '53', '17', '1', '1000', '2017-09-14', '2017-09-30', '1000.00');
+INSERT INTO `dino_rent` VALUES ('60', '57', '0', '2', '1232', '2017-09-30', '2017-10-07', '27475.83');
+INSERT INTO `dino_rent` VALUES ('61', '57', '16', '1', '123', '2017-09-14', '2017-09-30', '123.00');
+INSERT INTO `dino_rent` VALUES ('62', '58', '0', '2', '12', '2017-09-30', '2017-10-05', '137.76');
+INSERT INTO `dino_rent` VALUES ('63', '58', '16', '1', '23', '2017-09-23', '2017-10-19', '123.00');
+INSERT INTO `dino_rent` VALUES ('64', '59', '0', '1', '123', '2017-09-30', '2017-10-07', '123.00');
+INSERT INTO `dino_rent` VALUES ('65', '59', '0', '1', '123', '2017-10-12', '2017-11-03', '123.00');
+INSERT INTO `dino_rent` VALUES ('66', '59', '17', '1', '12', '2017-09-08', '2017-09-30', '1234.00');
+INSERT INTO `dino_rent` VALUES ('67', '59', '16', '1', '123', '2017-10-01', '2017-11-02', '132.00');
 
 -- ----------------------------
 -- Table structure for `dino_role`
@@ -970,11 +1049,12 @@ CREATE TABLE `dino_staff` (
   `update_time` int(11) DEFAULT NULL COMMENT '更新时间',
   `update_id` int(11) DEFAULT NULL COMMENT '更新人',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='员工表';
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='员工表';
 
 -- ----------------------------
 -- Records of dino_staff
 -- ----------------------------
+INSERT INTO `dino_staff` VALUES ('1', '1', '12121', '1', '1', '1', '1', '1', null, '1', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `dino_system`
@@ -1020,11 +1100,15 @@ CREATE TABLE `dino_transformer` (
   `number` int(2) DEFAULT NULL COMMENT '变压器数量',
   `details` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '变压器详情',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='变压器表';
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='变压器表';
 
 -- ----------------------------
 -- Records of dino_transformer
 -- ----------------------------
+INSERT INTO `dino_transformer` VALUES ('1', '53', '100', '500kw');
+INSERT INTO `dino_transformer` VALUES ('2', '57', '123', '123');
+INSERT INTO `dino_transformer` VALUES ('3', '58', '123', '123');
+INSERT INTO `dino_transformer` VALUES ('4', '59', '123', '123');
 
 -- ----------------------------
 -- Table structure for `dino_user`
@@ -1065,11 +1149,15 @@ CREATE TABLE `dino_water` (
   `update_time` int(11) DEFAULT NULL COMMENT '更新时间',
   `update_id` int(11) DEFAULT NULL COMMENT '更新人',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='水表';
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='水表';
 
 -- ----------------------------
 -- Records of dino_water
 -- ----------------------------
+INSERT INTO `dino_water` VALUES ('1', '8', '21', '123', '123', '312', '1', '1505397639', '1', null, null);
+INSERT INTO `dino_water` VALUES ('2', '7', '213123', '123', '123', '321', '1', '1505397639', '1', null, null);
+INSERT INTO `dino_water` VALUES ('3', '7', '12', '12', '12', '21', '1', '1505403131', '1', null, null);
+INSERT INTO `dino_water` VALUES ('4', '8', '123', '123', '123', '312', '1', '1505403131', '1', null, null);
 
 -- ----------------------------
 -- Table structure for `dino_water_contract`
@@ -1082,11 +1170,15 @@ CREATE TABLE `dino_water_contract` (
   `share` int(3) DEFAULT '100' COMMENT '分摊比例',
   `status` int(1) DEFAULT '1' COMMENT '状态（1；正常）',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='合同与水表的关系表';
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='合同与水表的关系表';
 
 -- ----------------------------
 -- Records of dino_water_contract
 -- ----------------------------
+INSERT INTO `dino_water_contract` VALUES ('1', '57', '1', '312', '1');
+INSERT INTO `dino_water_contract` VALUES ('2', '57', '2', '321', '1');
+INSERT INTO `dino_water_contract` VALUES ('3', '59', '3', '12', '1');
+INSERT INTO `dino_water_contract` VALUES ('4', '59', '4', '312', '1');
 
 -- ----------------------------
 -- Table structure for `dino_water_price`
@@ -1100,11 +1192,15 @@ CREATE TABLE `dino_water_price` (
   `readings_end` int(11) DEFAULT NULL COMMENT '结束度数',
   `price` decimal(10,2) DEFAULT NULL COMMENT '单价',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='水表与合同单价';
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='水表与合同单价';
 
 -- ----------------------------
 -- Records of dino_water_price
 -- ----------------------------
+INSERT INTO `dino_water_price` VALUES ('1', '1', '57', '321', '123', '123.00');
+INSERT INTO `dino_water_price` VALUES ('2', '2', '57', '123', '231', '123.00');
+INSERT INTO `dino_water_price` VALUES ('3', '3', '59', '12', '12', '12.00');
+INSERT INTO `dino_water_price` VALUES ('4', '4', '59', '123', '123', '123.00');
 
 -- ----------------------------
 -- Table structure for `dino_water_record`

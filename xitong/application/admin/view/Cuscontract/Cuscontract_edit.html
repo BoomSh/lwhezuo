@@ -1,6 +1,6 @@
 {include file="/Public/header"}
 
-<title>合同添加</title>
+<title>合同修改</title>
 <style type="text/css">
     .li-date{
         width: 47.5%;
@@ -15,7 +15,7 @@
     <span class="c-gray en">&gt;</span>
     业主管理
     <span class="c-gray en">&gt;</span>
-    合同添加
+    合同修改
     <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
 </nav>
 <div class="page-container">
@@ -34,7 +34,7 @@
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>合同号：</label>
                     <div class="formControls col-xs-8 col-sm-9">
-                        <input type="text" class="input-text" value="" placeholder="" id="" name="contract_num">
+                        <input type="text" class="input-text" value="{$res['cus']['contract_num']}" placeholder="" id="" name="contract_num">
                     </div>
                 </div> 
                 <div class="row cl">
@@ -42,8 +42,8 @@
                     <div class="formControls col-xs-8 col-sm-9">
                     <div class="formControls col-xs-8 col-sm-6">
                        <div class="formControls col-xs-8 col-sm-9" style="position: relative;">
-                    <input type="text" class="input-text company_input" value="" placeholder="" id="parentIframe" name="lease_name" autocomplete="off">
-                    <input type="hidden" name="lease_id">
+                    <input type="text" class="input-text company_input" value="{$res['cus']['lease_name']}" placeholder="" id="parentIframe" name="lease_name" autocomplete="off">
+                    <input type="hidden" name="lease_id" value="{$res['cus']['lease_id']}">
                     <ul class="keyword_company keyword">
 
                     </ul>
@@ -59,8 +59,8 @@
                     <div class="formControls col-xs-8 col-sm-9">
                         <div class="formControls col-xs-8 col-sm-6">
                          <div class="formControls col-xs-8 col-sm-9" style="position: relative;">
-                    <input type="text" class="input-text bank_input" value="" placeholder="" id="parentIframe1" name="ctenantry_name" autocomplete="off">
-                    <input type="hidden" name="ctenantry_id">
+                    <input type="text" class="input-text bank_input" value="{$res['cus']['tenantry_name']}" placeholder="" id="parentIframe1" name="ctenantry_name" autocomplete="off">
+                    <input type="hidden" name="ctenantry_id" value="{$res['cus']['tenantry_id']}">
                     <ul class="keyword_bank keyword">
                     </ul>
                 </div>
@@ -75,8 +75,8 @@
                     <div class="formControls col-xs-8 col-sm-9">
                         <div class="formControls col-xs-8 col-sm-6">
                          <div class="formControls col-xs-8 col-sm-9" style="position: relative;">
-                    <input type="text" class="input-text money_input" value="" placeholder="" id="tjyqs" name="park_n" autocomplete="off">
-                     <input type="hidden" name="park_id">
+                    <input type="text" class="input-text money_input" value="{$res['cus']['park_name']}" placeholder="" id="tjyqs" name="park_n" autocomplete="off">
+                     <input type="hidden" name="park_id" value="{$res['cus']['park_id']}">
                     <ul class="keyword_money keyword">
                     </ul>
                 </div>
@@ -89,28 +89,35 @@
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>承租面积：</label>
                     <div class="formControls col-xs-8 col-sm-9">
-                        <input type="text" class="input-text" value="" placeholder="" id="" name="lessee_area">
+                        <input type="text" class="input-text" value="{$res['cus']['lessee_area']}" placeholder="" id="" name="lessee_area">
                     </div>
                 </div>
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>出租面积：</label>
                     <div class="formControls col-xs-8 col-sm-9">
-                        <input type="text" class="input-text" value="" placeholder="" id="" name="lease_area">
+                        <input type="text" class="input-text" value="{$res['cus']['lease_area']}" placeholder="" id="" name="lease_area">
                     </div>
                 </div>
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>经营范围：</label>
                     <div class="formControls col-xs-8 col-sm-9">
-                        <input type="text" class="input-text" value="" placeholder="" id="username" name="business_scope">
+                        <input type="text" class="input-text" value="{$res['cus']['business_scope']}" placeholder="" id="username" name="business_scope">
                     </div>
                 </div>
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>客户来源：</label>
                     <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
                         <select class="select" size="1" name="client_source">
-                            <option value="" selected>请选择客户来源</option>
-                            {volist name="res['cus']" id="vo"}
+                            {volist name="res['khly']" id="vo"}
+                                    {if $vo.id eq $res['cus']['client_source']}
                                     <option value="{$vo.id}" >{$vo.name}</option>
+                                    {/if}
+                            {/volist}
+                            <option value="" >请选择客户来源</option>
+                            {volist name="res['khly']" id="vo"}
+                                    {if $vo.id neq $res['cus']['client_source']}
+                                    <option value="{$vo.id}" >{$vo.name}</option>
+                                    {/if}
                             {/volist}
                         </select>
                         </span> </div>
@@ -118,21 +125,21 @@
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>租期：</label>
                     <div class="formControls col-xs-4 col-sm-9">
-                        <input type="text" onfocus="WdatePicker({maxDate:'#F{\$dp.\$D(\'datemax\')}'})" id="datemin" class="input-text Wdate li-date" name="ztime_begin">
-                        至<input type="text" onfocus="WdatePicker({minDate:'#F{\$dp.\$D(\'datemin\')}'})" id="datemax" class="input-text Wdate li-date" name="ztime_end">
+                        <input type="text" onfocus="WdatePicker({maxDate:'#F{\$dp.\$D(\'datemax\')}'})" id="datemin" class="input-text Wdate li-date" name="ztime_begin" value="{$res['cus']['time_begin']}">
+                        至<input type="text" onfocus="WdatePicker({minDate:'#F{\$dp.\$D(\'datemin\')}'})" id="datemax" class="input-text Wdate li-date" name="ztime_end" value="{$res['cus']['time_end']}">
                     </div>
                 </div>
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>起租日期</label>
                     <div class="formControls col-xs-8 col-sm-9">
-                        <input type="text" onfocus="WdatePicker({minDate:'#F{\$dp.\$D(\'datemin\')}',maxDate:'#F{\$dp.\$D(\'datemax\')}'})"  class="input-text Wdate li-date" name="time_effect">
+                        <input type="text" onfocus="WdatePicker({minDate:'#F{\$dp.\$D(\'datemin\')}',maxDate:'#F{\$dp.\$D(\'datemax\')}'})"  class="input-text Wdate li-date" name="time_effect" value="{$res['cus']['time_effect']}">
                     </div>
                 </div>
 
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-3">备注：</label>
                     <div class="formControls col-xs-8 col-sm-9">
-                        <textarea name="remark" cols="" rows="" class="textarea"></textarea>
+                        <textarea name="remark" cols="" rows="" class="textarea">{$res['cus']['remark']}</textarea>
                     </div>
                 </div>   
             </div>
@@ -140,33 +147,34 @@
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>押金：</label>
                     <div class="formControls col-xs-8 col-sm-3">
-                        <input type="text" class="input-text" value="" placeholder="" id="" name="deposit">
+                        <input type="text" class="input-text" value="{$res['cus']['deposit']}" placeholder="" id="" name="deposit">
                     </div>
                 </div>
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>基本租金：</label>
                     <div class="formControls col-xs-8 col-sm-3">
-                        <input type="text" class="input-text" value="" placeholder="" id="username" name="basic_rent">
+                        <input type="text" class="input-text" value="{$res['cus']['basic_rent']}" placeholder="" id="username" name="basic_rent">
                     </div>
                 </div>
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>首次租金：</label>
                     <div class="formControls col-xs-8 col-sm-6">
-                        <input type="text" class="input-text" value="" placeholder="" id="username" name="first_rent">
-                        <input type="text" onfocus="WdatePicker({maxDate:'#F{\$dp.\$D(\'datemax\')}'})" id="datemin" class="input-text Wdate li-date" name="first_time_begin">
-                        至<input type="text" onfocus="WdatePicker({minDate:'#F{\$dp.\$D(\'datemin\')}'})" id="datemax" class="input-text Wdate li-date" name="first_time_end">
+                        <input type="text" class="input-text" value="{$res['cus']['first_rent']}" placeholder="" id="username" name="first_rent">
+                        <input type="text" onfocus="WdatePicker({maxDate:'#F{\$dp.\$D(\'datemax\')}'})" id="datemin" class="input-text Wdate li-date" name="first_time_begin" value="{$res['cus']['first_time_begin']}">
+                        至<input type="text" onfocus="WdatePicker({minDate:'#F{\$dp.\$D(\'datemin\')}'})" id="datemax" class="input-text Wdate li-date" name="first_time_end" value="{$res['cus']['first_time_end']}">
                     </div>
                 </div>
                 <div id="rent">
+                {volist name="res['rent']" id="vo"}
                 <div style="border:solid 1px #ddd">
                     <span class='btn   radius ppremoveline'><i class="Hui-iconfont">&#xe6a1;</i> </span>
                     <div class="row cl">
                         <label class="form-label col-xs-4 col-sm-3">月租类型：</label>
                         <div class="formControls col-xs-4 col-sm-3"> <span class="select-box">
                         <select class="select" size="1" name="monthly_type[]">
-                            <option value="" selected>请选择月租类型</option>
-                            <option value="1">固定租金</option>
-                            <option value="2">比例租金（如 填写1为增加百分之一的租金）</option>
+                            <option value="">请选择月租类型</option>
+                            <option value="1" {if $vo.monthly_type eq 1}selected{/if}>固定租金</option>
+                            <option value="2" {if $vo.monthly_type eq 2}selected{/if}>比例租金（如 填写1为增加百分之一的租金）</option>
                         </select>
                         </span>
                         </div>
@@ -174,14 +182,14 @@
                     <div class="row cl gg">
                         <label class="form-label col-xs-4 col-sm-3"> </label>
                         <div class="formControls col-xs-4 col-sm-3">
-                            <input type="text" class="input-text" value="" placeholder="" id="" name="monthly_value[]">
+                            <input type="text" class="input-text" value="{$vo.monthly_value}" placeholder="" id="" name="monthly_value[]">
                         </div>
                     </div>
                     <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>时间：</label>
                     <div class="formControls col-xs-4 col-sm-5">
-                        <input type="text" onfocus="WdatePicker({maxDate:'#F{\$dp.\$D(\'date1max\')}'})" id="date1min" class="input-text Wdate li-date" name="time_begin[]">
-                        至<input type="text" onfocus="WdatePicker({minDate:'#F{\$dp.\$D(\'date1min\')}'})" id="date1max" class="input-text Wdate li-date" name="time_end[]">
+                        <input type="text" onfocus="WdatePicker({maxDate:'#F{\$dp.\$D(\'date1max\')}'})" id="date1min" class="input-text Wdate li-date" name="time_begin[]" value="{$vo.time_begin}">
+                        至<input type="text" onfocus="WdatePicker({minDate:'#F{\$dp.\$D(\'date1min\')}'})" id="date1max" class="input-text Wdate li-date" name="time_end[]" value="{$vo.time_end}">
                     </div>
                 </div> 
                 <div class="row cl">
@@ -191,6 +199,7 @@
                     </div>
                 </div>
                 </div>
+                {/volist}
                 </div>
                 <a onclick="addChargeItem('rent')" class="btn btn-default btn-sm">添加</a>
             </div>
@@ -198,72 +207,69 @@
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-2">变压器：</label>
                     <div id="transformer" class="formControls col-xs-8 col-sm-8 ">
+                    {volist name="res['transf']" id="vo"}
                     <div class="formControls col-xs-8 col-sm-12 ">
-                        <input type="text"  class="input-text li-transformer"   placeholder="数量" name="number[]">
-                        <input type="text"  class="input-text li-transformer"  placeholder="详情（如500KW）" name="details[]">
+                        <input type="text"  class="input-text li-transformer"   placeholder="数量" name="number[]" value="{$vo.number}">
+                        <input type="text"  class="input-text li-transformer"  placeholder="详情（如500KW）" name="details[]" value="{$vo.details}">
                         <button class='btn  ppremoveline' style="width: 10%"><i class="Hui-iconfont">&#xe6a1;</i> </button>
                     </div>
+                    {/volist}
                     </div>
                     <a onclick="addtransformerItem('transformer')" class="btn btn-default btn-sm">添加</a>
                 </div>
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>电费押金：</label>
                     <div class="formControls col-xs-8 col-sm-4">
-                        <input type="text" class="input-text" value="" placeholder="" id="username" name="ele_deposit">
+                        <input type="text" class="input-text" value="{$res['cus']['ele_deposit']}" placeholder="" id="username" name="ele_deposit">
                     </div>
                 </div>
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-2">所属电表：</label>
                     <div id="electric" class="formControls col-xs-8 col-sm-8 ">
+                    {volist name="res['ele']" id="vo" key=key}
                         <div id="chsl">
                     <div class="formControls col-xs-8 col-sm-12">
                         <div class="formControls col-xs-8 col-sm-5">
                              <div class="formControls col-xs-8 col-sm-9" style="position: relative;">
-                                <input type="text" class="input-text yq_input_0" value="" placeholder="请填写电表所在园区" id="" name="dtenantry_id[]" style="width:336px;margin-left:-15px;" autocomplete="off">
-                                <input type="hidden" name="dtenantry_zid[]">
-                                <ul class="keyword_yq_0 keyword">
+                                <input type="text" class="input-text yq_input_{$key}" value="{$vo.park_name}" placeholder="请填写电表所在园区" id="" name="dtenantry_id[]" style="width:336px;margin-left:-15px;" autocomplete="off" value="{$vo.park_name}">
+                                <input type="hidden" name="dtenantry_zid[]" >
+                                <ul class="keyword_yq_{$key} keyword">
                                 </ul>
                             </div>
                         </div>
-                        <!-- <div class="formControls col-xs-8 col-sm-5">
-                        <span class="select-box">
-                        <select class="select" size="1" name="d_park_id[]">
-                            <option value="" selected>请选择电表所在园区</option>
-                            <option value="1">高新园</option>
-                            <option value="2">合创园</option>
-                        </select>
-                        </span>
-                        </div> -->
                         <div class="formControls col-xs-8 col-sm-4">
-                            <input type="text" class="input-text" value="" placeholder="电表名" id="username" name="d_name[]">
+                            <input type="text" class="input-text" value="{$vo.name}" placeholder="电表名" id="username" name="d_name[]">
                         </div>
                         <button class='btn ppremovelineelectric' style="width: 10%"><i class="Hui-iconfont">&#xe6a1;</i> </button>
                     </div>
                     <div class="formControls col-xs-8 col-sm-12">
                             <div class="formControls col-xs-8 col-sm-3">
-                                <input type="text" class="input-text" value="" placeholder="电表初始度数" id="username" name="d_init_record[]">
+                                <input type="text" class="input-text" value="{$vo.init_record}" placeholder="电表初始度数" id="username" name="d_init_record[]">
                             </div>
                             <div class="formControls col-xs-8 col-sm-2">
-                                <input type="text" class="input-text" value="" placeholder="电表倍率" id="username" name="d_rate[]">
+                                <input type="text" class="input-text" value="{$vo.rate}" placeholder="电表倍率" id="username" name="d_rate[]">
                             </div>
                             <div class="formControls col-xs-8 col-sm-2">
-                                <input type="text" class="input-text" value="" placeholder="损耗" id="username" name="d_loss[]">
+                                <input type="text" class="input-text" value="{$vo.loss}" placeholder="损耗" id="username" name="d_loss[]">
                             </div>
                     </div>
 
                         <div class="formControls col-xs-8 col-sm-12">
-
                             <div  id="contract-price">
+                            {volist name="vo.son" id='v' key=key}
                                 <div class="formControls col-xs-8 col-sm-10">
-                                    <input type="text" class="input-text li-transformer"  placeholder="开始读数"  name="d_readings_begin_0[]">
-                                    <input type="text" class="input-text li-transformer"   placeholder="结束读数" name="d_readings_end_0[]">
-                                    <input type="text" class="input-text li-transformer"   placeholder="单价"  name="d_price_0[]">
+                                    <input type="text" class="input-text li-transformer"  placeholder="开始读数"  name="d_readings_begin_{$key}[]" value="{$v.readings_begin}">
+                                    <input type="text" class="input-text li-transformer"   placeholder="结束读数" name="d_readings_end_{$key}[]" value="{$v.readings_end}">
+                                    <input type="text" class="input-text li-transformer"   placeholder="单价"  name="d_price_{$key}[]" value="{$v.price}">
                                     <button class='btn ppremoveline' style="width: 7%"><i class="Hui-iconfont">&#xe6a1;</i> </button>
                                 </div>
+                                {/volist}
                             </div>
-                            <a onclick="addcontractpriceItem('contract-price',0)" class="btn btn-default btn-sm">添加</a>
+                            <a onclick="addcontractpriceItem('contract-price{$vo.num}',{$vo.num})" class="btn btn-default btn-sm">添加</a>
                         </div>
                     </div>
+                    {/volist}
+
                     </div>
                     <a onclick="addelectricItem('electric')" class="btn btn-default btn-sm">添加</a>
                 </div>
@@ -272,39 +278,40 @@
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>水费押金：</label>
                     <div class="formControls col-xs-8 col-sm-4">
-                        <input type="text" class="input-text" value="" placeholder="" id="username" name="water_deposit">
+                        <input type="text" class="input-text" value="{$res['cus']['water_deposit']}" placeholder="" id="username" name="water_deposit">
                     </div>
                 </div>
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-2">所属水表：</label>
                     <div id="water" class="formControls col-xs-8 col-sm-8 ">
+                    {volist name="res['water']" id="vo" key=key}
                         <div>
                         <div class="formControls col-xs-8 col-sm-12">
                             <div class="formControls col-xs-8 col-sm-2">
                                 <div class="formControls col-xs-8 col-sm-9" style="position: relative;">
-                                    <input type="text" class="input-text sb_input_0" value="" placeholder="请填写水表所在园区" id="" name="stenantry_id[]" style="width:117px;margin-left:-15px;" autocomplete="off">
-                                    <input type='hidden' name='stenantry_zid[]' >
+                                    <input type="text" class="input-text sb_input_0" value="{$vo.park_name}" placeholder="请填写水表所在园区" id="" name="stenantry_id[]" style="width:117px;margin-left:-15px;" autocomplete="off">
+                                    <input type='hidden' name='stenantry_zid[]'  value="{$vo.park_id}">
                                     <ul class="keyword_sb_0 keyword">
                                     </ul>
                                 </div>
                             </div>
                             <div class="formControls col-xs-8 col-sm-2">
-                                <input type="text" class="input-text" value="" placeholder="水表名" name="park_name[]">
+                                <input type="text" class="input-text" value="{$vo.name}" placeholder="水表名" name="park_name[]">
                             </div>
                             <div class="formControls col-xs-8 col-sm-2">
-                                <input type="text" class="input-text" value="" name="s_init_record[]" placeholder="初始度数">
+                                <input type="text" class="input-text" value="{$vo.init_record}" name="s_init_record[]" placeholder="初始度数">
                             </div>
                             <button class='btn ppremovelines' style="width: 10%"><i class="Hui-iconfont">&#xe6a1;</i> </button>
                         </div>
                         <div class="formControls col-xs-8 col-sm-12">
                             <div class="formControls col-xs-8 col-sm-2">
-                                <input type="text" class="input-text" value="" placeholder="倍率" name="s_rate[]">
+                                <input type="text" class="input-text" value="{$vo.rate}" placeholder="倍率" name="s_rate[]">
                             </div>
                             <div class="formControls col-xs-8 col-sm-2">
-                                <input type="text" class="input-text" value="" placeholder="损耗" name="s_loss[]">
+                                <input type="text" class="input-text" value="{$vo.loss}" placeholder="损耗" name="s_loss[]">
                             </div>
                             <div class="formControls col-xs-8 col-sm-2">
-                                <input type="text" class="input-text" value="" placeholder="分摊比例" name="s_share[]">
+                                <input type="text" class="input-text" value="{$vo.share}" placeholder="分摊比例" name="s_share[]">
                             </div>
                         </div>
                         <div class="formControls col-xs-8 col-sm-12">
@@ -316,9 +323,10 @@
                                     <button class='btn ppremoveline' style="width: 7%"><i class="Hui-iconfont">&#xe6a1;</i> </button>
                                 </div>
                             </div>
-                            <a onclick="addcontractpriceItem('water-price',0)" class="btn btn-default btn-sm">添加</a>
+                            <a onclick="addcontractpriceItem('water-price',{$key})" class="btn btn-default btn-sm">添加</a>
                         </div>
                         </div>
+                        {/volist}
                     </div>
                     <a onclick="addwaterItem('water')" class="btn btn-default btn-sm">添加</a>
                 </div>
@@ -477,7 +485,7 @@ $(".gg").on("change keyup","input",function(){
         var zj = $(this).parent().parent().parent().find("input[name='rent[]']");
         if(sel == 1){
             zj.val(plt);
-        }else  if(sel == 2){
+        }else if(sel == 2){
             zj.val(zhi*plt/100+zhi);
         }
     })

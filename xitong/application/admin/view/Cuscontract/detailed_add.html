@@ -151,7 +151,8 @@ $(function(){
                 url: "{:url('Cuscontract/detailed_add')}",
                 success: function(data){
                     if(data['type'] == 1){
-                        parent.$('#parentIframe1').val(data['message']);
+                        parent.$('#parentIframe').val(data['message']);
+                        parent.$('#parentIframe').next('input').val(data['id']);
                          parent.layer.close(index);
                     }else{
                         layer.msg(data['message']);

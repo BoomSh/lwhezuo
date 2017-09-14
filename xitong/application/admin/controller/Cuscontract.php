@@ -37,13 +37,29 @@ class Cuscontract extends Common
         $this->assign("res",$res);
         return $this->fetch();
     }
+     /**
+     * 园区信息新增
+     * @Author   wcl
+     * @DateTime 2017-09-10T20:53:24+0800
+     * @return   [type]                   [description]
+     */
+    public function garden_add(){
+        $Cuscontract = model("Cuscontract");
+        if(request()->isPost()){
+            $row = $Cuscontract->garden_add();
+            return $row;
+        }else{
+            return $this->fetch();
+        }
+    }
     /*
     ** 业主添加合同
      */
     public function cuscontract_add(){
         $cus = model("Cuscontract");
         if(request()->isPost()){
-
+            $res = $cus->cuscontract_add();
+            return $res;
         }else{
             $res = $cus->cuscontract_add();
             $this->assign("res",$res);
@@ -64,6 +80,35 @@ class Cuscontract extends Common
             return $this->fetch();
         }
     }
+    /*
+    **合同退组
+    */
+    public function cuscontract_status(){
+        $cus = model("Cuscontract");
+        if(request()->isPost()){
+            $res = $cus->cuscontract_status();
+            return $res;
+        }else{
+            return "请选择退租的合同";
+        }
+    }
+    /*
+    **修改合同
+     */
+    public function Cuscontract_edit(){
+       $cus = model("Cuscontract");
+        if(request()->isPost()){
+            $res = $cus->Cuscontract_edit();
+            return $res;
+        }else if(request()->isGet()){
+            $res = $cus->Cuscontract_edit();
+            $this->assign("res",$res);
+            return $this->fetch();
+        }else{
+            return "请选择修改的合同";
+        }
+    }
+
     /*
     **异步查询相关的内容
     **val 输入的值   type 类型 1为业主  2公司  3为 园区
