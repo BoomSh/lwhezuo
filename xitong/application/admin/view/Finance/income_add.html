@@ -1,0 +1,136 @@
+﻿{include file="/Public/header"}
+
+<title>添加收入</title>
+<meta name="keywords" content="优科达">
+<meta name="description" content="优科达">
+</head>
+<body>
+<article class="page-container">
+	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+		<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3">类型：</label>
+		<div class="formControls col-xs-8 col-sm-9 skin-minimal">
+			<div class="radio-box">
+				<input type="radio" id="radio-2" name="demo-radio1" checked>
+				<label for="radio-2">客户</label>
+			</div>
+			<div class="radio-box">
+				<input type="radio" id="radio-1"  name="demo-radio1" >
+				<label for="radio-1">业主</label>
+			</div>
+			<div class="radio-box">
+				<input type="radio" id="radio-1"  name="demo-radio1" >
+				<label for="radio-1">外联</label>
+			</div>
+		</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">园区：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select class="select" size="1" name="city">
+					<option value="" selected>请选择园区</option>
+					<option value="1">高新园</option>
+					<option value="2">河盛文创园</option>
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">付款人：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select class="select" size="1" name="city">
+					<option value="" selected>请选择付款人</option>
+					<option value="1">张三</option>
+					<option value="2">李四</option>
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">收款人：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select class="select" size="1" name="city">
+					<option value="" selected>请选择收款人</option>
+					<option value="1">王五</option>
+					<option value="2">小李</option>
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">收款款项：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select class="select" size="1" name="city">
+					<option value="" selected>请选择收款款项</option>
+					<option value="1">房租</option>
+					<option value="2">水费</option>
+					<option value="3">电费</option>
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">收款时间：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'datemax\')||\'%y-%M-%d\'}' })" id="datemin" class="input-text Wdate"  >
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>金额：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="username" name="username">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">支付方式：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select class="select" size="1" name="city">
+					<option value="" selected>请选择支付方式</option>
+					<option value="1">现金</option>
+					<option value="2">微信</option>
+					<option value="3">支付宝</option>
+					<option value="3">系统免单</option>
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">自动抵扣欠费：</label>
+			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
+				<div class="check-box">
+					<input type="checkbox" id="checkbox-1" name="demo-radio1">
+					<label for="checkbox-1"></label>
+				</div>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">备注：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<textarea name="" cols="" rows="" class="textarea"  placeholder="说点什么...100个字符以内" dragonfly="true" onKeyUp="$.Huitextarealength(this,100)"></textarea>
+				<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+			</div>
+		</div>
+	</form>
+</article>
+
+{include file="/Public/footer"}
+
+<!--请在下方写此页面业务相关的脚本--> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<!--<script type="text/javascript" src="static/icheck/jquery.icheck.min.js"></script>-->
+<script type="text/javascript">
+$(function(){
+	$('.skin-minimal input').iCheck({
+		checkboxClass: 'icheckbox-blue',
+		radioClass: 'iradio-blue',
+		increaseArea: '20%'
+	});
+	 
+});
+</script> 
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>
