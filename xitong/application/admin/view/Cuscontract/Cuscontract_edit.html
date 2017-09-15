@@ -30,6 +30,7 @@
                 <span style="display: none">其他费用</span>
                 <span style="display: none">税率设置</span>
             </div>
+            <input name="id" type="hidden" value="{$res['cus']['id']}">
             <div class="tabCon"> 
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>合同号：</label>
@@ -195,7 +196,7 @@
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>租金：</label>
                     <div class="formControls col-xs-4 col-sm-3">
-                        <input type="text" class="input-text" value="" placeholder="" id="username" name="rent[]">
+                        <input type="text" class="input-text" value="{$vo.rent}" placeholder="" id="username" name="rent[]">
                     </div>
                 </div>
                 </div>
@@ -232,7 +233,7 @@
                         <div class="formControls col-xs-8 col-sm-5">
                              <div class="formControls col-xs-8 col-sm-9" style="position: relative;">
                                 <input type="text" class="input-text yq_input_{$key}" value="{$vo.park_name}" placeholder="请填写电表所在园区" id="" name="dtenantry_id[]" style="width:336px;margin-left:-15px;" autocomplete="off" value="{$vo.park_name}">
-                                <input type="hidden" name="dtenantry_zid[]" >
+                                <input type="hidden" name="dtenantry_zid[]" value="{$vo.park_id}">
                                 <ul class="keyword_yq_{$key} keyword">
                                 </ul>
                             </div>
@@ -255,7 +256,7 @@
                     </div>
 
                         <div class="formControls col-xs-8 col-sm-12">
-                            <div  id="contract-price">
+                            <div  id="contract-price{if $vo.num neq 0}{$vo.ks}{/if}">
                             {volist name="vo.son" id='v' key=key}
                                 <div class="formControls col-xs-8 col-sm-10">
                                     <input type="text" class="input-text li-transformer"  placeholder="开始读数"  name="d_readings_begin_{$key}[]" value="{$v.readings_begin}">
@@ -265,11 +266,10 @@
                                 </div>
                                 {/volist}
                             </div>
-                            <a onclick="addcontractpriceItem('contract-price{$vo.num}',{$vo.num})" class="btn btn-default btn-sm">添加</a>
+                            <a onclick="addcontractpriceItem('contract-price{if $vo.num neq 0}{$vo.ks}{/if}',{$vo.num})" class="btn btn-default btn-sm">添加</a>
                         </div>
                     </div>
                     {/volist}
-
                     </div>
                     <a onclick="addelectricItem('electric')" class="btn btn-default btn-sm">添加</a>
                 </div>
@@ -289,9 +289,9 @@
                         <div class="formControls col-xs-8 col-sm-12">
                             <div class="formControls col-xs-8 col-sm-2">
                                 <div class="formControls col-xs-8 col-sm-9" style="position: relative;">
-                                    <input type="text" class="input-text sb_input_0" value="{$vo.park_name}" placeholder="请填写水表所在园区" id="" name="stenantry_id[]" style="width:117px;margin-left:-15px;" autocomplete="off">
+                                    <input type="text" class="input-text sb_input_{$key}" value="{$vo.park_name}" placeholder="请填写水表所在园区" id="" name="stenantry_id[]" style="width:117px;margin-left:-15px;" autocomplete="off">
                                     <input type='hidden' name='stenantry_zid[]'  value="{$vo.park_id}">
-                                    <ul class="keyword_sb_0 keyword">
+                                    <ul class="keyword_sb_{$key} keyword">
                                     </ul>
                                 </div>
                             </div>
@@ -315,13 +315,15 @@
                             </div>
                         </div>
                         <div class="formControls col-xs-8 col-sm-12">
-                            <div class="formControls col-xs-8 col-sm-10" id="water-price">
+                            <div class="formControls col-xs-8 col-sm-10" id="water-price{if $vo.num neq 0}{$vo.ks}{/if}">
+                                {volist name="vo.son" id="v" key=key}
                                 <div class="formControls col-xs-8 col-sm-12">
-                                    <input type="text" class="input-text li-transformer"  placeholder="开始读数"  name="s_readings_begin_0[]">
-                                    <input type="text" class="input-text li-transformer"   placeholder="结束读数"  name="s_readings_end_0[]">
-                                    <input type="text" class="input-text li-transformer"   placeholder="单价" name="s_price_0[]">
+                                    <input type="text" class="input-text li-transformer"  placeholder="开始读数"  name="s_readings_begin_{$key}[]" value="{$v.readings_begin}">
+                                    <input type="text" class="input-text li-transformer"   placeholder="结束读数"  name="s_readings_end_{$key}[]" value="{$v.readings_end}">
+                                    <input type="text" class="input-text li-transformer"   placeholder="单价" name="s_price_{$key}[]" value="{$v.price}">
                                     <button class='btn ppremoveline' style="width: 7%"><i class="Hui-iconfont">&#xe6a1;</i> </button>
                                 </div>
+                                {/volist}
                             </div>
                             <a onclick="addcontractpriceItem('water-price',{$key})" class="btn btn-default btn-sm">添加</a>
                         </div>
@@ -367,15 +369,21 @@
             </div>
             <div class="tabCon">
                 <div id="other">
+                    {volist name="res['fyong']" id="vo"}
                     <div style="border:solid 1px #ddd">
                         <span class='btn   radius ppremoveline'><i class="Hui-iconfont">&#xe6a1;</i> </span>
                         <div class="row cl">
                             <label class="form-label col-xs-4 col-sm-3">费用科目：</label>
                             <div class="formControls col-xs-4 col-sm-3"> <span class="select-box">
                             <select class="select" size="1" name="exacct[]">
-                                <option value="" selected>请选择租金类型</option>
-                            {volist name="res['fy']" id="vo"}
-                                <option value="{$vo.id}">{$vo.name}</option>
+                            {volist name="res['fy']" id="v"}
+                              {if $v.id  eq $vo.exacct}
+                                <option value="{$v.id}">{$v.name}</option>
+                              {/if}
+                            {/volist}
+                                <option value="">请选择租金类型</option>
+                            {volist name="res['fy']" id="v"}
+                                <option value="{$v.id}">{$v.name}</option>
                             {/volist}
                             </select>
                             </span> </div>
@@ -384,7 +392,8 @@
                             <label class="form-label col-xs-4 col-sm-3">月租类型：</label>
                             <div class="formControls col-xs-4 col-sm-3"> <span class="select-box">
                         <select class="select" size="1" name="y_monthly_type[]">
-                            <option value="" selected>请选择月租类型</option>
+                            {if $vo.monthly_type eq 1}<option value="1">固定租金</option>{/if}
+                            <option value="">请选择月租类型</option>
                             <option value="1">固定租金</option>
                             <!-- <option value="2">比例租金（如 填写1为增加百分之一的租金）</option> -->
                         </select>
@@ -394,23 +403,24 @@
                         <div class="row cl">
                             <label class="form-label col-xs-4 col-sm-3"> </label>
                             <div class="formControls col-xs-4 col-sm-3">
-                                <input type="text" class="input-text" value="" placeholder="" id="username" name="y_monthly_value[]">
+                                <input type="text" class="input-text" value="{$vo.monthly_value}" placeholder="" id="username" name="y_monthly_value[]">
                             </div>
                         </div>
                         <div class="row cl">
                             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>时间：</label>
                             <div class="formControls col-xs-4 col-sm-5">
-                                <input type="text" onfocus="WdatePicker({maxDate:'#F{\$dp.\$D(\'date1max\')}'})" id="date1min" class="input-text Wdate li-date" name="y_time_begin[]">
-                                至<input type="text" onfocus="WdatePicker({minDate:'#F{\$dp.\$D(\'date1min\')}'})" id="date1max" class="input-text Wdate li-date" name="y_time_end[]">
+                                <input type="text" onfocus="WdatePicker({maxDate:'#F{\$dp.\$D(\'date1max\')}'})" id="date1min" class="input-text Wdate li-date" name="y_time_begin[]" value="{$vo.time_begin}">
+                                至<input type="text" onfocus="WdatePicker({minDate:'#F{\$dp.\$D(\'date1min\')}'})" id="date1max" class="input-text Wdate li-date" name="y_time_end[]" value="{$vo.time_end}">
                             </div>
                         </div>
                         <div class="row cl">
                             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>租金：</label>
                             <div class="formControls col-xs-4 col-sm-3">
-                                <input type="text" class="input-text" value="" placeholder="" id="username" name="y_rent[]">
+                                <input type="text" class="input-text" value="{$vo.rent}" placeholder="" id="username" name="y_rent[]">
                             </div>
                         </div>
                     </div>
+                    {/volist}
                 </div>
                 <a onclick="addChargeItem('other')" class="btn btn-default btn-sm">添加</a>
             </div>
@@ -502,8 +512,13 @@ $(function(){
     //财务
     keyword($(".money_input"),$(".keyword_money"),3);
     //管理人
-    keyword($(".yq_input_0"),$(".keyword_yq_0"),3);
     keyword($(".sb_input_0"),$(".keyword_sb_0"),3);
+    {volist name="res['ele']" id="vo" key=key}
+        keyword($(".yq_input_{$vo.num}"),$(".keyword_yq_{$vo.num}"),3);
+    {/volist}
+    {volist name="res['water']" id="vo" key=key}
+        keyword($(".sb_input_{$vo.num}"),$(".keyword_sb_{$vo.num}"),3);
+    {/volist}
     /*keyword模糊搜索函数
      * input输入框
      * downmask下拉框
@@ -513,16 +528,14 @@ $(function(){
         input.bind('input porpertychange',function(e){
             var val = $(this).val();
             input.next("input").val('');
-            $.post("{:url('Cuscontract/cuscontract_find')}",{val:val,type:type},function(data){
-                downmask.html(data);
-               })
             if(val){
-                downmask.show();
                 $.ajax({
-                    type:"get",
-                    url:"",
-                    data:{keyword:val},
+                    type:"post",
+                    url:"{:url('Cuscontract/cuscontract_find')}",
+                    data:{val:val,type:type},
                     success:function(data){
+                        downmask.html(data);
+                        downmask.show();
                         downmask.find('li').mouseover(function(e){
                             $(this).css('background-color','#5a98de');
                             $(this).css('color','#fff');
@@ -761,16 +774,14 @@ var items_hash ={'rent':2,'transformer': 0,'electric':0,'contract-price':0,'wate
         input.bind('input porpertychange',function(e){
             var val = $(this).val();
             input.next("input").val('');
-            $.post("{:url('Cuscontract/cuscontract_find')}",{val:val,type:type},function(data){
-                downmask.html(data);
-               })
             if(val){
-                downmask.show();
                 $.ajax({
-                    type:"get",
-                    url:"",
-                    data:{keyword:val},
+                    type:"post",
+                    url:"{:url('Cuscontract/cuscontract_find')}",
+                    data:{val:val,type:type},
                     success:function(data){
+                        downmask.html(data);
+                        downmask.show();
                         downmask.find('li').mouseover(function(e){
                             $(this).css('background-color','#5a98de');
                             $(this).css('color','#fff');
@@ -866,16 +877,14 @@ var items_hash ={'rent':2,'transformer': 0,'electric':0,'contract-price':0,'wate
         input.bind('input porpertychange',function(e){
             var val = $(this).val();
             input.next("input").val('');
-            $.post("{:url('Cuscontract/cuscontract_find')}",{val:val,type:type},function(data){
-                downmask.html(data);
-               })
             if(val){
-                downmask.show();
                 $.ajax({
-                    type:"get",
-                    url:"",
-                    data:{keyword:val},
+                    type:"post",
+                    url:"{:url('Cuscontract/cuscontract_find')}",
+                    data:{val:val,type:type},
                     success:function(data){
+                        downmask.html(data);
+                        downmask.show();
                         downmask.find('li').mouseover(function(e){
                             $(this).css('background-color','#5a98de');
                             $(this).css('width','200px');
@@ -923,10 +932,10 @@ $(function(){
         submitHandler:function(form){
             $(form).ajaxSubmit({
                 type: 'post',
-                url: "{:url('Cuscontract/cuscontract_add')}",
+                url: "{:url('Cuscontract/cuscontract_edit')}",
                 success: function(data){
                     if(data == "success"){
-                        layer.msg('添加成功!');
+                        layer.msg('修改成功!');
                         setTimeout(function () {
                             parent.location.reload();
                             },1000)

@@ -505,16 +505,14 @@ $(function(){
         input.bind('input porpertychange',function(e){
             var val = $(this).val();
             input.next("input").val('');
-            $.post("{:url('Cuscontract/cuscontract_find')}",{val:val,type:type},function(data){
-                downmask.html(data);
-               })
             if(val){
-                downmask.show();
                 $.ajax({
-                    type:"get",
-                    url:"",
-                    data:{keyword:val},
+                    type:"post",
+                    url:"{:url('Cuscontract/cuscontract_find')}",
+                    data:{val:val,type:type},
                     success:function(data){
+                        downmask.html(data);
+                        downmask.show();
                         downmask.find('li').mouseover(function(e){
                             $(this).css('background-color','#5a98de');
                             $(this).css('color','#fff');
@@ -753,16 +751,14 @@ var items_hash ={'rent':2,'transformer': 0,'electric':0,'contract-price':0,'wate
         input.bind('input porpertychange',function(e){
             var val = $(this).val();
             input.next("input").val('');
-            $.post("{:url('Cuscontract/cuscontract_find')}",{val:val,type:type},function(data){
-                downmask.html(data);
-               })
             if(val){
-                downmask.show();
                 $.ajax({
-                    type:"get",
-                    url:"",
-                    data:{keyword:val},
+                    type:"post",
+                    url:"{:url('Cuscontract/cuscontract_find')}",
+                    data:{val:val,type:type},
                     success:function(data){
+                        downmask.html(data);
+                        downmask.show();
                         downmask.find('li').mouseover(function(e){
                             $(this).css('background-color','#5a98de');
                             $(this).css('color','#fff');
@@ -858,16 +854,14 @@ var items_hash ={'rent':2,'transformer': 0,'electric':0,'contract-price':0,'wate
         input.bind('input porpertychange',function(e){
             var val = $(this).val();
             input.next("input").val('');
-            $.post("{:url('Cuscontract/cuscontract_find')}",{val:val,type:type},function(data){
-                downmask.html(data);
-               })
             if(val){
-                downmask.show();
                 $.ajax({
-                    type:"get",
-                    url:"",
-                    data:{keyword:val},
+                    type:"post",
+                    url:"{:url('Cuscontract/cuscontract_find')}",
+                    data:{val:val,type:type},
                     success:function(data){
+                        downmask.html(data);
+                        downmask.show();
                         downmask.find('li').mouseover(function(e){
                             $(this).css('background-color','#5a98de');
                             $(this).css('width','200px');

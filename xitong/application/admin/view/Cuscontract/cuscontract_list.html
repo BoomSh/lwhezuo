@@ -31,8 +31,8 @@
 </form>
     <div class="cl pd-5 bg-1 bk-gray mt-20 col-xs-12 col-sm-12">
         <span class="l">
-            <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
-            <a href="javascript:;" onclick="member_add('添加合同','cuscontract_add.html','','550')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加合同</a>
+            {if $lw_role.del eq 1}<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>{/if}
+             {if $lw_role.add eq 1}<a href="javascript:;" onclick="member_add('添加合同','cuscontract_add.html','','550')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加合同</a>{/if}
         </span>
         <span class="r">
             共有数据：<strong>1</strong> 条
@@ -52,7 +52,7 @@
                 <!-- <th>房源</th> -->
                 <th>租赁地址</th>
                 <th>出租面积</th>
-                <th>用途</th>
+                <!-- <th>用途</th> -->
                 <th>经营范围</th>
                 <th>客户来源</th>
                 <th>起租日期</th>
@@ -69,17 +69,17 @@
         <tbody>
          {volist name="res['list']" id='vo'}
             <tr class="text-c">
-                <td><input type="checkbox" value="1" name=""></td>
+                <td><input type="checkbox" value="{$vo.id}" name="id"></td>
                 <td style="display:none;">{$vo.k}</td> 
                 <td>{$vo.num}</td> 
                 <td>{$vo.contract_num}</td> 
-                <td>{$vo.lease_id}</td> 
-                <td>{$vo.tenantry_id}</td>
-                <td>{$vo.park_id}</td>
+                <td>{$vo.tname}</td> 
+                <td>{$vo.pname}</td>
+                <td>{$vo.kname}</td>
                 <!-- <td>{$vo.house_id}</td> -->
                 <td>租凭地址</td>
                 <td>{$vo.lease_area}</td>
-                <td>用途</td>
+                <!-- <td>用途</td> -->
                 <td>{$vo.business_scope}</td>
                 <td>{$vo.client_source}</td>
                 <td>{$vo.time_effect}</td>
@@ -87,12 +87,12 @@
                 <td>{$vo.time_begin}</td>
                 <td>{$vo.first_rent}</td>
                 <td>{$vo.basic_rent}</td>
-                <td>电价</td>
-                <td>水价</td>
+                <td>{$vo.ele_deposit}</td>
+                <td>{$vo.water_deposit}</td>
                 <td>{$vo.remark}</td> 
                 <td class="td-manage">
-                    <a title="编辑" href="javascript:;" onclick="member_edit('编辑','Cuscontract_edit.html','4','','550')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
-                    {if $vo.status eq 1}<a title="退租" href="javascript:;" onclick="member_del(this,'{$vo.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6a6;</i></a>{/if}</td>
+                     {if $lw_role.edit eq 1}<a title="编辑" href="javascript:;" onclick="member_edit('编辑','Cuscontract_edit.html?id={$vo.id}','4','','550')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>{/if}
+                    {if $lw_role.edit eq 1}{if $vo.status eq 1}<a title="退租" href="javascript:;" onclick="member_del(this,'{$vo.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6a6;</i></a>{/if}</td>{/if}
             </tr>
             {/volist}
         </tbody>
@@ -118,7 +118,7 @@ $(function(){
         "bStateSave": false,//状态保存
         "aoColumnDefs": [
           //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-          {"orderable":false,"aTargets":[0,20]}// 制定列不参与排序
+          {"orderable":false,"aTargets":[0,19]}// 制定列不参与排序
         ]
     });
     
@@ -180,6 +180,33 @@ $.dataTablesSettings = {
         aoData._rand = Math.random();
     }
 };
+function datadel(){
+    layer.confirm('确认要删除吗？',function(index){
+    if($(".text-c input[name='id']:checked").length > 0){
+        var id = "";
+        $(".text-c input[name='id']:checked").each(function() {
+                             var reservation = $(this).val();
+                             id += reservation + ",";
+                        });
+        length = id.length;
+        id = id.substring(id,length-1);
+        $.post("{:url('Cuscontract/cuscontract_del')}",{id:id},function(data){
+            if(data == "success"){
+                layer.msg("删除成功");
+                $(".text-c input[name='id']:checked").each(function() {
+                        var reservation = $(this).parents(".text-c");
+                        reservation.hide();
+                });
+            }else{
+                layer.msg(data);
+            }
+        })
+    }else{
+        layer.msg("请选择删除的信息");
+        return false;
+    }
+})
+}
 </script> 
 </body>
 </html>

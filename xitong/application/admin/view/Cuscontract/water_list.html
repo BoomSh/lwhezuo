@@ -1,0 +1,169 @@
+{include file="/Public/header"}
+<title>水表管理</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>水表列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+    <div class="bk-gray radius pd-10 col-xs-12 col-sm-12">
+        <div class="mt-10 col-xs-12 col-sm-12">
+            <strong class="col-xs-12 col-sm-2 text-r">选择园区：</strong>
+            <div class="col-xs-12 col-sm-6">
+                <span class="select-box inline">
+                    <select name="" class="select">
+                        <option value="0">全部园区</option>
+                        <option value="1">河盛文创园</option>
+                        <option value="2">河盛文创园1</option>
+                    </select>
+                </span>
+            </div>
+        </div>
+        <div class="mt-10 col-xs-12 col-sm-12">
+            <strong class="col-xs-12 col-sm-2 text-r">水表名称：</strong>
+            <div class="col-xs-12 col-sm-6">
+                <input type="text" class="input-text"  placeholder="输入水表名称" id="" name="">
+            </div>
+        </div>
+        <div class="cl mt-10 col-xs-12 col-sm-12">
+            <strong class="col-xs-12  col-sm-2 text-r"></strong>
+            <div class="col-xs-12 col-sm-6">
+                <button type="submit" class="btn btn-success radius" id="" name=""><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
+            </div>
+        </div>
+    </div>
+    <div class="cl pd-5 bg-1 bk-gray mt-20 col-xs-12 col-sm-12">
+        <span class="l">
+            <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
+            <a href="javascript:;" onclick="member_add('导入抄表数据','water-import-add.html','','300')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe645;</i> 导入抄表数据</a>
+        </span>
+        <span class="r">
+            共有数据：<strong>1</strong> 条
+        </span>
+    </div>
+    <div class="mt-20">
+    <table class="table table-border table-bordered table-hover table-bg table-sort">
+        <thead>
+            <tr class="text-c">
+                <th width="25"><input type="checkbox" name="" value=""></th>
+                <th style="display:none;">ID</th>
+                <th>序号</th>
+                <th>园区</th>
+                <th>水表名</th>
+                <th>初始度数</th>
+                <th>上期度数</th>
+                <th>当前度数</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        {volist name="res['list']" id='vo'}
+            <tr class="text-c">
+                <td><input type="checkbox" value="{$vo.id}" name="id"></td>
+                <td style="display:none;">{$vo.k}</td> 
+                <td>{$vo.num}</td> 
+                <td>{$vo.name}</td>
+                <td>{$vo.wname}</td>
+                <td>{$vo.init_record}</td>
+                <td>{$vo.up_record}</td>
+                <td>{$vo.current_record}</td>
+                <td class="td-manage">
+                    <a title="编辑" href="javascript:;" onclick="member_edit('编辑','water-customer-add.html','4','','400')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                    <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
+                    <a title="抄表" href="javascript:;" onclick="member_edit('抄表','water-read-add.html','4','','300')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe600;</i></a>
+                    <a title="记录" href="javascript:;" onclick="member_show('抄表记录','water-history-list.html','300')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe720;</i></a>
+                </td>
+            </tr>
+            {/volist}
+        </tbody>
+    </table>
+    </div>
+</div>
+{include file="/Public/footer"}
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/static/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/static/h-ui.admin/js/H-ui.admin.js"></script> 
+
+<script type="text/javascript" src="__PUBLIC__admin/lib/My97DatePicker/4.8/WdatePicker.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/laypage/1.2/laypage.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('.table-sort').dataTable({
+        "searching": false,//禁用原生搜索 
+        "bLengthChange": false,//禁用原生搜索 
+        "aaSorting": [[ 1, "desc" ]],//默认第几个排序
+        "bStateSave": false,//状态保存
+        "aoColumnDefs": [
+          //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+          {"orderable":false,"aTargets":[0,5]}// 制定列不参与排序
+        ]
+    });
+    
+});
+/*用户-添加*/
+function member_show(title,url,w,h){
+    var index = layer.open({
+        type: 2,
+        title: title,
+        content: url
+    });
+    layer.full(index);
+}
+/*用户-添加*/
+function member_add(title,url,w,h){
+    layer_show(title,url,w,h);
+}
+/*用户-编辑*/
+function member_edit(title,url,id,w,h){
+    layer_show(title,url,w,h);
+} 
+/*用户-删除*/
+function member_del(obj,id){
+    layer.confirm('确认要删除吗？',function(index){
+        $.ajax({
+            type: 'POST',
+            url: '',
+            dataType: 'json',
+            success: function(data){
+                $(obj).parents("tr").remove();
+                layer.msg('已删除!',{icon:1,time:1000});
+            },
+            error:function(data) {
+                console.log(data.msg);
+            },
+        });     
+    });
+}
+$.dataTablesSettings = {
+    processing : false,//是否显示加载中提示
+    bAutoWidth : false,//是否自动计算表格各列宽度
+    bPaginate : true,//是否显示使用分页
+    bInfo : false,//是否显示页数信息
+    sPaginationType : "full_numbers",//分页样式
+    iDisplayLength : 10,//默认每页显示多少条记录
+    searching : false,//是否显示搜索框
+    bSort : false,//是否允许排序
+    serverSide : true,//是否从服务器获取数据
+    bStateSave : true,//页面重载后保持当前页
+    bLengthChange : false,//是否显示每页大小的下拉框
+    sServerMethod : "POST",
+    language: {
+        lengthMenu : "每页显示 _MENU_记录", 
+        zeroRecords : "没有匹配的数据", 
+        info : "第_PAGE_页/共 _PAGES_页", 
+        infoEmpty : "没有符合条件的记录", 
+        search : "查找", 
+        infoFiltered : "(从 _MAX_条记录中过滤)", 
+        paginate : { "first" : "首页 ", "last" : "末页", "next" : "下一页", "previous" : "上一页"}
+    },
+    //这里是为ajax添加自定义参数，给它添加的属性，它会传给后台
+    fnServerParams : function (aoData) {
+        aoData._rand = Math.random();
+    }
+};
+</script> 
+</body>
+</html>

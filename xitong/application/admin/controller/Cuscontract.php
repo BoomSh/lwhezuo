@@ -10,29 +10,29 @@ class Cuscontract extends Common
         $Cus = model('Cuscontract');
         if(!empty(input("startime"))){
             if(!empty(input("overtime"))){
-                $where['time_effect'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
+                $where['c.time_effect'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
                 $this->assign("startime",input("startime"));
                 $this->assign("overtime",input("overtime"));
             }else{
-                $where['time_effect'] = array("gt",strtotime(input('startime')));
+                $where['c.time_effect'] = array("gt",strtotime(input('startime')));
                 $this->assign("startime",input("startime"));
             }
         }
         if(!empty(input("overtime"))){
             if(!empty(input("startime"))){
-                $where['time_effect'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
+                $where['c.time_effect'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
                 $this->assign("startime",input("startime"));
                 $this->assign("overtime",input("overtime"));
             }else{
-                $where['time_effect'] = array("lt",strtotime(input('overtime')));
+                $where['c.time_effect'] = array("lt",strtotime(input('overtime')));
                 $this->assign("overtime",input("overtime"));
             }
         }
         if(!empty(input("contract_num"))){
-            $where['contract_num'] = array("like","%".input("contract_num")."%");
+            $where['c.contract_num'] = array("like","%".input("contract_num")."%");
             $this->assign("contract_num",input("contract_num"));
         }
-        $where['type'] = 2;
+        $where['c.type'] = 2;
         $res = $Cus->cuscontract_list($where);
         $this->assign("res",$res);
         return $this->fetch();
@@ -145,6 +145,28 @@ class Cuscontract extends Common
                 $this->assign("bank",$bank);
                 return $this->fetch();
             }
+        }
+    /*
+    **删除合同
+     */
+    public function cuscontract_del(){
+        $Cuscontract = model("Cuscontract");
+            if(request()->isPost()){
+                $row = $Cuscontract->cuscontract_del();
+                return $row;
+            }else{
+                return "请选择删除的合同";
+            }
+    }
+    /*
+    **水表管理
+     */
+        public function water_list(){
+            $Cuscontract = model("Cuscontract");
+            $where = 1;
+            $res = $Cuscontract->water_list($where);
+            $this->assign("res",$res);
+            return $this->fetch();
         }
 
 }
