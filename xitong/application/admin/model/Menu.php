@@ -309,6 +309,8 @@ class Menu extends Common
                     return "该主菜单名称已被占用";
                 }else{
                     $data['auth_pid'] = 0;
+                    $data['sort'] = !empty(input('sort'))?input('sort'):0;
+                    $data['img'] = input('img');
                     $data['remark'] = input('remark');
                     $data['auth_level'] = 0;
                     $id =  DB::name("auth")->insertGetId($data);
@@ -328,6 +330,7 @@ class Menu extends Common
                 /*选择为二级主菜单时*/
                 $data['auth_c'] = input('auth_c');
                 $data['auth_a'] = input('auth_a');
+                $data['sort'] = !empty(input('sort'))?input('sort'):0;
                 if(empty($data['auth_c'])){
                     return "请输入控制器的名称";
                 }
@@ -379,6 +382,10 @@ class Menu extends Common
                     return "该主菜单名称已被占用";
                 }else{
                     $data['remark'] = input('remark');
+                    $data['sort'] = !empty(input('sort'))?input('sort'):0;
+                    if(!empty(input('img'))){
+                        $data['img'] = input('img');
+                    }
                     $id =  DB::name("auth")->update($data);
                     //return DB::name("auth")->getlastsql();
                     if($id){
@@ -415,7 +422,8 @@ class Menu extends Common
                     $data['auth_pid'] = input('pid');
                     $data['remark'] = input('remark');
                     $data['auth_level'] = 1;
-                    $next['auth_path'] = input('pid')."-".input('id');
+                    $data['sort'] = !empty(input('sort'))?input('sort'):0;
+                    $data['auth_path'] = input('pid')."-".input('id');
                     $id =  DB::name("auth")->update($data);
                     if($id){
                         $this->lw_log("4","修改了菜单为".input('auth_name'),"Menu",'lists');
@@ -427,7 +435,7 @@ class Menu extends Common
             }
         }else if(request()->isGet()){
             /*获取被选择菜单导航信息*/
-            $res = DB::name("auth")->where("id",input('id'))->field("id,auth_name,auth_a,auth_c,remark,auth_pid,auth")->find();
+            $res = DB::name("auth")->where("id",input('id'))->field("id,auth_name,auth_a,auth_c,remark,auth_pid,auth,sort,img")->find();
             if(!empty($res['auth'])){
                 $arr = explode(",", $res['auth']);
                 if(in_array("1",$arr)){
@@ -442,7 +450,12 @@ class Menu extends Common
                 if(in_array("4",$arr)){
                     $res['auths']['view'] = 1;
                 }
-
+                if(in_array("6",$arr)){
+                    $res['auths']['excelin'] = 1;
+                }
+                if(in_array("7",$arr)){
+                    $res['auths']['excelout'] = 1;
+                }
             }
              /*获取一级菜单导航信息*/
             $res['list'] = DB::name("auth")->where("auth_pid",0)->field("id,auth_name")->select();

@@ -32,7 +32,7 @@
             </div>
         </div> 
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3">性别：</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
             <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
                 <select class="select" size="1" name="sex">
                 {if $res['list']['sex'] eq 0}<option value="0">保密</option>{/if}
@@ -64,7 +64,7 @@
             </div>
         </div> 
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3">证件类型：</label>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>证件类型：</label>
             <div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
                 <select class="select" size="1" name="number_type">
                     {volist name="res['dic']" id='v'}

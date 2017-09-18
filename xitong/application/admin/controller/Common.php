@@ -57,17 +57,32 @@ class Common extends Controller
             }else if($contro=="Index" && $action == "welcome"){
                 /*目前欢迎页 只要是登录的都能看见*/
             }else{
+                $len="_";
+                $len = strrpos($action,$len);
+                if(!empty($len)){
+                    $actions = substr($action,0,$len)."_list";
+                }else{
+                    $actions = "lists";
+                }
                 $lw_where['role_id'] = $_SESSION['role_id'];
                 $lw_where['auth_c'] = $contro;
-                $lw_where['auth_a'] = $action;
+                $lw_where['auth_a'] = $actions;
                 $lw_where['action_type'] = 4;
                 $lw_auth = DB::name("role_value")->where($lw_where)->field("COUNT(*)")->find();
+                //echo DB::name("role_value")->getlastsql();
                 if($lw_auth['COUNT(*)'] == 0){
-                    echo "<script>alert('你无权操作该操作');</script>";
-                    $this->redirect("Login/out");
+                     /*如果有某些方法不符合规则 则在这里添加控制器加方法*/
+                      $pdarray = array("Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del");
+                      $con_act = $contro.$action;
+                      //echo $con_act;
+                      if(!in_array($con_act,$pdarray)){
+                                echo "你无权操作";exit;
+                                //$this->redirect("Login/login");
+                        }
                 }
                 unset($lw_where['action_type']);
                 $lw_auth = DB::name("role_value")->where($lw_where)->field("action_type")->select();
+                //echo DB::name("role_value")->getlastsql();
                 if($lw_auth){
                         //用于判断用户是否拥有某个权限
                     foreach ($lw_auth as $k => $v) {
@@ -80,11 +95,21 @@ class Common extends Controller
                        if($lw_auth[$k]['action_type'] == 3){
                           $lw_role['del'] = 1;//删除权限
                        }
+                       if($lw_auth[$k]['action_type'] == 6){
+                          $lw_role['excelin'] = 1;//删除权限
+                       }
+                       if($lw_auth[$k]['action_type'] == 7){
+                          $lw_role['excelout'] = 1;//删除权限
+                       }
                     }
                 }else{
-                    echo "<script>alert('你无权操作该操作');</script>";
-                    /*没有权限  需重新登录*/
-                    $this->redirect("Login/out");
+                     $pdarray = array("Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del");
+                      $con_act = $contro.$action;
+                    if(!in_array($con_act,$pdarray)){
+                         /*没有权限  需重新登录*/
+                       echo "你无权操作";exit;
+                       //$this->redirect("Login/login");
+                        }
                 }
             }
           }else{
@@ -94,6 +119,8 @@ class Common extends Controller
             $lw_role['del'] = 1;
             $lw_role['find'] = 1;
             $lw_role['status'] = 1;
+            $lw_role['excelin'] = 1;
+            $lw_role['excelout'] = 1;
           }
           $this->assign("lw_role",$lw_role);
     }

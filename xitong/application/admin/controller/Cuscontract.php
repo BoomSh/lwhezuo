@@ -161,12 +161,34 @@ class Cuscontract extends Common
     /*
     **水表管理
      */
-        public function water_list(){
-            $Cuscontract = model("Cuscontract");
-            $where = 1;
-            $res = $Cuscontract->water_list($where);
+    public function water_list(){
+        $Cuscontract = model("Cuscontract");
+        if(!empty(input('park_id'))){
+            $where['w.park_id'] = input('park_id');
+            $this->assign("park_id",input('park_id'));
+        }
+        if(!empty(input('name'))){
+            $where['w.name'] = array("like","%".input('name')."%");
+            $this->assign("name",input('name'));
+        }
+        $where['c.status'] = 1;
+        $where['c.type'] = 2;
+        $res = $Cuscontract->water_list($where);
+        $this->assign("res",$res);
+        return $this->fetch();
+    }
+    /*水表编辑*/
+    public function water_edit(){
+        $Cuscontract = model("Cuscontract");
+        if(request()->isPost()){
+            var_dump(input());exit;
+            $res = $Cuscontract->water_edit();
+            return $res;
+        }else if(request()->isGet()){
+            $res = $Cuscontract->water_edit();
             $this->assign("res",$res);
             return $this->fetch();
         }
+    }
 
 }

@@ -259,6 +259,12 @@ class Admin extends Common
                         if(in_array("4",$arr)){
                             $son[$key]['view'] = 1;
                         }
+                         if(in_array("6",$arr)){
+                            $son[$key]['excelin'] = 1;
+                        }
+                         if(in_array("7",$arr)){
+                            $son[$key]['excelout'] = 1;
+                        }
             }
                 }
                 $res[$k]['son'] = $son;
@@ -330,6 +336,12 @@ class Admin extends Common
                                 }
                                 if(in_array("4",$arr)){
                                     $role[$key]['view'] = 1;
+                                }
+                                if(in_array("6",$arr)){
+                                    $role[$key]['excelin'] = 1;
+                                }
+                                 if(in_array("7",$arr)){
+                                    $role[$key]['excelout'] = 1;
                                 }
                             }
                         $where['auth_c'] = $role[$key]['auth_c'];

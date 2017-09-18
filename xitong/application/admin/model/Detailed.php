@@ -54,6 +54,10 @@ class Detailed extends Common
                 $data['remark'] = input("remark");
                 $data['balance'] = 0;
                 $data['type'] = 2;
+                $find = DB::name("customer")->where("mobile",input("mobile"))->field("COUNT(*)")->find();
+                if($find['COUNT(*)'] != 0){
+                    return "该手机号已被占有";
+                }
                 $add = DB::name("customer")->insert($data);
                 if($add){
                     $this->lw_log("2","添加了业主名称为".input('name'),"Customer",'customer_add');
@@ -86,6 +90,12 @@ class Detailed extends Common
                 $data['address'] = input("address");
                 $data['remark'] = input("remark");
                 $data['id'] = input("id");
+                $where['mobile'] = input("mobile");
+                $where['id'] = array("neq",input("id"));
+                $find = DB::name("customer")->where($where)->field("COUNT(*)")->find();
+                if($find['COUNT(*)'] != 0){
+                    return "该手机号已被占有";
+                }
                 $edit = DB::name("customer")->update($data);
                 if($edit){
                     $this->lw_log("4","修改了业主名称为".input('name'),"Customer",'customer_edit');

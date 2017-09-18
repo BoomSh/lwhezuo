@@ -789,13 +789,24 @@ var items_hash ={'rent':2,'transformer': 0,'electric':0,'contract-price':0,'wate
         return false;
     }
     function addcontractpriceItem(item_type,k) {
-        var len = k;
-        var html = "<div class='formControls col-xs-8 col-sm-10 '>";
-        html += "<input type='text' class='input-text li-transformer'  placeholder='开始读数'  name='d_readings_begin_"+len+"[]'>";
-        html += " <input type='text' class='input-text li-transformer'  placeholder='结束读数' name='d_readings_end_"+len+"[]'>";
-        html += " <input type='text' class='input-text li-transformer'  placeholder='单价'  name='d_price_"+len+"[]'>";
-        html += " <button class='btn ppremoveline' style='width: 7%'><i class='Hui-iconfont'>&#xe6a1;</i> </button>";
-        html += '</div>';
+        var len = item_type.indexOf("water-price");
+        if(len != "-1"){
+            var len = k;
+            var html = "<div class='formControls col-xs-8 col-sm-10 '>";
+            html += "<input type='text' class='input-text li-transformer'  placeholder='开始读数'  name='s_readings_begin_"+len+"[]'>";
+            html += " <input type='text' class='input-text li-transformer'  placeholder='结束读数' name='s_readings_end_"+len+"[]'>";
+            html += " <input type='text' class='input-text li-transformer'  placeholder='单价'  name='s_price_"+len+"[]'>";
+            html += " <button class='btn ppremoveline' style='width: 7%'><i class='Hui-iconfont'>&#xe6a1;</i> </button>";
+            html += '</div>';
+        }else{
+            var len = k;
+            var html = "<div class='formControls col-xs-8 col-sm-10 '>";
+            html += "<input type='text' class='input-text li-transformer'  placeholder='开始读数'  name='d_readings_begin_"+len+"[]'>";
+            html += " <input type='text' class='input-text li-transformer'  placeholder='结束读数' name='d_readings_end_"+len+"[]'>";
+            html += " <input type='text' class='input-text li-transformer'  placeholder='单价'  name='d_price_"+len+"[]'>";
+            html += " <button class='btn ppremoveline' style='width: 7%'><i class='Hui-iconfont'>&#xe6a1;</i> </button>";
+            html += '</div>';
+        }
         document.getElementById(item_type).insertAdjacentHTML('beforeEnd',html);
         items_hash[item_type]++;
         //潘潘加a链接无跳转效果

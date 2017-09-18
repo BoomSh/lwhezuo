@@ -4,15 +4,24 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>水表列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
+<form action="{:url('Cuscontract/water_list')}" method="get">
     <div class="bk-gray radius pd-10 col-xs-12 col-sm-12">
         <div class="mt-10 col-xs-12 col-sm-12">
             <strong class="col-xs-12 col-sm-2 text-r">选择园区：</strong>
             <div class="col-xs-12 col-sm-6">
                 <span class="select-box inline">
-                    <select name="" class="select">
+                    <select name="park_id" class="select">
+                        {volist name="res['park']" id="vo"}
+                            {if $park_id eq $vo.id}
+                            <option value="{$vo.id}">{$vo.name}</option>
+                            {/if}
+                        {/volist}
                         <option value="0">全部园区</option>
-                        <option value="1">河盛文创园</option>
-                        <option value="2">河盛文创园1</option>
+                        {volist name="res['park']" id="vo"}
+                            {if $park_id neq $vo.id}
+                            <option value="{$vo.id}">{$vo.name}</option>
+                            {/if}
+                        {/volist}
                     </select>
                 </span>
             </div>
@@ -20,7 +29,7 @@
         <div class="mt-10 col-xs-12 col-sm-12">
             <strong class="col-xs-12 col-sm-2 text-r">水表名称：</strong>
             <div class="col-xs-12 col-sm-6">
-                <input type="text" class="input-text"  placeholder="输入水表名称" id="" name="">
+                <input type="text" class="input-text"  placeholder="输入水表名称" id="" value="{$name}" name="name">
             </div>
         </div>
         <div class="cl mt-10 col-xs-12 col-sm-12">
@@ -30,6 +39,7 @@
             </div>
         </div>
     </div>
+</form>
     <div class="cl pd-5 bg-1 bk-gray mt-20 col-xs-12 col-sm-12">
         <span class="l">
             <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
@@ -66,7 +76,7 @@
                 <td>{$vo.up_record}</td>
                 <td>{$vo.current_record}</td>
                 <td class="td-manage">
-                    <a title="编辑" href="javascript:;" onclick="member_edit('编辑','water-customer-add.html','4','','400')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                    <a title="编辑" href="javascript:;" onclick="member_edit('编辑','water_edit.html?id={$vo.id}','4','','400')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
                     <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
                     <a title="抄表" href="javascript:;" onclick="member_edit('抄表','water-read-add.html','4','','300')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe600;</i></a>
                     <a title="记录" href="javascript:;" onclick="member_show('抄表记录','water-history-list.html','300')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe720;</i></a>

@@ -11,23 +11,23 @@
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>角色名称：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="text" class="input-text" value="{$res['role']['role_name']}" placeholder="" id="roleName" name="roleName">
+                <input type="hidden" class="input-text" value="{$res['role']['id']}" name="id">
             </div>
-            <input type="hidden" class="input-text" value="{$res['role']['id']}" name="id">
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">备注：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="{$res['role']['role_descript']}" placeholder="" id="" name="role_descript">
+               <input type="text" class="input-text" value="{$res['role']['role_descript']}" placeholder="" id="" name="role_descript">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">网站角色：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                {volist name="res['list']" id="vo"}
+                 {volist name="res['list']" id="vo"}
                 <dl class="permission-list">
                     <dt>
                         <label>
-                            <input type="checkbox" {if $vo['xz'] eq 1}checked{/if}>
+                            <input type="checkbox" {if $vo['xz'] eq 1}checked{/if} name="aaa">
                             {$vo.auth_name}</label>
                     </dt>
                     <dd>
@@ -51,6 +51,12 @@
                                 {if $v.view eq 1}<label class="">
                                     <input type="checkbox" value="{$v.id}-4" name="auth[]" {if $v['role_4'] eq 4}checked{/if}>
                                     查看</label>{/if}
+                                {if $v.excelin eq 1}<label class="">
+                                    <input type="checkbox" value="{$v.id}-6" name="auth[]" {if $v['role_6'] eq 6}checked{/if}>
+                                    导入</label>{/if}
+                                {if $v.excelout eq 1}<label class="">
+                                    <input type="checkbox" value="{$v.id}-7" name="auth[]" {if $v['role_7'] eq 7}checked{/if}>
+                                    导出</label>{/if}
                             </dd>
                         </dl>
                         {/volist}
@@ -68,8 +74,7 @@
 </article>
 
 <!--_footer 作为公共模版分离出去-->
-{include file="/Public/footer"}
-<!--/_footer 作为公共模版分离出去-->
+{include file="/Public/footer"} <!--/_footer 作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script>

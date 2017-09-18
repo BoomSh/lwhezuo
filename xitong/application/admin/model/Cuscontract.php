@@ -485,7 +485,7 @@ class Cuscontract extends Common
                             $dianp = 1;
                         }else{
                             for($j=0;$j<$d_len;$j++){
-                                if(!empty($d_readings_begin[$j]) && !empty($d_readings_end[$j]) && !empty($d_price[$j])){
+                                if($d_readings_begin[$j]!== '' && $d_readings_end[$j]!== '' && $d_price[$j]!== ''){
                                     $ds_price['electric_id'] = $dianb;
                                     $ds_price['readings_begin'] = $d_readings_begin[$j];
                                     $ds_price['readings_end'] = $d_readings_end[$j];
@@ -519,6 +519,12 @@ class Cuscontract extends Common
             }else{
                 for($i=0;$i<$len;$i++){
                     if(!empty($stenantry_zid[$i])){
+                        $h = $i+1;
+                        for($j=$h;$j<$len;$j++){
+                            if($park_name[$i] == $park_name[$j] && $stenantry_zid[$i] == $stenantry_zid[$j]){
+                                return "合同里不能存在相同的园区同名的水表";
+                            }
+                        }
                         if(empty($park_name[$i])){
                             return "水费设置,第".($i+1)."条请输入水表名";
                         }
@@ -562,7 +568,8 @@ class Cuscontract extends Common
                             for($j=0;$j<$s_len;$j++){
                                 $wprice['water_id'] = $w_id;
                                 $wprice['contract_id'] = $contract;
-                                if(!empty($s_readings_begin[$j]) && !empty($s_readings_end[$j]) && !empty($s_price[$j])){
+                                if($s_readings_begin[$j] !=='' && $s_readings_end[$j]!=='' && 
+                                    $s_price[$j] !== ''){
                                     $wprice['readings_begin'] = $s_readings_begin[$j];
                                     $wprice['readings_end'] = $s_readings_end[$j];
                                     $wprice['price'] = $s_price[$j];
@@ -899,7 +906,7 @@ class Cuscontract extends Common
                             $dianp = 1;
                         }else{
                             for($j=0;$j<$d_len;$j++){
-                                if(!empty($d_readings_begin[$j]) && !empty($d_readings_end[$j]) && !empty($d_price[$j])){
+                                if($d_readings_begin[$j]!== '' && $d_readings_end[$j]!== '' && $d_price[$j]!== ''){
                                     $ds_price['electric_id'] = $dianb;
                                     $ds_price['readings_begin'] = $d_readings_begin[$j];
                                     $ds_price['readings_end'] = $d_readings_end[$j];
@@ -939,6 +946,12 @@ class Cuscontract extends Common
             }else{
                 for($i=0;$i<$len;$i++){
                     if(!empty($stenantry_zid[$i])){
+                        $h = $i+1;
+                        for($j=$h;$j<$len;$j++){
+                            if($park_name[$i] == $park_name[$j] && $stenantry_zid[$i] == $stenantry_zid[$j]){
+                                return "合同里不能存在相同的园区同名的水表";
+                            }
+                        }
                         if(empty($park_name[$i])){
                             return "水费设置,第".($i+1)."条请输入水表名";
                         }
@@ -982,7 +995,7 @@ class Cuscontract extends Common
                             for($j=0;$j<$s_len;$j++){
                                 $wprice['water_id'] = $w_id;
                                 $wprice['contract_id'] = $contract;
-                                if(!empty($s_readings_begin[$j]) && !empty($s_readings_end[$j]) && !empty($s_price[$j])){
+                                if($s_readings_begin[$j]!== '' && $s_readings_end[$j]!== '' && $s_price[$j]!== ''){
                                     $wprice['readings_begin'] = $s_readings_begin[$j];
                                     $wprice['readings_end'] = $s_readings_end[$j];
                                     $wprice['price'] = $s_price[$j];
@@ -1116,9 +1129,10 @@ class Cuscontract extends Common
                                     ->alias("w")
                                     ->join("water_contract z","z.water_id=w.id")
                                     ->join("contract c","c.id=z.contract_id")
-                                    ->join("park p","p.id=c.park_id")
+                                    ->join("park p","p.id=w.park_id")
                                     ->where($where)
                                     ->field("w.id,w.init_record,p.name,w.name as wname")
+                                    ->group("w.park_id,w.name")
                                     ->order("w.id desc")
                                     ->select();
             foreach ($res['list'] as $k => $v) {
@@ -1131,6 +1145,8 @@ class Cuscontract extends Common
                     $res['list'][$k]['current_record'] = 0;
                  }
             }
+            $while['contract_id'] = array("neq",'');
+            $res['park'] = DB::name("park")->where($while)->field("id,name")->select();
             /*获取信息的数量*/
             $res['num'] = count($res['list']);
             $arr = $this->lw_number($res['num']);
@@ -1139,6 +1155,23 @@ class Cuscontract extends Common
             }
         return $res;
         }
+
+        /*水表编辑*/
+    public function water_edit(){
+        if(request()->isPost()){
+
+            return 1;
+        }else if(request()->isGet()){
+            $where['w.id'] = input("id");
+            $res = DB::name("water")->alias("w")->join("park p","p.id=w.park_id")->where($where)->field("w.id,w.name,w.park_id,p.name as pname,w.init_record")->find();
+            //$res['sql'] = DB::name("water")->getlastsql();
+            $whild['w.park_id'] = $res['park_id'];
+            $whild['w.name'] = $res['name'];
+            $res['son'] = DB::name("water")->alias("w")->join("water_contract c","c.water_id=w.id")->join("contract h","h.id=c.contract_id")->join("customer k","h.lease_id=k.id")->where($whild)->field("k.name,c.share,c.status,c.id")->select();
+            //$res['sql1'] = DB::name("water")->getlastsql();
+            return $res;
+        }
+    }
 
 }
 

@@ -49,6 +49,20 @@
                 <label><input type="checkbox" name="auths" value="2"/>修改</label>
                 <label><input type="checkbox" name="auths" value="3"/>删除</label>
                 <label><input type="checkbox" name="auths" value="4"/>查看</label>
+                <label><input type="checkbox" name="auths" value="6"/>导入</label>
+                <label><input type="checkbox" name="auths" value="7"/>导出</label>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>排序：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="" id="" name="sort">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>主菜单标签：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="" id="" name="img">
             </div>
         </div>
         <div class="row cl">
@@ -83,10 +97,12 @@ function listsadd(){
     var pid = $(".select").val();
     var remark = $(".textarea").val();
     var auths = '';
+    var sort = $("input[name=sort]").val();
+    var img = $("input[name=img]").val();
     $("input[name=auths]:checked").each(function(){
         auths += $(this).val()+",";
     }); 
-    $.post("{:url('Menu/listsadd')}",{auth_name:auth_name,auth_c:auth_c,auth_a:auth_a,pid:pid,remark:remark,auths:auths},function(data){
+    $.post("{:url('Menu/listsadd')}",{auth_name:auth_name,auth_c:auth_c,auth_a:auth_a,pid:pid,remark:remark,auths:auths,img:img,sort:sort},function(data){
         if(data == "success"){
                  layer.msg('添加成功!');
                 setTimeout(function () {

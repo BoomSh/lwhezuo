@@ -57,6 +57,20 @@
                 <label><input type="checkbox" name="auths" value="2" {if $res['auths']['edit'] eq 1}checked{/if}/>修改</label>
                 <label><input type="checkbox" name="auths" value="3" {if $res['auths']['del'] eq 1}checked{/if}/>删除</label>
                 <label><input type="checkbox" name="auths" value="4" {if $res['auths']['view'] eq 1}checked{/if}/>查看</label>
+                <label><input type="checkbox" name="auths" value="6" {if $res['auths']['excelin'] eq 1}checked{/if}/>导入</label>
+                <label><input type="checkbox" name="auths" value="7" {if $res['auths']['excelout'] eq 1}checked{/if}/>导出</label>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>排序：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="{$res['sort']}" placeholder="" id="" name="sort">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>主菜单标签：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                {$res['img']}<input type="text" class="input-text"  value=""  placeholder="" id="" name="img">
             </div>
         </div>
         <div class="row cl">
@@ -91,11 +105,13 @@ function listsadd(){
     var auth_a = $("input[name=auth_a]").val();
     var pid = $(".select").val();
     var remark = $(".textarea").val();
+    var sort = $("input[name=sort]").val();
+    var img = $("input[name=img]").val();
     var auths = '';
     $("input[name=auths]:checked").each(function(){
         auths += $(this).val()+",";
     }); 
-    $.post("{:url('Menu/listsedit')}",{id:id,auth_name:auth_name,auth_c:auth_c,auth_a:auth_a,pid:pid,remark:remark,auths:auths},function(data){
+    $.post("{:url('Menu/listsedit')}",{id:id,auth_name:auth_name,auth_c:auth_c,auth_a:auth_a,pid:pid,remark:remark,auths:auths,sort:sort,img:img},function(data){
         if(data == "success"){
                  layer.msg('修改成功!');
                 setTimeout(function () {
