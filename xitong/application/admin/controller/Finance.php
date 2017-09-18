@@ -57,9 +57,12 @@ class Finance extends Common
     public function expenditure_add(){
         $Finance = model("Finance");
         if(request()->isPost()){
-            $row = $Finance->company_add();
+            $row = $Finance->expenditure_add();
             return $row;
         }else{
+             /*获取下拉信息*/
+            $res = $Finance->expenditure_add();
+            $this->assign('res',$res);
             return $this->fetch();
         }
     }
