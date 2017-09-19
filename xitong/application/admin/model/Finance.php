@@ -47,8 +47,16 @@ class Finance extends Common
      * @DateTime 2017-09-14T20:20:34+0800
      * @return   [type]                   [description]
      */
-    public function expenditure_list(){
-        return $this->fetch();
+    public function expenditure_list($where){
+        $res['list'] = DB::name("incomeexpenditure")->where($where)->order("id desc")->field("id,pay_time,customer_type,park_id,payment_id,payee_id,dictionary_id,pay_type,price,remark")->select();
+        $res['num']  = count($res['list']);
+        $res['park'] = DB::name("park")->field("id,name")->select();
+        $res['dictionary'] = DB::name("dictionary")->where('type',3)->field("id,name")->select();
+        $arr = $this->lw_number($res['num']);
+        foreach($res['list'] as $k => $v) {
+            $res['list'][$k]['num']  = $arr[$k];  
+        }
+        return $res;
     }
     /**
      * 新增支出
@@ -58,65 +66,72 @@ class Finance extends Common
      */
     public function expenditure_add(){
         if(request()->isPost()){
-           
-            $data['name']           = input('name');
-            $data['license_number'] = input('license_number');
-            $data['address']        = input('address');
-            $data['legal']          = input('legal');
-            $data['legal_mobile']   = input('legal_mobile');
-
-            $data['contact']          = input('contact');
-            $data['contact_mobile']   = input('contact_mobile');
-            $data['contact_phone']    = input('contact_phone');
-            $data['remark']           = input('remark');
-            $data['create_time']      = time();
-            $data['create_id']        = $_SESSION['id'];
-            if(empty(input('name'))){
-                return "请填写公司名";     
+            /*必选*/
+            $data['park_id']           = input('park_id');
+            $data['payment_id']        = input('payment_id');
+            $data['payee_id']          = input('payee_id');
+            $data['customer_type']     = input('customer_type');
+            $data['dictionary_id']     = input('dictionary_id');
+            $data['pay_type']          = input('pay_type');
+            $data['pay_time']          = strtotime(input('pay_time'));
+            $data['price']             = input('price');
+            /*非必选*/
+            $data['remark']      = input('remark');
+            /*自动*/
+            $data['type']          = 2;
+            $data['status']        = 1;
+            $data['create_time']   = time();
+            $data['create_id']     = $_SESSION['id'];
+            if(empty(input('customer_type'))){
+                return "请选择客户类型";     
             }
-            if(empty(input('license_number'))){
-                return "统一社会信用代码";     
+            if(empty(input('park_id'))){
+                return "请选择园区";     
             }
-            if(empty(input('address'))){
-                return "请填写地址";     
+            if(empty(input('payment_id'))){
+                return "请选择付款人";     
             }
-            if(empty(input('legal'))){
-                return "请填写法人代表";     
-            }
-            if(empty(input('legal_mobile'))){
-                return "请填写联系电话";     
-            }
-             /*判断公司名是否被占用*/
-            $find = DB::name("company")->where("name",$data['name'])->field("COUNT(*)")->find();
-            if($find['COUNT(*)'] != 0){
-                return "该登录名已被占用";
-            }
-            foreach (input('bank_number/a') as $key => $value) {
-                if(empty(input('bank_number/a')[$key])) {
-                    return "请填写银行账号";
+            if(empty(input('payee_id'))){
+                if(3!=input('customer_type')){
+                    return "请选择收款人";
                 }
-                $datas[$key]['bank_number'] = input('bank_number/a')[$key];
-            }  
-            foreach (input('bank_name/a') as $key => $value) {
-                if(empty(input('bank_name/a')[$key])) {
-                    return "请填写银行账户";
-                }
-                $datas[$key]['bank_name'] = input('bank_name/a')[$key];
+                else{
+                    if(empty(input('payee_name'))){
+                        return "请选择收款人";   
+                    }
+                }     
             }
-            foreach (input('bankname/a') as $key => $value) {
-                $datas[$key]['name'] = input('bankname/a')[$key];
+            if(empty(input('dictionary_id'))){
+                return "请选择费用科目";     
             }
+            if(empty(input('pay_type'))){
+                return "请选择支付类型";     
+            }
+            if(empty(input('pay_time'))){
+                return "请填写支付时间";     
+            }
+            if(empty(input('price'))){
+                return "请填写金额";     
+            }
+            
             Db::startTrans();
-            $resCompaty = DB::name("company")->insertGetId($data);
-            foreach ($datas as $key => $value) {
-                $datas[$key]['company_id'] = $resCompaty;
+            $resCustomer = true;
+            if(3==input('customer_type')){
+                $datas['type'] = 3;
+                $datas['name'] = input('payee_name');
+                $resCustomer = DB::name("customer")->insertGetId($datas);
+                $data['payee_id']          = $resCustomer;
+            }
+            $compare = DB::name("customer")->where(array('type'=>input('customer_type'),'id'=>input('payee_id')))->field("COUNT(*)")->find();
+            if($compare['COUNT(*)'] == 0){
+                 return "客户类型和客户不匹配";
             }
             // /p_r($datas);die();
-            $resBank = DB::name("bank")->insertAll($datas);
+            $res = DB::name("incomeexpenditure")->insert($data);
 
-            if($resCompaty && $resBank){
+            if($resCustomer && $res){
                 Db::commit();
-                $this->lw_log("2","添加了公司为".input('name'),"Enterprise",'company_list');
+                $this->lw_log("2","添加了支出为".input('price'),"Finance",'expenditure_list');
                 return "success";
             }else{
                 Db::rollback();
@@ -135,7 +150,85 @@ class Finance extends Common
      * @return   [type]                   [description]
      */
     public function expenditure_edit(){
-
+        if(request()->isGet()){
+            $res = DB::name("incomeexpenditure")->where("id",input('id'))->field("id,pay_time,customer_type,park_id,payment_id,payee_id,dictionary_id,pay_type,price,remark")->find();
+            $res['dictionarysele'] = DB::name('dictionary')->where("type",5)->where('status',1)->field("id,name")->select();
+            $res['paysele'] = DB::name('dictionary')->where("type",3)->where('status',1)->field("id,name")->select();
+            return $res;
+        }else if(request()->isPost()){
+            $data['id'] = input('id');
+           /*必选*/
+            $data['park_id']           = input('park_id');
+            $data['payment_id']        = input('payment_id');
+            $data['payee_id']          = input('payee_id');
+            $data['customer_type']     = input('customer_type');
+            $data['dictionary_id']     = input('dictionary_id');
+            $data['pay_type']          = input('pay_type');
+            $data['pay_time']          = strtotime(input('pay_time'));
+            $data['price']             = input('price');
+            /*非必选*/
+            $data['remark']      = input('remark');
+            /*自动*/
+            $data['type']          = 2;
+            $data['status']        = 1;
+            $data['create_time']   = time();
+            $data['create_id']     = $_SESSION['id'];
+            if(empty(input('customer_type'))){
+                return "请选择客户类型";     
+            }
+            if(empty(input('park_id'))){
+                return "请选择园区";     
+            }
+            if(empty(input('payment_id'))){
+                return "请选择付款人";     
+            }
+            if(empty(input('payee_id'))){
+                if(3!=input('customer_type')){
+                    return "请选择收款人";
+                }
+                else{
+                    if(empty(input('payee_name'))){
+                        return "请选择收款人";   
+                    }
+                }     
+            }
+            if(empty(input('dictionary_id'))){
+                return "请选择费用科目";     
+            }
+            if(empty(input('pay_type'))){
+                return "请选择支付类型";     
+            }
+            if(empty(input('pay_time'))){
+                return "请填写支付时间";     
+            }
+            if(empty(input('price'))){
+                return "请填写金额";     
+            }
+            $info = DB::name("incomeexpenditure")->where("id",input('id'))->field("id,pay_time,customer_type,park_id,payment_id,payee_id,dictionary_id,pay_type,price,remark")->find();
+            Db::startTrans();
+            $resCustomer = true;
+            if(3==input('customer_type'&&$info['customer_type']!=3)){//原来不是外联现在改成外链
+                $datas['type'] = 3;
+                $datas['name'] = input('payee_name');
+                $resCustomer = DB::name("customer")->insertGetId($datas);
+                $data['payee_id']          = $resCustomer;
+            }else if(3!=input('customer_type')&&$info['customer_type']==3){//原来是外联现在改成不是外链
+               $resCustomer = DB::name("customer")->where('id',$info['id'])->delete();
+            }
+            $compare = DB::name("customer")->where(array('type'=>input('customer_type'),'id'=>input('payee_id')))->field("COUNT(*)")->find();
+            if($compare['COUNT(*)'] == 0){
+                 return "客户类型和客户不匹配";
+            }
+            $resIncom = DB::name("incomeexpenditure")->update($data);
+            if($resCustomer&&$resIncom){
+                $this->lw_log("4","修改了支出为".input('price'),"Finance",'expenditure_list');
+                Db::commit();
+                return "success";
+            }else{
+                Db::rollback();
+                return "操作失败";
+            }
+        }
     }
     /**
      * 删除支出
@@ -145,5 +238,50 @@ class Finance extends Common
      */
     public function expenditure_del(){
 
+    }
+     /**
+     * 支出异步获取下拉选项数据
+     * @return [type] [description]
+     */
+    public function expenditure_selectinfo(){
+        $type = input('type');//字段类型
+        $name = input('name');//字段名字
+        $customer_type = input('customer_type');//客户类型
+        switch ($type) {
+            case 1:
+                $where['name'] = array("like","%".$name."%");
+                $res           = DB::name('park')->where($where)->field('id,name')->select();
+                break;
+
+            case 2:
+                $where['name'] = array("like","%".$name."%");
+                $res = DB::name('staff')->where($where)->field('id,name,mobile')->select();
+                foreach ($res as $key => $value) {
+                    $res[$key]['name'] = $res[$key]['name']." (".array_shift(explode(',',$res[$key]['mobile'])).")";
+                }
+                break;
+
+            default:
+                if(1==$customer_type){
+                    $where['name'] = array("like","%".$name."%");
+                    $where['type'] = 1;
+                    $where['status'] = 1;
+                    $res = DB::name('customer')->where($where)->field('id,name,mobile')->select();
+                    foreach ($res as $key => $value) {
+                        $res[$key]['name'] = $res[$key]['name']." (".array_shift(explode(',',$res[$key]['mobile'])).")";
+                    }
+                }else if(2==$customer_type){
+                    $where['name'] = array("like","%".$name."%");
+                    $where['type'] = 2;
+                    $where['status'] = 1;
+                    $res = DB::name('customer')->where($where)->field('id,name,mobile')->select();
+                    foreach ($res as $key => $value) {
+                        $res[$key]['name'] = $res[$key]['name']." (".array_shift(explode(',',$res[$key]['mobile'])).")";
+                    }
+                }
+                
+                break;
+        }
+        return $res;
     }
 }

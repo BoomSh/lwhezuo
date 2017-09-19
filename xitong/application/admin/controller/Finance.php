@@ -46,6 +46,46 @@ class Finance extends Common
      * @return   [type]                   [description]
      */
     public function expenditure_list(){
+        $Finance = model("Finance");
+        if(!empty(input("startime"))){
+            if(!empty(input("overtime"))){
+                $where['pay_time'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
+                $this->assign("startime",input("startime"));
+                $this->assign("overtime",input("overtime"));
+            }else{
+                $where['pay_time'] = array("gt",strtotime(input('startime')));
+                $this->assign("startime",input("startime"));
+            }
+        }
+        if(!empty(input("overtime"))){
+            if(!empty(input("startime"))){
+                $where['pay_time'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
+                $this->assign("startime",input("startime"));
+                $this->assign("overtime",input("overtime"));
+            }else{
+                $where['pay_time'] = array("lt",strtotime(input('overtime')));
+                $this->assign("overtime",input("overtime"));
+            }
+        }
+        if(!empty(input("customer_type"))){
+            $where['customer_type'] = input("customer_type");
+            $this->assign("customer_type",input("customer_type"));
+        }
+        if(!empty(input("park_id"))){
+            $where['park_id'] = input("park_id");
+            $this->assign("park_id",input("park_id"));
+        }
+        if(!empty(input("pay_type"))){
+            $where['pay_type'] = input("pay_type");
+            $this->assign("pay_type",input("pay_type"));
+        }
+
+        if(empty($where)){
+            $where = 1;
+        }
+        /*获取 符合条件的 管理员信息*/
+        $res = $Finance->expenditure_list($where);
+        $this->assign("res",$res);
         return $this->fetch();
     }
     /**
@@ -73,7 +113,18 @@ class Finance extends Common
      * @return   [type]                   [description]
      */
     public function expenditure_edit(){
-
+        $Finance = model("Finance");
+        if(request()->isGet()){
+            /*获取支出信息*/
+            $res = $Finance->expenditure_edit();
+            $this->assign("res",$res);
+            return $this->fetch();
+        }else if(request()->isPost()){
+            $row = $Finance->expenditure_edit();
+            return $row;
+        }else{
+            return "请选择修改的信息";
+        }
     }
     /**
      * 删除支出
@@ -83,5 +134,16 @@ class Finance extends Common
      */
     public function expenditure_del(){
 
+    }
+    /**
+     * 模糊搜索
+     * @return [type] [description]
+     */
+    public function expenditure_selectinfo(){
+        $Finance = model("Finance");
+        if(request()->isAjax()){
+            $res = $Finance-> expenditure_selectinfo();
+            return $res;   
+        }
     }
 }  

@@ -7,61 +7,57 @@
 <article class="page-container">
 	<form action="" method="post" class="form form-horizontal" id="form-member-add">
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">类型：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>类型：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
 				<div class="radio-box">
-					<input type="radio" id="radio-2" name="customer_type" checked>
+					<input type="radio" id="customer_1" name="customer_type" value="1" checked>
 					<label for="radio-2">客户</label>
 				</div>
 				<div class="radio-box">
-					<input type="radio" id="radio-1"  name="customer_type" >
+					<input type="radio" id="customer_2"  name="customer_type" value="2" >
 					<label for="radio-1">业主</label>
 				</div>
 				<div class="radio-box">
-					<input type="radio" id="radio-1"  name="customer_type" >
+					<input type="radio" id="customer_3"  name="customer_type" value="3" >
 					<label for="radio-1">外联</label>
 				</div>
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">园区：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="city">
-					<option value="" selected>请选择园区</option>
-					<option value="1">高新园</option>
-					<option value="2">河盛文创园</option>
-				</select>
-				</span> </div>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>园区：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text park_input" t_id='park_id' value="" autocomplete="off" placeholder="" id="" name="park_name">
+				<input type="text" value="" id="park_id" name="park_id"></input>
+				<ul class="keyword_park keyword">
+					
+				</ul>
+			</div>
 		</div>
-
-		
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">付款人：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="city">
-					<option value="" selected>请选择付款人</option>
-					<option value="1">张三</option>
-					<option value="2">李四</option>
-				</select>
-				</span> </div>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>付款人：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text payment_input" t_id='payment_id' value="" autocomplete="off" placeholder="" id="" name="payment_name">
+				<input type="text" value="" id="payment_id" name="payment_id"></input>
+				<ul class="keyword_payment keyword">
+					
+				</ul>
+			</div>
 		</div>
-
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">收款人：</label>
-			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
-				<select class="select" size="1" name="city">
-					<option value="" selected>请选择收款人</option>
-					<option value="1">王五</option>
-					<option value="2">小李</option>
-				</select>
-				</span> </div>
+        <div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>收款人：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text payee_input" t_id='payee_id' value="" autocomplete="off" placeholder="" id="" name="payee_name">
+				<input type="text" value="" id="payee_id" name="payee_id"></input>
+				<ul class="keyword_payee keyword">
+					
+				</ul>
+			</div>
 		</div>
-
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">付款款项：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>费用科目：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select class="select" size="1" name="dictionary_id">
-					<option value="" selected>请选择付款款项</option>
+					<option value="" selected>请选择费用科目</option>
 					{volist name="res['dictionary_id']" id="vo"}
 					<option value="{$vo.id}">{$vo.name}</option>
 				    {/volist}
@@ -69,19 +65,19 @@
 				</span> </div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">付款时间：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>付款时间：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="laydate-icon"  value="" placeholder="结束时间" id="laydate" name="pay_time" style="width:92%;">
+				<input type="text" class="laydate-icon"  value="" placeholder="付款时间" id="laydate" name="pay_time" style="width:92%;">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">金额：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>金额：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="" id="price" name="price">
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">支付方式：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>支付方式：</label>
 			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
 				<select class="select" size="1" name="pay_type">
 					<option value="" selected>请选择支付方式</option>
@@ -130,6 +126,105 @@ $(function(){
 		radioClass: 'iradio-blue',
 		increaseArea: '20%'
 	});
+	$("#form-member-add").validate({
+		rules:{
+			park_name:{
+				required:true,
+			},
+			payment_name:{
+				required:true,
+			},
+			payee_name:{
+				required:true,
+			},
+			dictionary_id:{
+                required:true,
+			},
+			pay_time:{
+				required:true,
+			},
+			price:{
+				required:true,
+			},
+			pay_type:{
+				required:true,
+			},
+		},
+		onkeyup:false,
+		focusCleanup:true,
+		success:"valid",
+		submitHandler:function(form){
+			$(form).ajaxSubmit({
+                type: 'post',
+                url: "{:url('Finance/expenditure_add')}",
+                success: function(data){
+                    if(data == "success"){
+                        layer.msg('添加成功!');
+                        setTimeout(function () {
+                            parent.location.reload();
+                            },1000)
+                    }else{
+                        layer.msg(data);
+                        return false;
+                    }
+                },
+            });
+		}
+	});
+	//园区
+	keyword($(".park_input"),$(".keyword_park"),1);
+	//付款
+	keyword($(".payment_input"),$(".keyword_payment"),2);
+	//收款
+	keyword($(".payee_input"),$(".keyword_payee"),3);
+	
+	
+	/*keyword模糊搜索函数
+	 * input输入框
+	 * downmask下拉框
+	 * 
+	 * */
+	function keyword(input,downmask,type){
+		input.bind('input porpertychange',function(e){
+			var val = $(this).val();
+			$("#"+input.attr('t_id')+"").val('');
+			if(val){
+				var html ="";
+				$.ajax({
+					type:"post",
+					url:"{:url('Finance/expenditure_selectinfo')}",
+					data:{name:val,type:type,customer_type:$("input[name='customer_type']:checked").val()},
+					success:function(data){
+						$.each(data,function(index,value){
+                            html += "<li p_id='"+value['id']+"'>"+value['name']+"</li>";
+						});
+                        downmask.html(html);
+                        downmask.show();
+						downmask.find('li').mouseover(function(e){
+		 					$(this).css('background-color','#5a98de');
+		 					$(this).css('color','#fff');
+		 					$(this).siblings().css('background-color','');
+		 					$(this).siblings().css('color','');
+		 				})
+		 				downmask.find('li').bind('click').on('click',function(e){
+		 					e.stopPropagation();
+		 					input.val($(this).html());
+		 					$("#"+input.attr('t_id')+"").val($(this).attr('p_id'));
+		 					
+		 					$(this).closest('ul').hide();
+		 				})
+					},
+					async:true
+				});
+			}else{
+				downmask.hide();
+			}
+			$(document).click(function(e){
+				e.stopPropagation();
+				downmask.hide();
+			})
+		})
+	}
 	 
 });
 </script> 

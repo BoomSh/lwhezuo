@@ -4,15 +4,17 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 财务管理 <span class="c-gray en">&gt;</span> 支出列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
+  <form action="{:url('Finance/expenditure_list')}" method="post">
 	<div class="bk-gray radius pd-10 col-xs-12 col-sm-12 ">
 		<div class="mt-10 col-xs-12 col-sm-12">
 			<strong class="col-xs-12 col-sm-2 text-r">客户类型：</strong>
 			<div class="col-xs-12 col-sm-6">
 				<span class="select-box inline">
-					<select name="" class="select">
-						<option value="0">客户</option>
-						<option value="1">业主</option>
-						<option value="1">外联</option>
+					<select name="customer_type" class="select">
+					    <option  value="">请选择客户类型</option>
+						<option {if $customer_type eq 1}selected='selected'{/if} value="1">客户</option>
+						<option {if $customer_type eq 2}selected='selected'{/if} value="2">业主</option>
+						<option {if $customer_type eq 3}selected='selected'{/if} value="3">外联</option>
 					</select>
 				</span>
 			</div>
@@ -21,9 +23,11 @@
 			<strong class="col-xs-12 col-sm-2 text-r">选择园区：</strong>
 			<div class="col-xs-12 col-sm-6">
 				<span class="select-box inline">
-					<select name="" class="select">
-						<option value="0">全部园区</option>
-						<option value="1">河盛文创园</option>
+					<select name="park_id" class="select">
+					    <option value="">全部园区</option>
+						{volist name="res['park']" id="vo"}
+						<option {if $park_id eq $vo['id']}selected='selected'{/if} value="{$vo.id}">{$vo.name}</option>
+						{/volist}
 					</select>
 				</span>
 			</div>
@@ -32,12 +36,11 @@
 			<strong class="col-xs-12 col-sm-2 text-r">支付方式：</strong>
 			<div class="col-xs-12 col-sm-6">
 				<span class="select-box inline">
-					<select name="" class="select">
+					<select name="pay_type" class="select">
 						<option value="" selected>请选择支付方式</option>
-						<option value="1">现金</option>
-						<option value="2">微信</option>
-						<option value="3">支付宝</option>
-						<option value="3">系统免单</option>
+						{volist name="res['dictionary']" id="vo"}
+						<option {if $pay_type eq $vo['id']}selected='selected'{/if} value="{$vo.id}">{$vo.name}</option>
+						{/volist}
 					</select>
 				</span>
 			</div>
@@ -51,12 +54,6 @@
                 <input type="text" class="laydate-icon"  value="{$overtime}" placeholder="结束时间" id="laydate2" name="overtime" style="width:92%;">
             </div>
 		</div>
-		<div class="mt-10 col-xs-12 col-sm-12">
-			<strong class="col-xs-12 col-sm-2 text-r">名称：</strong>
-			<div class="col-xs-12 col-sm-6">
-				<input type="text" class="input-text" placeholder="输入名称" id="" name="">
-			</div>
-		</div>
 		<div class="cl mt-10 col-xs-12 col-sm-12">
 			<strong class="col-xs-12 col-sm-2 text-r"></strong>
 			<div class="col-xs-12 col-sm-6">
@@ -64,12 +61,13 @@
 			</div>
 		</div>
 	</div>
+	</form>
 	<div class="cl pd-5 bg-1 bk-gray mt-20 col-xs-12 col-sm-12">
 		<span class="l">
 			{if $lw_role.add eq 1}<a href="javascript:;" onclick="admin_add('添加支出','{:url('Finance/expenditure_add')}','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加支出</a>{/if}
 		</span>
 		<span class="r">
-			共有数据：<strong>1</strong> 条
+			共有数据：<strong>{$res['num']}</strong> 条
 		</span>
 	</div>
 	<table class="table table-border table-bordered table-bg">
@@ -78,7 +76,7 @@
 				<th scope="col" colspan="14">支出列表</th>
 			</tr>
 			<tr class="text-c">
-				<th>ID</th>
+				<th>序号</th>
 				<th>日期</th>
 				<th>类型</th>
 				<th>园区</th>
@@ -92,21 +90,25 @@
 			</tr>
 		</thead>
 		<tbody>
+		 {volist name="res['list']" id="vo"}
 			<tr class="text-c">
-				<td>1</td>
-				<td>2017-06-29 11:30:29</td>
-				<td>客户</td>
-				<td>高新园</td>
-				<td>李四</td>
-				<td>张三</td>
-				<td>维修</td>
-				<td>现金</td>
-				<td>1000</td>
-				<td></td>
+				<td>{$vo.num}</td>
+				<td>{$vo.pay_time|dateFormat}</td>
+				<td>{$vo.customer_type|customerType}</td>
+				<td>{$vo.park_id|parkId}</td>
+				<td>{$vo.payment_id|staffName}</td>
+				<td>{$vo.payee_id|customerName}</td>
+				<td>{$vo.dictionary_id|dictionaryName}</td>
+				<td>{$vo.pay_type|dictionaryName}</td>
+				<td>{$vo.price}</td>
+				<td>{$vo.remark}</td>
 				<td class="td-manage">
-					<a title="编辑" href="javascript:;" onclick="admin_edit('支出编辑','expendi-add.html','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+				{if $lw_role.edit eq 1}
+                <a title="编辑" href="javascript:;" onclick="admin_edit('编辑','{:url('Finance/expenditure_edit',array('id'=>$vo.id))}','4','','300')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                {/if}
 				</td>
 			</tr>
+		 {/volist}	
 		</tbody>
 	</table>
 </div>

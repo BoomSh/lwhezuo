@@ -256,7 +256,7 @@ class Enterprise extends Common
             }
             foreach (input('cornet/a') as $key => $value) {
                 if(input('cornet/a')[$key]===""){
-                    return "请填写手机";     
+                    return "请填写短号";     
                 }
             }
             if(empty(input('extension'))){
