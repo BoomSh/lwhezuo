@@ -6,7 +6,7 @@
 <body>
 <article class="page-container">
 	<form action="" method="post" class="form form-horizontal" id="form-member-add">
-	  <input type="hidden" value="{$res['id']}" name=""></input>
+	  <input type="hidden" value="{$res['id']}" name="id"></input>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>类型：</label>
 			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
@@ -160,7 +160,7 @@ $(function(){
                 url: "{:url('Finance/expenditure_edit')}",
                 success: function(data){
                     if(data == "success"){
-                        layer.msg('添加成功!');
+                        layer.msg('修改成功!');
                         setTimeout(function () {
                             parent.location.reload();
                             },1000)

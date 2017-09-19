@@ -113,7 +113,12 @@ class Finance extends Common
             if(empty(input('price'))){
                 return "请填写金额";     
             }
-            
+            if(3!=input('customer_type')){
+                $compare = DB::name("customer")->where(array('type'=>input('customer_type'),'id'=>input('payee_id')))->field("COUNT(*)")->find();
+                if($compare['COUNT(*)'] == 0){
+                     return "客户类型和收款人不匹配";
+                }
+            }
             Db::startTrans();
             $resCustomer = true;
             if(3==input('customer_type')){
@@ -121,10 +126,6 @@ class Finance extends Common
                 $datas['name'] = input('payee_name');
                 $resCustomer = DB::name("customer")->insertGetId($datas);
                 $data['payee_id']          = $resCustomer;
-            }
-            $compare = DB::name("customer")->where(array('type'=>input('customer_type'),'id'=>input('payee_id')))->field("COUNT(*)")->find();
-            if($compare['COUNT(*)'] == 0){
-                 return "客户类型和客户不匹配";
             }
             // /p_r($datas);die();
             $res = DB::name("incomeexpenditure")->insert($data);
@@ -204,6 +205,12 @@ class Finance extends Common
             if(empty(input('price'))){
                 return "请填写金额";     
             }
+            if(3!=input('customer_type')){
+                $compare = DB::name("customer")->where(array('type'=>input('customer_type'),'id'=>input('payee_id')))->field("COUNT(*)")->find();
+                if($compare['COUNT(*)'] == 0){
+                     return "客户类型和收款人不匹配";
+                }
+            }
             $info = DB::name("incomeexpenditure")->where("id",input('id'))->field("id,pay_time,customer_type,park_id,payment_id,payee_id,dictionary_id,pay_type,price,remark")->find();
             Db::startTrans();
             $resCustomer = true;
@@ -213,13 +220,16 @@ class Finance extends Common
                 $resCustomer = DB::name("customer")->insertGetId($datas);
                 $data['payee_id']          = $resCustomer;
             }else if(3!=input('customer_type')&&$info['customer_type']==3){//原来是外联现在改成不是外链
-               $resCustomer = DB::name("customer")->where('id',$info['id'])->delete();
+               $resCustomer = DB::name("customer")->where('id',$info['payee_id'])->delete();
+            }else if(3==input('customer_type')&&$info['customer_type']==3){
+                $datas['name'] = input('payee_name');
+                $datas['id'] = $info['payee_id'];
+                $resCustomer = DB::name("customer")->update($datas);
+                $data['payee_id']          = $info['payee_id']; 
             }
-            $compare = DB::name("customer")->where(array('type'=>input('customer_type'),'id'=>input('payee_id')))->field("COUNT(*)")->find();
-            if($compare['COUNT(*)'] == 0){
-                 return "客户类型和客户不匹配";
-            }
+           // p_r($data);die();
             $resIncom = DB::name("incomeexpenditure")->update($data);
+           // echo 1;die();
             if($resCustomer&&$resIncom){
                 $this->lw_log("4","修改了支出为".input('price'),"Finance",'expenditure_list');
                 Db::commit();
