@@ -42,11 +42,11 @@
 </form>
     <div class="cl pd-5 bg-1 bk-gray mt-20 col-xs-12 col-sm-12">
         <span class="l">
-            <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
-            <a href="javascript:;" onclick="member_add('导入抄表数据','water-import-add.html','','300')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe645;</i> 导入抄表数据</a>
+            {if $lw_role.del eq 1}<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>　　{/if}
+            {if $lw_role.excelin eq 1}<a href="javascript:;" onclick="member_add('导入抄表数据','waterhistory_add.html','','300')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe645;</i> 导入抄表数据</a>{/if}
         </span>
         <span class="r">
-            共有数据：<strong>1</strong> 条
+            共有数据：<strong>{$res['num']}</strong> 条
         </span>
     </div>
     <div class="mt-20">
@@ -58,7 +58,7 @@
                 <th>序号</th>
                 <th>园区</th>
                 <th>水表名</th>
-                <th>初始度数</th>
+                <!--<th>初始度数</th>-->
                 <th>上期度数</th>
                 <th>当前度数</th>
                 <th>操作</th>
@@ -72,14 +72,14 @@
                 <td>{$vo.num}</td> 
                 <td>{$vo.name}</td>
                 <td>{$vo.wname}</td>
-                <td>{$vo.init_record}</td>
+                <!--<td>{$vo.init_record}</td>-->
                 <td>{$vo.up_record}</td>
                 <td>{$vo.current_record}</td>
                 <td class="td-manage">
-                    <a title="编辑" href="javascript:;" onclick="member_edit('编辑','water_edit.html?id={$vo.id}','4','','400')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
-                    <a title="删除" href="javascript:;" onclick="member_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
-                    <a title="抄表" href="javascript:;" onclick="member_edit('抄表','water-read-add.html','4','','300')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe600;</i></a>
-                    <a title="记录" href="javascript:;" onclick="member_show('抄表记录','water-history-list.html','300')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe720;</i></a>
+                    {if $lw_role.edit eq 1}<a title="编辑" href="javascript:;" onclick="member_edit('编辑','water_edit.html?id={$vo.id}','4','','400')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>{/if}
+                    {if $lw_role.del eq 1}<a title="删除" href="javascript:;" onclick="member_del(this,'{$vo.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>{/if}
+                    {if $lw_role.add eq 1}<a title="抄表" href="javascript:;" onclick="member_edit('抄表','water_add.html?id={$vo.id}','4','','300')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe600;</i></a>{/if}
+                    <a title="记录" href="javascript:;" onclick="member_show('抄表记录','waterhistory_list.html?id={$vo.id}','300')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe720;</i></a>
                 </td>
             </tr>
             {/volist}
@@ -108,7 +108,7 @@ $(function(){
         "bStateSave": false,//状态保存
         "aoColumnDefs": [
           //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
-          {"orderable":false,"aTargets":[0,5]}// 制定列不参与排序
+          {"orderable":false,"aTargets":[0,4]}// 制定列不参与排序
         ]
     });
     
@@ -133,19 +133,42 @@ function member_edit(title,url,id,w,h){
 /*用户-删除*/
 function member_del(obj,id){
     layer.confirm('确认要删除吗？',function(index){
-        $.ajax({
-            type: 'POST',
-            url: '',
-            dataType: 'json',
-            success: function(data){
+        $.post("{:url('Cuscontract/water_del')}",{id:id},function(data){
+            if(data == "success"){
+                layer.msg("删除成功");
                 $(obj).parents("tr").remove();
-                layer.msg('已删除!',{icon:1,time:1000});
-            },
-            error:function(data) {
-                console.log(data.msg);
-            },
-        });     
+            }else{
+                layer.msg(data);
+            }
+        });   
     });
+}
+function datadel(){
+    layer.confirm('确认要删除吗？',function(index){
+    if($(".text-c input[name='id']:checked").length > 0){
+        var id = "";
+        $(".text-c input[name='id']:checked").each(function() {
+                             var reservation = $(this).val();
+                             id += reservation + ",";
+                        });
+        length = id.length;
+        id = id.substring(id,length-1);
+        $.post("{:url('Cuscontract/water_del')}",{id:id},function(data){
+            if(data == "success"){
+                layer.msg("删除成功");
+                $(".text-c input[name='id']:checked").each(function() {
+                        var reservation = $(this).parents(".text-c");
+                        reservation.hide();
+                });
+            }else{
+                layer.msg(data);
+            }
+        })
+    }else{
+        layer.msg("请选择删除的信息");
+        return false;
+    }
+})
 }
 $.dataTablesSettings = {
     processing : false,//是否显示加载中提示

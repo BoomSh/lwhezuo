@@ -3,6 +3,7 @@ namespace app\admin\model;
 
 use think\Model;
 use think\DB;
+use \think\Exception;
 class Cuscontract extends Common
 {
     /*
@@ -587,6 +588,7 @@ class Cuscontract extends Common
                 }
 
             }
+
             $exacct = input('exacct/a');
             $y_monthly_type = input('y_monthly_type/a');
             $y_monthly_value = input('y_monthly_value/a');
@@ -1133,10 +1135,10 @@ class Cuscontract extends Common
                                     ->where($where)
                                     ->field("w.id,w.init_record,p.name,w.name as wname")
                                     ->group("w.park_id,w.name")
-                                    ->order("w.id desc")
+                                    ->order("w.id asc")
                                     ->select();
             foreach ($res['list'] as $k => $v) {
-                $dis = DB::name("water_record")->where("water_id",$res['list'][$k]['id'])->field("up_record,current_record")->find();
+                $dis = DB::name("water_record")->where("water_id",$res['list'][$k]['id'])->field("up_record,current_record")->order("time desc")->find();
                  if($dis){
                     $res['list'][$k]['up_record'] = $dis['up_record'];
                     $res['list'][$k]['current_record'] = $dis['current_record'];
@@ -1159,20 +1161,304 @@ class Cuscontract extends Common
         /*水表编辑*/
     public function water_edit(){
         if(request()->isPost()){
+            if(empty(input('ctenantry_id'))){
+                return "请选择园区";
+            }
+            $id = input("ids/a");
+            $status = input("status/a");
+            $share = input("share/a");
+            $len = count($id);
+            Db::startTrans();
+            for ($i=0; $i < $len; $i++) { 
+                $data['park_id'] = input('ctenantry_id');
+                $data['name'] = input('name');
+                $data['id'] = $id[$i];
+                $data['update_time'] = time();
+                $data['update_id'] = $_SESSION['id'];
+                $add = DB::name("water")->update($data);
+                $where['water_id'] = $id[$i];
+                if(!empty($status)){
+                    if(in_array($id[$i],$status)){
+                        $con['status'] = 2;
+                    }else{
+                        $con['status'] = 1;
+                    }
+                }else{
+                    $con['status'] = 1;
+                }
+                if(empty($share[$i])){
+                    $con['share'] = 0;
+                }else{
+                    $con['share'] = $share[$i];
+                }
+                $while['water_id'] = $id[$i];
+                $while['status'] = $con['status'];
+                $while['share'] = $con['share'];
+                $find = DB::name("water_contract")->where($while)->field("COUNT(*)")->find();
+                if($find['COUNT(*)'] !== 0){
+                    $wc = 1;
+                }else{
+                    $wc = DB::name("water_contract")->where($where)->update($con);
+                }
+                //return DB::name("water_contract")->getlastsql();
+            }
+            if($add && $wc){
+                Db::commit();
+                $this->lw_log("4","修改了了水表名为".input('name'),"Cuscontract",'water_list');
+                return "success";
+            }else{
+                Db::rollback();
+                return "操作失败";
+            }
 
-            return 1;
         }else if(request()->isGet()){
             $where['w.id'] = input("id");
             $res = DB::name("water")->alias("w")->join("park p","p.id=w.park_id")->where($where)->field("w.id,w.name,w.park_id,p.name as pname,w.init_record")->find();
             //$res['sql'] = DB::name("water")->getlastsql();
             $whild['w.park_id'] = $res['park_id'];
             $whild['w.name'] = $res['name'];
-            $res['son'] = DB::name("water")->alias("w")->join("water_contract c","c.water_id=w.id")->join("contract h","h.id=c.contract_id")->join("customer k","h.lease_id=k.id")->where($whild)->field("k.name,c.share,c.status,c.id")->select();
+            $res['son'] = DB::name("water")->alias("w")->join("water_contract c","c.water_id=w.id")->join("contract h","h.id=c.contract_id")->join("customer k","h.lease_id=k.id")->where($whild)->field("k.name,c.share,c.status,w.id")->select();
             //$res['sql1'] = DB::name("water")->getlastsql();
             return $res;
         }
     }
+    /*删除水表*/
+    public function water_del(){
+        if(request()->isPost()){
+            $w_id['id'] = array("in",input("id"));
+            $finds = DB::name("water")->where($w_id)->field("park_id,name")->select();
+            foreach ($finds as $k => $v) {
+                $where['w.park_id'] = $finds[$k]['park_id'];
+                $where['w.name'] = $finds[$k]['name'];
+                $find = DB::name("water")
+                        ->alias("w")
+                        ->join("water_contract z","z.water_id=w.id")
+                        ->join("contract c","c.id=z.contract_id")
+                        ->join("park p","p.id=w.park_id")
+                        ->where($where)
+                        ->field("w.id,w.name")
+                        ->select();
+                        foreach ($find as $key => $value) {
+                            $arr[] = $find[$key]['id'];
+                        }
+            }
+            /*$where['w.park_id'] = $find['park_id'];
+            $where['w.name'] = $find['name'];
+            $find = DB::name("water")
+                    ->alias("w")
+                    ->join("water_contract z","z.water_id=w.id")
+                    ->join("contract c","c.id=z.contract_id")
+                    ->join("park p","p.id=w.park_id")
+                    ->where($where)
+                    ->field("w.id,w.name")
+                    ->select();
+            foreach ($find as $k => $v) {
+                $arr[] = $find[$k]['id'];
+            }*/
+            $id = implode(",", $arr);
+            Db::startTrans();
+            $where1['id'] = array("in",$id);
+            $del1 = DB::name("water")->where($where1)->delete();
+            $where2['water_id'] = array("in",$id);
+            $del2 = DB::name("water_contract")->where($where2)->delete();
+            $where2['water_id'] = array("in",$id);
+            $rec = DB::name("water_record")->where($where2)->field("COUNT(*)")->find();
+            if($rec['COUNT(*)'] != 0){
+                $del3 = DB::name("water_record")->where($where2)->delete();
+            }else{
+                $del3 = 1;
+            }
+            //$del3 = DB::name("water_record")->where($where2)->delete();
 
+            $del4 = DB::name("water_price")->where($where2)->delete();
+            if($del1 && $del2 && $del3 && $del4){
+                foreach($finds as $k => $v){
+                    $this->lw_log("3","删除了了水表名为".$finds[$k]['name'],"Cuscontract",'water_list');
+                }
+                Db::commit();
+                return "success";
+            }else{
+                Db::rollback();
+                return "操作失败";
+            }
+        }
+    }
+    /*抄表*/
+    public function water_add(){
+        if(request()->isPost()){
+            $data['water_id'] = input("id");
+            $data['time'] = strtotime(input('ztime_begin'));
+            $data['up_record'] = input("up_record");
+            $data['current_record'] = input("current_record");
+            $data['create_id'] = $_SESSION['id'];
+            $data['create_time'] = time();
+            $where['water_id'] = input("id");
+            $where['time'] = strtotime(input('ztime_begin'));
+            $find = DB::name("water_record")->where($where)->field("COUNT(*)")->field("COUNT(*)")->find();
+            if($find['COUNT(*)']!=0){
+                return "该日已抄表";
+            }
+            $add = DB::name("water_record")->insert($data);
+            if($add){
+                $this->lw_log("2","水表 抄表".input('sbm'),"Cuscontract",'water_list');
+                return "success";
+            }else{
+                return "操作失败";
+            }
+        }else if(request()->isGet()){
+            $where['w.id'] = input("id");
+            $res = DB::name("water")->alias("w")->join("park p","p.id=w.park_id")->where($where)->field("w.id,w.name")->find();
+            return $res;
+        }
+    }
+    /*抄表记录*/
+    public function waterhistory_list($where){
+        if(request()->isGet()){
+             $res['list'] = DB::name("water_record")
+                            ->alias("c")
+                            ->join("water w","w.id=c.water_id")
+                            ->join("park p","p.id=w.park_id")
+                            ->where($where)
+                            ->field("c.id,c.time,c.up_record,c.current_record,w.name,p.name as pname")
+                            ->order("c.time desc")
+                            ->select();    
+            $res['num'] = count($res['list']);
+            $arr = $this->lw_number($res['num']);
+            foreach($res['list'] as $k => $v) {
+                $res['list'][$k]['time'] = date("Y-m-d",$res['list'][$k]['time']);
+                $res['list'][$k]['num'] = $arr[$k];
+            }
+            return $res;
+        }
+    }
+    /*抄表修改*/
+    public function waterhistory_edit(){
+        if(request()->isPost()){
+            $data['id'] = input("id");
+            $data['time'] = strtotime(input('ztime_begin'));
+            $data['up_record'] = input("up_record");
+            $data['current_record'] = input("current_record");
+            $data['update_id'] = $_SESSION['id'];
+            $data['update_time'] = time();
+            $where['id'] = array("neq",input("id"));
+            $where['time'] = strtotime(input('ztime_begin'));
+            $where['water_id'] = input("water_id");
+            $find = DB::name("water_record")->where($where)->field("COUNT(*)")->field("COUNT(*)")->find();
+            //return DB::name("water_record")->getlastsql();
+            if($find['COUNT(*)']!=0){
+                return "该日已抄表";
+            }
+            $add = DB::name("water_record")->update($data);
+            if($add){
+                $this->lw_log("4","水表修改抄表".input('sbm'),"Cuscontract",'water_list');
+                return "success";
+            }else{
+                return "操作失败";
+            }
+        }else if(request()->isGet()){
+            $where['c.id'] = input("id");
+            $res = DB::name("water")->alias("w")->join("park p","p.id=w.park_id")->join("water_record c","c.water_id=w.id")->where($where)->field("w.name,c.id,c.up_record,c.current_record,c.time,c.water_id")->find();
+            $res['time'] = date("Y-m-d",$res['time']);
+            return $res;
+        }
+    }
+    /*导出相对应的水表模板*/
+    public function water_execlout(){
+        if(request()->isGet()){
+            if(input("id") !== '0'){
+                $where['w.park_id'] = input("id");
+            }else{
+                $where = 1;
+            }
+            $res['list']  = DB::name("water")
+                            ->alias("w")
+                            ->join("water_contract z","z.water_id=w.id")
+                            ->join("contract c","c.id=z.contract_id")
+                            ->join("park p","p.id=w.park_id")
+                            ->where($where)
+                            ->field("w.init_record,p.name,w.name as wname")
+                            ->group("w.park_id,w.name")
+                            ->order("w.id asc")
+                            ->select();
+                            //return  DB::name("water")->getlastsql();
+            foreach ($res['list'] as $k => $v) {
+                $dis = DB::name("water_record")->where("water_id",$res['list'][$k]['id'])->field("up_record,current_record")->order("time desc")->find();
+                 if($dis){
+                    $res['list'][$k]['up_record'] = $dis['up_record'];
+                    $res['list'][$k]['current_record'] = $dis['current_record'];
+                 }else{
+                    $res['list'][$k]['up_record'] = 0;
+                    $res['list'][$k]['current_record'] = 0;
+                 }
+                 $data[$k]['A'] = $k;
+                 $data[$k]['B'] = $res['list'][$k]['name'];
+                 $data[$k]['C'] = $res['list'][$k]['wname'];
+                 $data[$k]['D'] = $res['list'][$k]['up_record'];
+                 $data[$k]['E'] = $res['list'][$k]['current_record'];
+            }
+            return $data;
+        }
+    }
+    /*水表导出*/
+    public function waterhistory_add(){
+        $while['contract_id'] = array("neq",'');
+        $res['park'] = DB::name("park")->where($while)->field("id,name")->select();
+        return $res;
+    }
+    /*导入*/
+    public function water_excelin($arr){
+        if(empty($arr)){
+            return "没有可导入的信息";
+        }else{
+             Db::startTrans();
+            foreach($arr as $k => $v){
+                //园区的名字
+                $where['name'] = $arr[$k][1];
+                $find = DB::name("park")->where($where)->field("id")->find();
+                if(!$find){
+                    $jg = 1;
+                    $arr[$k][6] = "没有找到相对应的园区";
+                }else{
+                     $while['park_id'] = $find['id'];
+                    $while['name'] = $arr[$k][2];
+                    $find2 = DB::name("water")->where($while)->field("id,name")->find();
+                    if(!$find2){
+                        $jg = 1;
+                        $arr[$k][6] = "该园区下没有找到对应的水表";
+                    }else{
+                        if(empty($arr[$k][5])){
+                            $jg = 1;
+                            $arr[$k][6] = "没有抄表的时间点";
+                        }else{
+                            $whl['time'] = strtotime($arr[$k][5]);
+                            $whl['water_id'] = $find2['id'];
+                            $find3 = DB::name('water_record')->where($whl)->field("COUNT(*)")->find();
+                            if($find3['COUNT(*)'] != 0){
+                                $arr[$k][6] = "已经存在该时间点的抄表";
+                                $jg = 1;
+                            }else{
+                                 $data['water_id'] = $find2['id'];
+                                $data['time'] = strtotime($arr[$k][5]);
+                                $data['up_record'] = $arr[$k][3];
+                                $data['current_record'] = $arr[$k][4];
+                                $data['create_id'] = $_SESSION['id'];
+                                $data['create_time'] = time();
+                                $add = DB::name("water_record")->insert($data);
+                                $this->lw_log("2","水表 抄表".$find2['name'],"Cuscontract",'water_list');
+                            }
+                        }
+                    }
+                }
+            }
+            if($add && !$jg){
+                Db::commit();
+                return "success";
+            }else{
+                Db::rollback();
+                return $arr;
+            }
+        }
+    }
 }
 
 

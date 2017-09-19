@@ -12,21 +12,21 @@ class Index extends Common
             /*超级管理员  展示所有显示的版块*/
             $where['auth_pid'] = 0;
             $where['is_show'] = 1;
-            $ban = DB::name("auth")->where($where)->field("id,auth_name,auth_c,auth_a")->select();
+            $ban = db("auth")->where($where)->field("id,auth_name,auth_c,auth_a,img")->order("sort asc")->select();
             foreach ($ban as $k => $v) {
                 $while['auth_pid'] = $ban[$k]['id'];
                 $while['is_show'] = 1;
-                $son = DB::name("auth")->where($while)->field("id,auth_name,auth_c,auth_a")->select();
+                $son = db("auth")->where($while)->field("id,auth_name,auth_c,auth_a,img")->order("sort asc")->select();
                 $ban[$k]['son'] = $son;
             }
             return $ban;
         }else{
             $where['role_id'] = $role_id;
-            $role = DB::name("role_value")->where($where)->where('action_type',4)->field("auth_a,auth_c")->select();
+            $role = db("role_value")->where($where)->field("auth_a,auth_c")->select();
             $len = count($role);
             //var_dump($role);
             $row = $role;
-            /*循环  合并相同父级的数组*/
+            /*循环  何必相同父级的数组*/
             for($i=0;$i<$len;$i++){
                 $h = $i+1;
                 for($j=$h;$j<$len;$j++){
@@ -39,14 +39,15 @@ class Index extends Common
             foreach ($row as $k => $v) {
                 $while['auth_a'] = $row[$k]['auth_a'];
                 $while['auth_c'] = $row[$k]['auth_c'];
-                $res  = DB::name("auth")->where($while)->field("id,auth_name,auth_pid")->find();
+                $res  = db("auth")->where($while)->field("id,auth_name,auth_pid")->order("sort asc")->find();
                 $res['auth_a'] = $row[$k]['auth_a'];
                 $res['auth_c'] = $row[$k]['auth_c'];
                 $arr[]=$res;
             }
             foreach ($arr as $k => $v) {
                 $ban_while['id'] = $arr[$k]['auth_pid'];
-                $res  = DB::name("auth")->where($ban_while)->field("auth_name")->find();
+                $res  = db("auth")->where($ban_while)->field("auth_name,img")->order("sort asc")->find();
+                $ban[$k]['img'] =  $res['img'];
                 $ban[$k]['auth_name'] =  $res['auth_name'];
                 $ban[$k]['son'][] =  $arr[$k];
             }
@@ -79,7 +80,7 @@ class Index extends Common
                 for($i=0;$i<$len;$i++){
                     $auth_s = $lis[$i]['son'];
                     foreach ($auth_s as $k => $v) {
-                        $apd = DB::name("auth")->where("id",$auth_s[$k]['id'])->field("is_show")->find();
+                        $apd = db("auth")->where("id",$auth_s[$k]['id'])->order("sort asc")->field("is_show")->find();
                         if($apd['is_show'] == 0){
                         unset($lis[$i]['son'][$k]);
                     }

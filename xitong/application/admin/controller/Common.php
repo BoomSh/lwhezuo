@@ -3,7 +3,7 @@
  * @Author: anchen
  * @Date:   2017-05-04 09:15:10
  * @Last Modified by:   anchen
- * @Last Modified time: 2017-09-07 16:05:35
+ * @Last Modified time: 2017-09-19 17:04:10
  */
 namespace app\admin\controller;
 use \think;
@@ -16,35 +16,8 @@ class Common extends Controller
         parent::__construct();
         //*开启session*//
         session_start(); 
-        $cookie = cookie('id');
-        if(empty($_SESSION['id']) && empty($cookie)){
+        if(empty($_SESSION['id'])){
             $this->redirect("Login/login");
-        }
-        /*存在cookie时  客户直接输入非登录页面时 需重新保存 session 和更新登录次数 */
-        if($cookie && empty($_SESSION['id'])){
-           $cookwhere['id'] = $cookie;
-           $cookwhere['state'] = 1;
-            $cook_dl = DB::name("admin")->where($cookwhere)->field("id,loginsum,name,role_id,new_ip,new_time,state")->find();
-            if($cook_dl){
-                    if($cook_dl['state'] == 2){
-                        return "该管理员已被停用";
-                    }
-                    $_SESSION['id'] = $cook_dl['id'];
-                    $_SESSION['role_id'] = $cook_dl['role_id'];
-                    $_SESSION['name'] = $cook_dl['name'];
-                    /*添加登录次数*/
-                    $data['loginsum'] = $cook_dl['loginsum'] + 1;
-                    $data['id'] = $cook_dl['id'];
-                    $data['last_time'] = $res['new_time'];
-                    $data['last_ip'] = $res['new_ip'];
-                    $data['new_time'] = date("Y-m-d H:i:s",time());
-                    $data['new_ip'] = $_SERVER["REMOTE_ADDR"];
-                    DB::name("admin")->update($data);
-                    $this->lw_log("1","登录成功","login",'login');
-            }else{
-                /*cookie 不存在  则对应的管理员被删除  需重新登录*/
-                $this->redirect("Login/out");
-            }
         }
         if($_SESSION['role_id'] != 0){
             $request = \think\Request::instance();
@@ -70,19 +43,21 @@ class Common extends Controller
                 $lw_where['action_type'] = 4;
                 $lw_auth = DB::name("role_value")->where($lw_where)->field("COUNT(*)")->find();
                 //echo DB::name("role_value")->getlastsql();
+                //exit;
                 if($lw_auth['COUNT(*)'] == 0){
                      /*如果有某些方法不符合规则 则在这里添加控制器加方法*/
-                      $pdarray = array("Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del");
+                      $pdarray = array("Cuscontractgarden_add","Cuscontractcompany_add","Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del","Enterprisecompany_list","Enterprisestaff_list,Cuscontractwaterhistory_list","Cuscontractwaterhistory_list","Cuscontractwaterhistory_add","Cuscontractwaterhistory_edit");
                       $con_act = $contro.$action;
                       //echo $con_act;
                       if(!in_array($con_act,$pdarray)){
-                                echo "你无权操作";exit;
-                                //$this->redirect("Login/login");
+                                echo "<script>alert('你无权操作该操作');</script>";
+                                exit;
                         }
                 }
                 unset($lw_where['action_type']);
                 $lw_auth = DB::name("role_value")->where($lw_where)->field("action_type")->select();
                 //echo DB::name("role_value")->getlastsql();
+                //exit;
                 if($lw_auth){
                         //用于判断用户是否拥有某个权限
                     foreach ($lw_auth as $k => $v) {
@@ -103,13 +78,13 @@ class Common extends Controller
                        }
                     }
                 }else{
-                     $pdarray = array("Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del");
+                     $pdarray = array("Cuscontractgarden_add","Cuscontractcompany_add","Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del","Enterprisecompany_list","Enterprisestaff_list,Cuscontractwaterhistory_list","Cuscontractwaterhistory_list","Cuscontractwaterhistory_add","Cuscontractwaterhistory_edit");
                       $con_act = $contro.$action;
                     if(!in_array($con_act,$pdarray)){
                          /*没有权限  需重新登录*/
-                       echo "你无权操作";exit;
-                       //$this->redirect("Login/login");
-                        }
+                       echo "<script>alert('你无权操作该操作');</script>";
+                       exit;
+                    }
                 }
             }
           }else{

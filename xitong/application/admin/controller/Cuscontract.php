@@ -1,6 +1,6 @@
 <?php
 namespace app\admin\controller;
-
+use think\File;
 class Cuscontract extends Common
 {
     /*
@@ -181,7 +181,7 @@ class Cuscontract extends Common
     public function water_edit(){
         $Cuscontract = model("Cuscontract");
         if(request()->isPost()){
-            var_dump(input());exit;
+            //var_dump(input());exit;
             $res = $Cuscontract->water_edit();
             return $res;
         }else if(request()->isGet()){
@@ -190,5 +190,149 @@ class Cuscontract extends Common
             return $this->fetch();
         }
     }
+    /*删除水表*/
+    public function water_del(){
+        $Cuscontract = model("Cuscontract");
+        if(request()->isPost()){
+            $res = $Cuscontract->water_del();
+            return $res;
+        }else{
+            return "请选择删除的水表信息";
+        }
+    }
+    /*抄表*/
+    public function water_add(){
+        $Cuscontract = model("Cuscontract");
+        if(request()->isPost()){
+            //var_dump(input());exit;
+            $res = $Cuscontract->water_add();
+            return $res;
+        }else if(request()->isGet()){
+            $res = $Cuscontract->water_add();
+            $this->assign("res",$res);
+            return $this->fetch();
+        }else{
+            return "请选择抄表的水表";
+        }
+    }
+    /*抄表记录*/
+    public function waterhistory_list(){
+        $Cuscontract = model("Cuscontract");
+        if(request()->isGet()){
+            $where['c.water_id'] = input("id");
+            if(!empty(input("startime"))){
+                if(!empty(input("overtime"))){
+                    $where['c.time'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
+                    $this->assign("startime",input("startime"));
+                    $this->assign("overtime",input("overtime"));
+                }else{
+                    $where['c.time'] = array("gt",strtotime(input('startime')));
+                    $this->assign("startime",input("startime"));
+                }
+            }
+            if(!empty(input("overtime"))){
+                if(!empty(input("startime"))){
+                    $where['c.time'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
+                    $this->assign("startime",input("startime"));
+                    $this->assign("overtime",input("overtime"));
+                }else{
+                    $where['c.time'] = array("lt",strtotime(input('overtime')));
+                    $this->assign("overtime",input("overtime"));
+                }
+            }
+            $this->assign("id",input("id"));
+            $res = $Cuscontract->waterhistory_list($where);
+            $this->assign("res",$res);
+            return $this->fetch();
+        }else{
+            return "请选择水表";
+        }
+    }
+    /*抄表修改*/
+    public function waterhistory_edit(){
+        $Cuscontract = model("Cuscontract");
+        if(request()->isPost()){
+            //var_dump(input());exit;
+            $res = $Cuscontract->waterhistory_edit();
+            return $res;
+        }else if(request()->isGet()){
+            $res = $Cuscontract->waterhistory_edit();
+            $this->assign("res",$res);
+            return $this->fetch();
+        }else{
+            return "请修改抄表的水表";
+        }
+    }
+    /*水表导入*/
+    public function waterhistory_add(){
+        $Cuscontract = model("Cuscontract");
+        $res = $Cuscontract->waterhistory_add();
+        $this->assign("res",$res);
+        return $this->fetch();
+    }
+    /*导出相对应的水表模板*/
+    public function water_execlout(){
+        $Cuscontract = model("Cuscontract");
+       if(request()->isGet()){
+            $filename = "水表模板";
+            $title = array("序号","园区","水表名","上期度数","当前度数","时间");
+            $data = $Cuscontract->water_execlout();
+            $this->goodsExcelExport($data,$title,$filename);
+       }
+    }
+    /*导入*/
+    public function water_excelin(){
+        $Cuscontract = model("Cuscontract");
+        //引入文件（把扩展文件放入vendor目录下，路径自行修改）
+        vendor("Classes.PHPExcel");
 
+        //获取表单上传文件
+        $file = request()->file('excel');
+        $info = $file->validate(['ext' => 'xlsx,xls'])->move(ROOT_PATH . 'public' . DS . 'upload' . DS . 'TaoBao');
+
+        //数据为空返回错误
+        if(empty($info)){
+            $output['status'] = false;
+            $output['message'] = '导入数据失败~';
+            return $output['message'];
+        }
+
+        //获取文件名
+        $exclePath = $info->getSaveName();
+        //上传文件的地址
+        $filename = ROOT_PATH . 'public' . DS . 'upload' . DS . 'TaoBao'. DS . $exclePath;
+
+        //判断截取文件
+        $extension = strtolower( pathinfo($filename, PATHINFO_EXTENSION) );
+
+        //区分上传文件格式
+        if($extension == 'xlsx') {
+            $objReader =\PHPExcel_IOFactory::createReader('Excel2007');
+            $objPHPExcel = $objReader->load($filename, $encode = 'utf-8');
+        }else if($extension == 'xls'){
+            $objReader =\PHPExcel_IOFactory::createReader('Excel5');
+            $objPHPExcel = $objReader->load($filename, $encode = 'utf-8');
+        }
+
+        $excel_array = $objPHPExcel->getsheet(0)->toArray();   //转换为数组格式
+        array_shift($excel_array);  //删除第一个数组(标题);
+        $len = count($excel_array);
+        if(empty($excel_array[$len-1][0])){
+            unset($excel_array[$len-1]);
+        }
+        $res = $Cuscontract->water_excelin($excel_array);
+        if($res == "success"){
+            $return['gg'] = "success";
+            return json_encode($return);
+        }else{
+            return json_encode($res);
+        }
+    }
+    //导入返回信息
+    public function water_excelinmg(){
+            $filename = "水表模板";
+            $title = array("序号","园区","水表名","上期度数","当前度数","时间","详情");
+            $data = json_decode(input("data"),true);
+            $this->goodsExcelExport($data,$title,$filename);
+    }
 }

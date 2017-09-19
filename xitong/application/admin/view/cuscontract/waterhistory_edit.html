@@ -1,0 +1,90 @@
+{include file="/Public/header"}
+
+<title>水表抄表</title>
+<meta name="keywords" content="优科达">
+<meta name="description" content="优科达">
+</head>
+<body>
+<article class="page-container">
+    <form action="" method="post" class="form form-horizontal" id="form-member-add">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>水表名：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="{$res['name']}" id="username" readonly="ture" name="sbm">
+                <input type="hidden" value="{$res['id']}" name="id"/>
+                <input type="hidden" value="{$res['water_id']}" name="water_id"/>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>时间：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" onfocus="WdatePicker()" id="datemin" class="input-text Wdate li-date" name="ztime_begin" value="{$res['time']}">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>上期吨数：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text"  placeholder="" id="username" name="up_record" value="{$res['up_record']}">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>当前吨数：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text"  placeholder="" id="username" name="current_record" value="{$res['current_record']}">
+            </div>
+        </div>
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            </div>
+        </div>
+    </form>
+</article>
+
+{include file="/Public/footer"}
+
+<!--请在下方写此页面业务相关的脚本--> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('.skin-minimal input').iCheck({
+        checkboxClass: 'icheckbox-blue',
+        radioClass: 'iradio-blue',
+        increaseArea: '20%'
+    });
+     
+});
+</script> 
+<script type="text/javascript">
+$(function(){
+     $("#form-member-add").validate({
+        rules:{
+        },
+        focusCleanup:true,
+        success:"valid",
+        submitHandler:function(form){
+            $(form).ajaxSubmit({
+                type: 'post',
+                url: "{:url('Cuscontract/waterhistory_edit')}",
+                success: function(data){
+                    if(data == "success"){
+                        layer.msg('修改成功!');
+                        setTimeout(function () {
+                            parent.location.reload();
+                            },1000)
+                    }else{
+                        layer.msg(data);
+                        return false;
+                    }
+                },
+            });
+        }
+    });
+});
+</script> 
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>
