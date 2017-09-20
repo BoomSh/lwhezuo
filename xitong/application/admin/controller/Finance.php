@@ -10,6 +10,44 @@ class Finance extends Common
      * @return   [type]                   [description]
      */
     public function income_list(){
+        $Finance = model("Finance");
+        if(!empty(input("startime"))){
+            if(!empty(input("overtime"))){
+                $where['pay_time'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
+                $this->assign("startime",input("startime"));
+                $this->assign("overtime",input("overtime"));
+            }else{
+                $where['pay_time'] = array("gt",strtotime(input('startime')));
+                $this->assign("startime",input("startime"));
+            }
+        }
+        if(!empty(input("overtime"))){
+            if(!empty(input("startime"))){
+                $where['pay_time'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
+                $this->assign("startime",input("startime"));
+                $this->assign("overtime",input("overtime"));
+            }else{
+                $where['pay_time'] = array("lt",strtotime(input('overtime')));
+                $this->assign("overtime",input("overtime"));
+            }
+        }
+        if(!empty(input("customer_type"))){
+            $where['customer_type'] = input("customer_type");
+            $this->assign("customer_type",input("customer_type"));
+        }
+        if(!empty(input("park_id"))){
+            $where['park_id'] = input("park_id");
+            $this->assign("park_id",input("park_id"));
+        }
+        if(!empty(input("pay_type"))){
+            $where['pay_type'] = input("pay_type");
+            $this->assign("pay_type",input("pay_type"));
+        }
+
+        $where['type'] = 1;
+        /*获取 符合条件的 管理员信息*/
+        $res = $Finance->income_list($where);
+        $this->assign("res",$res);
         return $this->fetch();
     }
     /**
@@ -19,7 +57,16 @@ class Finance extends Common
      * @return   [type]                   [description]
      */
     public function income_add(){
-        return $this->fetch();
+        $Finance = model("Finance");
+        if(request()->isPost()){
+            $row = $Finance->income_add();
+            return $row;
+        }else{
+             /*获取下拉信息*/
+            $res = $Finance->income_add();
+            $this->assign('res',$res);
+            return $this->fetch();
+        }
     }
     /**
      * 修改收入
@@ -28,16 +75,18 @@ class Finance extends Common
      * @return   [type]                   [description]
      */
     public function income_edit(){
-        return $this->fetch();
-    }
-    /**
-     * 删除收入
-     * @Author   wcl
-     * @DateTime 2017-09-14T20:16:26+0800
-     * @return   [type]                   [description]
-     */
-    public function income_del(){
-        return $this->fetch();
+       $Finance = model("Finance");
+        if(request()->isGet()){
+            /*获取支出信息*/
+            $res = $Finance->income_edit();
+            $this->assign("res",$res);
+            return $this->fetch();
+        }else if(request()->isPost()){
+            $row = $Finance->income_edit();
+            return $row;
+        }else{
+            return "请选择修改的信息";
+        }
     }
     /**
      * 支出列表
@@ -80,9 +129,7 @@ class Finance extends Common
             $this->assign("pay_type",input("pay_type"));
         }
 
-        if(empty($where)){
-            $where = 1;
-        }
+        $where['type'] = 2;
         /*获取 符合条件的 管理员信息*/
         $res = $Finance->expenditure_list($where);
         $this->assign("res",$res);
@@ -125,15 +172,6 @@ class Finance extends Common
         }else{
             return "请选择修改的信息";
         }
-    }
-    /**
-     * 删除支出
-     * @Author   wcl
-     * @DateTime 2017-09-14T20:20:34+0800
-     * @return   [type]                   [description]
-     */
-    public function expenditure_del(){
-
     }
     /**
      * 模糊搜索

@@ -37,7 +37,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>付款人：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text payment_input" t_id='payment_id' value="{$res['payment_id']|staffName}" autocomplete="off" placeholder="" id="" name="payment_name">
+				<input type="text" class="input-text payment_input" t_id='payment_id' value="{$res['payment_id']|customerName}" autocomplete="off" placeholder="" id="" name="payment_name">
 				<input type="hidden" value="{$res['payment_id']}" id="payment_id" name="payment_id"></input>
 				<ul class="keyword_payment keyword">
 					
@@ -47,7 +47,7 @@
         <div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>收款人：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text payee_input" t_id='payee_id' value="{$res['payee_id']|customerName}" autocomplete="off" placeholder="" id="" name="payee_name">
+				<input type="text" class="input-text payee_input" t_id='payee_id' value="{$res['payee_id']|staffName}" autocomplete="off" placeholder="" id="" name="payee_name">
 				<input type="hidden" value="{$res['payee_id']}" id="payee_id" name="payee_id"></input>
 				<ul class="keyword_payee keyword">
 					
@@ -87,6 +87,15 @@
 					{/volist}
 				</select>
 				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">自动抵扣欠费：</label>
+			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
+				<div class="check-box">
+					<input type="checkbox" id="checkbox-1" name="demo-radio1">
+					<label for="checkbox-1"></label>
+				</div>
+			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">备注：</label>
@@ -157,7 +166,7 @@ $(function(){
 		submitHandler:function(form){
 			$(form).ajaxSubmit({
                 type: 'post',
-                url: "{:url('Finance/expenditure_edit')}",
+                url: "{:url('Finance/income_edit')}",
                 success: function(data){
                     if(data == "success"){
                         layer.msg('修改成功!');
@@ -175,9 +184,9 @@ $(function(){
 	//园区
 	keyword($(".park_input"),$(".keyword_park"),1);
 	//付款
-	keyword($(".payment_input"),$(".keyword_payment"),2);
+	keyword($(".payment_input"),$(".keyword_payment"),3);
 	//收款
-	keyword($(".payee_input"),$(".keyword_payee"),3);
+	keyword($(".payee_input"),$(".keyword_payee"),2);
 	
 	
 	/*keyword模糊搜索函数
