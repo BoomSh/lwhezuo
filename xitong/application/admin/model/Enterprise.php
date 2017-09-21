@@ -180,7 +180,7 @@ class Enterprise extends Common
         }
     }
     /*
-     *员工删除
+     *公司删除
      **/
     public function company_del(){
         if(request()->isPost()){
@@ -194,7 +194,7 @@ class Enterprise extends Common
             $res = DB::name("company")->where($where)->delete();
             if($res){
                 foreach ($log as $k => $v) {
-                    $this->lw_log("3","删除了员工为".$log[$k]['name'],"Enterprise",'staff_list');
+                    $this->lw_log("3","删除了公司为".$log[$k]['name'],"Enterprise",'company_list');
                 }
                 return "success";
             }else{
@@ -265,6 +265,9 @@ class Enterprise extends Common
             if(input('sex')===""){
                 return "请选择性别";     
             }
+            if(ty(input('address'))){
+                return "请填写地址";     
+            }
             $res = DB::name("staff")->insertGetId($data);
             
 
@@ -284,7 +287,7 @@ class Enterprise extends Common
      */
     public function staff_edit(){
         if(request()->isGet()){
-            $res          =DB::name("staff")->where("id",input('id'))->field("id,name,job_title,mobile,cornet,sex,extension,address")->find(); 
+            $res          =DB::name("staff")->where("id",input('id'))->field("id,name,job_title,mobile,cornet,sex,extension,address,status")->find(); 
             $res['mobile']=explode(',', $res['mobile']);
             $res['cornet']=explode(',',$res['cornet']);
             return $res;
@@ -324,6 +327,12 @@ class Enterprise extends Common
             if(input('sex')===""){
                 return "请选择性别";     
             }
+            if(input('status')=="on"){
+                $data['status'] = 2;
+            }
+            else{
+                $data['status'] = 1;
+            }
             $res = DB::name("staff")->update($data);
             if($res){
                 $this->lw_log("4","修改了员工为".input('name'),"Enterprise",'staff_list');
@@ -348,6 +357,16 @@ class Enterprise extends Common
             $parkm = DB::name("park")->where(array('managers_id'=>array('in',input('id'))))->field("COUNT(*)")->find();
             if($parkm['COUNT(*)'] != 0){
                  return "该员工有负责园区管理,请修改园区信息或删除园区信息后再来进行此操作";
+            }
+            /*判断员工是否有收款项*/
+            $parkm = DB::name("incomeexpenditure")->where(array('payee_id'=>array('in',input('id'))))->field("COUNT(*)")->find();
+            if($incomeexpenditurem['COUNT(*)'] != 0){
+                 return "该员工有收款项,请修改收款信息或删除收款信息后再来进行此操作";
+            }
+            /*判断员工是否有付款项*/
+            $parkm = DB::name("incomeexpenditure")->where(array('payment_id'=>array('in',input('id'))))->field("COUNT(*)")->find();
+            if($parkm['COUNT(*)'] != 0){
+                 return "该员工有付款项,请修改收款信息或删除收款信息后再来进行此操作";
             }
             $log = DB::name("staff")->where($where)->field('name')->select();
             $res = DB::name("staff")->where($where)->delete();
@@ -553,6 +572,7 @@ class Enterprise extends Common
 
             case 3:
                 $where['name'] = array("like","%".$name."%");
+                $where['status'] = 1;
                 $res = DB::name('staff')->where($where)->field('id,name,mobile')->select();
                 foreach ($res as $key => $value) {
                     $res[$key]['name'] = $res[$key]['name']." (".array_shift(explode(',',$res[$key]['mobile'])).")";
@@ -560,6 +580,7 @@ class Enterprise extends Common
                 break;
 
             default:
+                $where['status'] = 1;
                 $where['name'] = array("like","%".$name."%");
                 $res = DB::name('staff')->where($where)->field('id,name,mobile')->select();
                 foreach ($res as $key => $value) {

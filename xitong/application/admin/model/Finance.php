@@ -415,6 +415,7 @@ class Finance extends Common
 
             case 2:
                 $where['name'] = array("like","%".$name."%");
+                $where['status'] = 1;
                 $res = DB::name('staff')->where($where)->field('id,name,mobile')->select();
                 foreach ($res as $key => $value) {
                     $res[$key]['name'] = $res[$key]['name']." (".array_shift(explode(',',$res[$key]['mobile'])).")";

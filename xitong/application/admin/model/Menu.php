@@ -67,6 +67,26 @@ class Menu extends Common
             if($bank['COUNT(*)'] != 0){
                  return "该字典值正在被公司信息使用,请修改公司信息或删除公司信息后再来进行此操作";
             }
+            /*判断费用类型字典值是否在使用*/
+            $bank = DB::name("incomeexpenditure")->where(array('dictionary_id'=>array('in',input('id'))))->field("COUNT(*)")->find();
+            if($bank['COUNT(*)'] != 0){
+                 return "该字典值正在被收入支出使用,请修改收入支出或收入支出信息后再来进行此操作";
+            }
+            /*判断支付类型字典值是否在使用*/
+            $bank = DB::name("incomeexpenditure")->where(array('pay_type'=>array('in',input('id'))))->field("COUNT(*)")->find();
+            if($bank['COUNT(*)'] != 0){
+                 return "该字典值正在被收入支出使用,请修改收入支出或删除收入支出后再来进行此操作";
+            }
+            /*判断费用类型字典值是否在使用*/
+            $contract = DB::name("contract")->where(array('client_source'=>array('in',input('id'))))->field("COUNT(*)")->find();
+            if($contract['COUNT(*)'] != 0){
+                 return "该字典值正在被合同信息使用,请修改合同信息或删除公司信息后再来进行此操作";
+            }
+            /*判断费支付类型字典值是否在使用*/
+            $rent = DB::name("rent")->where(array('exacct'=>array('in',input('id'))))->field("COUNT(*)")->find();
+            if($rent['COUNT(*)'] != 0){
+                 return "该字典值正在被费用科目信息使用,请修改合同信息或删除费用科目信息后再来进行此操作";
+            }
             $where['id'] = array("in",input('id'));
             $log = DB::name("dictionary")->where($where)->field('name')->select();
             foreach ($log as $k => $v) {

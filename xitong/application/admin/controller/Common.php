@@ -46,7 +46,7 @@ class Common extends Controller
                 //exit;
                 if($lw_auth['COUNT(*)'] == 0){
                      /*如果有某些方法不符合规则 则在这里添加控制器加方法*/
-                      $pdarray = array("Cuscontractgarden_add","Cuscontractcompany_add","Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del","Enterprisecompany_list","Enterprisestaff_list,Cuscontractwaterhistory_list","Cuscontractwaterhistory_list","Cuscontractwaterhistory_add","Cuscontractwaterhistory_edit");
+                      $pdarray = array("Cuscontractgarden_add","Cuscontractcompany_add","Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del","Enterprisecompany_list","Enterprisestaff_list,Cuscontractwaterhistory_list","Cuscontractwaterhistory_list","Cuscontractwaterhistory_add","Cuscontractwaterhistory_edit","Enterprisegarden_selectinfo","Financeexpenditure_selectinfo");
                       $con_act = $contro.$action;
                       //echo $con_act;
                       if(!in_array($con_act,$pdarray)){
@@ -78,7 +78,7 @@ class Common extends Controller
                        }
                     }
                 }else{
-                     $pdarray = array("Cuscontractgarden_add","Cuscontractcompany_add","Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del","Enterprisecompany_list","Enterprisestaff_list,Cuscontractwaterhistory_list","Cuscontractwaterhistory_list","Cuscontractwaterhistory_add","Cuscontractwaterhistory_edit");
+                     $pdarray = array("Cuscontractgarden_add","Cuscontractcompany_add","Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del","Enterprisecompany_list","Enterprisestaff_list,Cuscontractwaterhistory_list","Cuscontractwaterhistory_list","Cuscontractwaterhistory_add","Cuscontractwaterhistory_edit","Enterprisegarden_selectinfo","Financeexpenditure_selectinfo");
                       $con_act = $contro.$action;
                     if(!in_array($con_act,$pdarray)){
                          /*没有权限  需重新登录*/
