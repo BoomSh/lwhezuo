@@ -454,6 +454,12 @@ class Cuscontract extends Common
             }else{
                 for($i=0;$i<$len;$i++){
                     if(!empty($dtenantry_zid[$i])){
+                        $h = $i+1;
+                        for($j=$h;$j<$len;$j++){
+                            if($dtenantry_zid[$i] == $dtenantry_zid[$j] && $d_name[$i] == $d_name[$j]){
+                                return "合同里不能存在相同的园区同名的电表";
+                            }
+                        }
                         if(empty($d_name[$i])){
                             return "电费设置,第".($i+1)."条请输入电表名";
                         }
@@ -663,17 +669,30 @@ class Cuscontract extends Common
         if(request()->isPost()){
             //开启事物
             Db::startTrans();
-            $data['id'] = input('id');
-            $find = DB::name('contract')->where($data)->field("contract_num,park_id")->find();
-            $park['id'] = $find['park_id'];
-            $park['contract_id'] = '';
-            $pagg = DB::name("park")->update($park);
-            $data['status'] = 2;
-            $data['update_time'] = time();
-            $data['update_id'] = $_SESSION['id'];
-            $res = DB::name("contract")->update($data);
+            $datas['id'] =array("in",input('id'));
+            $find = DB::name('contract')->where($datas)->field("id,contract_num,park_id")->select();
+            foreach ($find as $k => $v) {
+                $park['id'] = $find[$k]['park_id'];
+                $park['contract_id'] = '';
+                $pagg = DB::name("park")->update($park);//开发园区
+                $data['id'] = $find[$k]['id'];
+                $data['status'] = 2;
+                $data['update_time'] = time();
+                $data['update_id'] = $_SESSION['id'];
+                $res = DB::name("contract")->update($data);//更改合同
+                $where['contract_id'] = $find[$k]['id'];
+                $water['status'] = 2;
+                $w_up = DB::name('water_contract')->where($where)->update($water);//水表失效
+                $e_find = DB::name("electric_contract")->where($where)->field('electric_id')->select();
+                $e_up = 1;
+                foreach ($e_find as $ke => $ve) {
+                        $elect['type'] = 2;
+                         $e_up = DB::name('electric')->where("id",$e_find[$ke]['electric_id'])->update($elect);//电表假删
+                         //return DB::name('electric')->getlastsql();
+                }
+            }
             //return DB::name("contract")->getlastsql();
-            if($res && $pagg){
+            if($res!==false && $pagg!==false && $w_up !== false && $e_up !== false){
                 Db::commit();
                 $this->lw_log("4","退租了合同为".$find['contract_num'],"Cuscontract",'cuscontract_list');
                 return "success";
@@ -724,6 +743,10 @@ class Cuscontract extends Common
             }
             //开启事物
             Db::startTrans();
+            $find = DB::name("contract")->where("id",input("id"))->field("status")->find();
+            if($find['status'] == 2){
+                return "该合同已退租,无法修改信息";
+            }
             $con['park_id'] = input('park_id');
             //判断园区id是否被占有
             $yqpd['contract_id'] = array("neq",input('id'));
@@ -732,6 +755,7 @@ class Cuscontract extends Common
             if(!empty($yqfind['contract_id'])){
                 return "该园区已被占用";
             }
+            $con['id'] = input('id');
             $con['lease_id'] = input('lease_id');
             $con['tenantry_id'] = input('ctenantry_id');
             $con['contract_num'] = input('contract_num');
@@ -764,32 +788,35 @@ class Cuscontract extends Common
             $c_where['id'] = array("neq",input('id'));
             $c_where['time_end'] = array("gt",date("Y-m-d",time()));
             $c_where['contract_num'] = input('contract_num');
-            $find = DB::name("contract")->where($c_where)->field("COUNT(*)")->find();
+            $find = DB::name("contract")->where($c_where)->field("COUNT(*),park_id")->find();
             if($find['COUNT(*)'] !== 0){
                 return "该合同号已经存在占用";
             }
-            $contract = DB::name("contract")->insertGetId($con);
-            $find = DB::name("contract")->where("id",input('id'))->field("park_id")->find();
+            $find = DB::name("contract")->where("id",input("id"))->field("park_id")->find();
             if($find['park_id'] == input('park_id')){
                 $pagg = 1;
-                $yqwhere['id'] = input('park_id');
-                $yqwhere['contract_id'] = $contract;
-                $parup = DB::name("park")->update($yqwhere);
+                $parup = 1;
             }else{
                 $yqgg['id'] = $find['park_id'];
-                $yqgg['contract_id'] = '';
+                $yqgg['contract_id'] = 0;
                 $pagg = DB::name("park")->update($yqgg);
                 $yqwhere['id'] = input('park_id');
-                $yqwhere['contract_id'] = $contract;
+                $yqwhere['contract_id'] = input('id');
                 $parup = DB::name("park")->update($yqwhere);
             }
-            $del1 = DB::name("contract")->where("id",input('id'))->delete();
+            $find = DB::name("rent")->where("contract_id",input('id'))->field("COUNT(*)")->find();
+            if($find['COUNT(*)'] !== 0){
+                $del2 = DB::name("rent")->where("contract_id",input('id'))->delete();
+            }else{
+                $del2 = 1;
+            }
+            $contract = DB::name("contract")->update($con);
             $monthly_type = input('monthly_type/a');
             $monthly_value = input('monthly_value/a');
             $time_begin = input('time_begin/a');
             $time_end = input('time_end/a');
             $rent = input('rent/a');
-            $ren['contract_id'] = $contract;
+            $ren['contract_id'] = input("id");
             $len = count($monthly_type);
             if($len == 0){
                 //即没有添加月租类型
@@ -830,15 +857,15 @@ class Cuscontract extends Common
                     $zhujin = DB::name("rent")->insert($ren);
                 }
             }
-            $find = DB::name("rent")->where("contract_id",input('id'))->field("COUNT(*)")->find();
+            $find = DB::name("transformer")->where("contract_id",input('id'))->field("COUNT(*)")->find();
             if($find['COUNT(*)'] !== 0){
-                $del2 = DB::name("rent")->where("contract_id",input('id'))->delete();
+                $del3 = DB::name("transformer")->where("contract_id",input('id'))->delete();
             }else{
-                $del2 = 1;
+                $del3 = 1;
             }
             $number = input('number/a');
             $details = input('details/a');
-            $transf['contract_id'] = $contract;
+            $transf['contract_id'] = input("id");
             $len = count($number);
             if($len == 0){
                 //即没有添加变压器
@@ -854,12 +881,6 @@ class Cuscontract extends Common
                     }
                 }
             }
-            $find = DB::name("transformer")->where("contract_id",input('id'))->field("COUNT(*)")->find();
-            if($find['COUNT(*)'] !== 0){
-                $del3 = DB::name("transformer")->where("contract_id",input('id'))->delete();
-            }else{
-                $del3 = 1;
-            }
             $dtenantry_zid = input('dtenantry_zid/a');
             $d_name = input('d_name/a');
             $d_init_record = input('d_init_record/a');
@@ -868,6 +889,14 @@ class Cuscontract extends Common
             $d_rate = input('d_rate/a');
             $d_loss = input('d_loss/a');
             $len = count($dtenantry_zid);
+            $del4 = 1;$del5 = 1;$del6 = 1;
+            $find = DB::name("electric_contract")->where("contract_id",input('id'))->field("id,electric_id")->select();
+            foreach ($find as $k => $v) {
+                //return DB::name("electric_contract")->getlastsql();
+                $del4 = DB::name("electric_contract")->where("id",$find[$k]['id'])->delete();
+                $del5 = DB::name("electric")->where("id",$find[$k]['electric_id'])->delete();
+                $del6 = DB::name("electric_price")->where("electric_id",$find[$k]['electric_id'])->delete();
+            }
             if($len == 0){
                 //0既没有电表 直接跳过
                 $dianb = 1;
@@ -876,6 +905,12 @@ class Cuscontract extends Common
             }else{
                 for($i=0;$i<$len;$i++){
                     if(!empty($dtenantry_zid[$i])){
+                        $h = $i+1;
+                        for($j=$h;$j<$len;$j++){
+                            if($dtenantry_zid[$i] == $dtenantry_zid[$j] && $d_name[$i] == $d_name[$j]){
+                                return "合同里不能存在相同的园区同名的电表";
+                            }
+                        }
                         if(empty($d_name[$i])){
                             return "电费设置,第".($i+1)."条请输入电表名";
                         }
@@ -897,7 +932,7 @@ class Cuscontract extends Common
                         $elec['status'] = 1;
                         $elec['create_id'] = $_SESSION['id'];
                         $dianb = DB::name("electric")->insertGetId($elec);
-                        $dbht['contract_id'] = $contract;
+                        $dbht['contract_id'] = input("id");
                         $dbht['electric_id'] = $dianb;
                         $elecon = DB::name("electric_contract")->insert($dbht);
                         $d_readings_begin = input("d_readings_begin_".$i."/a");
@@ -926,13 +961,6 @@ class Cuscontract extends Common
                     }
                 }
             }
-            $del4 = 1;$del5 = 1;$del6 = 1;
-            $find = DB::name("electric_contract")->where("contract_id",input('id'))->field("id,electric_id")->select();
-            foreach ($find as $k => $v) {
-                $del4 = DB::name("electric_contract")->where("id",$find[$k]['id'])->delete();
-                $del5 = DB::name("electric")->where("id",$find[$k]['electric_id'])->delete();
-                $del6 = DB::name("electric_price")->where("electric_id",$find[$k]['electric_id'])->delete();
-            }
             $stenantry_zid = input("stenantry_zid/a");
             $park_name = input("park_name/a");
             $s_init_record = input("s_init_record/a");
@@ -940,6 +968,13 @@ class Cuscontract extends Common
             $s_loss = input("s_loss/a");
             $s_share = input("s_share/a");
             $len = count($stenantry_zid);
+            $del7 = 1;$del8 = 1;$del9 = 1;
+            $find = DB::name("water_contract")->where("contract_id",input('id'))->field("id,water_id")->select();
+            foreach ($find as $k => $v) {
+                $del7 = DB::name("water_contract")->where("id",$find[$k]['id'])->delete();
+                $del8 = DB::name("water")->where("id",$find[$k]['water_id'])->delete();
+                $del9 = DB::name("water_price")->where("water_id",$find[$k]['water_id'])->delete();
+            }
             if($len == 0){
                 //没有水表 直接跳过
                 $w_id = 1;
@@ -984,7 +1019,7 @@ class Cuscontract extends Common
                             $wcon['share'] = $s_share[$i];
                         }
                         $wcon['water_id'] = $w_id;
-                        $wcon['contract_id'] = $contract;
+                        $wcon['contract_id'] = input("id");
                         $wcon['status'] = 1;
                         $watercon = DB::name("water_contract")->insert($wcon);
                         $s_readings_begin = input("s_readings_begin_".$i."/a");
@@ -1015,20 +1050,13 @@ class Cuscontract extends Common
                 }
 
             }
-            $del7 = 1;$del8 = 1;$del9 = 1;
-            $find = DB::name("water_contract")->where("contract_id",input('id'))->field("id,water_id")->select();
-            foreach ($find as $k => $v) {
-                $del7 = DB::name("water_contract")->where("id",$find[$k]['id'])->delete();
-                $del8 = DB::name("water")->where("id",$find[$k]['water_id'])->delete();
-                $del9 = DB::name("water_price")->where("water_id",$find[$k]['water_id'])->delete();
-            }
             $exacct = input('exacct/a');
             $y_monthly_type = input('y_monthly_type/a');
             $y_monthly_value = input('y_monthly_value/a');
             $y_time_begin = input('y_time_begin/a');
             $y_time_end = input('y_time_end/a');
             $y_rent = input('y_rent/a');
-            $feiy['contract_id'] = $contract;
+            $feiy['contract_id'] = input("id");
             $len = count($y_monthly_type);
             if($len == 0){
                 //即没有添加费用类型
@@ -1074,7 +1102,7 @@ class Cuscontract extends Common
                     $feiyong = DB::name("rent")->insert($feiy);
                 }
             }
-            if($contract && $zhujin && $bianyq && $elecon && $dianb && $dianp && $w_id && $shuib && $watercon && $feiyong && $del1 && $del2 && $del3 && $del4 && $del5 && $del6 && $del7 && $del8 && $del9 && $pagg && $parup){
+            if($contract !== false && $zhujin !== false && $bianyq !== false && $elecon !== false && $dianb!== false && $dianp!== false && $w_id!== false && $shuib!== false && $watercon!== false && $feiyong!== false && $del2!== false && $del3!== false && $del4!== false && $del5!== false && $del6!== false && $del7!== false && $del8!== false && $del9!== false&& $pagg!== false && $parup!== false){
                 Db::commit();
                 $this->lw_log("4","修改了了合同号为".input('contract_num'),"Cuscontract",'cuscontract_list');
                 return "success";
@@ -1127,15 +1155,16 @@ class Cuscontract extends Common
     **水表管理
      */
         public function water_list($where){
+            $where['c.house_id'] = 0;
              $res['list']  = DB::name("water")
                                     ->alias("w")
                                     ->join("water_contract z","z.water_id=w.id")
                                     ->join("contract c","c.id=z.contract_id")
                                     ->join("park p","p.id=w.park_id")
                                     ->where($where)
-                                    ->field("w.id,w.init_record,p.name,w.name as wname")
+                                    ->field("w.id,w.init_record,p.name,w.name as wname,w.park_id")
                                     ->group("w.park_id,w.name")
-                                    ->order("w.id asc")
+                                    ->order("w.id desc")
                                     ->select();
             foreach ($res['list'] as $k => $v) {
                 $dis = DB::name("water_record")->where("water_id",$res['list'][$k]['id'])->field("up_record,current_record")->order("time desc")->find();
@@ -1146,8 +1175,9 @@ class Cuscontract extends Common
                     $res['list'][$k]['up_record'] = 0;
                     $res['list'][$k]['current_record'] = 0;
                  }
+                 $arr[] = $res['list'][$k]['park_id'];
             }
-            $while['contract_id'] = array("neq",'');
+            $while['id'] = array("in",implode(",",$arr));
             $res['park'] = DB::name("park")->where($while)->field("id,name")->select();
             /*获取信息的数量*/
             $res['num'] = count($res['list']);
@@ -1169,6 +1199,13 @@ class Cuscontract extends Common
             $share = input("share/a");
             $len = count($id);
             Db::startTrans();
+            $wheres['park_id'] = input('ctenantry_id');
+            $wheres['name'] = input('name');
+            $wheres['id'] = array("neq",implode(",",$id));
+            $find = DB::name("water")->where($wheres)->field("COUNT(*)")->find();
+            if($find['COUNT(*)'] !== 0){
+                return "该园区下已存在该水表名";
+            }
             for ($i=0; $i < $len; $i++) { 
                 $data['park_id'] = input('ctenantry_id');
                 $data['name'] = input('name');
@@ -1230,6 +1267,7 @@ class Cuscontract extends Common
             foreach ($finds as $k => $v) {
                 $where['w.park_id'] = $finds[$k]['park_id'];
                 $where['w.name'] = $finds[$k]['name'];
+                $where['c.house_id'] = 0;
                 $find = DB::name("water")
                         ->alias("w")
                         ->join("water_contract z","z.water_id=w.id")
@@ -1242,24 +1280,18 @@ class Cuscontract extends Common
                             $arr[] = $find[$key]['id'];
                         }
             }
-            /*$where['w.park_id'] = $find['park_id'];
-            $where['w.name'] = $find['name'];
-            $find = DB::name("water")
-                    ->alias("w")
-                    ->join("water_contract z","z.water_id=w.id")
-                    ->join("contract c","c.id=z.contract_id")
-                    ->join("park p","p.id=w.park_id")
-                    ->where($where)
-                    ->field("w.id,w.name")
-                    ->select();
-            foreach ($find as $k => $v) {
-                $arr[] = $find[$k]['id'];
-            }*/
             $id = implode(",", $arr);
+            $whe['w.water_id'] = array("in",$id);
+            $whe['c.status'] = 1;
+            $find = DB::name("water_contract")->alias("w")->join("contract c","c.id=w.contract_id")->where($whe)->field("COUNT(*)")->find();
+            if($find['COUNT(*)'] !== 0){
+                return "该水表有存在有效的合同里，无法直接删除";
+            }
             Db::startTrans();
             $where1['id'] = array("in",$id);
-            $del1 = DB::name("water")->where($where1)->delete();
-            $where2['water_id'] = array("in",$id);
+            $where1['type'] = 2;
+            $del1 = DB::name("water")->update($where1);
+            /*$where2['water_id'] = array("in",$id);
             $del2 = DB::name("water_contract")->where($where2)->delete();
             $where2['water_id'] = array("in",$id);
             $rec = DB::name("water_record")->where($where2)->field("COUNT(*)")->find();
@@ -1268,10 +1300,8 @@ class Cuscontract extends Common
             }else{
                 $del3 = 1;
             }
-            //$del3 = DB::name("water_record")->where($where2)->delete();
-
-            $del4 = DB::name("water_price")->where($where2)->delete();
-            if($del1 && $del2 && $del3 && $del4){
+            $del4 = DB::name("water_price")->where($where2)->delete();*/
+            if($del1){
                 foreach($finds as $k => $v){
                     $this->lw_log("3","删除了了水表名为".$finds[$k]['name'],"Cuscontract",'water_list');
                 }
@@ -1370,6 +1400,8 @@ class Cuscontract extends Common
             }else{
                 $where = 1;
             }
+            $where['c.house_id'] = 0;
+            $where['w.type'] = 1;
             $res['list']  = DB::name("water")
                             ->alias("w")
                             ->join("water_contract z","z.water_id=w.id")
@@ -1401,8 +1433,22 @@ class Cuscontract extends Common
     }
     /*水表导出*/
     public function waterhistory_add(){
-        $while['contract_id'] = array("neq",'');
-        $res['park'] = DB::name("park")->where($while)->field("id,name")->select();
+        $where['c.house_id'] = 0;
+        $res['list']  = DB::name("water")
+                        ->alias("w")
+                        ->join("water_contract z","z.water_id=w.id")
+                        ->join("contract c","c.id=z.contract_id")
+                        ->join("park p","p.id=w.park_id")
+                        ->field("w.park_id")
+                        ->where($where)
+                        ->group("w.park_id,w.name")
+                        ->order("w.id asc")
+                        ->select();
+            foreach ($res['list'] as $k => $v) {
+                 $arr[] = $res['list'][$k]['park_id'];
+            }
+            $while['id'] = array("in",implode(",",$arr));
+            $res['park'] = DB::name("park")->where($while)->field("id,name")->select();
         return $res;
     }
     /*导入*/
@@ -1437,7 +1483,7 @@ class Cuscontract extends Common
                                 $arr[$k][6] = "已经存在该时间点的抄表";
                                 $jg = 1;
                             }else{
-                                 $data['water_id'] = $find2['id'];
+                                $data['water_id'] = $find2['id'];
                                 $data['time'] = strtotime($arr[$k][5]);
                                 $data['up_record'] = $arr[$k][3];
                                 $data['current_record'] = $arr[$k][4];
@@ -1445,6 +1491,338 @@ class Cuscontract extends Common
                                 $data['create_time'] = time();
                                 $add = DB::name("water_record")->insert($data);
                                 $this->lw_log("2","水表 抄表".$find2['name'],"Cuscontract",'water_list');
+                            }
+                        }
+                    }
+                }
+            }
+            if($add && !$jg){
+                Db::commit();
+                return "success";
+            }else{
+                Db::rollback();
+                return $arr;
+            }
+        }
+    }
+    /*
+    **电表管理
+     */
+        public function electric_list($where){
+            $where['c.house_id'] = 0;
+             $res['list']  = DB::name("electric")
+                            ->alias("w")
+                            ->join("electric_contract z","z.electric_id=w.id")
+                            ->join("contract c","c.id=z.contract_id")
+                            ->join("park p","p.id=w.park_id")
+                            ->where($where)
+                            ->field("w.id,w.init_record,p.name,w.name as wname,w.id,w.park_id")
+                            ->group("w.park_id,w.name")
+                            ->order("w.id asc")
+                            ->select();
+            foreach ($res['list'] as $k => $v) {
+                $dis = DB::name("electric_record")->where("electric_id",$res['list'][$k]['id'])->field("up_record,current_record")->order("time desc")->find();
+                 if($dis){
+                    $res['list'][$k]['up_record'] = $dis['up_record'];
+                    $res['list'][$k]['current_record'] = $dis['current_record'];
+                 }else{
+                    $res['list'][$k]['up_record'] = 0;
+                    $res['list'][$k]['current_record'] = 0;
+                 }
+                 $arr[] = $res['list'][$k]['park_id'];
+            }
+            $while['id'] = array("in",implode(",",$arr));
+            $res['park'] = DB::name("park")->where($while)->field("id,name")->select();
+            /*获取信息的数量*/
+            $res['num'] = count($res['list']);
+            $arr = $this->lw_number($res['num']);
+            foreach($res['list'] as $k => $v) {
+                $res['list'][$k]['num'] = $arr[$k];
+            }
+        return $res;
+        }
+        /*电表表编辑*/
+    public function electric_edit(){
+        if(request()->isPost()){
+            if(empty(input('ctenantry_id'))){
+                return "请选择园区";
+            }
+            $ids = input("ids/a");
+            $len = count($ids);
+            Db::startTrans();
+            $wheres['park_id'] = input('ctenantry_id');
+            $wheres['name'] = input('name');
+            $wheres['id'] = array("neq",implode(",",$ids));
+            $find = DB::name("electric")->where($wheres)->field("COUNT(*)")->find();
+            if($find['COUNT(*)'] !== 0){
+                return "该园区下已存在该电表名";
+            }
+            for ($i=0; $i < $len; $i++) { 
+                $data['park_id'] = input('ctenantry_id');
+                $data['name'] = input('name');
+                $data['id'] = $ids[$i];
+                $data['update_time'] = time();
+                $data['update_id'] = $_SESSION['id'];
+                $add = DB::name("electric")->update($data);
+                //return DB::name("water_contract")->getlastsql();
+            }
+            if($add !== false){
+                Db::commit();
+                $this->lw_log("4","修改了电表名为".input('name'),"Cuscontract",'electric_list');
+                return "success";
+            }else{
+                Db::rollback();
+                return "操作失败";
+            }
+
+        }else if(request()->isGet()){
+            $where['w.id'] = input("id");
+            $res = DB::name("electric")->alias("w")->join("park p","p.id=w.park_id")->where($where)->field("w.id,w.name,w.park_id,p.name as pname,w.init_record")->find();
+            //$res['sql'] = DB::name("electric")->getlastsql();
+            $whild['w.park_id'] = $res['park_id'];
+            $whild['w.name'] = $res['name'];
+            $res['son'] = DB::name("electric")->alias("w")->join("electric_contract c","c.electric_id=w.id")->join("contract h","h.id=c.contract_id")->join("customer k","h.lease_id=k.id")->where($whild)->field("k.name,w.id")->select();
+            //$res['sql1'] = DB::name("electric")->getlastsql();
+            return $res;
+        }
+    }
+        /*抄表*/
+    public function electric_add(){
+        if(request()->isPost()){
+            $data['electric_id'] = input("id");
+            $data['time'] = strtotime(input('ztime_begin'));
+            $data['up_record'] = input("up_record");
+            $data['current_record'] = input("current_record");
+            $data['create_id'] = $_SESSION['id'];
+            $data['create_time'] = time();
+            $where['electric_id'] = input("id");
+            $where['time'] = strtotime(input('ztime_begin'));
+            $find = DB::name("electric_record")->where($where)->field("COUNT(*)")->field("COUNT(*)")->find();
+            if($find['COUNT(*)']!=0){
+                return "该日已抄表";
+            }
+            $add = DB::name("electric_record")->insert($data);
+            if($add){
+                $this->lw_log("2","水表 抄表".input('sbm'),"Cuscontract",'electric_list');
+                return "success";
+            }else{
+                return "操作失败";
+            }
+        }else if(request()->isGet()){
+            $where['w.id'] = input("id");
+            $res = DB::name("electric")->alias("w")->join("park p","p.id=w.park_id")->where($where)->field("w.id,w.name")->find();
+            return $res;
+        }
+    }
+    /*抄表记录*/
+    public function electrichistory_list($where){
+        if(request()->isGet()){
+             $res['list'] = DB::name("electric_record")
+                            ->alias("c")
+                            ->join("electric w","w.id=c.electric_id")
+                            ->join("park p","p.id=w.park_id")
+                            ->where($where)
+                            ->field("c.id,c.time,c.up_record,c.current_record,w.name,p.name as pname")
+                            ->order("c.time desc")
+                            ->select();    
+            $res['num'] = count($res['list']);
+            $arr = $this->lw_number($res['num']);
+            foreach($res['list'] as $k => $v) {
+                $res['list'][$k]['time'] = date("Y-m-d",$res['list'][$k]['time']);
+                $res['list'][$k]['num'] = $arr[$k];
+            }
+            return $res;
+        }
+    }
+    /*抄表修改*/
+    public function electrichistory_edit(){
+        if(request()->isPost()){
+            $data['id'] = input("id");
+            $data['time'] = strtotime(input('ztime_begin'));
+            $data['up_record'] = input("up_record");
+            $data['current_record'] = input("current_record");
+            $data['update_id'] = $_SESSION['id'];
+            $data['update_time'] = time();
+            $where['id'] = array("neq",input("id"));
+            $where['time'] = strtotime(input('ztime_begin'));
+            $where['electric_id'] = input("electric_id");
+            $find = DB::name("electric_record")->where($where)->field("COUNT(*)")->field("COUNT(*)")->find();
+            //return DB::name("electric_record")->getlastsql();
+            if($find['COUNT(*)']!=0){
+                return "该日已抄表";
+            }
+            $add = DB::name("electric_record")->update($data);
+            if($add){
+                $this->lw_log("4","水表修改抄表".input('sbm'),"Cuscontract",'electric_list');
+                return "success";
+            }else{
+                return "操作失败";
+            }
+        }else if(request()->isGet()){
+            $where['c.id'] = input("id");
+            $res = DB::name("electric")->alias("w")->join("park p","p.id=w.park_id")->join("electric_record c","c.electric_id=w.id")->where($where)->field("w.name,c.id,c.up_record,c.current_record,c.time,c.electric_id")->find();
+            $res['time'] = date("Y-m-d",$res['time']);
+            return $res;
+        }
+    }
+    /*删除水表*/
+    public function electric_del(){
+        if(request()->isPost()){
+            $w_id['id'] = array("in",input("id"));
+            $finds = DB::name("electric")->where($w_id)->field("park_id,name")->select();
+            foreach ($finds as $k => $v) {
+                $where['w.park_id'] = $finds[$k]['park_id'];
+                $where['w.name'] = $finds[$k]['name'];
+                $where['c.house_id'] = 0;
+                $find = DB::name("electric")
+                        ->alias("w")
+                        ->join("electric_contract z","z.electric_id=w.id")
+                        ->join("contract c","c.id=z.contract_id")
+                        ->join("park p","p.id=w.park_id")
+                        ->where($where)
+                        ->field("w.id,w.name")
+                        ->select();
+                        foreach ($find as $key => $value) {
+                            $arr[] = $find[$key]['id'];
+                        }
+            }
+            $id = implode(",", $arr);
+            $whe['w.electric_id'] = array("in",$id);
+            $whe['c.status'] = 1;
+            $find = DB::name("electric_contract")->alias("w")->join("contract c","c.id=w.contract_id")->where($whe)->field("COUNT(*)")->find();
+            if($find['COUNT(*)'] !== 0){
+                return "该电表有存在有效的合同里，无法直接删除";
+            }
+            Db::startTrans();
+            $where1['id'] = array("in",$id);
+            $where1['type'] = 2;
+            $del1 = DB::name("electric")->update($where1);
+            /*$where2['electric_id'] = array("in",$id);
+            $del2 = DB::name("electric_contract")->where($where2)->delete();
+            $where2['electric_id'] = array("in",$id);
+            $rec = DB::name("electric_record")->where($where2)->field("COUNT(*)")->find();
+            if($rec['COUNT(*)'] != 0){
+                $del3 = DB::name("electric_record")->where($where2)->delete();
+            }else{
+                $del3 = 1;
+            }
+            $del4 = DB::name("electric_price")->where($where2)->delete();*/
+            if($del1){
+                foreach($finds as $k => $v){
+                    $this->lw_log("3","删除了了水表名为".$finds[$k]['name'],"Cuscontract",'electric_list');
+                }
+                Db::commit();
+                return "success";
+            }else{
+                Db::rollback();
+                return "操作失败";
+            }
+        }
+    }
+    /*电表导出*/
+    public function electrichistory_add(){
+        if(input("id") !== '0'){
+                $where['w.park_id'] = input("id");
+            }else{
+                $where = 1;
+            }
+        $where['c.house_id'] = 0;
+        $where['w.type'] = 1;
+        $res['list']  = DB::name("electric")
+                        ->alias("w")
+                        ->join("electric_contract z","z.electric_id=w.id")
+                        ->join("contract c","c.id=z.contract_id")
+                        ->join("park p","p.id=w.park_id")
+                        ->field("w.park_id")
+                        ->where($where)
+                        ->group("w.park_id,w.name")
+                        ->order("w.id asc")
+                        ->select();
+            foreach ($res['list'] as $k => $v) {
+                 $arr[] = $res['list'][$k]['park_id'];
+            }
+            $while['id'] = array("in",implode(",",$arr));
+            $res['park'] = DB::name("park")->where($while)->field("id,name")->select();
+        return $res;
+    }
+    /*导出相对应的水表模板*/
+    public function electric_execlout(){
+        if(request()->isGet()){
+            if(input("id") !== '0'){
+                $where['w.park_id'] = input("id");
+            }else{
+                $where = 1;
+            }
+            $where['c.house_id'] = 0;
+            $res['list']  = DB::name("electric")
+                            ->alias("w")
+                            ->join("electric_contract z","z.electric_id=w.id")
+                            ->join("contract c","c.id=z.contract_id")
+                            ->join("park p","p.id=w.park_id")
+                            ->where($where)
+                            ->field("w.init_record,p.name,w.name as wname,w.id")
+                            ->group("w.park_id,w.name")
+                            ->order("w.id asc")
+                            ->select();
+                            //return  DB::name("electric")->getlastsql();
+            foreach ($res['list'] as $k => $v) {
+                $dis = DB::name("electric_record")->where("electric_id",$res['list'][$k]['id'])->field("up_record,current_record")->order("time desc")->find();
+                 if($dis){
+                    $res['list'][$k]['up_record'] = $dis['up_record'];
+                    $res['list'][$k]['current_record'] = $dis['current_record'];
+                 }else{
+                    $res['list'][$k]['up_record'] = 0;
+                    $res['list'][$k]['current_record'] = 0;
+                 }
+                 $data[$k]['A'] = $k;
+                 $data[$k]['B'] = $res['list'][$k]['name'];
+                 $data[$k]['C'] = $res['list'][$k]['wname'];
+                 $data[$k]['D'] = $res['list'][$k]['up_record'];
+                 $data[$k]['E'] = $res['list'][$k]['current_record'];
+            }
+            return $data;
+        }
+    }
+    /*导入*/
+    public function electric_excelin($arr){
+        if(empty($arr)){
+            return "没有可导入的信息";
+        }else{
+             Db::startTrans();
+            foreach($arr as $k => $v){
+                //园区的名字
+                $where['name'] = $arr[$k][1];
+                $find = DB::name("park")->where($where)->field("id")->find();
+                if(!$find){
+                    $jg = 1;
+                    $arr[$k][6] = "没有找到相对应的园区";
+                }else{
+                     $while['park_id'] = $find['id'];
+                    $while['name'] = $arr[$k][2];
+                    $find2 = DB::name("electric")->where($while)->field("id,name")->find();
+                    if(!$find2){
+                        $jg = 1;
+                        $arr[$k][6] = "该园区下没有找到对应的电表";
+                    }else{
+                        if(empty($arr[$k][5])){
+                            $jg = 1;
+                            $arr[$k][6] = "没有抄表的时间点";
+                        }else{
+                            $whl['time'] = strtotime($arr[$k][5]);
+                            $whl['electric_id'] = $find2['id'];
+                            $find3 = DB::name('electric_record')->where($whl)->field("COUNT(*)")->find();
+                            if($find3['COUNT(*)'] != 0){
+                                $arr[$k][6] = "已经存在该时间点的抄表";
+                                $jg = 1;
+                            }else{
+                                $data['electric_id'] = $find2['id'];
+                                $data['time'] = strtotime($arr[$k][5]);
+                                $data['up_record'] = $arr[$k][3];
+                                $data['current_record'] = $arr[$k][4];
+                                $data['create_id'] = $_SESSION['id'];
+                                $data['create_time'] = time();
+                                $add = DB::name("electric_record")->insert($data);
+                                $this->lw_log("2","电表 抄表".$find2['name'],"Cuscontract",'electric_list');
                             }
                         }
                     }

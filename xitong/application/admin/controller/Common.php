@@ -3,7 +3,7 @@
  * @Author: anchen
  * @Date:   2017-05-04 09:15:10
  * @Last Modified by:   anchen
- * @Last Modified time: 2017-09-19 17:04:10
+ * @Last Modified time: 2017-09-21 16:53:24
  */
 namespace app\admin\controller;
 use \think;
@@ -33,31 +33,78 @@ class Common extends Controller
                 $len="_";
                 $len = strrpos($action,$len);
                 if(!empty($len)){
-                    $actions = substr($action,0,$len)."_list";
+                    $type = substr($action,$len+1);
+                    $star = stripos($action,"_");
+                    $pd = substr($action,0,$star);
+                    $auth_where['auth_a'] = $pd."_list";
                 }else{
-                    $actions = "lists";
+                    if($action == "lists" || $action == "listsadd" || $action == "listsedit" || $action == "listsdel"){
+                        $auth_where['auth_a'] = "lists";
+                    }
                 }
-                $lw_where['role_id'] = $_SESSION['role_id'];
-                $lw_where['auth_c'] = $contro;
-                $lw_where['auth_a'] = $actions;
-                $lw_where['action_type'] = 4;
-                $lw_auth = DB::name("role_value")->where($lw_where)->field("COUNT(*)")->find();
-                //echo DB::name("role_value")->getlastsql();
-                //exit;
+                $auth_where['action_type'] = 4;
+                $auth_where['role_id'] = $_SESSION['role_id'];
+                $auth_where['auth_c'] = $contro;
+                //先判断有没有查看的权限  没有的话  其他相关的权限也用不了
+                $lw_auth = DB::name("role_value")->where($auth_where)->field("COUNT(*)")->find();
                 if($lw_auth['COUNT(*)'] == 0){
                      /*如果有某些方法不符合规则 则在这里添加控制器加方法*/
-                      $pdarray = array("Cuscontractgarden_add","Cuscontractcompany_add","Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del","Enterprisecompany_list","Enterprisestaff_list,Cuscontractwaterhistory_list","Cuscontractwaterhistory_list","Cuscontractwaterhistory_add","Cuscontractwaterhistory_edit","Enterprisegarden_selectinfo","Financeexpenditure_selectinfo");
+                      $pdarray = array("Cuscontractgarden_add","Cuscontractcompany_add","Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del","Enterprisecompany_list","Enterprisestaff_list","Cuscontractwaterhistory_list","Cuscontractwaterhistory_add","Cuscontractwaterhistory_edit","Cuscontractelectrichistory_list","Cuscontractelectrichistory_edit","Cuscontractelectrichistory_add","Enterprisegarden_selectinfo","Financeexpenditure_selectinfo");
                       $con_act = $contro.$action;
-                      //echo $con_act;
                       if(!in_array($con_act,$pdarray)){
+                        echo $con_act;exit;
                                 echo "<script>alert('你无权操作该操作');</script>";
+                                $this->redirect("Login/login");
                                 exit;
                         }
                 }
-                unset($lw_where['action_type']);
-                $lw_auth = DB::name("role_value")->where($lw_where)->field("action_type")->select();
-                //echo DB::name("role_value")->getlastsql();
-                //exit;
+                $len="_";
+                $len = strrpos($action,$len);
+                if(!empty($len)){
+                    $type = substr($action,$len+1);
+                    $star = stripos($action,"_");
+                    $pd = substr($action,0,$star);
+                    $auth_w['auth_a'] = $pd."_list";
+                    if($type == "edit"){
+                        $auth_w['action_type'] = 2;
+                    }
+                    if($type == "add"){
+                        $auth_w['action_type'] = 1;
+                    }
+                    if($type == "del"){
+                        $auth_w['action_type'] = 3;
+                    }
+                    if($type == "excelin"){
+                        $auth_w['action_type'] = 6;
+                    }
+                    if($type == "excelout"){
+                        $auth_w['action_type'] = 7;
+                    }
+                }else{
+                    if($action == "lists" || $action == "listsadd" || $action == "listsedit" || $action == "listsdel"){
+                        $auth_w['auth_a'] = "lists";
+                    }
+                }
+                if(!isset($auth_where['action_type'])){
+                  $auth_where['action_type'] = 0;
+                }
+                $auth_w['role_id'] = $_SESSION['role_id'];
+                $auth_w['auth_c'] = $contro;
+                //先判断有没有查看的权限  没有的话  其他相关的权限也用不了
+                $lw_auth = DB::name("role_value")->where($auth_w)->field("COUNT(*)")->find();
+                if($lw_auth['COUNT(*)'] == 0){
+                     /*如果有某些方法不符合规则 则在这里添加控制器加方法*/
+                      $pdarray = array("Cuscontractgarden_add","Cuscontractcompany_add","Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del","Enterprisecompany_list","Enterprisestaff_list","Cuscontractwaterhistory_list","Cuscontractwaterhistory_add","Cuscontractwaterhistory_edit","Cuscontractelectrichistory_list","Cuscontractelectrichistory_edit","Cuscontractelectrichistory_add","Enterprisegarden_selectinfo","Financeexpenditure_selectinfo");
+                      $con_act = $contro.$action;
+                      //echo $con_act;
+                      if(!in_array($con_act,$pdarray)){
+                        echo $con_act;exit;
+                                echo "<script>alert('你无权操作该操作');</script>";
+                                $this->redirect("Login/login");
+                                exit;
+                        }
+                }
+                $lw_auth = DB::name("role_value")->where($auth_w)->field("action_type")->select();
                 if($lw_auth){
                         //用于判断用户是否拥有某个权限
                     foreach ($lw_auth as $k => $v) {
@@ -76,14 +123,6 @@ class Common extends Controller
                        if($lw_auth[$k]['action_type'] == 7){
                           $lw_role['excelout'] = 1;//删除权限
                        }
-                    }
-                }else{
-                     $pdarray = array("Cuscontractgarden_add","Cuscontractcompany_add","Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del","Enterprisecompany_list","Enterprisestaff_list,Cuscontractwaterhistory_list","Cuscontractwaterhistory_list","Cuscontractwaterhistory_add","Cuscontractwaterhistory_edit","Enterprisegarden_selectinfo","Financeexpenditure_selectinfo");
-                      $con_act = $contro.$action;
-                    if(!in_array($con_act,$pdarray)){
-                         /*没有权限  需重新登录*/
-                       echo "<script>alert('你无权操作该操作');</script>";
-                       exit;
                     }
                 }
             }
@@ -104,7 +143,9 @@ class Common extends Controller
         $list = array('1',"2");
         return $list;
     }
-    
+/*    public function indexx(){
+      $this->download_files('customer-cost-add.xlsx');
+    }*/
      /**
      * 操作日志
      * @access protected
@@ -161,8 +202,7 @@ class Common extends Controller
          } else {
              header('Content-Disposition: attachment; filename="' . $file . '"');
          }
-        readfile($file);
-
+         readfile($file);
  }
    /*导出*/
 public function goodsExcelExport($data='',$title='',$Header=''){

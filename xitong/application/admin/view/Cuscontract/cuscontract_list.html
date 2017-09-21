@@ -31,12 +31,12 @@
 </form>
     <div class="cl pd-5 bg-1 bk-gray mt-20 col-xs-12 col-sm-12">
         <span class="l">
-            {if $lw_role.del eq 1}<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
-            {/if}　
+             {if $lw_role.edit eq 1}<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量退租</a>
+{/if}　
              {if $lw_role.add eq 1}<a href="javascript:;" onclick="member_add('添加合同','cuscontract_add.html','','550')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加合同</a>{/if}
         </span>
         <span class="r">
-            共有数据：<strong>1</strong> 条
+            共有数据：<strong>{$res['num']}</strong> 条
         </span>
     </div>
     <div class="mt-20">
@@ -182,7 +182,7 @@ $.dataTablesSettings = {
     }
 };
 function datadel(){
-    layer.confirm('确认要删除吗？',function(index){
+    layer.confirm('确认要退租吗？',function(index){
     if($(".text-c input[name='id']:checked").length > 0){
         var id = "";
         $(".text-c input[name='id']:checked").each(function() {
@@ -191,9 +191,9 @@ function datadel(){
                         });
         length = id.length;
         id = id.substring(id,length-1);
-        $.post("{:url('Cuscontract/cuscontract_del')}",{id:id},function(data){
+        $.post("{:url('Cuscontract/cuscontract_status')}",{id:id},function(data){
             if(data == "success"){
-                layer.msg("删除成功");
+                layer.msg("退租成功");
                 $(".text-c input[name='id']:checked").each(function() {
                         var reservation = $(this).parents(".text-c");
                         reservation.hide();
@@ -203,7 +203,7 @@ function datadel(){
             }
         })
     }else{
-        layer.msg("请选择删除的信息");
+        layer.msg("请选择退租的合同");
         return false;
     }
 })

@@ -171,9 +171,10 @@ class Cuscontract extends Common
             $where['w.name'] = array("like","%".input('name')."%");
             $this->assign("name",input('name'));
         }
-        $where['c.status'] = 1;
+        $where['w.type'] = 1;
         $where['c.type'] = 2;
         $res = $Cuscontract->water_list($where);
+        //var_dump($res);exit;
         $this->assign("res",$res);
         return $this->fetch();
     }
@@ -330,6 +331,184 @@ class Cuscontract extends Common
     }
     //导入返回信息
     public function water_excelinmg(){
+            $filename = "水表模板";
+            $title = array("序号","园区","水表名","上期度数","当前度数","时间","详情");
+            $data = json_decode(input("data"),true);
+            $this->goodsExcelExport($data,$title,$filename);
+    }
+    /*
+    **水表管理
+     */
+    public function electric_list(){
+        $Cuscontract = model("Cuscontract");
+        if(!empty(input('park_id'))){
+            $where['w.park_id'] = input('park_id');
+            $this->assign("park_id",input('park_id'));
+        }
+        if(!empty(input('name'))){
+            $where['w.name'] = array("like","%".input('name')."%");
+            $this->assign("name",input('name'));
+        }
+        $where['w.type'] = 1;
+        $where['c.type'] = 2;
+        $res = $Cuscontract->electric_list($where);
+        $this->assign("res",$res);
+        return $this->fetch();
+    }
+    /*水表编辑*/
+    public function electric_edit(){
+        $Cuscontract = model("Cuscontract");
+        if(request()->isPost()){
+            //var_dump(input());exit;
+            $res = $Cuscontract->electric_edit();
+            return $res;
+        }else if(request()->isGet()){
+            $res = $Cuscontract->electric_edit();
+            $this->assign("res",$res);
+            return $this->fetch();
+        }
+    }
+    /*删除水表*/
+    public function electric_del(){
+        $Cuscontract = model("Cuscontract");
+        if(request()->isPost()){
+            $res = $Cuscontract->electric_del();
+            return $res;
+        }else{
+            return "请选择删除的电表信息";
+        }
+    }
+    /*抄表*/
+    public function electric_add(){
+        $Cuscontract = model("Cuscontract");
+        if(request()->isPost()){
+            //var_dump(input());exit;
+            $res = $Cuscontract->electric_add();
+            return $res;
+        }else if(request()->isGet()){
+            $res = $Cuscontract->electric_add();
+            $this->assign("res",$res);
+            return $this->fetch();
+        }else{
+            return "请选择抄表的水表";
+        }
+    }
+    /*抄表记录*/
+    public function electrichistory_list(){
+        $Cuscontract = model("Cuscontract");
+        if(request()->isGet()){
+            $where['c.electric_id'] = input("id");
+            if(!empty(input("startime"))){
+                if(!empty(input("overtime"))){
+                    $where['c.time'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
+                    $this->assign("startime",input("startime"));
+                    $this->assign("overtime",input("overtime"));
+                }else{
+                    $where['c.time'] = array("gt",strtotime(input('startime')));
+                    $this->assign("startime",input("startime"));
+                }
+            }
+            if(!empty(input("overtime"))){
+                if(!empty(input("startime"))){
+                    $where['c.time'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
+                    $this->assign("startime",input("startime"));
+                    $this->assign("overtime",input("overtime"));
+                }else{
+                    $where['c.time'] = array("lt",strtotime(input('overtime')));
+                    $this->assign("overtime",input("overtime"));
+                }
+            }
+            $this->assign("id",input("id"));
+            $res = $Cuscontract->electrichistory_list($where);
+            $this->assign("res",$res);
+            return $this->fetch();
+        }else{
+            return "请选择水表";
+        }
+    }
+     /*抄表修改*/
+    public function electrichistory_edit(){
+        $Cuscontract = model("Cuscontract");
+        if(request()->isPost()){
+            //var_dump(input());exit;
+            $res = $Cuscontract->electrichistory_edit();
+            return $res;
+        }else if(request()->isGet()){
+            $res = $Cuscontract->electrichistory_edit();
+            $this->assign("res",$res);
+            return $this->fetch();
+        }else{
+            return "请修改抄表的电表";
+        }
+    }
+
+    /*水表导入*/
+    public function electrichistory_add(){
+        $Cuscontract = model("Cuscontract");
+        $res = $Cuscontract->electrichistory_add();
+        $this->assign("res",$res);
+        return $this->fetch();
+    }
+    /*导出相对应的水表模板*/
+    public function electric_execlout(){
+        $Cuscontract = model("Cuscontract");
+       if(request()->isGet()){
+            $filename = "电表模板";
+            $title = array("序号","园区","电表名","上期度数","当前度数","时间");
+            $data = $Cuscontract->electric_execlout();
+            $this->goodsExcelExport($data,$title,$filename);
+       }
+    }
+    /*导入*/
+    public function electric_excelin(){
+        $Cuscontract = model("Cuscontract");
+        //引入文件（把扩展文件放入vendor目录下，路径自行修改）
+        vendor("Classes.PHPExcel");
+
+        //获取表单上传文件
+        $file = request()->file('excel');
+        $info = $file->validate(['ext' => 'xlsx,xls'])->move(ROOT_PATH . 'public' . DS . 'upload' . DS . 'TaoBao');
+
+        //数据为空返回错误
+        if(empty($info)){
+            $output['status'] = false;
+            $output['message'] = '导入数据失败~';
+            return $output['message'];
+        }
+
+        //获取文件名
+        $exclePath = $info->getSaveName();
+        //上传文件的地址
+        $filename = ROOT_PATH . 'public' . DS . 'upload' . DS . 'TaoBao'. DS . $exclePath;
+
+        //判断截取文件
+        $extension = strtolower( pathinfo($filename, PATHINFO_EXTENSION) );
+
+        //区分上传文件格式
+        if($extension == 'xlsx') {
+            $objReader =\PHPExcel_IOFactory::createReader('Excel2007');
+            $objPHPExcel = $objReader->load($filename, $encode = 'utf-8');
+        }else if($extension == 'xls'){
+            $objReader =\PHPExcel_IOFactory::createReader('Excel5');
+            $objPHPExcel = $objReader->load($filename, $encode = 'utf-8');
+        }
+
+        $excel_array = $objPHPExcel->getsheet(0)->toArray();   //转换为数组格式
+        array_shift($excel_array);  //删除第一个数组(标题);
+        $len = count($excel_array);
+        if(empty($excel_array[$len-1][0])){
+            unset($excel_array[$len-1]);
+        }
+        $res = $Cuscontract->electric_excelin($excel_array);
+        if($res == "success"){
+            $return['gg'] = "success";
+            return json_encode($return);
+        }else{
+            return json_encode($res);
+        }
+    }
+    //导入返回信息
+    public function electric_excelinmg(){
             $filename = "水表模板";
             $title = array("序号","园区","水表名","上期度数","当前度数","时间","详情");
             $data = json_decode(input("data"),true);

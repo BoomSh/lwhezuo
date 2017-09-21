@@ -109,17 +109,24 @@ class Detailed extends Common
             return $res;
         }
     }
-    /*
+ /*
     **删除客户
      */
     public function detailed_del(){
         if(request()->isPost()){
+            $whild['k.id'] = array("in",input('id'));
+            $whild['c.status'] = 1;
+            $find = DB::name("water")->alias("w")->join("water_contract c","c.water_id=w.id")->join("contract h","h.id=c.contract_id")->join("customer k","h.lease_id=k.id")->where($whild)->field("COUNT(*)")->find();
+            if($find['COUNT(*)'] !== 0 ){
+                return "该业主存在有效的合同或者水表,无法删除";
+            }
             $where['id'] = array("in",input('id'));
+            $where['status'] = 2;
             $log = DB::name("customer")->where($where)->field('name')->select();
             foreach ($log as $k => $v) {
                 $this->lw_log("3","删除了业主名称为".$log[$k]['name'],"Customer",'customer_del');
             }
-            $res = DB::name("customer")->where($where)->delete();
+            $res = DB::name("customer")->update($where);
             if($res){
                 return "success";
             }else{

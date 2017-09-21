@@ -4,7 +4,7 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>客户管理 <span class="c-gray en">&gt;</span>水表抄数历史纪录 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-<form action="{:url('Cuscontract/waterhistory_list')}" method="get">
+<form action="{:url('Cuscontract/electrichistory_list')}" method="get">
     <div class="bk-gray radius pd-10 col-xs-12 col-sm-12">
         <div class="mt-10 col-xs-12 col-sm-12">
             <strong class="col-xs-12 col-sm-2 text-r">日期范围：</strong>
@@ -38,7 +38,7 @@
                 <th style="display:none;">ID</th>
                 <th>序号</th>
                 <th>园区</th>
-                <th>水表名</th>
+                <th>电表名</th>
                 <th>时间</th>
                 <th>上期吨数</th>
                 <th>当期吨数</th>
@@ -56,7 +56,7 @@
                 <td>{$vo.up_record}</td>
                 <td>{$vo.current_record}</td>
                 <td class="td-manage">
-                    <a title="编辑" href="javascript:;" onclick="member_edit('编辑','waterhistory_edit.html?id={$vo.id}','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                    <a title="编辑" href="javascript:;" onclick="member_edit('编辑','electrichistory_edit.html?id={$vo.id}','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
                 </td>
             </tr>
         {/volist}

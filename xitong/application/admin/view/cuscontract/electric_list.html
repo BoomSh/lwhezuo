@@ -4,7 +4,7 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>水表列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-<form action="{:url('Cuscontract/water_list')}" method="get">
+<form action="{:url('Cuscontract/electric_list')}" method="get">
     <div class="bk-gray radius pd-10 col-xs-12 col-sm-12">
         <div class="mt-10 col-xs-12 col-sm-12">
             <strong class="col-xs-12 col-sm-2 text-r">选择园区：</strong>
@@ -27,9 +27,9 @@
             </div>
         </div>
         <div class="mt-10 col-xs-12 col-sm-12">
-            <strong class="col-xs-12 col-sm-2 text-r">水表名称：{$res['sql']}</strong>
+            <strong class="col-xs-12 col-sm-2 text-r">电表名称：</strong>
             <div class="col-xs-12 col-sm-6">
-                <input type="text" class="input-text"  placeholder="输入水表名称" id="" value="{$name}" name="name">
+                <input type="text" class="input-text"  placeholder="输入电表名称" id="" value="{$name}" name="name">
             </div>
         </div>
         <div class="cl mt-10 col-xs-12 col-sm-12">
@@ -43,7 +43,7 @@
     <div class="cl pd-5 bg-1 bk-gray mt-20 col-xs-12 col-sm-12">
         <span class="l">
             {if $lw_role.del eq 1}<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>　　{/if}
-            {if $lw_role.excelin eq 1}<a href="javascript:;" onclick="member_add('导入抄表数据','waterhistory_add.html','','300')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe645;</i> 导入抄表数据</a>{/if}
+            {if $lw_role.excelin eq 1}<a href="javascript:;" onclick="member_add('导入抄表数据','electrichistory_add.html','','300')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe645;</i> 导入抄表数据</a>{/if}
         </span>
         <span class="r">
             共有数据：<strong>{$res['num']}</strong> 条
@@ -57,7 +57,7 @@
                 <th style="display:none;">ID</th>
                 <th>序号</th>
                 <th>园区</th>
-                <th>水表名</th>
+                <th>电表名</th>
                 <!--<th>初始度数</th>-->
                 <th>上期度数</th>
                 <th>当前度数</th>
@@ -76,10 +76,10 @@
                 <td>{$vo.up_record}</td>
                 <td>{$vo.current_record}</td>
                 <td class="td-manage">
-                    {if $lw_role.edit eq 1}<a title="编辑" href="javascript:;" onclick="member_edit('编辑','water_edit.html?id={$vo.id}','4','','400')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>{/if}
+                    {if $lw_role.edit eq 1}<a title="编辑" href="javascript:;" onclick="member_edit('编辑','electric_edit.html?id={$vo.id}','4','','400')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>{/if}
                     {if $lw_role.del eq 1}<a title="删除" href="javascript:;" onclick="member_del(this,'{$vo.id}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>{/if}
-                    {if $lw_role.add eq 1}<a title="抄表" href="javascript:;" onclick="member_edit('抄表','water_add.html?id={$vo.id}','4','','300')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe600;</i></a>{/if}
-                    <a title="记录" href="javascript:;" onclick="member_show('抄表记录','waterhistory_list.html?id={$vo.id}','300')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe720;</i></a>
+                    {if $lw_role.add eq 1}<a title="抄表" href="javascript:;" onclick="member_edit('抄表','electric_add.html?id={$vo.id}','4','','300')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe600;</i></a>{/if}
+                    <a title="记录" href="javascript:;" onclick="member_show('抄表记录','electrichistory_list.html?id={$vo.id}','300')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe720;</i></a>
                 </td>
             </tr>
             {/volist}
@@ -133,7 +133,7 @@ function member_edit(title,url,id,w,h){
 /*用户-删除*/
 function member_del(obj,id){
     layer.confirm('确认要删除吗？',function(index){
-        $.post("{:url('Cuscontract/water_del')}",{id:id},function(data){
+        $.post("{:url('Cuscontract/electric_del')}",{id:id},function(data){
             if(data == "success"){
                 layer.msg("删除成功");
                 $(obj).parents("tr").remove();
@@ -153,7 +153,7 @@ function datadel(){
                         });
         length = id.length;
         id = id.substring(id,length-1);
-        $.post("{:url('Cuscontract/water_del')}",{id:id},function(data){
+        $.post("{:url('Cuscontract/electric_del')}",{id:id},function(data){
             if(data == "success"){
                 layer.msg("删除成功");
                 $(".text-c input[name='id']:checked").each(function() {
