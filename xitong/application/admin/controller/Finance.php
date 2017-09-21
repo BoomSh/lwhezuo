@@ -89,6 +89,20 @@ class Finance extends Common
         }
     }
     /**
+     * 导入页面
+     * @return [type] [description]
+     */
+    public function income_excelin(){
+        return $this->fetch();
+    }
+    /**
+     * 下载导入模板
+     * @return [type] [description]
+     */
+    public function income_mb(){
+        $this->download_files("customer-cost-add.xlsx");
+    }
+    /**
      * 支出列表
      * @Author   wcl
      * @DateTime 2017-09-14T20:20:34+0800

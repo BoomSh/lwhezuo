@@ -65,7 +65,7 @@
 	<div class="cl pd-5 bg-1 bk-gray mt-20 col-xs-12 col-sm-12">
 		<span class="l">
 			{if $lw_role.add eq 1}<a href="javascript:;" onclick="admin_add('添加收入','{:url('Finance/income_add')}','800','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加收入</a>{/if}&nbsp;
-			{if $lw_role.excelin eq 1}<a href="javascript:;" onclick="member_add('导入缴款费用','customer-cost-add.html','','300')" class="btn btn-secondary radius"><i class="Hui-iconfont">&#xe645;</i>导入缴款费用</a>{/if}
+			{if $lw_role.excelin eq 1}<a href="javascript:;" onclick="member_add('导入缴款费用','{:url('Finance/income_excelin')}','','300')" class="btn btn-secondary radius"><i class="Hui-iconfont">&#xe645;</i>导入缴款费用</a>{/if}
 		</span>
 		<span class="r">
 			总收入：<strong>100</strong>元&nbsp;

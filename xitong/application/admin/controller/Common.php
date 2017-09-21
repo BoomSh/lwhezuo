@@ -161,7 +161,8 @@ class Common extends Controller
          } else {
              header('Content-Disposition: attachment; filename="' . $file . '"');
          }
-         readfile($file);
+        readfile($file);
+
  }
    /*导出*/
 public function goodsExcelExport($data='',$title='',$Header=''){
