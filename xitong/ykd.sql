@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2017-09-19 23:42:39
+Date: 2017-09-21 22:19:40
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -42,8 +42,8 @@ CREATE TABLE `dino_admin` (
 -- ----------------------------
 -- Records of dino_admin
 -- ----------------------------
-INSERT INTO `dino_admin` VALUES ('1', 'admin', '368bd5610605d07b7282588a7bd61e81', '2017-09-08 21:03:30', '310', '1234', '0', '2017-09-19 14:40:29', '127.0.0.1', '2017-09-19 22:43:45', '127.0.0.1', '1', '111111111', '111111@qq.com', '', '1');
-INSERT INTO `dino_admin` VALUES ('5', 'cheshi', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-18 21:57:29', '57', '要你管', '13', '2017-09-19 22:29:38', '127.0.0.1', '2017-09-19 22:44:47', '127.0.0.1', '1', '123123123123', '12313212@qq.com', '123123', '1');
+INSERT INTO `dino_admin` VALUES ('1', 'admin', '368bd5610605d07b7282588a7bd61e81', '2017-09-08 21:03:30', '316', '1234', '0', '2017-09-21 20:55:54', '127.0.0.1', '2017-09-21 21:17:15', '127.0.0.1', '1', '111111111', '111111@qq.com', '', '1');
+INSERT INTO `dino_admin` VALUES ('5', 'cheshi', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-18 21:57:29', '67', '要你管', '13', '2017-09-21 20:56:13', '127.0.0.1', '2017-09-21 21:56:25', '127.0.0.1', '1', '123123123123', '12313212@qq.com', '123123', '1');
 INSERT INTO `dino_admin` VALUES ('15', '2222', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-08 18:11:53', '', null, '0', null, null, null, null, '1', '1212213123123', '123132213@qq.com', '1', '1');
 INSERT INTO `dino_admin` VALUES ('16', '221313', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-08 20:48:35', null, '22222', '0', null, null, null, null, '1', '123123123123', '123@qq.com', '', '1');
 INSERT INTO `dino_admin` VALUES ('17', 'admin1', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-08 20:49:13', null, 'admin', '0', null, null, null, null, '1', '12312312312', '123123@qq.com', '', '1');
@@ -51,7 +51,7 @@ INSERT INTO `dino_admin` VALUES ('18', 'admin223', '5b7626e11871bc8ba48903e4c8d8
 INSERT INTO `dino_admin` VALUES ('19', '1234', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-10 23:05:36', '14', 'ggg1', '16', '2017-09-10 23:01:27', '127.0.0.1', '2017-09-10 23:06:18', '127.0.0.1', '1', '1231231231', '123@qq.com', '', '1');
 INSERT INTO `dino_admin` VALUES ('20', '123123', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-10 22:12:25', null, 'sss', '0', null, null, null, null, '1', '1231231231', '123@qq.com', '123123', '1');
 INSERT INTO `dino_admin` VALUES ('21', 'cejie', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-18 15:44:43', '1', '1000', '15', null, null, '2017-09-18 15:45:09', '127.0.0.1', '1', '13824597684', 'drugTang123@163.com', '11212', '1');
-INSERT INTO `dino_admin` VALUES ('22', '1234123', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-18 21:08:44', null, '123', '0', null, null, null, null, '1', '1231231231', '123@qq.com', '', '1');
+INSERT INTO `dino_admin` VALUES ('22', '1234123', '5b7626e11871bc8ba48903e4c8d8ca52', '2017-09-18 21:08:44', null, '123', '0', null, null, null, null, '1', '1231231231', '123@qq.com', '', '2');
 
 -- ----------------------------
 -- Table structure for `dino_admin_access`
@@ -128,7 +128,7 @@ CREATE TABLE `dino_auth` (
   `auth` varchar(255) DEFAULT NULL COMMENT '拥有的权限 1添加 2修改 3x修改4 查询 5审查',
   `img` varchar(255) DEFAULT NULL COMMENT '主菜单的图片标签',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COMMENT='板块表';
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COMMENT='板块表';
 
 -- ----------------------------
 -- Records of dino_auth
@@ -155,6 +155,10 @@ INSERT INTO `dino_auth` VALUES ('28', '水表管理', 'Cuscontract', 'water_list
 INSERT INTO `dino_auth` VALUES ('31', '财务管理', null, null, '0', '31', '0', '1', '0', '', null, '<i class=\"Hui-iconfont\">&#xe63a;</i> ');
 INSERT INTO `dino_auth` VALUES ('32', '收入管理', 'Finance', 'income_list', '31', '32-31', '1', '1', '0', '', '1,2,4,6', null);
 INSERT INTO `dino_auth` VALUES ('33', '支出管理', 'Finance', 'expenditure_list', '31', '33-31', '1', '1', '0', '', '1,2,4', null);
+INSERT INTO `dino_auth` VALUES ('34', '电表管理', 'Cuscontract', 'electric_list', '25', '25-34', '1', '1', '0', '', '1,2,3,4,6,7', null);
+INSERT INTO `dino_auth` VALUES ('35', '合同管理', 'Customer', 'cuscontract_list', '23', '35-23', '1', '1', '0', '', '1,2,3,4,6,7', null);
+INSERT INTO `dino_auth` VALUES ('36', '水表管理', 'Customer', 'water_list', '23', '36-23', '1', '1', '0', '', '1,2,3,4,6,7', null);
+INSERT INTO `dino_auth` VALUES ('37', '电表管理', 'Customer', 'electric_list', '23', '37-23', '1', '1', '0', '', '1,2,3,4,6,7', null);
 
 -- ----------------------------
 -- Table structure for `dino_bank`
@@ -167,7 +171,7 @@ CREATE TABLE `dino_bank` (
   `bank_number` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '开户银行号',
   `bank_name` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '开户银行户名',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='银行表';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='银行表';
 
 -- ----------------------------
 -- Records of dino_bank
@@ -198,7 +202,7 @@ CREATE TABLE `dino_company` (
   `update_time` int(11) DEFAULT NULL COMMENT '更新时间',
   `update_id` int(11) DEFAULT NULL COMMENT '更新人',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='公司表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='公司表';
 
 -- ----------------------------
 -- Records of dino_company
@@ -213,7 +217,7 @@ DROP TABLE IF EXISTS `dino_contract`;
 CREATE TABLE `dino_contract` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `park_id` int(11) DEFAULT NULL COMMENT '园区id',
-  `house_id` int(11) DEFAULT NULL COMMENT '房源的id',
+  `house_id` int(11) DEFAULT '0' COMMENT '房源的id',
   `lease_id` int(11) DEFAULT NULL COMMENT '出租方',
   `tenantry_id` int(11) DEFAULT NULL COMMENT '承租方',
   `type` int(1) DEFAULT NULL COMMENT '合同类型(1、客户 2、业主)',
@@ -242,18 +246,18 @@ CREATE TABLE `dino_contract` (
   `update_time` int(11) DEFAULT NULL COMMENT '更新时间',
   `update_id` int(11) DEFAULT NULL COMMENT '更新人',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=146 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='合同表';
+) ENGINE=InnoDB AUTO_INCREMENT=165 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='合同表';
 
 -- ----------------------------
 -- Records of dino_contract
 -- ----------------------------
-INSERT INTO `dino_contract` VALUES ('126', '7', null, '21', '1', '2', '3333', '123', '15', '2017-09-13', '2017-09-29', '2017-09-15', '123.00', '123.00', '123.00', '123.00', '123.00', '2017-09-18', '2017-09-28', '1000.00', '1000.00', '1000.00', null, null, '', '2', '1505719900', '1', '1505825225', '1');
-INSERT INTO `dino_contract` VALUES ('128', '6', null, '21', '1', '2', '200', '100', '15', '2017-09-18', '2017-09-30', '2017-09-18', '100.00', '100.00', '1000.00', '1000.00', '1000.00', '2017-09-18', '2017-09-30', '123.00', '1000.00', '1000.00', null, null, '', '2', '1505720011', '1', '1505811030', '1');
-INSERT INTO `dino_contract` VALUES ('133', '9', null, '21', '1', '2', '23', '1000', '15', '2017-09-01', '2017-09-29', '2017-09-18', '1000.00', '1000.00', '1000.00', '1000.00', '120.00', '2017-09-20', '2017-09-26', '200.00', '1000.00', '0.00', null, null, '', '2', '1505747202', '5', '1505825227', '1');
-INSERT INTO `dino_contract` VALUES ('134', '3', null, '21', '1', '2', '1000', '100', '15', '2017-09-18', '2017-09-28', '2017-09-28', '1000.00', '100.00', '1000.00', '2000.00', '2000.00', '2017-09-18', '2017-09-30', '1000.00', '1000.00', '0.00', null, null, '1000', '2', '1505747237', '5', '1505825229', '1');
-INSERT INTO `dino_contract` VALUES ('143', '6', null, '22', '1', '2', '11', '123', '15', '2017-09-07', '2017-09-19', '2017-09-19', '123.00', '123.00', '100.00', '1000.00', '1000.00', '2017-09-19', '2017-09-29', '1000.00', '123.00', '123.00', null, null, '', '2', '1505811334', '1', '1505825231', '1');
-INSERT INTO `dino_contract` VALUES ('144', '8', null, '21', '2', '2', '合同1', '123', '15', '2017-09-19', '2017-09-30', '2017-09-30', '123.00', '123.00', '1000.00', '10001.00', '1000.00', '2017-09-19', '2017-09-30', '1000.00', '2000.00', '0.00', null, null, '', '1', '1505825340', '1', null, null);
-INSERT INTO `dino_contract` VALUES ('145', '7', null, '22', '1', '2', '123', '100', '15', '2017-09-19', '2017-10-05', '2017-09-19', '100.00', '100.00', '1000.00', '1000.00', '1000.00', '2017-09-22', '2017-09-22', '1000.00', '1000.00', '0.00', null, null, '', '1', '1505825411', '1', null, null);
+INSERT INTO `dino_contract` VALUES ('158', '3', '0', '24', '1', '2', '123', '123', '15', '2017-09-21', '2017-09-30', '2017-09-21', '123.00', '123.00', '1000.00', '2000.00', '1000.00', '2017-09-21', '2017-09-30', '1000.00', '1000.00', '123.00', null, null, '123', '1', '1505975380', '1', '1505984415', '1');
+INSERT INTO `dino_contract` VALUES ('159', '2', '0', '24', '1', '2', '22221', '123', '15', '2017-09-08', '2017-09-29', '2017-09-21', '123.00', '12.00', '1000.00', '2000.00', '2000.00', '2017-09-21', '2017-09-21', '123123.00', '123.00', '0.00', null, null, '', '1', '1505975572', '1', '1505984413', '1');
+INSERT INTO `dino_contract` VALUES ('160', '9', '0', '24', '2', '2', '123222', '2132', '15', '2017-09-21', '2017-10-04', '2017-09-21', '1000.00', '2000.00', '1000.00', '2000.00', '2000.00', '2017-09-01', '2017-09-30', '1000.00', '1111.00', '0.00', null, null, '', '2', '1505999594', '5', '1506000811', '1');
+INSERT INTO `dino_contract` VALUES ('161', '3', '0', '24', '1', '2', '2222', '1', '15', '2017-01-28', '2017-09-26', '2017-09-21', '1111.00', '1.00', '1111.00', '1111.00', '1111.00', '2017-09-15', '2017-09-27', '111.00', '1111.00', '0.00', null, null, '', '2', '1506000943', '1', '1506001082', '1');
+INSERT INTO `dino_contract` VALUES ('162', '2', '0', '24', '1', '2', '1232221', '12', '15', '2017-10-05', '2017-11-08', '2017-10-05', '1111.00', '1212.00', '12121.00', '2.00', '12.00', '2017-11-01', '2017-10-12', '121212.00', '121212.00', '0.00', null, null, '', '2', '1506001148', '1', '1506001183', '1');
+INSERT INTO `dino_contract` VALUES ('163', '3', '0', '25', '1', '2', '111', '31', '15', '2017-09-06', '2017-09-19', '2017-09-19', '123.00', '12312.00', '1000.00', '123.00', '12.00', '2017-09-14', '2017-10-05', '0.00', '123.00', '0.00', null, null, '', '2', '1506001465', '1', '1506001936', '1');
+INSERT INTO `dino_contract` VALUES ('164', '2', '0', '25', '1', '2', '21123', '1111', '15', '2017-09-21', '2017-09-21', '2017-09-21', '11111.00', '1111.00', '1111.00', '1111.00', '1000.00', '2017-09-21', '2017-09-27', '11111.00', '121212.00', '0.00', null, null, '', '1', '1506002335', '5', null, null);
 
 -- ----------------------------
 -- Table structure for `dino_contract_hydropower`
@@ -333,13 +337,12 @@ CREATE TABLE `dino_customer` (
   `update_time` int(11) DEFAULT NULL COMMENT '更新时间',
   `update_id` int(11) DEFAULT NULL COMMENT '更新人',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='客户表';
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='客户表';
 
 -- ----------------------------
 -- Records of dino_customer
 -- ----------------------------
-INSERT INTO `dino_customer` VALUES ('21', '2', '123', '123', '1', '', '', '1', '121212121@qq.com', '13824597684', '13824597684', '1', '123', '123', '', '0.00', '1', null, null, null, null);
-INSERT INTO `dino_customer` VALUES ('22', '2', '213123', '123123', '123', '', '', '2', '123@qq.com', '13824597681', '123', '1', '123', '12321', '123213', '0.00', '1', null, null, null, null);
+INSERT INTO `dino_customer` VALUES ('25', '2', '123', '123123123123', '123', '', '', '0', '123@qq.com', '15917902898', '', '1', '123', '123', '', '0.00', '2', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `dino_customer_fees`
@@ -412,29 +415,21 @@ CREATE TABLE `dino_electric` (
   `create_id` int(11) DEFAULT NULL COMMENT '创建人员',
   `update_time` int(11) DEFAULT NULL COMMENT '更新时间',
   `update_id` int(11) DEFAULT NULL COMMENT '更新人',
+  `type` char(1) COLLATE utf8_unicode_ci DEFAULT '1' COMMENT '1正常，2假删',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='电表';
+) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='电表';
 
 -- ----------------------------
 -- Records of dino_electric
 -- ----------------------------
-INSERT INTO `dino_electric` VALUES ('10', '2', '电表名', '50', '10', '120', '1', '1505379469', '1', null, null);
-INSERT INTO `dino_electric` VALUES ('11', '2', '电表2', '20', '20', '20', '1', '1505379469', '1', null, null);
-INSERT INTO `dino_electric` VALUES ('12', '2', '电表1', '0', '10', '0', '1', '1505380357', '1', null, null);
-INSERT INTO `dino_electric` VALUES ('13', '2', '电表2', '0', '15', '20', '1', '1505380357', '1', null, null);
-INSERT INTO `dino_electric` VALUES ('16', '2', '电表1', '0', '10', '0', '1', '1505380927', '1', null, null);
-INSERT INTO `dino_electric` VALUES ('17', '2', '电表2', '0', '15', '20', '1', '1505380927', '1', null, null);
-INSERT INTO `dino_electric` VALUES ('34', '7', '123', '123', '123', '123', '1', '1505397639', '1', null, null);
-INSERT INTO `dino_electric` VALUES ('35', '7', '123', '123', '123', '132', '1', '1505402552', '1', null, null);
-INSERT INTO `dino_electric` VALUES ('36', '7', '44', '44', '44', '44', '1', '1505403131', '1', null, null);
-INSERT INTO `dino_electric` VALUES ('37', '8', '4', '14', '4', '4', '1', '1505403131', '1', null, null);
-INSERT INTO `dino_electric` VALUES ('63', '7', '电表1', '0', '50', '50', '1', '1505719900', '1', null, null);
-INSERT INTO `dino_electric` VALUES ('64', '7', '电表1', '0', '10', '100', '1', '1505720011', '1', null, null);
-INSERT INTO `dino_electric` VALUES ('68', '7', '电表1', '0', '0', '0', '1', '1505747202', '5', null, null);
-INSERT INTO `dino_electric` VALUES ('69', '8', '电表2', '0', '20', '20', '1', '1505747237', '5', null, null);
-INSERT INTO `dino_electric` VALUES ('77', '8', '1231', '123', '123', '123', '1', '1505811334', '1', null, null);
-INSERT INTO `dino_electric` VALUES ('78', '8', '电表1', '0', '0', '0', '1', '1505825340', '1', null, null);
-INSERT INTO `dino_electric` VALUES ('79', '8', '电表1', '0', '0', '0', '1', '1505825411', '1', null, null);
+INSERT INTO `dino_electric` VALUES ('106', '2', '电表21', '100', '200', '20', '1', '1505899161', '1', '1505900189', '1', '1');
+INSERT INTO `dino_electric` VALUES ('164', '2', '电表21', '100', '100', '100', '1', '1505963142', '1', null, null, '1');
+INSERT INTO `dino_electric` VALUES ('165', '3', '电表1', '100', '50', '20', '1', '1505963142', '1', null, null, '1');
+INSERT INTO `dino_electric` VALUES ('166', '2', '电表2', '20', '20', '20', '1', '1505963142', '1', null, null, '1');
+INSERT INTO `dino_electric` VALUES ('167', '8', '1231', '1000', '200', '200', '1', '1505975380', '1', null, null, '1');
+INSERT INTO `dino_electric` VALUES ('169', '7', '121', '123', '123', '123', '1', '1505975572', '1', null, null, '1');
+INSERT INTO `dino_electric` VALUES ('170', '8', '1', '111', '111', '11', '1', '1506000943', '1', null, null, '2');
+INSERT INTO `dino_electric` VALUES ('171', '8', '111', '11', '111', '11', '1', '1506002335', '5', null, null, '1');
 
 -- ----------------------------
 -- Table structure for `dino_electric_contract`
@@ -445,7 +440,7 @@ CREATE TABLE `dino_electric_contract` (
   `contract_id` int(11) DEFAULT NULL COMMENT '合同ID',
   `electric_id` int(11) DEFAULT NULL COMMENT '电表ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='合同与电表的关系表';
+) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='合同与电表的关系表';
 
 -- ----------------------------
 -- Records of dino_electric_contract
@@ -468,6 +463,15 @@ INSERT INTO `dino_electric_contract` VALUES ('69', '134', '69');
 INSERT INTO `dino_electric_contract` VALUES ('77', '143', '77');
 INSERT INTO `dino_electric_contract` VALUES ('78', '144', '78');
 INSERT INTO `dino_electric_contract` VALUES ('79', '145', '79');
+INSERT INTO `dino_electric_contract` VALUES ('81', '148', '81');
+INSERT INTO `dino_electric_contract` VALUES ('106', '156', '106');
+INSERT INTO `dino_electric_contract` VALUES ('164', '157', '164');
+INSERT INTO `dino_electric_contract` VALUES ('165', '157', '165');
+INSERT INTO `dino_electric_contract` VALUES ('166', '157', '166');
+INSERT INTO `dino_electric_contract` VALUES ('167', '158', '167');
+INSERT INTO `dino_electric_contract` VALUES ('169', '159', '169');
+INSERT INTO `dino_electric_contract` VALUES ('170', '161', '170');
+INSERT INTO `dino_electric_contract` VALUES ('171', '164', '171');
 
 -- ----------------------------
 -- Table structure for `dino_electric_price`
@@ -480,7 +484,7 @@ CREATE TABLE `dino_electric_price` (
   `readings_end` int(11) DEFAULT NULL COMMENT '结束度数',
   `price` decimal(10,2) DEFAULT NULL COMMENT '单价',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='电表与合同的单价';
+) ENGINE=InnoDB AUTO_INCREMENT=168 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='电表与合同的单价';
 
 -- ----------------------------
 -- Records of dino_electric_price
@@ -502,6 +506,15 @@ INSERT INTO `dino_electric_price` VALUES ('65', '69', '20', '300', '30.00');
 INSERT INTO `dino_electric_price` VALUES ('73', '77', '123', '123', '123.00');
 INSERT INTO `dino_electric_price` VALUES ('74', '78', '0', '0', '0.00');
 INSERT INTO `dino_electric_price` VALUES ('75', '79', '0', '0', '0.00');
+INSERT INTO `dino_electric_price` VALUES ('77', '81', '123', '1213123', '213.00');
+INSERT INTO `dino_electric_price` VALUES ('102', '106', '202', '2', '20.00');
+INSERT INTO `dino_electric_price` VALUES ('160', '164', '5', '10', '20.00');
+INSERT INTO `dino_electric_price` VALUES ('161', '165', '20', '60', '30.00');
+INSERT INTO `dino_electric_price` VALUES ('162', '166', '20', '20', '20.00');
+INSERT INTO `dino_electric_price` VALUES ('163', '167', '20', '20', '20.00');
+INSERT INTO `dino_electric_price` VALUES ('165', '169', '123', '123', '231.00');
+INSERT INTO `dino_electric_price` VALUES ('166', '170', '111', '11', '11.00');
+INSERT INTO `dino_electric_price` VALUES ('167', '171', '11', '111', '111.00');
 
 -- ----------------------------
 -- Table structure for `dino_electric_record`
@@ -518,11 +531,15 @@ CREATE TABLE `dino_electric_record` (
   `update_time` int(11) DEFAULT NULL COMMENT '更新时间',
   `update_id` int(11) DEFAULT NULL COMMENT '更新人',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='电表度数记录';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='电表度数记录';
 
 -- ----------------------------
 -- Records of dino_electric_record
 -- ----------------------------
+INSERT INTO `dino_electric_record` VALUES ('7', '81', '1119024000', '30', '50', '1505893121', '1', null, null);
+INSERT INTO `dino_electric_record` VALUES ('8', '85', '1116086400', '30', '30', '1505897714', '1', null, null);
+INSERT INTO `dino_electric_record` VALUES ('9', '87', '1118764800', '60', '60', '1505897714', '1', null, null);
+INSERT INTO `dino_electric_record` VALUES ('10', '167', '1506096000', '123', '123', '1506002367', '5', null, null);
 
 -- ----------------------------
 -- Table structure for `dino_house`
@@ -568,7 +585,7 @@ CREATE TABLE `dino_incomeexpenditure` (
   `update_id` int(11) DEFAULT NULL COMMENT '更新人',
   `pay_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='收入与支出';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='收入与支出';
 
 -- ----------------------------
 -- Records of dino_incomeexpenditure
@@ -606,7 +623,7 @@ CREATE TABLE `dino_log` (
   `user_name` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `user_ip` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=550 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='日志表';
+) ENGINE=MyISAM AUTO_INCREMENT=671 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='日志表';
 
 -- ----------------------------
 -- Records of dino_log
@@ -1149,6 +1166,127 @@ INSERT INTO `dino_log` VALUES ('546', '5', '3', '4', '修改了菜单为管理�
 INSERT INTO `dino_log` VALUES ('547', '5', '3', '4', '修改了菜单为系统管理', '2017-09-19 22:39:30', '要你管', '127.0.0.1');
 INSERT INTO `dino_log` VALUES ('548', '1', '0', '1', '登录成功', '2017-09-19 22:43:45', '1234', '127.0.0.1');
 INSERT INTO `dino_log` VALUES ('549', '5', '0', '1', '登录成功', '2017-09-19 22:44:47', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('550', '5', '0', '1', '登录成功', '2017-09-20 11:23:41', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('551', '5', '28', '2', '水表 抄表水表1', '2017-09-20 11:24:57', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('552', '5', '28', '2', '水表 抄表水表2', '2017-09-20 11:24:57', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('553', '5', '28', '2', '水表 抄表水表1', '2017-09-20 11:26:01', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('554', '5', '28', '2', '水表 抄表水表2', '2017-09-20 11:26:01', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('555', '5', '28', '2', '水表 抄表水表1', '2017-09-20 11:31:13', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('556', '5', '28', '2', '水表 抄表水表2', '2017-09-20 11:31:13', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('557', '5', '28', '4', '水表修改抄表', '2017-09-20 11:32:09', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('558', '5', '3', '2', '增加了了菜单为电表管理', '2017-09-20 11:47:52', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('559', '5', '7', '4', '修改了角色为测试', '2017-09-20 11:48:28', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('560', '5', '7', '4', '修改了角色为测试', '2017-09-20 11:48:41', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('561', '5', '3', '4', '修改了菜单为电表管理', '2017-09-20 11:49:13', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('562', '5', '7', '4', '修改了角色为测试', '2017-09-20 11:49:26', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('563', '5', '3', '4', '修改了菜单为电表管理', '2017-09-20 12:01:08', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('564', '5', '7', '4', '修改了角色为测试', '2017-09-20 12:01:25', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('565', '5', '27', '2', '增加了了合同号为22222', '2017-09-20 12:05:40', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('566', '5', '27', '2', '增加了了合同号为112121', '2017-09-20 14:27:33', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('567', '5', '34', '4', '修改了电表名为电表12', '2017-09-20 14:45:46', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('568', '5', '34', '2', '水表 抄表', '2017-09-20 14:49:08', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('569', '5', '34', '2', '水表 抄表', '2017-09-20 14:49:18', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('570', '1', '0', '1', '登录成功', '2017-09-20 14:50:00', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('571', '1', '34', '4', '水表修改抄表', '2017-09-20 15:00:10', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('572', '1', '34', '4', '水表修改抄表', '2017-09-20 15:00:40', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('573', '1', '34', '3', '删除了了水表名为电表名', '2017-09-20 15:03:02', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('574', '1', '34', '4', '水表修改抄表', '2017-09-20 15:23:11', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('575', '1', '34', '2', '电表 抄表电表1', '2017-09-20 15:27:54', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('576', '1', '34', '2', '电表 抄表电表2', '2017-09-20 15:27:54', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('577', '1', '34', '2', '电表 抄表1231', '2017-09-20 15:27:54', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('578', '1', '34', '2', '电表 抄表电表12', '2017-09-20 15:27:54', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('579', '1', '27', '2', '增加了了合同号为2213213', '2017-09-20 15:37:52', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('580', '1', '34', '2', '电表 抄表1231', '2017-09-20 15:38:41', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('581', '1', null, '2', '添加了客户名称为123123', '2017-09-20 15:39:52', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('582', '1', null, '2', '增加了角色为12322', '2017-09-20 16:18:13', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('583', '1', '27', '2', '增加了了合同号为合同1', '2017-09-20 16:31:06', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('584', '1', '28', '2', '水表 抄表水表1', '2017-09-20 16:51:20', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('585', '1', '28', '2', '水表 抄表水表2', '2017-09-20 16:51:20', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('586', '1', '28', '2', '水表 抄表水表1', '2017-09-20 16:52:36', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('587', '1', '28', '2', '水表 抄表水表2', '2017-09-20 16:52:36', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('588', '1', '28', '4', '修改了了水表名为水表1', '2017-09-20 16:53:59', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('589', '1', '28', '4', '修改了了水表名为水表1', '2017-09-20 16:54:06', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('590', '1', '34', '2', '电表 抄表电表1', '2017-09-20 16:55:14', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('591', '1', '34', '2', '电表 抄表电表2', '2017-09-20 16:55:14', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('592', '1', '27', '2', '增加了了合同号为合同2', '2017-09-20 16:57:59', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('593', '1', '27', '4', '修改了了合同号为合同1', '2017-09-20 16:59:08', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('594', '1', '27', '4', '修改了了合同号为合同3', '2017-09-20 17:19:21', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('595', '1', '27', '4', '修改了了合同号为合同12', '2017-09-20 17:24:53', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('596', '1', '28', '4', '修改了了水表名为水表12', '2017-09-20 17:25:23', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('597', '1', '28', '2', '水表 抄表', '2017-09-20 17:26:04', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('598', '1', '28', '4', '修改了了水表名为水表21', '2017-09-20 17:33:36', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('599', '1', '34', '4', '修改了电表名为电表21', '2017-09-20 17:36:29', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('600', '1', '3', '2', '增加了了菜单为合同管理', '2017-09-20 17:56:39', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('601', '1', '3', '2', '增加了了菜单为水表管理', '2017-09-20 17:57:40', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('602', '1', '3', '2', '增加了了菜单为电表管理', '2017-09-20 17:58:41', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('603', '1', '0', '1', '登录成功', '2017-09-21 11:04:17', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('604', '1', '27', '4', '修改了了合同号为合同12', '2017-09-21 11:05:10', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('605', '1', '28', '2', '水表 抄表', '2017-09-21 11:05:26', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('606', '1', '27', '4', '修改了了合同号为合同12', '2017-09-21 11:05:42', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('607', '1', null, '3', '删除了管理员为123', '2017-09-21 11:41:47', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('608', '1', '0', '1', '登录成功', '2017-09-21 11:44:06', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('609', '1', null, '3', '删除了业主名称为123', '2017-09-21 14:18:18', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('610', '1', null, '3', '删除了业主名称为213123', '2017-09-21 14:18:41', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('611', '1', null, '3', '删除了客户名称为123123', '2017-09-21 14:19:24', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('612', '1', null, '2', '添加了业主名称为123', '2017-09-21 14:27:58', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('613', '1', '27', '2', '增加了了合同号为123', '2017-09-21 14:29:41', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('614', '1', '27', '4', '退租了合同为123', '2017-09-21 14:29:57', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('615', '1', '27', '2', '增加了了合同号为22221', '2017-09-21 14:32:19', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('616', '1', '27', '4', '修改了了合同号为22221', '2017-09-21 14:32:52', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('617', '1', '27', '4', '退租了合同为123', '2017-09-21 14:33:32', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('618', '1', '28', '3', '删除了了水表名为水表2123', '2017-09-21 14:45:26', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('619', '1', '28', '3', '删除了了水表名为水表2', '2017-09-21 14:45:29', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('620', '1', '27', '4', '退租了合同为22221', '2017-09-21 14:46:13', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('621', '5', '0', '1', '登录成功', '2017-09-21 15:56:01', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('622', '5', '7', '4', '修改了角色为测试', '2017-09-21 15:56:23', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('623', '5', '0', '1', '登录成功', '2017-09-21 15:57:29', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('624', '5', '7', '4', '修改了角色为测试', '2017-09-21 15:57:51', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('625', '5', '28', '2', '水表 抄表121', '2017-09-21 16:00:12', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('626', '5', '0', '1', '登录成功', '2017-09-21 16:03:06', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('627', '5', '7', '4', '修改了角色为测试', '2017-09-21 16:03:54', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('628', '5', '0', '1', '登录成功', '2017-09-21 16:04:31', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('629', '5', '0', '1', '登录成功', '2017-09-21 16:05:04', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('630', '5', '0', '1', '登录成功', '2017-09-21 16:21:02', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('631', '5', '27', '4', '退租了合同为22221', '2017-09-21 16:22:24', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('632', '5', '27', '4', '退租了合同为123', '2017-09-21 16:22:27', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('633', '5', '7', '4', '修改了角色为测试', '2017-09-21 16:26:33', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('634', '1', '0', '1', '登录成功', '2017-09-21 16:27:03', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('635', '1', '27', '4', '退租了合同为22221', '2017-09-21 17:00:13', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('636', '1', '27', '4', '退租了合同为123', '2017-09-21 17:00:16', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('637', '5', '0', '1', '登录成功', '2017-09-21 20:52:59', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('638', '1', '0', '1', '登录成功', '2017-09-21 20:55:55', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('639', '5', '0', '1', '登录成功', '2017-09-21 20:56:13', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('640', '5', '27', '2', '增加了了合同号为123222', '2017-09-21 21:11:23', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('641', '5', '27', '4', '修改了了合同号为123222', '2017-09-21 21:13:14', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('642', '1', '0', '1', '登录成功', '2017-09-21 21:17:15', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('643', '1', '27', '4', '退租了合同为', '2017-09-21 21:33:31', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('644', '1', '27', '2', '增加了了合同号为2222', '2017-09-21 21:35:43', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('645', '1', '27', '4', '退租了合同为', '2017-09-21 21:38:02', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('646', '1', '27', '2', '增加了了合同号为1232221', '2017-09-21 21:39:09', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('647', '1', '27', '4', '退租了合同为', '2017-09-21 21:39:44', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('648', '1', '28', '3', '删除了了水表名为1212', '2017-09-21 21:40:53', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('649', '1', '28', '3', '删除了了水表名为111', '2017-09-21 21:41:09', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('650', '1', null, '3', '删除了业主名称为123', '2017-09-21 21:43:15', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('651', '1', null, '2', '添加了业主名称为123', '2017-09-21 21:43:43', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('652', '1', '27', '2', '增加了了合同号为111', '2017-09-21 21:44:25', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('653', '1', '28', '3', '删除了了水表名为2222222', '2017-09-21 21:45:07', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('654', '1', '27', '4', '退租了合同为', '2017-09-21 21:45:21', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('655', '1', '27', '4', '退租了合同为', '2017-09-21 21:52:16', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('656', '1', '28', '3', '删除了了水表名为1212', '2017-09-21 21:52:38', '1234', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('657', '5', '0', '1', '登录成功', '2017-09-21 21:56:25', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('658', '5', '27', '2', '增加了了合同号为21123', '2017-09-21 21:58:55', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('659', '5', '28', '2', '水表 抄表', '2017-09-21 21:59:12', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('660', '5', '34', '2', '水表 抄表', '2017-09-21 21:59:27', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('661', '5', '7', '4', '修改了角色为测试', '2017-09-21 22:00:13', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('662', '5', '28', '2', '水表 抄表2222222', '2017-09-21 22:01:28', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('663', '5', '28', '2', '水表 抄表111', '2017-09-21 22:01:28', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('664', '5', '28', '2', '水表 抄表1212', '2017-09-21 22:01:28', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('665', '5', '28', '2', '水表 抄表1212', '2017-09-21 22:01:28', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('666', '5', '28', '2', '水表 抄表121', '2017-09-21 22:01:50', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('667', '5', '28', '2', '水表 抄表2222222', '2017-09-21 22:01:50', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('668', '5', '28', '2', '水表 抄表111', '2017-09-21 22:01:50', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('669', '5', '28', '2', '水表 抄表1212', '2017-09-21 22:01:50', '要你管', '127.0.0.1');
+INSERT INTO `dino_log` VALUES ('670', '5', '28', '2', '水表 抄表1212', '2017-09-21 22:01:50', '要你管', '127.0.0.1');
 
 -- ----------------------------
 -- Table structure for `dino_park`
@@ -1175,11 +1313,11 @@ CREATE TABLE `dino_park` (
 -- ----------------------------
 -- Records of dino_park
 -- ----------------------------
-INSERT INTO `dino_park` VALUES ('2', '0', '1', '1', '4', '7', '北大园', '真真南山', null, '1', '1505365887', '1', null, null);
+INSERT INTO `dino_park` VALUES ('2', '164', '1', '1', '4', '7', '北大园', '真真南山', null, '1', '1505365887', '1', null, null);
 INSERT INTO `dino_park` VALUES ('3', '0', '1', '1', '4', '4', '浙大园', '浙江', null, '1', '1505358008', '1', null, null);
 INSERT INTO `dino_park` VALUES ('6', '0', '2', '4', '4', '4', '青岛园', '青岛', null, '1', '1505364871', '1', null, null);
-INSERT INTO `dino_park` VALUES ('7', '145', '1', '1', '1', '1', '213123', '123123', null, '1', '1505396457', '1', null, null);
-INSERT INTO `dino_park` VALUES ('8', '144', '1', '1', '1', '1', '1213123', '123123', null, '1', '1505397167', '1', null, null);
+INSERT INTO `dino_park` VALUES ('7', '157', '1', '1', '1', '1', '213123', '123123', null, '1', '1505396457', '1', null, null);
+INSERT INTO `dino_park` VALUES ('8', '156', '1', '1', '1', '1', '1213123', '123123', null, '1', '1505397167', '1', null, null);
 INSERT INTO `dino_park` VALUES ('9', '0', '1', '1', '1', '1', '1231231', '123123', null, '1', '1505720284', '1', null, null);
 
 -- ----------------------------
@@ -1196,7 +1334,7 @@ CREATE TABLE `dino_rent` (
   `time_end` date DEFAULT NULL COMMENT '结束时间',
   `rent` decimal(10,2) DEFAULT NULL COMMENT '租金',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=217 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='租金合同表';
+) ENGINE=InnoDB AUTO_INCREMENT=288 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='租金合同表';
 
 -- ----------------------------
 -- Records of dino_rent
@@ -1222,6 +1360,11 @@ INSERT INTO `dino_rent` VALUES ('213', '126', '17', '1', '1000', '2017-09-18', '
 INSERT INTO `dino_rent` VALUES ('214', '128', '0', '1', '1000', '2017-10-05', '2017-10-05', '1000.00');
 INSERT INTO `dino_rent` VALUES ('215', '128', '16', '1', '1000', '2017-09-22', '2017-09-28', '1000.00');
 INSERT INTO `dino_rent` VALUES ('216', '143', '16', '1', '123', '2017-09-19', '2017-09-29', '1000.00');
+INSERT INTO `dino_rent` VALUES ('217', '148', '16', '1', '12312', '2017-09-27', '2017-09-30', '123.00');
+INSERT INTO `dino_rent` VALUES ('243', '156', '16', '1', '1000', '2017-09-20', '2017-09-22', '1000.00');
+INSERT INTO `dino_rent` VALUES ('285', '157', '0', '2', '10', '2017-09-30', '2017-10-07', '2200.00');
+INSERT INTO `dino_rent` VALUES ('286', '157', '16', '1', '1000', '2017-09-20', '2017-09-30', '1000.00');
+INSERT INTO `dino_rent` VALUES ('287', '158', '17', '1', '123', '2017-09-21', '2017-09-28', '123.00');
 
 -- ----------------------------
 -- Table structure for `dino_role`
@@ -1233,7 +1376,7 @@ CREATE TABLE `dino_role` (
   `role_descript` varchar(128) DEFAULT NULL COMMENT '角色描述',
   `addtime` datetime DEFAULT NULL COMMENT '添加时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COMMENT='角色表';
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COMMENT='角色表';
 
 -- ----------------------------
 -- Records of dino_role
@@ -1243,6 +1386,7 @@ INSERT INTO `dino_role` VALUES ('13', '测试', '测试', null);
 INSERT INTO `dino_role` VALUES ('14', '213', '123', '2017-09-09 14:30:01');
 INSERT INTO `dino_role` VALUES ('15', 'cheshi1', '', '2017-09-10 22:50:27');
 INSERT INTO `dino_role` VALUES ('16', 'asd', '', '2017-09-10 23:04:57');
+INSERT INTO `dino_role` VALUES ('21', '12322', null, '2017-09-20 16:18:13');
 
 -- ----------------------------
 -- Table structure for `dino_role_value`
@@ -1255,7 +1399,7 @@ CREATE TABLE `dino_role_value` (
   `auth_c` varchar(100) DEFAULT NULL COMMENT '方法',
   `action_type` varchar(50) DEFAULT NULL COMMENT '权限 1 添加 2 修改 3 删除 4查询 5审查',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1691 DEFAULT CHARSET=utf8 COMMENT='角色权限表';
+) ENGINE=InnoDB AUTO_INCREMENT=2318 DEFAULT CHARSET=utf8 COMMENT='角色权限表';
 
 -- ----------------------------
 -- Records of dino_role_value
@@ -1310,69 +1454,107 @@ INSERT INTO `dino_role_value` VALUES ('1007', '16', 'system_list', 'Menu', '4');
 INSERT INTO `dino_role_value` VALUES ('1008', '16', 'dictionary_list', 'Menu', '4');
 INSERT INTO `dino_role_value` VALUES ('1009', '16', 'admin_role', 'Admin', '4');
 INSERT INTO `dino_role_value` VALUES ('1010', '16', 'admin_list', 'Admin', '4');
-INSERT INTO `dino_role_value` VALUES ('1628', '13', 'lists', 'Menu', '1');
-INSERT INTO `dino_role_value` VALUES ('1629', '13', 'lists', 'Menu', '2');
-INSERT INTO `dino_role_value` VALUES ('1630', '13', 'lists', 'Menu', '3');
-INSERT INTO `dino_role_value` VALUES ('1631', '13', 'lists', 'Menu', '4');
-INSERT INTO `dino_role_value` VALUES ('1632', '13', 'system_list', 'Menu', '1');
-INSERT INTO `dino_role_value` VALUES ('1633', '13', 'system_list', 'Menu', '2');
-INSERT INTO `dino_role_value` VALUES ('1634', '13', 'system_list', 'Menu', '3');
-INSERT INTO `dino_role_value` VALUES ('1635', '13', 'system_list', 'Menu', '4');
-INSERT INTO `dino_role_value` VALUES ('1636', '13', 'dictionary_list', 'Menu', '1');
-INSERT INTO `dino_role_value` VALUES ('1637', '13', 'dictionary_list', 'Menu', '2');
-INSERT INTO `dino_role_value` VALUES ('1638', '13', 'dictionary_list', 'Menu', '3');
-INSERT INTO `dino_role_value` VALUES ('1639', '13', 'dictionary_list', 'Menu', '4');
-INSERT INTO `dino_role_value` VALUES ('1640', '13', 'systemlog_list', 'Menu', '3');
-INSERT INTO `dino_role_value` VALUES ('1641', '13', 'systemlog_list', 'Menu', '4');
-INSERT INTO `dino_role_value` VALUES ('1642', '13', 'admin_role', 'Admin', '1');
-INSERT INTO `dino_role_value` VALUES ('1643', '13', 'admin_role', 'Admin', '2');
-INSERT INTO `dino_role_value` VALUES ('1644', '13', 'admin_role', 'Admin', '3');
-INSERT INTO `dino_role_value` VALUES ('1645', '13', 'admin_role', 'Admin', '4');
-INSERT INTO `dino_role_value` VALUES ('1646', '13', 'admin_list', 'Admin', '1');
-INSERT INTO `dino_role_value` VALUES ('1647', '13', 'admin_list', 'Admin', '2');
-INSERT INTO `dino_role_value` VALUES ('1648', '13', 'admin_list', 'Admin', '3');
-INSERT INTO `dino_role_value` VALUES ('1649', '13', 'admin_list', 'Admin', '4');
-INSERT INTO `dino_role_value` VALUES ('1650', '13', 'company_list', 'Enterprise', '1');
-INSERT INTO `dino_role_value` VALUES ('1651', '13', 'company_list', 'Enterprise', '2');
-INSERT INTO `dino_role_value` VALUES ('1652', '13', 'company_list', 'Enterprise', '3');
-INSERT INTO `dino_role_value` VALUES ('1653', '13', 'company_list', 'Enterprise', '4');
-INSERT INTO `dino_role_value` VALUES ('1654', '13', 'staff_list', 'Enterprise', '1');
-INSERT INTO `dino_role_value` VALUES ('1655', '13', 'staff_list', 'Enterprise', '2');
-INSERT INTO `dino_role_value` VALUES ('1656', '13', 'staff_list', 'Enterprise', '3');
-INSERT INTO `dino_role_value` VALUES ('1657', '13', 'staff_list', 'Enterprise', '4');
-INSERT INTO `dino_role_value` VALUES ('1658', '13', 'garden_list', 'Enterprise', '1');
-INSERT INTO `dino_role_value` VALUES ('1659', '13', 'garden_list', 'Enterprise', '2');
-INSERT INTO `dino_role_value` VALUES ('1660', '13', 'garden_list', 'Enterprise', '3');
-INSERT INTO `dino_role_value` VALUES ('1661', '13', 'garden_list', 'Enterprise', '4');
-INSERT INTO `dino_role_value` VALUES ('1662', '13', 'house_list', 'Enterprise', '2');
-INSERT INTO `dino_role_value` VALUES ('1663', '13', 'house_list', 'Enterprise', '3');
-INSERT INTO `dino_role_value` VALUES ('1664', '13', 'house_list', 'Enterprise', '4');
-INSERT INTO `dino_role_value` VALUES ('1665', '13', 'customer_list', 'Customer', '1');
-INSERT INTO `dino_role_value` VALUES ('1666', '13', 'customer_list', 'Customer', '2');
-INSERT INTO `dino_role_value` VALUES ('1667', '13', 'customer_list', 'Customer', '3');
-INSERT INTO `dino_role_value` VALUES ('1668', '13', 'customer_list', 'Customer', '4');
-INSERT INTO `dino_role_value` VALUES ('1669', '13', 'detailed_list', 'Detailed', '1');
-INSERT INTO `dino_role_value` VALUES ('1670', '13', 'detailed_list', 'Detailed', '2');
-INSERT INTO `dino_role_value` VALUES ('1671', '13', 'detailed_list', 'Detailed', '3');
-INSERT INTO `dino_role_value` VALUES ('1672', '13', 'detailed_list', 'Detailed', '4');
-INSERT INTO `dino_role_value` VALUES ('1673', '13', 'detailed_list', 'Detailed', '6');
-INSERT INTO `dino_role_value` VALUES ('1674', '13', 'cuscontract_list', 'Cuscontract', '1');
-INSERT INTO `dino_role_value` VALUES ('1675', '13', 'cuscontract_list', 'Cuscontract', '2');
-INSERT INTO `dino_role_value` VALUES ('1676', '13', 'cuscontract_list', 'Cuscontract', '3');
-INSERT INTO `dino_role_value` VALUES ('1677', '13', 'cuscontract_list', 'Cuscontract', '4');
-INSERT INTO `dino_role_value` VALUES ('1678', '13', 'water_list', 'Cuscontract', '1');
-INSERT INTO `dino_role_value` VALUES ('1679', '13', 'water_list', 'Cuscontract', '2');
-INSERT INTO `dino_role_value` VALUES ('1680', '13', 'water_list', 'Cuscontract', '3');
-INSERT INTO `dino_role_value` VALUES ('1681', '13', 'water_list', 'Cuscontract', '4');
-INSERT INTO `dino_role_value` VALUES ('1682', '13', 'water_list', 'Cuscontract', '6');
-INSERT INTO `dino_role_value` VALUES ('1683', '13', 'water_list', 'Cuscontract', '7');
-INSERT INTO `dino_role_value` VALUES ('1684', '13', 'income_list', 'Finance', '1');
-INSERT INTO `dino_role_value` VALUES ('1685', '13', 'income_list', 'Finance', '2');
-INSERT INTO `dino_role_value` VALUES ('1686', '13', 'income_list', 'Finance', '4');
-INSERT INTO `dino_role_value` VALUES ('1687', '13', 'income_list', 'Finance', '6');
-INSERT INTO `dino_role_value` VALUES ('1688', '13', 'expenditure_list', 'Finance', '1');
-INSERT INTO `dino_role_value` VALUES ('1689', '13', 'expenditure_list', 'Finance', '2');
-INSERT INTO `dino_role_value` VALUES ('1690', '13', 'expenditure_list', 'Finance', '4');
+INSERT INTO `dino_role_value` VALUES ('1946', '21', 'lists', 'Menu', '1');
+INSERT INTO `dino_role_value` VALUES ('1947', '21', 'lists', 'Menu', '2');
+INSERT INTO `dino_role_value` VALUES ('1948', '21', 'lists', 'Menu', '3');
+INSERT INTO `dino_role_value` VALUES ('1949', '21', 'lists', 'Menu', '4');
+INSERT INTO `dino_role_value` VALUES ('1950', '21', 'system_list', 'Menu', '1');
+INSERT INTO `dino_role_value` VALUES ('1951', '21', 'system_list', 'Menu', '2');
+INSERT INTO `dino_role_value` VALUES ('1952', '21', 'system_list', 'Menu', '3');
+INSERT INTO `dino_role_value` VALUES ('1953', '21', 'system_list', 'Menu', '4');
+INSERT INTO `dino_role_value` VALUES ('1954', '21', 'dictionary_list', 'Menu', '1');
+INSERT INTO `dino_role_value` VALUES ('1955', '21', 'dictionary_list', 'Menu', '2');
+INSERT INTO `dino_role_value` VALUES ('1956', '21', 'dictionary_list', 'Menu', '3');
+INSERT INTO `dino_role_value` VALUES ('1957', '21', 'dictionary_list', 'Menu', '4');
+INSERT INTO `dino_role_value` VALUES ('1958', '21', 'systemlog_list', 'Menu', '3');
+INSERT INTO `dino_role_value` VALUES ('1959', '21', 'systemlog_list', 'Menu', '4');
+INSERT INTO `dino_role_value` VALUES ('2231', '13', 'lists', 'Menu', '1');
+INSERT INTO `dino_role_value` VALUES ('2232', '13', 'lists', 'Menu', '2');
+INSERT INTO `dino_role_value` VALUES ('2233', '13', 'lists', 'Menu', '3');
+INSERT INTO `dino_role_value` VALUES ('2234', '13', 'lists', 'Menu', '4');
+INSERT INTO `dino_role_value` VALUES ('2235', '13', 'system_list', 'Menu', '1');
+INSERT INTO `dino_role_value` VALUES ('2236', '13', 'system_list', 'Menu', '2');
+INSERT INTO `dino_role_value` VALUES ('2237', '13', 'system_list', 'Menu', '3');
+INSERT INTO `dino_role_value` VALUES ('2238', '13', 'system_list', 'Menu', '4');
+INSERT INTO `dino_role_value` VALUES ('2239', '13', 'dictionary_list', 'Menu', '1');
+INSERT INTO `dino_role_value` VALUES ('2240', '13', 'dictionary_list', 'Menu', '2');
+INSERT INTO `dino_role_value` VALUES ('2241', '13', 'dictionary_list', 'Menu', '3');
+INSERT INTO `dino_role_value` VALUES ('2242', '13', 'dictionary_list', 'Menu', '4');
+INSERT INTO `dino_role_value` VALUES ('2243', '13', 'systemlog_list', 'Menu', '3');
+INSERT INTO `dino_role_value` VALUES ('2244', '13', 'systemlog_list', 'Menu', '4');
+INSERT INTO `dino_role_value` VALUES ('2245', '13', 'admin_role', 'Admin', '1');
+INSERT INTO `dino_role_value` VALUES ('2246', '13', 'admin_role', 'Admin', '2');
+INSERT INTO `dino_role_value` VALUES ('2247', '13', 'admin_role', 'Admin', '3');
+INSERT INTO `dino_role_value` VALUES ('2248', '13', 'admin_role', 'Admin', '4');
+INSERT INTO `dino_role_value` VALUES ('2249', '13', 'admin_list', 'Admin', '1');
+INSERT INTO `dino_role_value` VALUES ('2250', '13', 'admin_list', 'Admin', '2');
+INSERT INTO `dino_role_value` VALUES ('2251', '13', 'admin_list', 'Admin', '3');
+INSERT INTO `dino_role_value` VALUES ('2252', '13', 'admin_list', 'Admin', '4');
+INSERT INTO `dino_role_value` VALUES ('2253', '13', 'company_list', 'Enterprise', '1');
+INSERT INTO `dino_role_value` VALUES ('2254', '13', 'company_list', 'Enterprise', '2');
+INSERT INTO `dino_role_value` VALUES ('2255', '13', 'company_list', 'Enterprise', '3');
+INSERT INTO `dino_role_value` VALUES ('2256', '13', 'company_list', 'Enterprise', '4');
+INSERT INTO `dino_role_value` VALUES ('2257', '13', 'staff_list', 'Enterprise', '1');
+INSERT INTO `dino_role_value` VALUES ('2258', '13', 'staff_list', 'Enterprise', '2');
+INSERT INTO `dino_role_value` VALUES ('2259', '13', 'staff_list', 'Enterprise', '3');
+INSERT INTO `dino_role_value` VALUES ('2260', '13', 'staff_list', 'Enterprise', '4');
+INSERT INTO `dino_role_value` VALUES ('2261', '13', 'garden_list', 'Enterprise', '1');
+INSERT INTO `dino_role_value` VALUES ('2262', '13', 'garden_list', 'Enterprise', '2');
+INSERT INTO `dino_role_value` VALUES ('2263', '13', 'garden_list', 'Enterprise', '3');
+INSERT INTO `dino_role_value` VALUES ('2264', '13', 'garden_list', 'Enterprise', '4');
+INSERT INTO `dino_role_value` VALUES ('2265', '13', 'house_list', 'Enterprise', '2');
+INSERT INTO `dino_role_value` VALUES ('2266', '13', 'house_list', 'Enterprise', '3');
+INSERT INTO `dino_role_value` VALUES ('2267', '13', 'house_list', 'Enterprise', '4');
+INSERT INTO `dino_role_value` VALUES ('2268', '13', 'customer_list', 'Customer', '1');
+INSERT INTO `dino_role_value` VALUES ('2269', '13', 'customer_list', 'Customer', '2');
+INSERT INTO `dino_role_value` VALUES ('2270', '13', 'customer_list', 'Customer', '3');
+INSERT INTO `dino_role_value` VALUES ('2271', '13', 'customer_list', 'Customer', '4');
+INSERT INTO `dino_role_value` VALUES ('2272', '13', 'cuscontract_list', 'Customer', '1');
+INSERT INTO `dino_role_value` VALUES ('2273', '13', 'cuscontract_list', 'Customer', '2');
+INSERT INTO `dino_role_value` VALUES ('2274', '13', 'cuscontract_list', 'Customer', '3');
+INSERT INTO `dino_role_value` VALUES ('2275', '13', 'cuscontract_list', 'Customer', '4');
+INSERT INTO `dino_role_value` VALUES ('2276', '13', 'cuscontract_list', 'Customer', '6');
+INSERT INTO `dino_role_value` VALUES ('2277', '13', 'cuscontract_list', 'Customer', '7');
+INSERT INTO `dino_role_value` VALUES ('2278', '13', 'water_list', 'Customer', '1');
+INSERT INTO `dino_role_value` VALUES ('2279', '13', 'water_list', 'Customer', '2');
+INSERT INTO `dino_role_value` VALUES ('2280', '13', 'water_list', 'Customer', '3');
+INSERT INTO `dino_role_value` VALUES ('2281', '13', 'water_list', 'Customer', '4');
+INSERT INTO `dino_role_value` VALUES ('2282', '13', 'water_list', 'Customer', '6');
+INSERT INTO `dino_role_value` VALUES ('2283', '13', 'water_list', 'Customer', '7');
+INSERT INTO `dino_role_value` VALUES ('2284', '13', 'electric_list', 'Customer', '1');
+INSERT INTO `dino_role_value` VALUES ('2285', '13', 'electric_list', 'Customer', '2');
+INSERT INTO `dino_role_value` VALUES ('2286', '13', 'electric_list', 'Customer', '3');
+INSERT INTO `dino_role_value` VALUES ('2287', '13', 'electric_list', 'Customer', '4');
+INSERT INTO `dino_role_value` VALUES ('2288', '13', 'electric_list', 'Customer', '6');
+INSERT INTO `dino_role_value` VALUES ('2289', '13', 'electric_list', 'Customer', '7');
+INSERT INTO `dino_role_value` VALUES ('2290', '13', 'detailed_list', 'Detailed', '1');
+INSERT INTO `dino_role_value` VALUES ('2291', '13', 'detailed_list', 'Detailed', '2');
+INSERT INTO `dino_role_value` VALUES ('2292', '13', 'detailed_list', 'Detailed', '3');
+INSERT INTO `dino_role_value` VALUES ('2293', '13', 'detailed_list', 'Detailed', '4');
+INSERT INTO `dino_role_value` VALUES ('2294', '13', 'detailed_list', 'Detailed', '6');
+INSERT INTO `dino_role_value` VALUES ('2295', '13', 'cuscontract_list', 'Cuscontract', '1');
+INSERT INTO `dino_role_value` VALUES ('2296', '13', 'cuscontract_list', 'Cuscontract', '2');
+INSERT INTO `dino_role_value` VALUES ('2297', '13', 'cuscontract_list', 'Cuscontract', '3');
+INSERT INTO `dino_role_value` VALUES ('2298', '13', 'cuscontract_list', 'Cuscontract', '4');
+INSERT INTO `dino_role_value` VALUES ('2299', '13', 'water_list', 'Cuscontract', '1');
+INSERT INTO `dino_role_value` VALUES ('2300', '13', 'water_list', 'Cuscontract', '2');
+INSERT INTO `dino_role_value` VALUES ('2301', '13', 'water_list', 'Cuscontract', '3');
+INSERT INTO `dino_role_value` VALUES ('2302', '13', 'water_list', 'Cuscontract', '4');
+INSERT INTO `dino_role_value` VALUES ('2303', '13', 'water_list', 'Cuscontract', '6');
+INSERT INTO `dino_role_value` VALUES ('2304', '13', 'water_list', 'Cuscontract', '7');
+INSERT INTO `dino_role_value` VALUES ('2305', '13', 'electric_list', 'Cuscontract', '1');
+INSERT INTO `dino_role_value` VALUES ('2306', '13', 'electric_list', 'Cuscontract', '2');
+INSERT INTO `dino_role_value` VALUES ('2307', '13', 'electric_list', 'Cuscontract', '3');
+INSERT INTO `dino_role_value` VALUES ('2308', '13', 'electric_list', 'Cuscontract', '4');
+INSERT INTO `dino_role_value` VALUES ('2309', '13', 'electric_list', 'Cuscontract', '6');
+INSERT INTO `dino_role_value` VALUES ('2310', '13', 'electric_list', 'Cuscontract', '7');
+INSERT INTO `dino_role_value` VALUES ('2311', '13', 'income_list', 'Finance', '1');
+INSERT INTO `dino_role_value` VALUES ('2312', '13', 'income_list', 'Finance', '2');
+INSERT INTO `dino_role_value` VALUES ('2313', '13', 'income_list', 'Finance', '4');
+INSERT INTO `dino_role_value` VALUES ('2314', '13', 'income_list', 'Finance', '6');
+INSERT INTO `dino_role_value` VALUES ('2315', '13', 'expenditure_list', 'Finance', '1');
+INSERT INTO `dino_role_value` VALUES ('2316', '13', 'expenditure_list', 'Finance', '2');
+INSERT INTO `dino_role_value` VALUES ('2317', '13', 'expenditure_list', 'Finance', '4');
 
 -- ----------------------------
 -- Table structure for `dino_staff`
@@ -1444,7 +1626,7 @@ CREATE TABLE `dino_transformer` (
   `number` int(2) DEFAULT NULL COMMENT '变压器数量',
   `details` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '变压器详情',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=78 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='变压器表';
+) ENGINE=MyISAM AUTO_INCREMENT=136 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='变压器表';
 
 -- ----------------------------
 -- Records of dino_transformer
@@ -1507,9 +1689,25 @@ INSERT INTO `dino_transformer` VALUES ('71', '138', '100', '100kw');
 INSERT INTO `dino_transformer` VALUES ('72', '140', '100', '100kw');
 INSERT INTO `dino_transformer` VALUES ('73', '141', '100', '100kw');
 INSERT INTO `dino_transformer` VALUES ('74', '142', '100', '100kw');
-INSERT INTO `dino_transformer` VALUES ('75', '143', '100', '100kw');
+INSERT INTO `dino_transformer` VALUES ('82', '150', '100', '100kw');
 INSERT INTO `dino_transformer` VALUES ('76', '144', '100', '100kw');
 INSERT INTO `dino_transformer` VALUES ('77', '145', '100', '1000kw');
+INSERT INTO `dino_transformer` VALUES ('78', '146', '1000', '2000');
+INSERT INTO `dino_transformer` VALUES ('79', '147', '123123', '123213');
+INSERT INTO `dino_transformer` VALUES ('80', '148', '123', '123');
+INSERT INTO `dino_transformer` VALUES ('81', '149', '100', '100kw');
+INSERT INTO `dino_transformer` VALUES ('83', '151', '100', '100kw');
+INSERT INTO `dino_transformer` VALUES ('84', '152', '100', '100kw');
+INSERT INTO `dino_transformer` VALUES ('85', '153', '100', '100KW');
+INSERT INTO `dino_transformer` VALUES ('86', '154', '100', '100KW');
+INSERT INTO `dino_transformer` VALUES ('128', '158', '1000', '2000');
+INSERT INTO `dino_transformer` VALUES ('104', '156', '111', '2000');
+INSERT INTO `dino_transformer` VALUES ('127', '157', '100', '100KW');
+INSERT INTO `dino_transformer` VALUES ('130', '159', '123', '123');
+INSERT INTO `dino_transformer` VALUES ('132', '160', '1000', '1000KW');
+INSERT INTO `dino_transformer` VALUES ('133', '161', '111', '111');
+INSERT INTO `dino_transformer` VALUES ('134', '162', '12121', '21');
+INSERT INTO `dino_transformer` VALUES ('135', '164', '111', '111');
 
 -- ----------------------------
 -- Table structure for `dino_user`
@@ -1549,19 +1747,20 @@ CREATE TABLE `dino_water` (
   `create_id` int(11) DEFAULT NULL COMMENT '创建人员',
   `update_time` int(11) DEFAULT NULL COMMENT '更新时间',
   `update_id` int(11) DEFAULT NULL COMMENT '更新人',
+  `type` char(1) COLLATE utf8_unicode_ci DEFAULT '1' COMMENT '1正常，2假删',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='水表';
+) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='水表';
 
 -- ----------------------------
 -- Records of dino_water
 -- ----------------------------
-INSERT INTO `dino_water` VALUES ('60', '8', '水表1', '10', '101', '10', '1', '1505720147', '1', null, null);
-INSERT INTO `dino_water` VALUES ('61', '8', '水表', '0', '0', '10', '1', '1505720011', '1', null, null);
-INSERT INTO `dino_water` VALUES ('62', '8', '水表1', '0', '10', '50', '2', '1505719900', '1', '1505805004', '1');
-INSERT INTO `dino_water` VALUES ('63', '8', '水表1', '0', '10', '50', '1', '1505719850', '1', null, null);
-INSERT INTO `dino_water` VALUES ('64', '8', '水表1', '0', '10', '50', '1', '1505718948', '1', null, null);
-INSERT INTO `dino_water` VALUES ('67', '7', '水表1', '1', '1', '1', '1', '1505825340', '1', '1505825420', '1');
-INSERT INTO `dino_water` VALUES ('68', '7', '水表2', '1', '0', '0', '1', '1505825411', '1', null, null);
+INSERT INTO `dino_water` VALUES ('115', '7', '121', '123', '123', '123', '1', '1505975380', '1', null, null, '1');
+INSERT INTO `dino_water` VALUES ('117', '7', '121', '213', '123', '123', '1', '1505975572', '1', null, null, '1');
+INSERT INTO `dino_water` VALUES ('119', '8', '2222222', '121', '12', '12', '1', '1505999594', '5', null, null, '2');
+INSERT INTO `dino_water` VALUES ('120', '7', '111', '11', '11', '11', '1', '1506000943', '1', null, null, '2');
+INSERT INTO `dino_water` VALUES ('121', '7', '1212', '1212', '12', '1212', '1', '1506001149', '1', null, null, '2');
+INSERT INTO `dino_water` VALUES ('122', '8', '1212', '2123', '123', '123', '1', '1506001465', '1', null, null, '2');
+INSERT INTO `dino_water` VALUES ('123', '7', '1212', '121', '212', '21', '1', '1506002335', '5', null, null, '1');
 
 -- ----------------------------
 -- Table structure for `dino_water_contract`
@@ -1574,7 +1773,7 @@ CREATE TABLE `dino_water_contract` (
   `share` int(3) DEFAULT '100' COMMENT '分摊比例',
   `status` int(1) DEFAULT '1' COMMENT '状态（1；正常）',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='合同与水表的关系表';
+) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='合同与水表的关系表';
 
 -- ----------------------------
 -- Records of dino_water_contract
@@ -1586,6 +1785,15 @@ INSERT INTO `dino_water_contract` VALUES ('54', '128', '54', '10', '1');
 INSERT INTO `dino_water_contract` VALUES ('55', '130', '55', '10', '1');
 INSERT INTO `dino_water_contract` VALUES ('62', '144', '67', '10', '1');
 INSERT INTO `dino_water_contract` VALUES ('63', '145', '68', '0', '1');
+INSERT INTO `dino_water_contract` VALUES ('64', '147', '69', '231', '1');
+INSERT INTO `dino_water_contract` VALUES ('65', '148', '70', '213', '1');
+INSERT INTO `dino_water_contract` VALUES ('110', '158', '115', '123', '1');
+INSERT INTO `dino_water_contract` VALUES ('112', '159', '117', '22', '1');
+INSERT INTO `dino_water_contract` VALUES ('114', '160', '119', '121', '2');
+INSERT INTO `dino_water_contract` VALUES ('115', '161', '120', '111', '2');
+INSERT INTO `dino_water_contract` VALUES ('116', '162', '121', '12', '2');
+INSERT INTO `dino_water_contract` VALUES ('117', '163', '122', '123', '2');
+INSERT INTO `dino_water_contract` VALUES ('118', '164', '123', '21', '1');
 
 -- ----------------------------
 -- Table structure for `dino_water_price`
@@ -1599,7 +1807,7 @@ CREATE TABLE `dino_water_price` (
   `readings_end` int(11) DEFAULT NULL COMMENT '结束度数',
   `price` decimal(10,2) DEFAULT NULL COMMENT '单价',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='水表与合同单价';
+) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='水表与合同单价';
 
 -- ----------------------------
 -- Records of dino_water_price
@@ -1611,6 +1819,15 @@ INSERT INTO `dino_water_price` VALUES ('52', '54', '128', '100', '500', '3.00');
 INSERT INTO `dino_water_price` VALUES ('53', '55', '130', '1101', '2323', '10.00');
 INSERT INTO `dino_water_price` VALUES ('60', '67', '144', '1', '1', '1.00');
 INSERT INTO `dino_water_price` VALUES ('61', '68', '145', '0', '0', '0.00');
+INSERT INTO `dino_water_price` VALUES ('62', '69', '147', '213', '231', '213.00');
+INSERT INTO `dino_water_price` VALUES ('63', '70', '148', '123', '123', '321.00');
+INSERT INTO `dino_water_price` VALUES ('108', '115', '158', '123', '1231', '123.00');
+INSERT INTO `dino_water_price` VALUES ('110', '117', '1', '132', '123', '213.00');
+INSERT INTO `dino_water_price` VALUES ('112', '119', '1', '2', '12', '12.00');
+INSERT INTO `dino_water_price` VALUES ('113', '120', '161', '11', '11', '1.00');
+INSERT INTO `dino_water_price` VALUES ('114', '121', '162', '12', '12', '21.00');
+INSERT INTO `dino_water_price` VALUES ('115', '122', '163', '123', '123', '123.00');
+INSERT INTO `dino_water_price` VALUES ('116', '123', '164', '12', '12', '12.00');
 
 -- ----------------------------
 -- Table structure for `dino_water_record`
@@ -1627,10 +1844,19 @@ CREATE TABLE `dino_water_record` (
   `update_time` int(11) DEFAULT NULL COMMENT '更新时间',
   `update_id` int(11) DEFAULT NULL COMMENT '更新人',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='水表度数记录';
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='水表度数记录';
 
 -- ----------------------------
 -- Records of dino_water_record
 -- ----------------------------
-INSERT INTO `dino_water_record` VALUES ('57', '67', '1150473600', '30', '30', '1505831263', '1', null, null);
-INSERT INTO `dino_water_record` VALUES ('58', '68', '1150473600', '10', '0', '1505831263', '1', null, null);
+INSERT INTO `dino_water_record` VALUES ('67', '71', '1118764800', '30', '30', '1505897556', '1', null, null);
+INSERT INTO `dino_water_record` VALUES ('68', '72', '1118764800', '30', '50', '1505897556', '1', null, null);
+INSERT INTO `dino_water_record` VALUES ('69', '109', '1505836800', '111', '12312', '1505899564', '1', null, null);
+INSERT INTO `dino_water_record` VALUES ('70', '111', '1505923200', '123', '213', '1505963126', '1', null, null);
+INSERT INTO `dino_water_record` VALUES ('71', '115', '1118937600', '30', '20', '1505980812', '5', null, null);
+INSERT INTO `dino_water_record` VALUES ('72', '123', '1505923200', '213', '123', '1506002352', '5', null, null);
+INSERT INTO `dino_water_record` VALUES ('77', '115', '', '123', '121', '1506002510', '5', null, null);
+INSERT INTO `dino_water_record` VALUES ('78', '119', '1118937600', '1212', '23', '1506002510', '5', null, null);
+INSERT INTO `dino_water_record` VALUES ('79', '120', '1118937600', '3', '23', '1506002510', '5', null, null);
+INSERT INTO `dino_water_record` VALUES ('80', '121', '1118937600', '23', '3232', '1506002510', '5', null, null);
+INSERT INTO `dino_water_record` VALUES ('81', '122', '1118937600', '23', '211', '1506002510', '5', null, null);
