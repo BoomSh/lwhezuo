@@ -49,7 +49,7 @@ class Common extends Controller
                 $lw_auth = DB::name("role_value")->where($auth_where)->field("COUNT(*)")->find();
                 if($lw_auth['COUNT(*)'] == 0){
                      /*如果有某些方法不符合规则 则在这里添加控制器加方法*/
-                      $pdarray = array("Cuscontractgarden_add","Cuscontractcompany_add","Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del","Enterprisecompany_list","Enterprisestaff_list","Cuscontractwaterhistory_list","Cuscontractwaterhistory_add","Cuscontractwaterhistory_edit","Cuscontractelectrichistory_list","Cuscontractelectrichistory_edit","Cuscontractelectrichistory_add","Enterprisegarden_selectinfo","Financeexpenditure_selectinfo");
+                      $pdarray = array("Cuscontractgarden_add","Cuscontractcompany_add","Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del","Enterprisecompany_list","Enterprisestaff_list","Cuscontractwaterhistory_list","Cuscontractwaterhistory_add","Cuscontractwaterhistory_edit","Cuscontractelectrichistory_list","Cuscontractelectrichistory_edit","Cuscontractelectrichistory_add","Enterprisegarden_selectinfo","Financeexpenditure_selectinfo","Financeincome_mb");
                       $con_act = $contro.$action;
                       if(!in_array($con_act,$pdarray)){
                         echo $con_act;exit;
@@ -86,7 +86,7 @@ class Common extends Controller
                     }
                 }
                 if(!isset($auth_where['action_type'])){
-                  $auth_where['action_type'] = 0;
+                  $auth_w['action_type'] = 0;
                 }
                 $auth_w['role_id'] = $_SESSION['role_id'];
                 $auth_w['auth_c'] = $contro;
@@ -94,7 +94,7 @@ class Common extends Controller
                 $lw_auth = DB::name("role_value")->where($auth_w)->field("COUNT(*)")->find();
                 if($lw_auth['COUNT(*)'] == 0){
                      /*如果有某些方法不符合规则 则在这里添加控制器加方法*/
-                      $pdarray = array("Cuscontractgarden_add","Cuscontractcompany_add","Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del","Enterprisecompany_list","Enterprisestaff_list","Cuscontractwaterhistory_list","Cuscontractwaterhistory_add","Cuscontractwaterhistory_edit","Cuscontractelectrichistory_list","Cuscontractelectrichistory_edit","Cuscontractelectrichistory_add","Enterprisegarden_selectinfo","Financeexpenditure_selectinfo");
+                      $pdarray = array("Cuscontractgarden_add","Cuscontractcompany_add","Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del","Enterprisecompany_list","Enterprisestaff_list","Cuscontractwaterhistory_list","Cuscontractwaterhistory_add","Cuscontractwaterhistory_edit","Cuscontractelectrichistory_list","Cuscontractelectrichistory_edit","Cuscontractelectrichistory_add","Enterprisegarden_selectinfo","Financeexpenditure_selectinfo","Financeincome_mb");
                       $con_act = $contro.$action;
                       //echo $con_act;
                       if(!in_array($con_act,$pdarray)){

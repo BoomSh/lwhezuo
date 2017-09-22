@@ -6,11 +6,11 @@
 </head>
 <body>
 <article class="page-container">
-	<form action="" method="post" class="form form-horizontal" id="form-member-add">
+	 <form action="" enctype="multipart/form-data" method="post" id="uploadForm" class="form form-horizontal">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">下载模板：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<a href="{:url('Finance/income_mb')}" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe644;</i> 导出缴费模板</a>
+				<a href="javascript:;" onclick="xzmb();" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe644;</i> 导出缴费模板</a>
 			</div>
 		</div>
 		<div class="row cl">
@@ -19,13 +19,13 @@
 				<span class="btn-upload form-group">
 			<input class="input-text upload-url" type="text" name="uploadfile-2" id="uploadfile-2" readonly style="width:200px">
 			<a href="javascript:void();" class="btn btn-primary upload-btn"><i class="Hui-iconfont">&#xe642;</i> 上传exel</a>
-			<input type="file" multiple name="file-2" class="input-file">
+			<input type="file"  name="excel" class="input-file" accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"  id="file_excel">
 			</span>
 			</div>
 		</div>
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+			<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;"  onclick="select_file_excel();return false;">
 			</div>
 		</div>
 	</form>
@@ -34,10 +34,10 @@
 {include file="/Public/footer"}
 
 <!--请在下方写此页面业务相关的脚本--> 
-<script type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"></script>
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script> 
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
 $(function(){
 	$('.skin-minimal input').iCheck({
@@ -47,6 +47,50 @@ $(function(){
 	});
 	 
 });
+/*下载模板*/
+function xzmb(){
+	    location.href="{:url('Finance/income_mb')}";
+}
+function select_file_excel() {
+        var zhi = $("#file_excel").val();
+        zlen = zhi.length;
+        if(zhi == 0){
+            layer.msg("请选择导入的水表信息");
+        return false;
+        }else{
+            var file = $("#file_excel").val();
+            if(!/.(xls|xlsx)$/.test(file)){
+                layer.msg("只能导入 Excel 文件");
+                return false;
+            }
+        }
+        $.ajax({
+            url: "{:url('Finance/income_lead')}",
+            type: 'POST',
+            cache: false,
+            data: new FormData($('#uploadForm')[0]),
+            dataType:'json',
+            processData: false,
+            contentType: false,
+            success:function(json){
+                //清空内容
+                //返回提示信息
+                //todo 待处理代码
+                /*var len = json.indexOf("<br");
+                var zhi = json.substring(0,len);*/
+                ajaxobj=eval("("+json+")");
+                if(ajaxobj['gg'] == "success"){
+                    layer.msg("导入成功");
+                    setTimeout(function () {
+                            parent.location.reload();
+                            },1000)
+                }else{
+                    layer.msg("导入失败");
+                    location.href="{:url('Finance/income_excelinmg')}?data="+json;
+                }
+            }
+        });
+    }
 </script> 
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

@@ -203,6 +203,78 @@ class Finance extends Common
         }
     }
     /**
+     * 导入信息插入数据库
+     * @param  [type] $arr [description]
+     * @return [type]      [description]
+     */
+    public function income_lead($arr){
+        if(empty($arr)){
+            return "没有可导入的信息";
+        }else{
+             Db::startTrans();
+            foreach($arr as $k => $v){
+                //园区的名字
+                $park['name'] = $arr[$k][1];
+                $find = DB::name("park")->where($park)->field("id")->find();
+                if(!$find){
+                    $jg = 1;
+                    $arr[$k][9] = "没有找到相对应的园区";
+                }else{
+                    $customer['name'] =  $arr[$k][2];
+                    $customer['mobile'] = $arr[$k][3];
+                    $find2 = DB::name("customer")->where($customer)->field("id,type")->find();
+                    if(!$find2){
+                        $jg = 1;
+                        $arr[$k][9] = "付款人不存在";
+                    }else{
+                        $staff['name'] =  $arr[$k][4];
+                        $staff['mobile'] = array("like","%".$arr[$k][5]."%");
+                        $staff['status'] = 1;
+                        $find3 = DB::name("staff")->where($staff)->field("id")->find();
+                        if(!$find3){
+                            $jg = 1;
+                            $arr[$k][9] = "收款人不存在";
+                        }else{
+                            $pay_type['name'] =  $arr[$k][7]; 
+                            $find4 = DB::name("dictionary")->where($pay_type)->field("id")->find();
+                            if(!$find4){
+                                $jg = 1;
+                                $arr[$k][9] = "付款方式不存在";
+                            }else{
+                                $dictionary['name'] =  $arr[$k][8];
+                                $find5 = DB::name("dictionary")->where($dictionary)->field("id")->find();
+                                if(!$find5){
+                                    $jg = 1;
+                                    $arr[$k][9] = "费用类型不存在";
+                                }else{
+                                    $data['payment_id'] = $find2['id'];
+                                    $data['payee_id'] = $find3['id'];
+                                    $data['park_id'] = $find['id'];
+                                    $data['customer_type'] = $find2['type'];
+                                    $data['pay_type'] = $find4['id'];
+                                    $data['dictionary_id'] = $find5['id'];
+                                    $data['price'] = $arr[$k][6];
+                                    $data['create_id'] = $_SESSION['id'];
+                                    $data['create_time'] = time();
+                                    $data['pay_time'] = time();
+                                    $add = DB::name("incomeexpenditure")->insert($data);
+                                    $this->lw_log("2","添加了收入".$arr[$k][6],"Finance",'income_list');
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if($add && !$jg){
+                Db::commit();
+                return "success";
+            }else{
+                Db::rollback();
+                return $arr;
+            }
+        }
+    }
+    /**
      * 支出列表
      * @Author   wcl
      * @DateTime 2017-09-14T20:20:34+0800
