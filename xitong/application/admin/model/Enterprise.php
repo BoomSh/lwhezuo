@@ -388,10 +388,17 @@ class Enterprise extends Common
      * @return [type]        [description]
      */
     public function garden_list($where){
-        $res['list'] = DB::name("park")->where($where)->order("id desc")->field("id,name,company_id,bank_id,finance_id,managers_id,address")->select();
+        $res['list'] = DB::name("park")->where($where)->order("id desc")->field("id,name,company_id,bank_id,finance_id,managers_id,address,contract_id")->select();
         $res['num']  = count($res['list']);
         $arr = $this->lw_number($res['num']);
         foreach($res['list'] as $k => $v) {
+            if($res['list'][$k]['contract_id']!=""){
+                $constant = DB::name("contract")->where('id',$res['list'][$k]['contract_id'])->field("lessee_area,lease_area")->find();
+                if($constant){
+                   $res['list'][$k]['lessee_area'] = $constant['lessee_area'];
+                   $res['list'][$k]['lease_area'] = $constant['lease_area'];
+                }
+            }
             $res['list'][$k]['num']  = $arr[$k]; 
             $company                       = DB::name('company')->where(array('id'=>$res['list'][$k]['company_id']))->field('name')->select();
             $res['list'][$k]['company_id'] = $company[0]['name'];
@@ -405,6 +412,7 @@ class Enterprise extends Common
             $res['list'][$k]['managers_m'] =  array_shift(explode(',',$managers[0]['mobile']));
 
         }
+        p_r($res);die();
         return $res; 
     }
     /**
