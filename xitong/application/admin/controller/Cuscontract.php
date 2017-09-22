@@ -265,24 +265,72 @@ class Cuscontract extends Common
         }
     }
     /*水表导入*/
-    public function waterhistory_add(){
-        $Cuscontract = model("Cuscontract");
-        $res = $Cuscontract->waterhistory_add();
-        $this->assign("res",$res);
-        return $this->fetch();
+    public function water_excelin(){
+        if(request()->isPost()){
+            $Cuscontract = model("Cuscontract");
+        //引入文件（把扩展文件放入vendor目录下，路径自行修改）
+        vendor("Classes.PHPExcel");
+
+        //获取表单上传文件
+        $file = request()->file('excel');
+        $info = $file->validate(['ext' => 'xlsx,xls'])->move(ROOT_PATH . 'public' . DS . 'upload' . DS . 'TaoBao');
+
+        //数据为空返回错误
+        if(empty($info)){
+            $output['status'] = false;
+            $output['message'] = '导入数据失败~';
+            return $output['message'];
+        }
+
+        //获取文件名
+        $exclePath = $info->getSaveName();
+        //上传文件的地址
+        $filename = ROOT_PATH . 'public' . DS . 'upload' . DS . 'TaoBao'. DS . $exclePath;
+
+        //判断截取文件
+        $extension = strtolower( pathinfo($filename, PATHINFO_EXTENSION) );
+
+        //区分上传文件格式
+        if($extension == 'xlsx') {
+            $objReader =\PHPExcel_IOFactory::createReader('Excel2007');
+            $objPHPExcel = $objReader->load($filename, $encode = 'utf-8');
+        }else if($extension == 'xls'){
+            $objReader =\PHPExcel_IOFactory::createReader('Excel5');
+            $objPHPExcel = $objReader->load($filename, $encode = 'utf-8');
+        }
+
+        $excel_array = $objPHPExcel->getsheet(0)->toArray();   //转换为数组格式
+        array_shift($excel_array);  //删除第一个数组(标题);
+        $len = count($excel_array);
+        if(empty($excel_array[$len-1][0])){
+            unset($excel_array[$len-1]);
+        }
+        $res = $Cuscontract->water_excelin($excel_array);
+        if($res == "success"){
+            $return['gg'] = "success";
+            return json_encode($return);
+        }else{
+            return json_encode($res);
+        }
+        }else{
+            $Cuscontract = model("Cuscontract");
+            $res = $Cuscontract->waterhistory_add();
+            $this->assign("res",$res);
+            return $this->fetch();
+        }
     }
     /*导出相对应的水表模板*/
-    public function water_execlout(){
+    public function water_excelout(){
         $Cuscontract = model("Cuscontract");
        if(request()->isGet()){
             $filename = "水表模板";
             $title = array("序号","园区","水表名","上期度数","当前度数","时间");
-            $data = $Cuscontract->water_execlout();
+            $data = $Cuscontract->water_excelout();
             $this->goodsExcelExport($data,$title,$filename);
        }
     }
     /*导入*/
-    public function water_excelin(){
+    public function water_excelins(){
         $Cuscontract = model("Cuscontract");
         //引入文件（把扩展文件放入vendor目录下，路径自行修改）
         vendor("Classes.PHPExcel");
@@ -443,24 +491,72 @@ class Cuscontract extends Common
     }
 
     /*水表导入*/
-    public function electrichistory_add(){
-        $Cuscontract = model("Cuscontract");
-        $res = $Cuscontract->electrichistory_add();
-        $this->assign("res",$res);
-        return $this->fetch();
+    public function electric_excelin(){
+       if(request()->isPost()){
+            $Cuscontract = model("Cuscontract");
+            //引入文件（把扩展文件放入vendor目录下，路径自行修改）
+            vendor("Classes.PHPExcel");
+
+            //获取表单上传文件
+            $file = request()->file('excel');
+            $info = $file->validate(['ext' => 'xlsx,xls'])->move(ROOT_PATH . 'public' . DS . 'upload' . DS . 'TaoBao');
+
+            //数据为空返回错误
+            if(empty($info)){
+                $output['status'] = false;
+                $output['message'] = '导入数据失败~';
+                return $output['message'];
+            }
+
+            //获取文件名
+            $exclePath = $info->getSaveName();
+            //上传文件的地址
+            $filename = ROOT_PATH . 'public' . DS . 'upload' . DS . 'TaoBao'. DS . $exclePath;
+
+            //判断截取文件
+            $extension = strtolower( pathinfo($filename, PATHINFO_EXTENSION) );
+
+            //区分上传文件格式
+            if($extension == 'xlsx') {
+                $objReader =\PHPExcel_IOFactory::createReader('Excel2007');
+                $objPHPExcel = $objReader->load($filename, $encode = 'utf-8');
+            }else if($extension == 'xls'){
+                $objReader =\PHPExcel_IOFactory::createReader('Excel5');
+                $objPHPExcel = $objReader->load($filename, $encode = 'utf-8');
+            }
+
+            $excel_array = $objPHPExcel->getsheet(0)->toArray();   //转换为数组格式
+            array_shift($excel_array);  //删除第一个数组(标题);
+            $len = count($excel_array);
+            if(empty($excel_array[$len-1][0])){
+                unset($excel_array[$len-1]);
+            }
+            $res = $Cuscontract->electric_excelin($excel_array);
+            if($res == "success"){
+                $return['gg'] = "success";
+                return json_encode($return);
+            }else{
+                return json_encode($res);
+            }
+       }else{
+             $Cuscontract = model("Cuscontract");
+            $res = $Cuscontract->electrichistory_add();
+            $this->assign("res",$res);
+            return $this->fetch();
+       }
     }
     /*导出相对应的水表模板*/
-    public function electric_execlout(){
+    public function electric_excelout(){
         $Cuscontract = model("Cuscontract");
        if(request()->isGet()){
             $filename = "电表模板";
             $title = array("序号","园区","电表名","上期度数","当前度数","时间");
-            $data = $Cuscontract->electric_execlout();
+            $data = $Cuscontract->electric_excelout();
             $this->goodsExcelExport($data,$title,$filename);
        }
     }
     /*导入*/
-    public function electric_excelin(){
+    public function electric_excelins(){
         $Cuscontract = model("Cuscontract");
         //引入文件（把扩展文件放入vendor目录下，路径自行修改）
         vendor("Classes.PHPExcel");
@@ -510,7 +606,7 @@ class Cuscontract extends Common
     //导入返回信息
     public function electric_excelinmg(){
             $filename = "水表模板";
-            $title = array("序号","园区","水表名","上期度数","当前度数","时间","详情");
+            $title = array("序号","园区","电表名","上期度数","当前度数","时间","详情");
             $data = json_decode(input("data"),true);
             $this->goodsExcelExport($data,$title,$filename);
     }

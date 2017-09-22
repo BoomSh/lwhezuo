@@ -1393,13 +1393,8 @@ class Cuscontract extends Common
         }
     }
     /*导出相对应的水表模板*/
-    public function water_execlout(){
+    public function water_excelout(){
         if(request()->isGet()){
-            if(input("id") !== '0'){
-                $where['w.park_id'] = input("id");
-            }else{
-                $where = 1;
-            }
             $where['c.house_id'] = 0;
             $where['w.type'] = 1;
             $res['list']  = DB::name("water")
@@ -1741,13 +1736,8 @@ class Cuscontract extends Common
         return $res;
     }
     /*导出相对应的水表模板*/
-    public function electric_execlout(){
+    public function electric_excelout(){
         if(request()->isGet()){
-            if(input("id") !== '0'){
-                $where['w.park_id'] = input("id");
-            }else{
-                $where = 1;
-            }
             $where['c.house_id'] = 0;
             $res['list']  = DB::name("electric")
                             ->alias("w")

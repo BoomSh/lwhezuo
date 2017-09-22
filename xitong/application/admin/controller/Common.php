@@ -85,7 +85,7 @@ class Common extends Controller
                         $auth_w['auth_a'] = "lists";
                     }
                 }
-                if(!isset($auth_where['action_type'])){
+                if(!isset($auth_w['action_type'])){
                   $auth_w['action_type'] = 0;
                 }
                 $auth_w['role_id'] = $_SESSION['role_id'];
