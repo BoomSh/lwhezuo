@@ -34,7 +34,7 @@ class Common extends Controller
                 $len = strrpos($action,$len);
                 if(!empty($len)){
                     $type = substr($action,$len+1);
-                    $star = stripos($action,"_");
+                    $star = strrpos($action,"_");
                     $pd = substr($action,0,$star);
                     $auth_where['auth_a'] = $pd."_list";
                 }else{
@@ -49,7 +49,7 @@ class Common extends Controller
                 $lw_auth = DB::name("role_value")->where($auth_where)->field("COUNT(*)")->find();
                 if($lw_auth['COUNT(*)'] == 0){
                      /*如果有某些方法不符合规则 则在这里添加控制器加方法*/
-                      $pdarray = array("Cuscontractgarden_add","Cuscontractcompany_add","Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del","Enterprisecompany_list","Enterprisestaff_list","Cuscontractwaterhistory_list","Cuscontractwaterhistory_add","Cuscontractwaterhistory_edit","Cuscontractelectrichistory_list","Cuscontractelectrichistory_edit","Cuscontractelectrichistory_add","Enterprisegarden_selectinfo","Financeexpenditure_selectinfo","Financeincome_mb");
+                      $pdarray = array("Cuscontractgarden_add","Cuscontractcompany_add","Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del","Enterprisecompany_list","Enterprisestaff_list","Cuscontractwaterhistory_list","Cuscontractwaterhistory_add","Cuscontractwaterhistory_edit","Cuscontractelectrichistory_list","Cuscontractelectrichistory_edit","Cuscontractelectrichistory_add","Enterprisegarden_selectinfo","Financeexpenditure_selectinfo","Financeincome_mb","Financeincome_lead","Financeincome_excelinmg");
                       $con_act = $contro.$action;
                       if(!in_array($con_act,$pdarray)){
                         echo $con_act;exit;
@@ -94,7 +94,7 @@ class Common extends Controller
                 $lw_auth = DB::name("role_value")->where($auth_w)->field("COUNT(*)")->find();
                 if($lw_auth['COUNT(*)'] == 0){
                      /*如果有某些方法不符合规则 则在这里添加控制器加方法*/
-                      $pdarray = array("Cuscontractgarden_add","Cuscontractcompany_add","Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del","Enterprisecompany_list","Enterprisestaff_list","Cuscontractwaterhistory_list","Cuscontractwaterhistory_add","Cuscontractwaterhistory_edit","Cuscontractelectrichistory_list","Cuscontractelectrichistory_edit","Cuscontractelectrichistory_add","Enterprisegarden_selectinfo","Financeexpenditure_selectinfo","Financeincome_mb");
+                      $pdarray = array("Cuscontractgarden_add","Cuscontractcompany_add","Cuscontractdetailed_add","Adminadmin_role_add","Adminadmin_role_edit","Adminadmin_role_del","Enterprisecompany_list","Enterprisestaff_list","Cuscontractwaterhistory_list","Cuscontractwaterhistory_add","Cuscontractwaterhistory_edit","Cuscontractelectrichistory_list","Cuscontractelectrichistory_edit","Cuscontractelectrichistory_add","Enterprisegarden_selectinfo","Financeexpenditure_selectinfo","Financeincome_mb","Financeincome_lead","Financeincome_excelinmg");
                       $con_act = $contro.$action;
                       //echo $con_act;
                       if(!in_array($con_act,$pdarray)){
