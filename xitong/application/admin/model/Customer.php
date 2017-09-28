@@ -14,7 +14,7 @@ class Customer extends Common
              $res['list'][$k]['k'] = $k;
              if($res['list'][$k]['sex'] == 0){
                 $res['list'][$k]['sex'] = "保密";
-             }else if($res['list'][$k]['sex'] == 1){
+             }else if($res['list'][$k]['sex'] == 2){
                    $res['list'][$k]['sex'] = "女";
              }else{
                    $res['list'][$k]['sex'] = "男";
@@ -53,7 +53,8 @@ class Customer extends Common
                 $data['address'] = input("address");
                 $data['remark'] = input("remark");
                 $data['balance'] = 0;
-                $find = DB::name("customer")->where("mobile",input("mobile"))->field("COUNT(*)")->find();
+                $where['type'] = 2;
+                $find = DB::name("customer")->where("mobile",input("mobile"))->where($where)->field("COUNT(*)")->find();
                 if($find['COUNT(*)'] != 0){
                     return "该手机号已被占有";
                 }
@@ -91,6 +92,7 @@ class Customer extends Common
                 $data['id'] = input("id");
                 $where['mobile'] = input("mobile");
                 $where['id'] = array("neq",input("id"));
+                $where['type'] = 2;
                 $find = DB::name("customer")->where($where)->field("COUNT(*)")->find();
                 if($find['COUNT(*)'] != 0){
                     return "该手机号已被占有";

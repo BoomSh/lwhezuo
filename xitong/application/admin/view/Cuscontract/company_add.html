@@ -170,6 +170,7 @@ $(function(){
                         layer.msg('添加成功!');
                         setTimeout(function () {
                             parent.$('#parentIframe1').val(data['message']);
+                            parent.$('#parentIframe1').next('input').val(data['id']);
                             parent.layer.close(index);
                             },1000)
                     }else{

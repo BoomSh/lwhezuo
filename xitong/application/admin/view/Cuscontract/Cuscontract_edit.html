@@ -23,12 +23,12 @@
         <div id="tab-system" class="HuiTab">
             <div class="tabBar cl">
                 <span>合同设置</span>
-                <span style="display: none">租金设置</span>
-                <span style="display: none">电费设置</span>
-                <span style="display: none">水费设置</span>
-                <span style="display: none">维修基金</span>
-                <span style="display: none">其他费用</span>
-                <span style="display: none">税率设置</span>
+                <span>租金设置</span>
+                <span>电费设置</span>
+                <span>水费设置</span>
+                <span>维修基金</span>
+                <span>其他费用</span>
+                <span>税率设置</span>
             </div>
             <input name="id" type="hidden" value="{$res['cus']['id']}">
             <div class="tabCon"> 
@@ -338,32 +338,43 @@
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-3">维修基金：</label>
                     <div class="formControls col-xs-4 col-sm-3"> <span class="select-box">
-                        <select class="select" size="1" name="city">
-                            <option value="" selected>请选择维修基金类型</option>
-                            <option value="1">按当月电费百分比交，以设置费用为起始值</option>
-                            <option value="2">根据实际情况选择递增方式</option>
-                            <option value="3">按固定费用交</option>
-                            <option value="4">按电费百分比交</option>
-                            <option value="4">按水费百分比交</option>
+                        <select class="select" size="1" name="maintain_type">
+                        {if $res['cus']['maintain_type'] eq 1}
+                        <option value="1">水费百分比交</option>
+                        {elseif $res['cus']['maintain_type'] eq 2}
+                        <option value="2">电费百分比交</option>
+                        {elseif $res['cus']['maintain_type'] eq 3}
+                        <option value="3">水费加电费百分比交</option>
+                        {elseif $res['cus']['maintain_type'] eq 4}
+                        <option value="4">固定费用</option>
+                        {elseif $res['cus']['maintain_type'] eq 5}
+                        <option value="5">整体费用百分比交</option>
+                        {/if}
+                            <option value="">请选择维修基金类型</option>
+                            <option value="1">水费百分比交</option>
+                            <option value="2">电费百分比交</option>
+                            <option value="3">水费加电费百分比交</option>
+                            <option value="4">固定费用</option>
+                            <option value="5">整体费用百分比交</option>
                         </select>
                         </span> </div>
                 </div>
                 <div class="row cl">
-                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>最低费用：</label>
+                    <label class="form-label col-xs-4 col-sm-2">最低费用：</label>
                     <div class="formControls col-xs-8 col-sm-4">
-                        <input type="text" class="input-text" value="" placeholder="填写最低费用" >
+                        <input type="text" class="input-text" value="{$res['cus']['maintain_min']}" placeholder="填写最低费用" name="maintain_min">
                     </div>
                 </div>
                 <div class="row cl">
-                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>费用比例：</label>
+                    <label class="form-label col-xs-4 col-sm-2">费用值：</label>
                     <div class="formControls col-xs-8 col-sm-4">
-                        <input type="text" class="input-text" value="" placeholder="填写费用比例" >
+                        <input type="text" class="input-text" value="{$res['cus']['maintain_value']}" placeholder="填写费用比例" name="maintain_value">
                     </div>
                 </div>
                 <div class="row cl">
-                    <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>最高费用：</label>
+                    <label class="form-label col-xs-4 col-sm-2">最高费用：</label>
                     <div class="formControls col-xs-8 col-sm-4">
-                        <input type="text" class="input-text" value="" placeholder="填写最高费用" >
+                        <input type="text" class="input-text" value="{$res['cus']['maintain_max']}" placeholder="填写最高费用" name="maintain_max">
                     </div>
                 </div>
             </div>
@@ -401,7 +412,7 @@
                             </div>
                         </div>
                         <div class="row cl">
-                            <label class="form-label col-xs-4 col-sm-3"> </label>
+                            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>租金：</label>
                             <div class="formControls col-xs-4 col-sm-3">
                                 <input type="text" class="input-text" value="{$vo.monthly_value}" placeholder="" id="username" name="y_monthly_value[]">
                             </div>
@@ -413,12 +424,6 @@
                                 至<input type="text" onfocus="WdatePicker({minDate:'#F{\$dp.\$D(\'date1min\')}'})" id="date1max" class="input-text Wdate li-date" name="y_time_end[]" value="{$vo.time_end}">
                             </div>
                         </div>
-                        <div class="row cl">
-                            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>租金：</label>
-                            <div class="formControls col-xs-4 col-sm-3">
-                                <input type="text" class="input-text" value="{$vo.rent}" placeholder="" id="username" name="y_rent[]">
-                            </div>
-                        </div>
                     </div>
                     {/volist}
                 </div>
@@ -428,46 +433,39 @@
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-3">税率类型：</label>
                     <div class="formControls col-xs-4 col-sm-3"> <span class="select-box">
-                        <select class="select" size="1" name="city">
-                            <option value="" selected>请选择税率类型</option>
-                            <option value="1">按当月房租费</option>
-                            <option value="3">按固定费用交</option>
-                            <option value="4">按电费百分比交</option>
-                            <option value="4">按水费百分比交</option>
+                        <select class="select" size="1" name="tax_rate">
+                            {if $res['cus']['tax_rate'] eq 1}
+                            <option value="1">按当月水费百分比</option>
+                            {elseif $res['cus']['tax_rate'] eq 2}
+                            <option value="2">按当月电费百分比</option>
+                            {elseif $res['cus']['tax_rate'] eq 3}
+                            <option value="3">按当月水费加电费百分比</option>
+                            {elseif $res['cus']['tax_rate'] eq 4}
+                            <option value="4">固定费用</option>
+                            {elseif $res['cus']['tax_rate'] eq 5}
+                            <option value="5">整体费用百分比</option>
+                            {/if}
+                            <option value="">请选择税率类型</option>
+                            <option value="1">按当月水费百分比</option>
+                            <option value="2">按当月电费百分比</option>
+                            <option value="3">按当月水费加电费百分比</option>
+                            <option value="4">固定费用</option>
+                            <option value="5">整体费用百分比</option>
+
                         </select>
                         </span> </div>
                 </div>
                 <div class="row cl">
-                    <label class="form-label col-xs-4 col-sm-3">按当月房租费：</label>
+                    <label class="form-label col-xs-4 col-sm-3">税率值：</label>
                     <div class="formControls col-xs-4 col-sm-3">
-                        <input type="text" class="input-text" value="" placeholder="填写房租费百分比" >
-                    </div>
-                </div>
-                <div class="row cl">
-                    <label class="form-label col-xs-4 col-sm-3">当月固定费：</label>
-                    <div class="formControls col-xs-4 col-sm-3">
-                        <input type="text" class="input-text" value="" placeholder="填写当月固定费" >
-                    </div>
-                </div>
-                <div class="row cl">
-                    <label class="form-label col-xs-4 col-sm-3">电费百分比：</label>
-                    <div class="formControls col-xs-4 col-sm-3">
-                        <input type="text" class="input-text" value="" placeholder="填写电费百分比" >
-                    </div>
-                </div>
-                <div class="row cl">
-                    <label class="form-label col-xs-4 col-sm-3">水费百分比：</label>
-                    <div class="formControls col-xs-4 col-sm-3">
-                        <input type="text" class="input-text" value="" placeholder="填写水费百分比" >
+                        <input type="text" class="input-text" value="{$res['cus']['tax_value']}" placeholder="填写房租费百分比" name="tax_value">
                     </div>
                 </div>
             </div>
         </div>
         <div class="row cl">
-            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2" id="submit">
-                <button class="btn btn-primary radius" type="submit" style="display: none" id="sub"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
-                <button  class="btn btn-primary radius" type="submit" id="Previous"><i class="Hui-iconfont">&#xe6d4;</i>上一步</button>
-                <button  class="btn btn-primary radius" type="submit" id="Next">下一步<i class="Hui-iconfont">&#xe6d7;</i> </button>
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                <button class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
                 <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
             </div>
         </div>
@@ -489,16 +487,42 @@
 <script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript">
 $(".gg").on("change keyup","input",function(){
-        var zhi = parseInt($("input[name=basic_rent]").val());
-        var plt = parseInt($(this).val());
-        var sel = parseInt($(this).parent().parent().parent().find(".select").val());
-        var zj = $(this).parent().parent().parent().find("input[name='rent[]']");
-        if(sel == 1){
-            zj.val(plt);
-        }else if(sel == 2){
-            zj.val(zhi*plt/100+zhi);
-        }
-    })
+            var zhi = parseInt($("input[name=basic_rent]").val());
+            var plt = parseInt($(this).val());
+            var sel = parseInt($(this).parent().parent().parent().find(".select").val());
+            var zj = $(this).parent().parent().parent().find("input[name='rent[]']");
+            var index = $("input[name='monthly_value[]']").index(this);
+            var prec = parseInt($("input[name='rent[]']").eq(index-1).val());
+            if(!plt){
+                zj.val('');
+            }else{
+                if(!zhi){
+                    return false;
+                }
+                if(index == 0){
+                    if(sel == 1){
+                        zj.val(plt);
+                    }else if(sel == 2){
+                        zj.val(zhi*plt/100+zhi);
+                    }else{
+                        zj.val('');
+                    }
+                }else{
+                    if(!prec){
+                        if(sel == 1){
+                            zj.val(plt);
+                        }else if(sel == 2){
+                            var vos = parseInt($("input[name='rent[]']").eq(index-1).val());
+                            zj.val(vos*plt/100+vos);
+                        }else{
+                            zj.val('');
+                        }
+                    }else{
+                        zj.val('');
+                    }
+                }
+            }
+        })
 $(function(){
     $('.skin-minimal input').iCheck({
         checkboxClass: 'icheckbox-blue',
@@ -688,9 +712,9 @@ var items_hash ={'rent':2,'transformer': 0,'electric':0,'contract-price':0,'wate
 
         if(item_type=='other'){
             html += "<div class='row cl'> <label class='form-label col-xs-4 col-sm-3'>月租类型：</label> <div class='formControls col-xs-4 col-sm-3'> <span class='select-box'><select class='select' size='1' name='y_monthly_type[]'><option value='' selected>请选择月租类型</option><option value='1'>固定租金</option></select></span> </div></div>";
-            html += "<div class='row cl'> <label class='form-label col-xs-4 col-sm-3'> </label> <div class='formControls col-xs-4 col-sm-3'> <input type='text' class='input-text' value='' placeholder='' id='username' name='y_monthly_value[]'> </div></div>";
+            html += "<div class='row cl'> <label class='form-label col-xs-4 col-sm-3'><span class='c-red'>*</span>租金： </label> <div class='formControls col-xs-4 col-sm-3'> <input type='text' class='input-text' value='' placeholder='' id='username' name='y_monthly_value[]'> </div></div>";
             html +="<div class='row cl'><label class='form-label col-xs-4 col-sm-3'><span class='c-red'>*</span>时间：</label><div class='formControls col-xs-4 col-sm-5'><input type='text' onfocus=WdatePicker("+maxDate+") id='"+minDateid+"' class='input-text Wdate li-date' name='y_time_begin[]'>至<input type='text' onfocus=WdatePicker("+minDate+") id='"+maxDateid+"' class='input-text Wdate li-date' name='y_time_end[]'></div></div>";
-            html +="<div class='row cl'><label class='form-label col-xs-4 col-sm-3'><span class='c-red'>*</span>租金：</label><div class='formControls col-xs-4 col-sm-3'><input type='text' class='input-text' value='' placeholder='' id='username' name='y_rent[]'></div></div>";
+            html +="</div>";
         }else{
             html += "<div class='row cl'> <label class='form-label col-xs-4 col-sm-3'>月租类型：</label> <div class='formControls col-xs-4 col-sm-3'> <span class='select-box'><select class='select' size='1' name='monthly_type[]'><option value='' selected>请选择月租类型</option><option value='1'>固定租金</option><option value='2'>比例租金（如 填写1为增加百分之一的租金）</option></select></span> </div></div>";
             html += "<div class='row cl gg'> <label class='form-label col-xs-4 col-sm-3'> </label> <div class='formControls col-xs-4 col-sm-3'> <input type='text' class='input-text' value='' placeholder='' id='username' name='monthly_value[]'> </div></div>";
@@ -704,12 +728,37 @@ var items_hash ={'rent':2,'transformer': 0,'electric':0,'contract-price':0,'wate
             var plt = parseInt($(this).val());
             var sel = parseInt($(this).parent().parent().parent().find(".select").val());
             var zj = $(this).parent().parent().parent().find("input[name='rent[]']");
-            if(sel == 1){
-                zj.val(plt);
+            var index = $("input[name='monthly_value[]']").index(this);
+            if(!plt){
+                zj.val('');
             }else{
-                zj.val(zhi*plt/100+zhi);
+                if(!zhi){
+                    return false;
+                }
+                if(index == 0){
+                    if(sel == 1){
+                        zj.val(plt);
+                    }else if(sel == 2){
+                        zj.val(zhi*plt/100+zhi);
+                    }else{
+                        zj.val('');
+                    }
+                }else{
+                    if(sel == 1){
+                        zj.val(plt);
+                    }else if(sel == 2){
+                        var vos = parseInt($("input[name='rent[]']").eq(index-1).val());
+                        if(!vos){
+                            zj.val('');
+                        }else{
+                            zj.val(vos*plt/100+vos);
+                        }
+                    }else{
+                        zj.val('');
+                    }
+                }
             }
-            })
+        })
             items_hash[item_type]++;
             //潘潘加a链接无跳转效果
         return false;

@@ -154,10 +154,17 @@ class Cuscontract extends Common
                      foreach($res as $k => $v){
                         $html .= "<li li_id='".$res[$k]['id']."'>".$res[$k]['name']."</li>";
                     }
-                }else{
+                }else if(input('type') == 3){
                      //返回类似的园区信息
                      $where['name'] = array("like","%".input("val")."%");
                      $res = DB::name("park")->where($where)->field("id,name")->limit(0,7)->select();
+                     foreach($res as $k => $v){
+                        $html .= "<li li_id='".$res[$k]['id']."'>".$res[$k]['name']."</li>";
+                    }
+                }else if(input('type') == 4){
+                    $where['type'] = 6;
+                    $where['name'] = array("like","%".input("val")."%");
+                    $res = DB::name("dictionary")->where($where)->field("id,name")->limit(0,7)->select();
                      foreach($res as $k => $v){
                         $html .= "<li li_id='".$res[$k]['id']."'>".$res[$k]['name']."</li>";
                     }
@@ -273,11 +280,11 @@ class Cuscontract extends Common
         $where['name'] = input('name');
         $find = DB::name("park")->where($where)->field("COUNT(*)")->find();
         if($find['COUNT(*)'] != 0){
-             return "该园区名已经被占用";
+             return json(['type'=>2,'message'=>"该园区名已经被占用"]);
         }
         $compare = DB::name("bank")->where(array('company_id'=>input('company_id'),'id'=>input('bank_id')))->field("COUNT(*)")->find();
         if($compare['COUNT(*)'] == 0){
-             return "公司和账户不匹配";
+             return json(['type'=>2,'message'=>"公司和账户不匹配"]);
         }
         $res = DB::name("park")->insertGetId($data);
         if($res){
@@ -334,6 +341,35 @@ class Cuscontract extends Common
             $yqfind = DB::name('park')->where($yqpd)->field("contract_id")->find();
             if(!empty($yqfind['contract_id'])){
                 return "该园区已被占用";
+            }
+            if(!empty(input('maintain_type'))){
+                $con['maintain_type'] = input('maintain_type');
+                if(input('maintain_type') == 4){
+                    //固定费用 没有最高 最低
+                    if(empty(input('maintain_value'))){
+                        return "请输入维修基金的费用值";
+                    }
+                    $con['maintain_value'] = input('maintain_value');
+                    $con['maintain_min'] = '';
+                    $con['maintain_max'] = '';
+                }else{
+                    if(empty(input('maintain_min'))){
+                        return "请输入最低费用";
+                    }
+                    if(empty(input('maintain_max'))){
+                        return "请输入最高费用";
+                    }
+                    $con['maintain_value'] = input('maintain_value');
+                    $con['maintain_min'] = input('maintain_min');
+                    $con['maintain_max'] = input('maintain_max');
+                }
+            }
+            if(!empty(input('tax_rate'))){
+                $con['tax_rate'] = input('tax_rate');
+                    if(empty(input('tax_value'))){
+                        return "请输入税率值";
+                    }
+                    $con['tax_value'] = input('tax_value');
             }
             $con['lease_id'] = input('lease_id');
             $con['tenantry_id'] = input('ctenantry_id');
@@ -480,6 +516,14 @@ class Cuscontract extends Common
                         $elec['create_time'] = time();
                         $elec['status'] = 1;
                         $elec['create_id'] = $_SESSION['id'];
+                        $e_where['park_id'] = $dtenantry_zid[$i];
+                        $e_where['name'] = $d_name[$i];
+                        $e_where['status'] = 1;
+                        $e_where['type'] = 1;
+                        $e_find = DB::name("electric")->where($e_where)->field("COUNT(*)")->find();
+                        if($e_find['COUNT(*)'] != 0){
+                            return "该园区已经存在该".$d_name[$i];
+                        }
                         $dianb = DB::name("electric")->insertGetId($elec);
                         $dbht['contract_id'] = $contract;
                         $dbht['electric_id'] = $dianb;
@@ -555,7 +599,16 @@ class Cuscontract extends Common
                         $water['status'] = 1;
                         $water['create_time'] = time();
                         $water['create_id'] = $_SESSION['id'];
-                        $w_id = DB::name("water")->insertGetId($water);
+                        $w_where['name'] = $park_name[$i];
+                        $w_where['park_id'] = $stenantry_zid[$i];
+                        $w_where['type'] = 1;
+                        $w_where['status'] = 1;
+                        $w_find = DB::name("water")->where($w_where)->field("COUNT(*),id")->find();
+                        if($w_find['COUNT(*)'] != 0){
+                            $w_id = $w_find['id'];
+                        }else{
+                            $w_id = DB::name("water")->insertGetId($water);
+                        }
                         if(empty($s_share[$i])){
                             $wcon['share'] = 0;
                         }else{
@@ -623,9 +676,9 @@ class Cuscontract extends Common
                     if($y_time_end[$i] == ''){
                         return "其他费用设置里，第".($i+1)."条请选择月租结束时间";
                     }
-                    if($y_rent[$i] == ''){
+                    /*if($y_rent[$i] == ''){
                         return "其他费用设置里，第".($i+1)."条请选择月租租金";
-                    }
+                    }*/
                     $j = $i + 1;
                     for($h=$j;$h<$len;$h++){
                         if($exacct[$i] == $exacct[$h]){
@@ -643,7 +696,7 @@ class Cuscontract extends Common
                     $feiy['monthly_value'] = $y_monthly_value[$i];
                     $feiy['time_begin'] = $y_time_begin[$i];
                     $feiy['time_end'] = $y_time_end[$i];
-                    $feiy['rent'] = $y_rent[$i];
+                    $feiy['rent'] = $y_monthly_value[$i];
                     $feiyong = DB::name("rent")->insert($feiy);
                 }
             }
@@ -673,7 +726,7 @@ class Cuscontract extends Common
             $find = DB::name('contract')->where($datas)->field("id,contract_num,park_id")->select();
             foreach ($find as $k => $v) {
                 $park['id'] = $find[$k]['park_id'];
-                $park['contract_id'] = '';
+                $park['contract_id'] = 0;
                 $pagg = DB::name("park")->update($park);//开发园区
                 $data['id'] = $find[$k]['id'];
                 $data['status'] = 2;
@@ -754,6 +807,43 @@ class Cuscontract extends Common
             $yqfind = DB::name('park')->where($yqpd)->field("contract_id")->find();
             if(!empty($yqfind['contract_id'])){
                 return "该园区已被占用";
+            }
+            if(!empty(input('maintain_type'))){
+                $con['maintain_type'] = input('maintain_type');
+                if(input('maintain_type') == 4){
+                    //固定费用 没有最高 最低
+                    if(empty(input('maintain_value'))){
+                        return "请输入维修基金的费用值";
+                    }
+                    $con['maintain_value'] = input('maintain_value');
+                    $con['maintain_min'] = '';
+                    $con['maintain_max'] = '';
+                }else{
+                    if(empty(input('maintain_min'))){
+                        return "请输入最低费用";
+                    }
+                    if(empty(input('maintain_max'))){
+                        return "请输入最高费用";
+                    }
+                    $con['maintain_value'] = input('maintain_value');
+                    $con['maintain_min'] = input('maintain_min');
+                    $con['maintain_max'] = input('maintain_max');
+                }
+            }else{
+                $con['maintain_min'] = '';
+                $con['maintain_max'] = '';
+                $con['maintain_value'] = '';
+                $con['maintain_type'] = '';
+            }
+            if(!empty(input('tax_rate'))){
+                $con['tax_rate'] = input('tax_rate');
+                    if(empty(input('tax_value'))){
+                        return "请输入税率值";
+                    }
+                    $con['tax_value'] = input('tax_value');
+            }else{
+                $con['tax_value'] = '';
+                $con['tax_rate'] = '';
             }
             $con['id'] = input('id');
             $con['lease_id'] = input('lease_id');
@@ -1078,9 +1168,9 @@ class Cuscontract extends Common
                     if($y_time_end[$i] == ''){
                         return "其他费用设置里，第".($i+1)."条请选择月租结束时间";
                     }
-                    if($y_rent[$i] == ''){
+                    /*if($y_rent[$i] == ''){
                         return "其他费用设置里，第".($i+1)."条请选择月租租金";
-                    }
+                    }*/
                     $j = $i + 1;
                     for($h=$j;$h<$len;$h++){
                         if($exacct[$i] == $exacct[$h]){
@@ -1098,7 +1188,7 @@ class Cuscontract extends Common
                     $feiy['monthly_value'] = $y_monthly_value[$i];
                     $feiy['time_begin'] = $y_time_begin[$i];
                     $feiy['time_end'] = $y_time_end[$i];
-                    $feiy['rent'] = $y_rent[$i];
+                    $feiy['rent'] = $y_monthly_value[$i];
                     $feiyong = DB::name("rent")->insert($feiy);
                 }
             }
@@ -1155,7 +1245,6 @@ class Cuscontract extends Common
     **水表管理
      */
         public function water_list($where){
-            $where['c.house_id'] = 0;
              $res['list']  = DB::name("water")
                                     ->alias("w")
                                     ->join("water_contract z","z.water_id=w.id")
@@ -1355,7 +1444,7 @@ class Cuscontract extends Common
             $res['num'] = count($res['list']);
             $arr = $this->lw_number($res['num']);
             foreach($res['list'] as $k => $v) {
-                $res['list'][$k]['time'] = date("Y-m-d",$res['list'][$k]['time']);
+                $res['list'][$k]['time'] = date("Y-m",$res['list'][$k]['time']);
                 $res['list'][$k]['num'] = $arr[$k];
             }
             return $res;
@@ -1388,15 +1477,13 @@ class Cuscontract extends Common
         }else if(request()->isGet()){
             $where['c.id'] = input("id");
             $res = DB::name("water")->alias("w")->join("park p","p.id=w.park_id")->join("water_record c","c.water_id=w.id")->where($where)->field("w.name,c.id,c.up_record,c.current_record,c.time,c.water_id")->find();
-            $res['time'] = date("Y-m-d",$res['time']);
+            $res['time'] = date("Y-m",$res['time']);
             return $res;
         }
     }
     /*导出相对应的水表模板*/
     public function water_excelout(){
         if(request()->isGet()){
-            $where['c.house_id'] = 0;
-            $where['w.type'] = 1;
             $res['list']  = DB::name("water")
                             ->alias("w")
                             ->join("water_contract z","z.water_id=w.id")
@@ -1471,7 +1558,7 @@ class Cuscontract extends Common
                             $jg = 1;
                             $arr[$k][6] = "没有抄表的时间点";
                         }else{
-                            $whl['time'] = strtotime($arr[$k][5]);
+                            $whl['time'] = strtotime(date("Y-m",strtotime($arr[$k][5])));
                             $whl['water_id'] = $find2['id'];
                             $find3 = DB::name('water_record')->where($whl)->field("COUNT(*)")->find();
                             if($find3['COUNT(*)'] != 0){
@@ -1479,7 +1566,7 @@ class Cuscontract extends Common
                                 $jg = 1;
                             }else{
                                 $data['water_id'] = $find2['id'];
-                                $data['time'] = strtotime($arr[$k][5]);
+                                $data['time'] = strtotime(date("Y-m",strtotime($arr[$k][5])));
                                 $data['up_record'] = $arr[$k][3];
                                 $data['current_record'] = $arr[$k][4];
                                 $data['create_id'] = $_SESSION['id'];
@@ -1623,7 +1710,7 @@ class Cuscontract extends Common
             $res['num'] = count($res['list']);
             $arr = $this->lw_number($res['num']);
             foreach($res['list'] as $k => $v) {
-                $res['list'][$k]['time'] = date("Y-m-d",$res['list'][$k]['time']);
+                $res['list'][$k]['time'] = date("Y-m",$res['list'][$k]['time']);
                 $res['list'][$k]['num'] = $arr[$k];
             }
             return $res;
@@ -1656,7 +1743,7 @@ class Cuscontract extends Common
         }else if(request()->isGet()){
             $where['c.id'] = input("id");
             $res = DB::name("electric")->alias("w")->join("park p","p.id=w.park_id")->join("electric_record c","c.electric_id=w.id")->where($where)->field("w.name,c.id,c.up_record,c.current_record,c.time,c.electric_id")->find();
-            $res['time'] = date("Y-m-d",$res['time']);
+            $res['time'] = date("Y-m",$res['time']);
             return $res;
         }
     }
@@ -1793,7 +1880,7 @@ class Cuscontract extends Common
                             $jg = 1;
                             $arr[$k][6] = "没有抄表的时间点";
                         }else{
-                            $whl['time'] = strtotime($arr[$k][5]);
+                            $whl['time'] = strtotime(date("Y-m",strtotime($arr[$k][5])));
                             $whl['electric_id'] = $find2['id'];
                             $find3 = DB::name('electric_record')->where($whl)->field("COUNT(*)")->find();
                             if($find3['COUNT(*)'] != 0){
@@ -1801,7 +1888,7 @@ class Cuscontract extends Common
                                 $jg = 1;
                             }else{
                                 $data['electric_id'] = $find2['id'];
-                                $data['time'] = strtotime($arr[$k][5]);
+                                $data['time'] = strtotime(date("Y-m",strtotime($arr[$k][5])));
                                 $data['up_record'] = $arr[$k][3];
                                 $data['current_record'] = $arr[$k][4];
                                 $data['create_id'] = $_SESSION['id'];
@@ -1821,6 +1908,65 @@ class Cuscontract extends Common
                 return $arr;
             }
         }
+    }
+    /*业主费用*/
+    public function cost_list($where){
+         $res['list'] = DB::name("customer_fees")
+                        ->alias("f")
+                        ->join("customer c","c.id=f.customer_id")
+                        ->join("park p","p.id=f.park_id")
+                        ->where($where)
+                        ->field("f.*,c.name,p.name as pname,c.balance as yer")
+                        ->order("id desc")
+                        ->select();    
+            $p_where['c.type'] = 2;
+            $p_where['c.status'] = 1;
+            $res['park'] = DB::name("contract")
+                           ->alias("c")
+                           ->join("park p","p.id=c.park_id")
+                           ->where($p_where)
+                           ->field("p.name,p.id")
+                           ->group("c.park_id")
+                           ->select();
+            $res['num'] = count($res['list']);
+            $arr = $this->lw_number($res['num']);
+            foreach($res['list'] as $k => $v) {
+                $res['list'][$k]['time'] = date("Y-m",$res['list'][$k]['time']);
+                $res['list'][$k]['num'] = $arr[$k];
+            }
+            return $res;
+    }
+    /*
+    **费用添加
+     */
+    public function cost_add(){
+        if(request()->isPost()){
+            $data['dictionary_id'] = input('dictionary_id');
+            $data['price'] = input('price');
+            $data['remark'] = input('beizhu');
+            $where['id'] = input("id");
+            $find = DB::name("customer_fees")->where($where)->field("time")->find();
+            $data['time'] = $find['time'];
+            $add = DB::name("contract_month")->insert($data);
+            if($add){
+                return "success";
+            }else{
+                return "操作失败";
+            }
+        }
+    }
+    /*详情*/
+    public function costfees_list(){
+        $data['f.id'] = input("id");
+        $data['f.status'] = array("neq",0);
+        $list = DB::name("customer_fees")
+                ->alias("f")
+                ->join("customer c","c.id=f.customer_id")
+                ->join("park p","p.id=f.park_id")
+                ->where($where)
+                ->field("c.name,p.name as pname,c.balance as yer,f.balance,f.price,f.time,f.collect_fees,f.contract_id")
+                ->find();
+        $res['zfy'] = $list;
     }
 }
 

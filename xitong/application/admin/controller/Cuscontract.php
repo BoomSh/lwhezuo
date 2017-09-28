@@ -324,7 +324,7 @@ class Cuscontract extends Common
         $Cuscontract = model("Cuscontract");
        if(request()->isGet()){
             $filename = "水表模板";
-            $title = array("序号","园区","水表名","上期度数","当前度数","时间");
+            $title = array("序号","园区","水表名","上期度数","当前度数","时间(请设置单元格式为 yyyy-mm)");
             $data = $Cuscontract->water_excelout();
             $this->goodsExcelExport($data,$title,$filename);
        }
@@ -550,7 +550,7 @@ class Cuscontract extends Common
         $Cuscontract = model("Cuscontract");
        if(request()->isGet()){
             $filename = "电表模板";
-            $title = array("序号","园区","电表名","上期度数","当前度数","时间");
+            $title = array("序号","园区","电表名","上期度数","当前度数","时间时间(请设置单元格式为 yyyy-mm)");
             $data = $Cuscontract->electric_excelout();
             $this->goodsExcelExport($data,$title,$filename);
        }
@@ -609,5 +609,73 @@ class Cuscontract extends Common
             $title = array("序号","园区","电表名","上期度数","当前度数","时间","详情");
             $data = json_decode(input("data"),true);
             $this->goodsExcelExport($data,$title,$filename);
+    }
+    /*业主费用*/
+    public function cost_list(){
+        $Cuscontract = model("Cuscontract");
+        if(!empty(input("startime"))){
+            if(!empty(input("overtime"))){
+                $where['f.time'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
+                $this->assign("startime",input("startime"));
+                $this->assign("overtime",input("overtime"));
+            }else{
+                $where['f.time'] = array("gt",strtotime(input('startime')));
+                $this->assign("startime",input("startime"));
+            }
+        }
+        if(!empty(input("overtime"))){
+            if(!empty(input("startime"))){
+                $where['f.time'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
+                $this->assign("startime",input("startime"));
+                $this->assign("overtime",input("overtime"));
+            }else{
+                $where['f.time'] = array("lt",strtotime(input('overtime')));
+                $this->assign("overtime",input("overtime"));
+            }
+        }
+        if(!empty(input('park'))){
+            $where['f.park_id'] = input('park');
+            $this->assign("park",input('park'));
+        }
+        if(!empty(input('status'))){
+            if(input('status') == 1){
+                $where['f.status'] = array("neq",2);
+            }
+            if(input('status') == 2){
+                $where['f.status'] = 2;
+            }
+            $this->assign("status",input('status'));
+        }
+        if(!empty(input('name'))){
+            $where['c.name'] = array("like","%".input('name')."%");
+            $this->assign("name",input('name'));
+        }
+        $where['f.type'] = 2;
+        $res = $Cuscontract->cost_list($where);
+        $this->assign("res",$res);
+        return $this->fetch();
+    }
+    /*
+    **费用添加
+     */
+    public function cost_add(){
+        $Cuscontract = model("Cuscontract");
+        if(request()->isGet()){
+            $this->assign("id",input('id'));
+            return $this->fetch();
+        }else if(request()->isPost()){
+            $res = $Cuscontract->cost_add();
+            return $res;
+        }else{
+            return "请选择添加费用的费用单";
+        }
+    }
+    /*详情*/
+    public function costfees_list(){
+        $Cuscontract = model("Cuscontract");
+        $res = $Cuscontract->costfees_list();
+        $this->assign("res",$res);
+        var_dump($res);exit;
+        return $this->fetch();
     }
 }

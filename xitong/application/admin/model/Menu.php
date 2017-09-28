@@ -87,6 +87,11 @@ class Menu extends Common
             if($rent['COUNT(*)'] != 0){
                  return "该字典值正在被费用科目信息使用,请修改合同信息或删除费用科目信息后再来进行此操作";
             }
+             /*判断收款项目类型字典值是否在使用*/
+            $rent = DB::name("contract_month")->where(array('dictionary_id'=>array('in',input('id'))))->field("COUNT(*)")->find();
+            if($rent['COUNT(*)'] != 0){
+                 return "该字典值正在被收款项目信息使用,请修改收款信息或删除收款费用信息后再来进行此操作";
+            }
             $where['id'] = array("in",input('id'));
             $log = DB::name("dictionary")->where($where)->field('name')->select();
             foreach ($log as $k => $v) {
