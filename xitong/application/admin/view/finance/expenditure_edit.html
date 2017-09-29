@@ -68,7 +68,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>付款时间：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="laydate-icon"  value="{$res['pay_type']|dateFormat}" placeholder="付款时间" id="laydate" name="pay_time" style="width:92%;">
+				 <input type="text" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss'})" placeholder="付款时间" value="{$res['pay_time']|dateFormat}" class="input-text Wdate li-date" name="pay_time" >
 			</div>
 		</div>
 		<div class="row cl">
@@ -110,16 +110,6 @@
 <script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
 <script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/validate-methods.js"></script> 
 <script type="text/javascript" src="__PUBLIC__admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
-<script type="text/javascript" src="__PUBLIC__admin/lib/laydate/laydate.js"></script>
-<script type="text/javascript">
-    //调用时间插件
-    laydate({
-        elem:"#laydate",  //ID选择器
-        format:"YYYY-MM-DD hh:hh:hh",
-        istime:true,
-    });
-
-</script>
 <script type="text/javascript">
 $(function(){
 	$('.skin-minimal input').iCheck({

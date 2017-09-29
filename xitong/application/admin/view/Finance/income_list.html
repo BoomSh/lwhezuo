@@ -48,10 +48,10 @@
 		<div class="mt-10 col-xs-12 col-sm-12">
 			<strong class="col-xs-12 col-sm-2 text-r">日期范围：</strong>
 			<div class="col-xs-12 col-sm-3">
-                <input type="text" class="laydate-icon"  value="{$startime}" placeholder="开始时间" id="laydate" name="startime" style="width:92%;">
+                <input type="text" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss',maxDate:'#F{\$dp.\$D(\'datemax\')}'})" id="datemin" class="input-text Wdate li-date" name="startime"  value="{$startime}">
             </div>
             <div class="col-xs-12 col-sm-3">
-                <input type="text" class="laydate-icon"  value="{$overtime}" placeholder="结束时间" id="laydate2" name="overtime" style="width:92%;">
+                <input type="text" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss',minDate:'#F{\$dp.\$D(\'datemin\')}'})" id="datemax" class="input-text Wdate li-date" name="overtime"  value="{$overtime}">
             </div>
 		</div>
 		<div class="cl mt-10 col-xs-12 col-sm-12">
@@ -119,22 +119,6 @@
 <script type="text/javascript" src="__PUBLIC__admin/lib/My97DatePicker/4.8/WdatePicker.js"></script> 
 <script type="text/javascript" src="__PUBLIC__admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
 <script type="text/javascript" src="__PUBLIC__admin/lib/laypage/1.2/laypage.js"></script>
-<script type="text/javascript" src="__PUBLIC__admin/lib/laydate/laydate.js"></script>
-<script type="text/javascript">
-    //调用时间插件
-    laydate({
-        elem:"#laydate",  //ID选择器
-        format:"YYYY-MM-DD hh:hh:hh",
-        istime:true,
-    });
-    //调用时间插件
-    laydate({
-        elem:"#laydate2",  //ID选择器
-        format:"YYYY-MM-DD hh:hh:hh",
-        istime:true,
-    });
-
-</script>
 <script type="text/javascript">
 /*
 	参数解释：

@@ -9,10 +9,10 @@
         <div class="mt-10 col-xs-12 col-sm-12">
             <strong class="col-xs-12 col-sm-2 text-r">日期范围：</strong>
             <div class="col-xs-12 col-sm-3">
-                <input type="text" onfocus="WdatePicker({maxDate:'#F{\$dp.\$D(\'datemax\')}'})" id="datemin" class="input-text Wdate li-date" name="startime"  value="{$startime}">
+                <input type="text" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss',maxDate:'#F{\$dp.\$D(\'datemax\')}'})" id="datemin" class="input-text Wdate li-date" name="startime"  value="{$startime}">
             </div>
             <div class="col-xs-12 col-sm-3">
-                <input type="text" onfocus="WdatePicker({minDate:'#F{\$dp.\$D(\'datemin\')}'})" id="datemax" class="input-text Wdate li-date" name="overtime"  value="{$overtime}" >
+                <input type="text" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss',minDate:'#F{\$dp.\$D(\'datemin\')}'})" id="datemax" class="input-text Wdate li-date" name="overtime"  value="{$overtime}">
             </div>
         </div>
         <div class="mt-10 col-xs-12 col-sm-12">

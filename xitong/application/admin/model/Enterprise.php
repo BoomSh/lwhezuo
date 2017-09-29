@@ -412,7 +412,7 @@ class Enterprise extends Common
             $res['list'][$k]['managers_m'] =  array_shift(explode(',',$managers[0]['mobile']));
 
         }
-        p_r($res);die();
+       // p_r($res);die();
         return $res; 
     }
     /**

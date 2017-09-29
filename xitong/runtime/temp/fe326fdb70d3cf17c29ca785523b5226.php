@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:91:"F:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\report\report_house_list.html";i:1506657597;s:81:"F:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\\public\header.html";i:1506649687;s:81:"F:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\\public\footer.html";i:1506649687;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:92:"F:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\report\report_exprec_list.html";i:1506657608;s:81:"F:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\\public\header.html";i:1506649687;s:81:"F:\wamp64\www\lwhezuo\xitong\public/../application/admin\view\\public\footer.html";i:1506649687;}*/ ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -22,10 +22,10 @@
 <script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
-    <title>房源空置报表</title>
+    <title>收支报表</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>报表管理 <span class="c-gray en">&gt;</span>房源空置报表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>报表管理 <span class="c-gray en">&gt;</span>收支报表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
     <div class="bk-gray radius pd-10 col-xs-12 col-sm-12 ">
         <div class="mt-10 col-xs-12 col-sm-12">
@@ -40,7 +40,7 @@
 				</span>
             </div>
         </div>
-        <div class="mt-10 col-xs-12 col-sm-12">
+       <div class="mt-10 col-xs-12 col-sm-12">
             <strong class="col-xs-12 col-sm-2 text-r">日期范围：</strong>
             <div class="col-xs-12 col-sm-3">
                 <input type="text" onfocus="WdatePicker({dateFmt: 'yyyy-MM-dd HH:mm:ss',maxDate:'#F{\$dp.\$D(\'datemax\')}'})" id="datemin" class="input-text Wdate li-date" name="startime"  value="<?php echo $startime; ?>">
@@ -58,12 +58,12 @@
     </div>
     <div class="cl pd-5 bg-1 bk-gray mt-20 col-xs-12 col-sm-12">
         <span class="l">
-            <a href="exel/report-house.xlsx" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe644;</i> 导出报表</a>
-
+            <a href="exel/report-exprec.xlsx" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe644;</i> 导出报表</a>
         </span>
         <span class="r">
-            总房源：<strong>100</strong>间 &nbsp;
-            出租房源：<strong>50</strong>间</span>
+            总收入：<strong>50000</strong>元&nbsp;
+            总支出：<strong>7000</strong>元
+        </span>
     </div>
     <div class="mt-20">
         <table class="table table-border table-bordered table-hover table-bg table-sort">
@@ -71,25 +71,25 @@
             <tr class="text-c">
                 <th>ID</th>
                 <th>园区</th>
-                <th>房源</th>
-                <th>出租面积</th>
-                <th>状态</th>
+                <th>支出</th>
+                <th>收入</th>
+                <th>盈利</th>
             </tr>
             </thead>
             <tbody>
             <tr class="text-c">
                 <td>1</td>
                 <td>河盛文创园</td>
-                <td>101</td>
                 <td>1000</td>
-                <td>已出租</td>
+                <td>10000</td>
+                <td>9000</td>
             </tr>
             <tr class="text-c">
                 <td>2</td>
                 <td>河盛文创园1</td>
-                <td>102</td>
-                <td>2000</td>
-                <td>空置</td>
+                <td>20000</td>
+                <td>19000</td>
+                <td>1000</td>
             </tr>
             </tbody>
         </table>

@@ -17,6 +17,15 @@ class Report extends Common
 	 * @return [type] [description]
 	 */
     public function report_exprec_list($where){
+        // $res['list'] = DB::name("incomeexpenditure")
+        //                 ->alias("a")
+        //                 ->join("incomeexpenditure b","b.park_id=c.park_id")
+        //                 ->join('incomeexpenditure c',"p.id=c.tenantry_id")
+        //                 ->join('park k',"k.id=c.park_id")
+        //                 ->where($where)
+        //                 ->field("c.*,t.name as tname,p.name as pname,k.name as kname")
+        //                 ->order("c.id desc")
+        //                 ->select();
          $res['list'] = DB::name("incomeexpenditure")->where($where)->order("id desc")->field("id,pay_time,customer_type,park_id,payment_id,payee_id,dictionary_id,pay_type,price,remark")->order('park_id')->select();
         $res['num']  = count($res['list']);
         $res['park'] = DB::name("park")->field("id,name")->select();
@@ -25,7 +34,7 @@ class Report extends Common
         foreach($res['list'] as $k => $v) {
             $res['list'][$k]['num']  = $arr[$k];  
         }
-        p_r($res);die();
+        //p_r($res);die();
         return $res;
     }
     /**
