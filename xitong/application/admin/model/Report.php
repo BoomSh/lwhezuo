@@ -16,25 +16,32 @@ class Report extends Common
 	 * 收支报表
 	 * @return [type] [description]
 	 */
-    public function report_exprec_list($where){
-        // $res['list'] = DB::name("incomeexpenditure")
-        //                 ->alias("a")
-        //                 ->join("incomeexpenditure b","b.park_id=c.park_id")
-        //                 ->join('incomeexpenditure c',"p.id=c.tenantry_id")
-        //                 ->join('park k',"k.id=c.park_id")
-        //                 ->where($where)
-        //                 ->field("c.*,t.name as tname,p.name as pname,k.name as kname")
-        //                 ->order("c.id desc")
-        //                 ->select();
-         $res['list'] = DB::name("incomeexpenditure")->where($where)->order("id desc")->field("id,pay_time,customer_type,park_id,payment_id,payee_id,dictionary_id,pay_type,price,remark")->order('park_id')->select();
+    public function report_exprec_list($time,$park){
+        $where1 = "WHERE `type` = 1 ";
+        $where3 = "WHERE `type` = 2 ";
+        if($time!=""){
+            $where1 = $where1.$time;
+            $where3 = $where3.$time;
+        }
+        if($park!=""){
+            $where2 = "WHERE ".$park;
+        }
+        else{
+             $where2 = "WHERE 1";
+        }
+        $res['list'] = DB::query('SELECT a.id, a.name,b.income,c.expend FROM dino_park a LEFT  JOIN ( SELECT `park_id`,sum(price) income FROM `dino_incomeexpenditure` '.$where1.' GROUP BY park_id ) b ON b.park_id=a.id LEFT  JOIN ( SELECT `park_id`,sum(price) expend FROM `dino_incomeexpenditure` '.$where3.' GROUP BY park_id ) c ON c.park_id=a.id '.$where2.'');
         $res['num']  = count($res['list']);
+        foreach ($res['list'] as $key => $value) {
+            $income[$key] = $res['list'][$key]['income'];
+            $expend[$key] = $res['list'][$key]['expend'];
+        }
+        $res['sum_income'] = array_sum($income);
+        $res['sum_expend'] = array_sum($expend);
         $res['park'] = DB::name("park")->field("id,name")->select();
-        $res['dictionary'] = DB::name("dictionary")->where('type',3)->field("id,name")->select();
         $arr = $this->lw_number($res['num']);
         foreach($res['list'] as $k => $v) {
             $res['list'][$k]['num']  = $arr[$k];  
         }
-        //p_r($res);die();
         return $res;
     }
     /**

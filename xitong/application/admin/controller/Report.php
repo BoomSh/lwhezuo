@@ -18,33 +18,30 @@ class Report extends Common
         $report = model('Report');
         if(!empty(input("startime"))){
             if(!empty(input("overtime"))){
-                $where['create_time'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
+                $time= "and `pay_time` between ".strtotime(input('startime'))." and ".strtotime(input('overtime'));
                 $this->assign("startime",input("startime"));
                 $this->assign("overtime",input("overtime"));
             }else{
-                $where['create_time'] = array("gt",strtotime(input('startime')));
+                $time= "and `pay_time` > ".strtotime(input('startime'));
                 $this->assign("startime",input("startime"));
             }
         }
         if(!empty(input("overtime"))){
             if(!empty(input("startime"))){
-                $where['create_time'] = array("between",array(strtotime(input('startime')),strtotime(input('overtime'))));
+                $time= "and `pay_time` between ".strtotime(input('startime'))." and ".strtotime(input('overtime'));
                 $this->assign("startime",input("startime"));
                 $this->assign("overtime",input("overtime"));
             }else{
-                $where['create_time'] = array("lt",strtotime(input('overtime')));
+                $time= "and `pay_time` < ".strtotime(input('overtime'));
                 $this->assign("overtime",input("overtime"));
             }
         }
-        if(!empty(input("name"))){
-            $where['name'] = array("like","%".input("name")."%");
-            $this->assign("name",input("name"));
-        }
-        if(empty($where)){
-            $where = 1;
+        if(!empty(input("park_id"))){
+            $park = "a.id =".input("park_id");
+            $this->assign("park_id",input("park_id"));
         }
         /*获取 符合条件的 报表信息*/
-        $res = $report->report_exprec_list($where);
+        $res = $report->report_exprec_list($time,$park);
         $this->assign("res",$res);
         return $this->fetch();
     }

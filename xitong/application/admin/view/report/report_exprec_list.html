@@ -4,15 +4,17 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>报表管理 <span class="c-gray en">&gt;</span>收支报表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
+<form action="{:url('Report/report_exprec_list')}" method="post">
     <div class="bk-gray radius pd-10 col-xs-12 col-sm-12 ">
         <div class="mt-10 col-xs-12 col-sm-12">
             <strong class="col-xs-12 col-sm-2 text-r">选择园区：</strong>
             <div class="col-xs-12 col-sm-6">
 				<span class="select-box inline">
-					<select name="" class="select">
-						<option value="0">全部园区</option>
-                        <option value="1">河盛文创园</option>
-                        <option value="2">河盛文创园1</option>
+					<select name="park_id" class="select">
+						<option value="">全部园区</option>
+                        {volist name="res['park']" id="vo"}
+                        <option {if $park_id eq $vo['id']}selected='selected'{/if} value="{$vo.id}">{$vo.name}</option>
+                        {/volist}
 					</select>
 				</span>
             </div>
@@ -33,13 +35,14 @@
             </div>
         </div>
     </div>
+    </form>
     <div class="cl pd-5 bg-1 bk-gray mt-20 col-xs-12 col-sm-12">
         <span class="l">
             <a href="exel/report-exprec.xlsx" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe644;</i> 导出报表</a>
         </span>
         <span class="r">
-            总收入：<strong>50000</strong>元&nbsp;
-            总支出：<strong>7000</strong>元
+            总收入：<strong>{$res['sum_income']|default=0}</strong>元&nbsp;
+            总支出：<strong>{$res['sum_expend']|default=0}</strong>元
         </span>
     </div>
     <div class="mt-20">
@@ -54,20 +57,15 @@
             </tr>
             </thead>
             <tbody>
+            {volist name="res['list']" id="v"}
             <tr class="text-c">
-                <td>1</td>
-                <td>河盛文创园</td>
-                <td>1000</td>
-                <td>10000</td>
-                <td>9000</td>
+                <td>{$v.num}</td>
+                <td>{$v.name}</td>
+                <td>{$v.expend|default=0}</td>
+                <td>{$v.income|default=0}</td>
+                <td>{$v.income-$v.expend}</td>
             </tr>
-            <tr class="text-c">
-                <td>2</td>
-                <td>河盛文创园1</td>
-                <td>20000</td>
-                <td>19000</td>
-                <td>1000</td>
-            </tr>
+            {/volist}
             </tbody>
         </table>
     </div>
