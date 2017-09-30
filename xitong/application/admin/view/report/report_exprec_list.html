@@ -38,7 +38,7 @@
     </form>
     <div class="cl pd-5 bg-1 bk-gray mt-20 col-xs-12 col-sm-12">
         <span class="l">
-            <a href="exel/report-exprec.xlsx" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe644;</i> 导出报表</a>
+            {if $lw_role.excelout eq 1}<a href="{:url('Report/report_exprec_excelout',array('park_id'=>$park_id,'overtime'=>$overtime,'startime'=>$startime))}" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe644;</i> 导出报表</a>{/if}
         </span>
         <span class="r">
             总收入：<strong>{$res['sum_income']|default=0}</strong>元&nbsp;
@@ -49,7 +49,7 @@
         <table class="table table-border table-bordered table-hover table-bg table-sort">
             <thead>
             <tr class="text-c">
-                <th>ID</th>
+                <th>序号</th>
                 <th>园区</th>
                 <th>支出</th>
                 <th>收入</th>
@@ -59,7 +59,7 @@
             <tbody>
             {volist name="res['list']" id="v"}
             <tr class="text-c">
-                <td>{$v.num}</td>
+                <td>{$v.0}</td>
                 <td>{$v.name}</td>
                 <td>{$v.expend|default=0}</td>
                 <td>{$v.income|default=0}</td>
@@ -86,7 +86,7 @@
             "bPaginate": true,//翻页功能
             "bInfo": true,//页脚信息
             "bSort": true,//排序功能
-            "aaSorting": [[ 1, "desc" ]],//默认第几个排序
+            "aaSorting": [[ 0, "asc" ]],//默认第几个排序
             "bStateSave": false,//状态保存
             "aoColumnDefs": [
                 //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示

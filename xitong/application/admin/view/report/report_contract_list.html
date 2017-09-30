@@ -4,16 +4,18 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>报表管理 <span class="c-gray en">&gt;</span>合同报表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
+<form action="{:url('Report/report_contract_list')}" method="post">
     <div class="bk-gray radius pd-10 col-xs-12 col-sm-12 ">
         <div class="mt-10 col-xs-12 col-sm-12">
             <strong class="col-xs-12 col-sm-2 text-r">选择园区：</strong>
             <div class="col-xs-12 col-sm-6">
 				<span class="select-box inline">
-					<select name="" class="select">
-						<option value="0">全部园区</option>
-                        <option value="1">河盛文创园</option>
-                        <option value="2">河盛文创园1</option>
-					</select>
+					<select name="park_id" class="select">
+                        <option value="">全部园区</option>
+                        {volist name="res['park']" id="vo"}
+                        <option {if $park_id eq $vo['id']}selected='selected'{/if} value="{$vo.id}">{$vo.name}</option>
+                        {/volist}
+                    </select>
 				</span>
             </div>
         </div>
@@ -33,20 +35,21 @@
             </div>
         </div>
     </div>
+</form>
     <div class="cl pd-5 bg-1 bk-gray mt-20 col-xs-12 col-sm-12">
         <span class="l">
-                <a href="exel/report-contract.xlsx" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe644;</i> 导出报表</a>
+                {if $lw_role.excelout eq 1}<a href="{:url('Report/report_contract_excelout',array('park_id'=>$park_id,'overtime'=>$overtime,'startime'=>$startime))}" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe644;</i> 导出报表</a>{/if}
         </span>
         <span class="r">
-            新签和同：<strong>12</strong>份 &nbsp;
-            到期和同：<strong>2</strong>份
+            新签和同：<strong>{$res['sum_count1']|default=0}</strong>份 &nbsp;
+            到期和同：<strong>{$res['sum_count2']|default=0}</strong>份
         </span>
     </div>
     <div class="mt-20">
         <table class="table table-border table-bordered table-hover table-bg table-sort">
             <thead>
             <tr class="text-c">
-                <th>ID</th>
+                <th>序号</th>
                 <th>园区</th>
                 <th>地址</th>
                 <th>新签和同</th>
@@ -55,30 +58,16 @@
             </tr>
             </thead>
             <tbody>
+            {volist name="res['list']" id="v"}
             <tr class="text-c">
-                <td>1</td>
-                <td>河盛文创园</td>
-                <td>深圳</td>
-                <td>13</td>
-                <td>2</td>
-                <td>1</td>
+                <td>{$v.0}</td>
+                <td>{$v.name}</td>
+                <td>{$v.address}</td>
+                <td>{$v.count1|default=0}</td>
+                <td>{$v.count2|default=0}</td>
+                <td>{$v.count3|default=0}</td>
             </tr>
-            <tr class="text-c">
-                <td>2</td>
-                <td>河盛文创园1</td>
-                <td>深圳</td>
-                <td>7</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-            <tr class="text-c">
-                <td>3</td>
-                <td>河盛文创园2</td>
-                <td>深圳</td>
-                <td>100</td>
-                <td>77</td>
-                <td>5</td>
-            </tr>
+            {/volist}
             </tbody>
         </table>
     </div>
@@ -100,7 +89,7 @@
             "bPaginate": true,//翻页功能
             "bInfo": true,//页脚信息
             "bSort": true,//排序功能
-            "aaSorting": [[ 1, "desc" ]],//默认第几个排序
+            "aaSorting": [[ 0, "asc" ]],//默认第几个排序
             "bStateSave": false,//状态保存
             "aoColumnDefs": [
                 //{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
